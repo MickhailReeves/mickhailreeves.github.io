@@ -1153,5 +1153,230 @@ footer {
   &copy; 2026 Mickhail Reeves &nbsp;&middot;&nbsp; All client names and identifying details redacted per confidentiality standards.
 </footer>
 
+<script>
+// ── 1. CANVAS PARTICLE FIELD IN HERO ─────────────────────────────────────────
+(function() {
+  const hero = document.querySelector('.hero');
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+  hero.style.position = 'relative';
+  hero.insertBefore(canvas, hero.firstChild);
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+  }
+
+  function Particle() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.r = Math.random() * 1.5 + 0.3;
+    this.dx = (Math.random() - 0.5) * 0.35;
+    this.dy = (Math.random() - 0.5) * 0.35;
+    this.alpha = Math.random() * 0.5 + 0.1;
+  }
+
+  function init() {
+    resize();
+    particles = Array.from({length: 90}, () => new Particle());
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      p.x += p.dx; p.y += p.dy;
+      if (p.x < 0 || p.x > W) p.dx *= -1;
+      if (p.y < 0 || p.y > H) p.dy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(74,143,255,${p.alpha})`;
+      ctx.fill();
+    });
+    // draw connecting lines between nearby particles
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(74,143,255,${0.08 * (1 - dist/100)})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  init(); draw();
+})();
+
+// ── 2. CURSOR GLOW ────────────────────────────────────────────────────────────
+(function() {
+  const glow = document.createElement('div');
+  glow.style.cssText = `
+    position:fixed;width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,rgba(28,110,247,0.07) 0%,transparent 70%);
+    pointer-events:none;z-index:9999;transform:translate(-50%,-50%);
+    transition:opacity 0.3s;opacity:0;
+  `;
+  document.body.appendChild(glow);
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+    glow.style.opacity = '1';
+  });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+})();
+
+// ── 3. SCROLL PROGRESS BAR ───────────────────────────────────────────────────
+(function() {
+  const bar = document.createElement('div');
+  bar.style.cssText = `
+    position:fixed;top:0;left:0;height:3px;width:0%;
+    background:linear-gradient(90deg,#1c6ef7,#4a9eff);
+    z-index:9999;transition:width 0.1s linear;border-radius:0 2px 2px 0;
+  `;
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    bar.style.width = Math.min(pct, 100) + '%';
+  });
+})();
+
+// ── 4. SCROLL FADE-IN FOR SECTIONS ───────────────────────────────────────────
+(function() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+    .fade-in-left { opacity:0; transform:translateX(-30px); transition:opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in-left.visible { opacity:1; transform:translateX(0); }
+    .project-card { transition:transform 0.25s ease, box-shadow 0.25s ease; }
+    .project-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(28,110,247,0.18); }
+    .btn-primary { transition:background 0.2s, transform 0.15s, box-shadow 0.2s !important; }
+    .btn-primary:hover { box-shadow:0 0 24px rgba(28,110,247,0.5) !important; }
+    .contact-link { transition:background 0.2s, transform 0.15s, box-shadow 0.2s; }
+    .contact-link:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
+    .skill-row { transition:background 0.2s; border-radius:6px; padding-left:6px; padding-right:6px; }
+    .skill-row:hover { background:rgba(74,143,255,0.08); }
+    .tag { transition:border-color 0.2s, color 0.2s, transform 0.15s; cursor:default; }
+    .tag:hover { border-color:rgba(74,143,255,0.5); color:rgba(255,255,255,0.8); transform:translateY(-1px); }
+    .finding-item { transition:background 0.2s, border-color 0.2s; }
+    .finding-item:hover { background:rgba(255,255,255,0.06); border-color:rgba(28,110,247,0.3); }
+    .nav-links a { position:relative; }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#4a9eff; transition:width 0.2s; border-radius:2px; }
+    .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+    .nav-links a.active { color:rgba(255,255,255,0.9) !important; }
+    .stat-box { transition:transform 0.2s, border-color 0.2s; }
+    .stat-box:hover { transform:translateY(-3px); border-color:rgba(74,143,255,0.4); }
+    .impact-box { transition:transform 0.2s, border-color 0.2s; }
+    .impact-box:hover { transform:translateY(-3px); border-color:rgba(74,143,255,0.3); }
+    .research-card { transition:transform 0.2s, box-shadow 0.2s; }
+    .research-card:hover { transform:translateY(-2px); box-shadow:0 4px 20px rgba(28,110,247,0.12); }
+  `;
+  document.head.appendChild(style);
+
+  // Add fade-in classes to elements
+  document.querySelectorAll('.section-inner, .project-card, .stat-box, .finding-item, .method-step, .proto-item, .impact-box, .exp-entry, .research-card, .edu-entry, .skills-panel').forEach((el, i) => {
+    el.classList.add('fade-in');
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+
+// ── 5. COUNTER ANIMATION ON HERO STATS ───────────────────────────────────────
+(function() {
+  const counters = [
+    { el: null, target: 97, suffix: '+', prefix: '' },
+    { el: null, target: 3, suffix: '+', prefix: '' },
+  ];
+  const statNums = document.querySelectorAll('.hero-stat .num');
+  if (statNums[0]) counters[0].el = statNums[0];
+  if (statNums[1]) counters[1].el = statNums[1];
+
+  let animated = false;
+  function animateCounters() {
+    if (animated) return;
+    animated = true;
+    counters.forEach(c => {
+      if (!c.el) return;
+      let start = 0;
+      const duration = 1800;
+      const startTime = performance.now();
+      function step(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const val = Math.floor(eased * c.target);
+        c.el.innerHTML = c.prefix + val + '<span>' + c.suffix + '</span>';
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  const heroObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) animateCounters();
+  }, { threshold: 0.5 });
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) heroObserver.observe(heroStats);
+})();
+
+// ── 6. ACTIVE NAV HIGHLIGHT ON SCROLL ────────────────────────────────────────
+(function() {
+  const sections = document.querySelectorAll('section[id], div.hero');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id || 'hero';
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current || (current === 'hero' && a.getAttribute('href') === '#')) {
+        a.classList.add('active');
+      }
+    });
+  });
+})();
+
+// ── 7. TYPING ANIMATION ON HERO H1 ───────────────────────────────────────────
+(function() {
+  const line2 = document.querySelector('.hero h1 .line2');
+  if (!line2) return;
+  const text = 'drives clarity.';
+  line2.textContent = '';
+  line2.style.borderRight = '2px solid rgba(255,255,255,0.5)';
+  line2.style.animation = 'blink 0.75s step-end infinite';
+
+  const blinkStyle = document.createElement('style');
+  blinkStyle.textContent = `@keyframes blink { 0%,100%{border-color:rgba(255,255,255,0.5)} 50%{border-color:transparent} }`;
+  document.head.appendChild(blinkStyle);
+
+  let i = 0;
+  setTimeout(() => {
+    const interval = setInterval(() => {
+      line2.textContent = text.slice(0, ++i);
+      if (i >= text.length) {
+        clearInterval(interval);
+        setTimeout(() => { line2.style.borderRight = 'none'; line2.style.animation = 'none'; }, 1200);
+      }
+    }, 75);
+  }, 600);
+})();
+</script>
+
 </body>
 </html>
