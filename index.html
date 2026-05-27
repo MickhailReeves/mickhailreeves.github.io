@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mickhail Reeves — UX Research Portfolio</title>
+<title>Mickhail Reeves - UX Research Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -637,14 +637,145 @@ footer {
   font-size: 0.76rem;
 }
 
+/* -- TABLET (max 900px) ------------------------------- */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .exp-cols { grid-template-columns: 1fr; gap: 2.5rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .impact-row { grid-template-columns: repeat(2, 1fr); }
+  .proto-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-meta-row { gap: 1rem; }
+}
+
+/* -- MOBILE (max 720px) ------------------------------- */
 @media (max-width: 720px) {
-  nav { padding: 0 1.25rem; }
-  .nav-links { gap: 1.25rem; }
-  .hero { padding: 7rem 1.25rem 4rem; }
-  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-  section { padding: 3.5rem 1.25rem; }
-  .about-grid, .exp-cols { grid-template-columns: 1fr; gap: 2rem; }
-  .method-grid, .stats-row, .proto-grid, .impact-row { grid-template-columns: 1fr; }
+  /* NAV - hidden links, hamburger menu */
+  nav {
+    padding: 0 1rem;
+    height: 54px;
+  }
+  .nav-links { display: none; }
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .mobile-menu {
+    position: fixed;
+    top: 54px; left: 0; right: 0;
+    background: rgba(8,18,42,0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 1.5rem;
+    z-index: 199;
+    transform: translateY(-110%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu a {
+    display: block;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: #4a9eff; }
+
+  /* HERO */
+  .hero {
+    padding: 6rem 1.25rem 3.5rem;
+    min-height: auto;
+  }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-desc { font-size: 0.95rem; }
+  .hero-actions { flex-direction: column; gap: 0.75rem; }
+  .btn-primary, .btn-ghost {
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    width: 100%;
+    display: block;
+  }
+  .hero-stats {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .hero-stat .num { font-size: 1.6rem; }
+
+  /* SECTIONS */
+  section { padding: 3rem 1.25rem; }
+  .section-title { font-size: 1.6rem; margin-bottom: 1.75rem; }
+
+  /* ABOUT */
+  .about-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .about-photo-wrap { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .about-photo { width: 70px; height: 70px; }
+  .skills-panel { padding: 1.25rem; }
+
+  /* EXPERIENCE */
+  .exp-cols { grid-template-columns: 1fr; gap: 2rem; }
+  .exp-header { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .exp-date { font-size: 0.72rem; }
+
+  /* PROJECTS */
+  .card-body { padding: 1.25rem; }
+  .card-top-bar { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.5rem; }
+  .card-title { font-size: 1.2rem; }
+  .card-meta-row {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.85rem 0;
+  }
+  .method-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  .stat-num { font-size: 1.6rem; }
+  .proto-grid { grid-template-columns: 1fr; }
+  .impact-row { grid-template-columns: 1fr; }
+  .impact-pct { font-size: 1.75rem; }
+  .tag-list { gap: 0.4rem; }
+  .tag { font-size: 0.72rem; padding: 3px 9px; }
+
+  /* PULL QUOTE */
+  .pull-quote p { font-size: 0.9rem; }
+
+  /* FINDINGS */
+  .finding-item { padding: 0.85rem; }
+  .finding-text strong { font-size: 0.85rem; }
+  .finding-text span { font-size: 0.78rem; }
+
+  /* BROWSER MOCKUP */
+  .browser-bar { padding: 6px 10px; }
+  .browser-url { font-size: 0.65rem; }
+
+  /* CONTACT */
+  #contact { padding: 3.5rem 1.25rem; }
+  .contact-links { flex-direction: column; align-items: center; gap: 0.75rem; }
+  .contact-link { width: 100%; text-align: center; padding: 0.85rem 1rem; }
+
+  /* SKILL MODAL */
+  .skill-modal {
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+    border-radius: 14px;
+  }
+  .skill-modal-name { font-size: 1.1rem; }
+  .skill-modal-what, .skill-modal-exp { font-size: 0.82rem; }
 }
 </style>
 </head>
@@ -659,7 +790,18 @@ footer {
     <li><a href="#projects">Work</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" style="display:none;">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-nav-link">About</a>
+  <a href="#experience" class="mobile-nav-link">Experience</a>
+  <a href="#projects" class="mobile-nav-link">Work</a>
+  <a href="#contact" class="mobile-nav-link">Contact</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -701,7 +843,7 @@ footer {
     <div class="about-grid">
       <div class="about-text">
         <div class="about-photo-wrap">
-          <img class="about-photo" src="headshot.jpg" alt="Mickhail Reeves — UX Researcher">
+          <img class="about-photo" src="headshot.jpg" alt="Mickhail Reeves - UX Researcher">
           <div class="about-photo-name">
             <strong>Mickhail Reeves</strong>
             <span>M.S. HFID Candidate · Bentley University</span>
@@ -788,9 +930,9 @@ footer {
         <div class="exp-entry">
           <div class="exp-header">
             <div class="exp-role">Graduate Researcher</div>
-            <div class="exp-date">2026 – Present</div>
+            <div class="exp-date">2026 - Present</div>
           </div>
-          <div class="exp-place">Bentley University, HFID Program — Waltham, MA</div>
+          <div class="exp-place">Bentley University, HFID Program - Waltham, MA</div>
           <ul class="exp-bullets">
             <li>Conducted end-to-end UX research including survey design, semi-structured interviews, affinity diagramming, and unmoderated usability testing for an industry client in the vision care sector.</li>
             <li>Applied human factors principles to identify usability gaps and translate research findings into actionable design recommendations and a mid-fidelity prototype.</li>
@@ -801,9 +943,9 @@ footer {
         <div class="exp-entry">
           <div class="exp-header">
             <div class="exp-role">Student Test Proctor</div>
-            <div class="exp-date">Jan 2026 – Present</div>
+            <div class="exp-date">Jan 2026 - Present</div>
           </div>
-          <div class="exp-place">Bentley University — Waltham, MA</div>
+          <div class="exp-place">Bentley University - Waltham, MA</div>
           <ul class="exp-bullets">
             <li>Administered structured testing environments, applying observation and facilitation skills directly transferable to usability test moderation.</li>
             <li>Identified and accommodated individual participant needs, maintaining consistency in procedures while adapting to edge cases. This is a core competency in research facilitation.</li>
@@ -813,9 +955,9 @@ footer {
         <div class="exp-entry">
           <div class="exp-header">
             <div class="exp-role">Crisis Counselor</div>
-            <div class="exp-date">Feb 2020 – Present</div>
+            <div class="exp-date">Feb 2020 - Present</div>
           </div>
-          <div class="exp-place">988 Suicide &amp; Crisis Lifeline (Vibrant Emotional Health) — NY</div>
+          <div class="exp-place">988 Suicide &amp; Crisis Lifeline (Vibrant Emotional Health) - NY</div>
           <ul class="exp-bullets">
             <li>Practiced active listening and real-time behavioral observation to assess caller needs and guide them toward appropriate next steps. These skills are core to UX interviewing and user research.</li>
             <li>Communicated complex information clearly under pressure, adapting language and tone to diverse users with varying literacy levels and emotional states.</li>
@@ -826,9 +968,9 @@ footer {
         <div class="exp-entry">
           <div class="exp-header">
             <div class="exp-role">Care Manager</div>
-            <div class="exp-date">Mar – Dec 2025</div>
+            <div class="exp-date">Mar - Dec 2025</div>
           </div>
-          <div class="exp-place">LifePlan CCO — New York, NY</div>
+          <div class="exp-place">LifePlan CCO - New York, NY</div>
           <ul class="exp-bullets">
             <li>Mapped and navigated complex service systems on behalf of members, identifying where information architecture and workflow design created barriers to access.</li>
             <li>Translated dense policy and procedural requirements into plain-language guidance, applying information design principles to reduce cognitive load for vulnerable users.</li>
@@ -839,9 +981,9 @@ footer {
         <div class="exp-entry">
           <div class="exp-header">
             <div class="exp-role">STEM Instructor</div>
-            <div class="exp-date">Sept 2019 – Dec 2020</div>
+            <div class="exp-date">Sept 2019 - Dec 2020</div>
           </div>
-          <div class="exp-place">Westchester Engineering for Kids — Westchester, NY</div>
+          <div class="exp-place">Westchester Engineering for Kids - Westchester, NY</div>
           <ul class="exp-bullets">
             <li>Designed and delivered hands-on learning experiences that introduced complex technical concepts to novice users, applying instructional design principles to reduce cognitive load.</li>
             <li>Observed student behavior and adapted instruction in real time based on engagement and comprehension signals, a practice closely aligned with iterative UX design and usability evaluation.</li>
@@ -851,9 +993,9 @@ footer {
         <div class="exp-entry">
           <div class="exp-header">
             <div class="exp-role">Sales Associate</div>
-            <div class="exp-date">Nov 2019 – Mar 2020</div>
+            <div class="exp-date">Nov 2019 - Mar 2020</div>
           </div>
-          <div class="exp-place">Target — Westchester, NY</div>
+          <div class="exp-place">Target - Westchester, NY</div>
           <ul class="exp-bullets">
             <li>Observed and responded to in-store customer behavior, developing an intuitive understanding of how physical information environments (wayfinding, signage, product placement) shape user decisions.</li>
             <li>Gathered informal feedback from guests to surface unmet needs and recurring points of confusion, an early form of contextual inquiry applied to a retail environment.</li>
@@ -881,13 +1023,13 @@ footer {
 
           <div class="edu-entry">
             <div class="edu-degree">M.S. Human Factors in Information Design</div>
-            <div class="edu-school">Bentley University — Waltham, MA</div>
-            <div class="edu-date">Jan 2026 – Dec 2026 (Expected)</div>
+            <div class="edu-school">Bentley University - Waltham, MA</div>
+            <div class="edu-date">Jan 2026 - Dec 2026 (Expected)</div>
           </div>
 
           <div class="edu-entry">
             <div class="edu-degree">B.S. Psychology, Minor in Computer Science</div>
-            <div class="edu-school">Oakwood University — Huntsville, AL &nbsp;·&nbsp; GPA: 3.2</div>
+            <div class="edu-school">Oakwood University - Huntsville, AL &nbsp;·&nbsp; GPA: 3.2</div>
             <div class="edu-date">Graduated May 2019</div>
           </div>
         </div>
@@ -914,7 +1056,7 @@ footer {
         <div class="card-subtitle">Mixed-methods research &amp; prototype design for a national vision care company</div>
 
         <div class="card-meta-row">
-          <div class="meta-cell"><div class="lbl">Client</div><div class="val">[Vision Care Client] — Confidential</div></div>
+          <div class="meta-cell"><div class="lbl">Client</div><div class="val">[Vision Care Client] - Confidential</div></div>
           <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF710 Applied UX Research, Bentley University</div></div>
           <div class="meta-cell"><div class="lbl">Role</div><div class="val">UX Researcher &amp; Designer</div></div>
           <div class="meta-cell"><div class="lbl">Duration</div><div class="val">Spring 2026</div></div>
@@ -996,7 +1138,7 @@ footer {
         </div>
 
         <div class="card-section">
-          <div class="card-section-title">Prototype — Resource Hub Design</div>
+          <div class="card-section-title">Prototype - Resource Hub Design</div>
           <p>Research findings were translated into a mid-fidelity web prototype: a branded support hub integrated into the client's digital platform. The hub surfaced five core components validated through usability testing.</p>
           <div class="prototype-showcase">
             <div class="browser-bar">
@@ -1005,12 +1147,12 @@ footer {
               <div class="browser-dot" style="background:#28c840;"></div>
               <div class="browser-url">lens-companion.prototype / resource-hub</div>
             </div>
-            <img class="prototype-img" src="Landing_Page.png" alt="Contact Lens Resource Hub prototype — landing page showing navigation, hero section with Get Started and Check a Symptom CTAs, four hub module cards, topic explorer, and ECP contact section.">
+            <img class="prototype-img" src="Landing_Page.png" alt="Contact Lens Resource Hub prototype - landing page showing navigation, hero section with Get Started and Check a Symptom CTAs, four hub module cards, topic explorer, and ECP contact section.">
           </div>
         </div>
 
         <div class="card-section">
-          <div class="card-section-title">Prototype Hub — Usability Test Results</div>
+          <div class="card-section-title">Prototype Hub - Usability Test Results</div>
           <div class="proto-grid">
             <div class="proto-item">
               <div class="proto-head">New to Contacts <span class="proto-score">4.63 / 5</span></div>
@@ -1077,7 +1219,7 @@ footer {
         <div class="card-subtitle">Contextual inquiry and evaluation framework for AI-assisted vision care experiences</div>
 
         <div class="card-meta-row">
-          <div class="meta-cell"><div class="lbl">Client</div><div class="val">[Vision Care Client] — Confidential</div></div>
+          <div class="meta-cell"><div class="lbl">Client</div><div class="val">[Vision Care Client] - Confidential</div></div>
           <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF710 Applied UX Research, Bentley University</div></div>
           <div class="meta-cell"><div class="lbl">Role</div><div class="val">UX Researcher (Lead)</div></div>
           <div class="meta-cell"><div class="lbl">Scope</div><div class="val">Consumer-facing AI health touchpoints</div></div>
@@ -1154,7 +1296,7 @@ footer {
 </footer>
 
 <script>
-// ── 1. CANVAS PARTICLE FIELD IN HERO ─────────────────────────────────────────
+// -- 1. CANVAS PARTICLE FIELD IN HERO -----------------------------------------
 (function() {
   const hero = document.querySelector('.hero');
   const canvas = document.createElement('canvas');
@@ -1217,7 +1359,7 @@ footer {
   init(); draw();
 })();
 
-// ── 2. CURSOR GLOW ────────────────────────────────────────────────────────────
+// -- 2. CURSOR GLOW ------------------------------------------------------------
 (function() {
   const glow = document.createElement('div');
   glow.style.cssText = `
@@ -1235,7 +1377,7 @@ footer {
   document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
 })();
 
-// ── 3. SCROLL PROGRESS BAR ───────────────────────────────────────────────────
+// -- 3. SCROLL PROGRESS BAR ---------------------------------------------------
 (function() {
   const bar = document.createElement('div');
   bar.style.cssText = `
@@ -1250,7 +1392,7 @@ footer {
   });
 })();
 
-// ── 4. SCROLL FADE-IN FOR SECTIONS ───────────────────────────────────────────
+// -- 4. SCROLL FADE-IN FOR SECTIONS -------------------------------------------
 (function() {
   const style = document.createElement('style');
   style.textContent = `
@@ -1296,7 +1438,7 @@ footer {
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 })();
 
-// ── 5. COUNTER ANIMATION ON HERO STATS ───────────────────────────────────────
+// -- 5. COUNTER ANIMATION ON HERO STATS ---------------------------------------
 (function() {
   const counters = [
     { el: null, target: 97, suffix: '+', prefix: '' },
@@ -1333,7 +1475,7 @@ footer {
   if (heroStats) heroObserver.observe(heroStats);
 })();
 
-// ── 6. ACTIVE NAV HIGHLIGHT ON SCROLL ────────────────────────────────────────
+// -- 6. ACTIVE NAV HIGHLIGHT ON SCROLL ----------------------------------------
 (function() {
   const sections = document.querySelectorAll('section[id], div.hero');
   const navLinks = document.querySelectorAll('.nav-links a');
@@ -1352,7 +1494,7 @@ footer {
   });
 })();
 
-// ── 7. TYPING ANIMATION ON HERO H1 ───────────────────────────────────────────
+// -- 7. TYPING ANIMATION ON HERO H1 -------------------------------------------
 (function() {
   const line2 = document.querySelector('.hero h1 .line2');
   if (!line2) return;
@@ -1376,51 +1518,96 @@ footer {
     }, 75);
   }, 600);
 })();
-// ── 8. SKILL POPUP CARDS ─────────────────────────────────────────────────────
+// -- 9. HAMBURGER MENU --------------------------------------------------------
+(function() {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (!hamburger || !mobileMenu) return;
+
+  let open = false;
+
+  function toggleMenu() {
+    open = !open;
+    mobileMenu.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    const spans = hamburger.querySelectorAll('span');
+    if (open) {
+      spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+
+  // Close on link click
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      open = true;
+      toggleMenu();
+    });
+  });
+
+  // Show hamburger only on mobile via JS (matches CSS media query)
+  function checkWidth() {
+    hamburger.style.display = window.innerWidth <= 720 ? 'flex' : 'none';
+    if (window.innerWidth > 720) {
+      mobileMenu.classList.remove('open');
+      open = false;
+    }
+  }
+  checkWidth();
+  window.addEventListener('resize', checkWidth);
+})();
+// -----------------------------------------------------
 (function() {
   const skillData = {
     'Qualitative Research': {
-      icon: '🔍',
+      icon: 'QL',
       what: 'Qualitative research involves collecting non-numerical data through interviews, observations, and open-ended questions to understand user behaviors, motivations, and mental models.',
       experience: 'Conducted n=8 semi-structured interviews for the contact lens post-fulfillment project, performed inductive coding on usability study transcripts for the Doctronic AI eye-health platform, and led contextual inquiry work across multiple HFID courses. Applied thematic analysis and affinity diagramming to synthesize findings into actionable design insights.'
     },
     'Usability Testing': {
-      icon: '🧪',
+      icon: 'UT',
       what: 'Usability testing evaluates how real users interact with a product or prototype by observing them complete tasks, identifying friction points, and measuring task success and satisfaction.',
       experience: 'Designed and ran an unmoderated usability study (n=8) on UserTesting.com for the contact lens resource hub prototype, administered across Gen Z and Millennial cohorts. Also facilitated a moderated usability session for a Windows 11 File Explorer study, produced moderator self-reflections, and developed full test protocols, screeners, and scoring rubrics.'
     },
     'Survey Design': {
-      icon: '📋',
+      icon: 'SV',
       what: 'Survey design is the process of building structured questionnaires to collect quantitative and qualitative data from a target population, using validated scales, screener logic, and bias-minimizing question formats.',
       experience: 'Designed and administered an 81-respondent online survey for the contact lens post-fulfillment study, including screener logic to segment current wearers, discontinued wearers, and glasses-only users. Applied Likert scaling, ranking questions, and open-text prompts. Analyzed results to surface statistically meaningful patterns in help-seeking behavior.'
     },
     'Affinity Diagramming': {
-      icon: '🗂️',
+      icon: 'AD',
       what: 'Affinity diagramming is a synthesis method where qualitative data points are written onto individual notes and collaboratively grouped into emergent themes, revealing patterns across large volumes of research data.',
       experience: 'Led affinity diagram synthesis sessions to translate interview transcripts and survey responses into the three core themes driving the contact lens resource hub design. Also contributed to team affinity mapping for the Doctronic usability study, aligning findings across multiple participant transcripts and raters.'
     },
     'Prototype Design': {
-      icon: '✏️',
+      icon: 'PD',
       what: 'Prototype design is the creation of interactive or static representations of a product at varying levels of fidelity, used to test design concepts with users before committing to full development.',
       experience: 'Built a multi-page mid-fidelity HTML and JavaScript prototype for the contact lens resource hub, featuring 15+ screen views including a symptom checker, onboarding guide, ECP contact module, and care tips library. The prototype was deployed and tested with 8 real users on UserTesting.com, with findings used to drive iterative design revisions.'
     },
     'Figma / FigJam': {
-      icon: '🎨',
+      icon: 'FG',
       what: 'Figma is a collaborative design tool used for wireframing, prototyping, and high-fidelity UI design. FigJam is its whiteboard companion, used for brainstorming, journey mapping, and collaborative synthesis.',
       experience: 'Used Figma for wireframing and design documentation across multiple projects, and FigJam for collaborative affinity mapping, journey mapping, and team brainstorming sessions. Applied both tools in the context of Agile sprint cycles, contributing to shared design systems and presentation decks reviewed by industry clients.'
     },
     'Agile / Scrum / Jira': {
-      icon: '⚡',
+      icon: 'AG',
       what: 'Agile is an iterative project management framework that breaks work into short cycles called sprints. Scrum is a specific Agile methodology. Jira is a project tracking tool used to manage tasks, user stories, and sprint backlogs.',
       experience: 'Applied Agile and Scrum methodology throughout the contact lens project, producing sprint burndown charts, maintaining a prioritized backlog, and running structured sprint reviews. Coordinated task allocation across a 4-person team and tracked deliverable completion against sprint goals over a full semester engagement.'
     },
     'SPSS / Data Analysis': {
-      icon: '📊',
+      icon: 'DA',
       what: 'SPSS is a statistical software platform used to analyze quantitative data. Data analysis in research contexts includes descriptive statistics, correlation, regression, and significance testing to draw conclusions from collected data.',
       experience: 'Developed proficiency in SPSS during undergraduate psychology training at Oakwood University, applying it to analyze behavioral data in independent research on brand loyalty and VR-based phobia intervention. Applied descriptive and inferential statistics to interpret survey data across multiple research projects.'
     },
     'Research Reporting': {
-      icon: '📝',
+      icon: 'RR',
       what: 'Research reporting is the process of translating raw findings into clear, structured documents and presentations that communicate methodology, evidence, and recommendations to stakeholders with varying levels of technical background.',
       experience: 'Produced a full research report, project retrospective, and stakeholder presentation deck for the contact lens post-fulfillment study. Also authored research briefs, usability test reports, and a moderator self-reflection across multiple HFID courses. Writing style prioritizes plain language, evidence-grounded claims, and actionable recommendations.'
     }
@@ -1501,7 +1688,7 @@ footer {
   overlay.innerHTML = `
     <div class="skill-modal">
       <button class="skill-modal-close" id="skillModalClose">&times;</button>
-      <span class="skill-modal-icon" id="skillModalIcon"></span>
+      <span class="skill-modal-icon" id="skillModalIcon" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(28,110,247,0.15);border:1px solid rgba(28,110,247,0.3);border-radius:10px;font-size:13px;font-weight:800;color:#4a9eff;letter-spacing:0.05em;font-family:Syne,sans-serif;"></span>
       <div class="skill-modal-name" id="skillModalName"></div>
       <span class="skill-modal-section-label">What it is</span>
       <p class="skill-modal-what" id="skillModalWhat"></p>
