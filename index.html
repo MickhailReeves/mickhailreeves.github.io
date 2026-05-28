@@ -280,9 +280,10 @@ section { padding: 5rem 2.5rem; }
   margin-bottom: 1.25rem;
 }
 .skill-row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
+  gap: 1rem;
   padding: 0.6rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   font-size: 0.88rem;
@@ -943,12 +944,24 @@ footer {
         <div class="exp-entry">
           <div class="exp-header">
             <div class="exp-role">Student Test Proctor</div>
-            <div class="exp-date">Jan 2026 - Present</div>
+            <div class="exp-date">Jan 2026 - May 2026</div>
           </div>
           <div class="exp-place">Bentley University - Waltham, MA</div>
           <ul class="exp-bullets">
             <li>Administered structured testing environments, applying observation and facilitation skills directly transferable to usability test moderation.</li>
             <li>Identified and accommodated individual participant needs, maintaining consistency in procedures while adapting to edge cases. This is a core competency in research facilitation.</li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-role">Graduate Student Ambassador</div>
+            <div class="exp-date">Summer 2026</div>
+          </div>
+          <div class="exp-place">Bentley University, HFID Program - Waltham, MA</div>
+          <ul class="exp-bullets">
+            <li>Represented the HFID program to prospective students, translating complex graduate curriculum and career-outcome information into clear, decision-supporting communication tailored to varied audiences.</li>
+            <li>Conducted informal needs assessment with prospective applicants to understand their goals, concerns, and information gaps, then adapted messaging in real time, an applied form of audience-aware information design.</li>
           </ul>
         </div>
 
@@ -1007,9 +1020,15 @@ footer {
         <div class="exp-col-head">Independent Research</div>
 
         <div class="research-card">
+          <div class="research-tag">Applied Psychology &amp; Survey Research</div>
+          <div class="research-title">How African Americans View Religion From a Psychological Perspective</div>
+          <div class="research-desc">Independent undergraduate research at Oakwood University examining how African American college students perceive the integration of psychology into church communities. Designed and administered an anonymous survey study (n=50) measuring views on psychology as a science and openness to psychology-based programming in faith-based settings. Findings supported the hypothesis that younger generations show greater openness to integrating psychological wellness initiatives into religious environments. Presented at the CEPO Conference.</div>
+        </div>
+
+        <div class="research-card">
           <div class="research-tag">Consumer Psychology</div>
           <div class="research-title">The Psychology of Brand Loyalty</div>
-          <div class="research-desc">Independent undergraduate research at Oakwood University examining the psychological mechanisms that drive long-term consumer attachment to brands. Explored cognitive, emotional, and identity-based factors distinguishing habitual purchasing from genuine brand loyalty. Findings presented at conference.</div>
+          <div class="research-desc">Independent undergraduate research at Oakwood University examining the psychological mechanisms that drive long-term consumer attachment to brands. Explored cognitive, emotional, and identity-based factors distinguishing habitual purchasing from genuine brand loyalty. Presented at the Oakwood Research Symposium.</div>
         </div>
 
         <div class="research-card">
@@ -1477,21 +1496,51 @@ footer {
 
 // -- 6. ACTIVE NAV HIGHLIGHT ON SCROLL ----------------------------------------
 (function() {
-  const sections = document.querySelectorAll('section[id], div.hero');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = Array.from(document.querySelectorAll('section[id], div.hero'));
+  const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
 
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id || 'hero';
-    });
+  function updateActive() {
+    let current = 'hero';
+    const scrollPos = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight;
+    const winHeight = window.innerHeight;
+
+    // If at the bottom of the page, force the last section active
+    if (scrollPos + winHeight >= docHeight - 30) {
+      const last = sections[sections.length - 1];
+      current = last.id || 'hero';
+    } else {
+      sections.forEach(s => {
+        if (scrollPos >= s.offsetTop - 120) current = s.id || 'hero';
+      });
+    }
+
     navLinks.forEach(a => {
       a.classList.remove('active');
-      if (a.getAttribute('href') === '#' + current || (current === 'hero' && a.getAttribute('href') === '#')) {
-        a.classList.add('active');
-      }
+      const href = (a.getAttribute('href') || '').replace('#', '');
+      if (href === current) a.classList.add('active');
     });
-  });
+  }
+
+  window.addEventListener('scroll', updateActive);
+  window.addEventListener('resize', updateActive);
+  updateActive();
+})();
+
+// -- 6b. FORCE SCROLL TO TOP ON LOAD (fixes mobile starting mid-page) ---------
+(function() {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  function scrollTop() {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }
+  // Run immediately and on full load
+  scrollTop();
+  window.addEventListener('load', scrollTop);
+  window.addEventListener('pageshow', scrollTop);
 })();
 
 // -- 7. TYPING ANIMATION ON HERO H1 -------------------------------------------
@@ -1632,11 +1681,16 @@ footer {
       padding: 2rem;
       max-width: 500px;
       width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
       transform: translateY(16px) scale(0.97);
       transition: transform 0.3s ease;
       box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(74,143,255,0.1);
       position: relative;
     }
+    .skill-modal::-webkit-scrollbar { width: 6px; }
+    .skill-modal::-webkit-scrollbar-track { background: transparent; }
+    .skill-modal::-webkit-scrollbar-thumb { background: rgba(74,143,255,0.3); border-radius: 3px; }
     .skill-modal-overlay.open .skill-modal { transform: translateY(0) scale(1); }
 
     /* TOP BAR: close + counter */
@@ -1737,10 +1791,21 @@ footer {
     .skill-row:hover .skill-click-hint { opacity: 1; }
 
     @media (max-width: 720px) {
-      .skill-modal { padding: 1.4rem; border-radius: 14px; }
-      .skill-modal-name { font-size: 1.1rem; }
-      .skill-modal-what, .skill-modal-exp { font-size: 0.82rem; }
-      .skill-nav-btn { padding: 0.5rem 0.75rem; font-size: 0.75rem; }
+      .skill-modal {
+        padding: 1.25rem 1.1rem;
+        border-radius: 14px;
+        max-height: 85vh;
+      }
+      .skill-modal-topbar { margin-bottom: 1rem; }
+      .skill-modal-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+      .skill-modal-name { font-size: 1.05rem; }
+      .skill-modal-section-label { margin-top: 0.85rem; margin-bottom: 0.35rem; }
+      .skill-modal-what, .skill-modal-exp { font-size: 0.8rem; line-height: 1.55; }
+      .skill-modal-exp { padding: 0.7rem 0.85rem; }
+      .skill-modal-nav { margin-top: 1.25rem; gap: 0.5rem; }
+      .skill-nav-btn { padding: 0.5rem 0.7rem; font-size: 0.72rem; }
+      .skill-modal-dots { gap: 4px; }
+      .skill-dot { width: 5px; height: 5px; }
     }
   `;
   document.head.appendChild(modalStyle);
