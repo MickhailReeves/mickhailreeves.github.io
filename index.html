@@ -415,6 +415,23 @@ section { padding: 5rem 2.5rem; }
 .research-desc { font-size: 0.82rem; color: var(--ink-mid); line-height: 1.55; }
 
 .edu-entry { margin-bottom: 1.25rem; }
+.edu-entry-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+.edu-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.edu-logo-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .edu-logo-light { display: none; }
+  .edu-logo-dark { display: block; }
+}
 .edu-degree { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ink); }
 
 .coursework-grid {
@@ -797,6 +814,8 @@ section { padding: 5rem 2.5rem; }
   border-radius: 14px;
   padding: 1.75rem 1.5rem 1.5rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
 .testimonial-card:hover {
@@ -826,6 +845,7 @@ section { padding: 5rem 2.5rem; }
   gap: 0.75rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
+  margin-top: auto;
 }
 .testimonial-avatar {
   width: 40px;
@@ -1309,15 +1329,27 @@ footer {
           <div class="exp-col-head">Education</div>
 
           <div class="edu-entry">
-            <div class="edu-degree">M.S. Human Factors in Information Design</div>
-            <div class="edu-school">Bentley University - Waltham, MA</div>
-            <div class="edu-date">Jan 2026 - Dec 2026 (Expected)</div>
+            <div class="edu-entry-flex">
+              <img class="edu-logo edu-logo-light" src="logo-bentley-light.png" alt="Bentley University" width="38" height="38" loading="lazy">
+              <img class="edu-logo edu-logo-dark" src="logo-bentley-dark.png" alt="Bentley University" width="38" height="38" loading="lazy">
+              <div>
+                <div class="edu-degree">M.S. Human Factors in Information Design</div>
+                <div class="edu-school">Bentley University - Waltham, MA</div>
+                <div class="edu-date">Jan 2026 - Dec 2026 (Expected)</div>
+              </div>
+            </div>
           </div>
 
           <div class="edu-entry">
-            <div class="edu-degree">B.S. Psychology, Minor in Computer Science</div>
-            <div class="edu-school">Oakwood University - Huntsville, AL &nbsp;·&nbsp; GPA: 3.2</div>
-            <div class="edu-date">Graduated May 2019</div>
+            <div class="edu-entry-flex">
+              <img class="edu-logo edu-logo-light" src="logo-oakwood-light.png" alt="Oakwood University" width="38" height="38" loading="lazy">
+              <img class="edu-logo edu-logo-dark" src="logo-oakwood-dark.png" alt="Oakwood University" width="38" height="38" loading="lazy">
+              <div>
+                <div class="edu-degree">B.S. Psychology, Minor in Computer Science</div>
+                <div class="edu-school">Oakwood University - Huntsville, AL &nbsp;·&nbsp; GPA: 3.2</div>
+                <div class="edu-date">Graduated May 2019</div>
+              </div>
+            </div>
           </div>
 
           <div style="margin-top: 1.75rem;">
@@ -1729,7 +1761,7 @@ footer {
         <div class="testimonial-author">
           <div class="testimonial-avatar">MZ</div>
           <div>
-            <div class="testimonial-name">Prof. Ziat</div>
+            <div class="testimonial-name">Prof. Mounia Ziat</div>
             <div class="testimonial-role">HF700, Foundations in Human Factors</div>
           </div>
         </div>
