@@ -13,6 +13,9 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Hide the text insertion caret site-wide (no input fields on this page) */
+* { caret-color: transparent; }
+
 :root {
   --navy: #08122a;
   --navy-mid: #112040;
@@ -1608,22 +1611,114 @@ footer {
   init(); draw();
 })();
 
-// -- 2. CURSOR GLOW ------------------------------------------------------------
+// -- 2. CUSTOM CURSOR (dot + trailing ring + hover expand) --------------------
 (function() {
-  const glow = document.createElement('div');
-  glow.style.cssText = `
-    position:fixed;width:300px;height:300px;border-radius:50%;
-    background:radial-gradient(circle,rgba(28,110,247,0.07) 0%,transparent 70%);
-    pointer-events:none;z-index:9999;transform:translate(-50%,-50%);
-    transition:opacity 0.3s;opacity:0;
+  // Only enable on devices with a fine pointer (mouse). Skip touch devices.
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (pointer: fine) {
+      * { cursor: none !important; }
+    }
+    .cur-dot {
+      position: fixed; top: 0; left: 0;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4a8fff;
+      pointer-events: none; z-index: 100000;
+      transform: translate(-50%, -50%);
+      transition: width 0.18s ease, height 0.18s ease, background 0.18s ease, opacity 0.25s ease;
+      opacity: 0;
+    }
+    .cur-ring {
+      position: fixed; top: 0; left: 0;
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1.5px solid rgba(74,143,255,0.6);
+      pointer-events: none; z-index: 100000;
+      transform: translate(-50%, -50%);
+      transition: width 0.22s ease, height 0.22s ease, border-color 0.22s ease, background 0.22s ease, opacity 0.25s ease;
+      opacity: 0;
+    }
+    .cur-glow {
+      position: fixed; top: 0; left: 0;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(28,110,247,0.06) 0%, transparent 70%);
+      pointer-events: none; z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    .cur-ring.hovering {
+      width: 54px; height: 54px;
+      border-color: rgba(74,143,255,0.9);
+      background: rgba(74,143,255,0.08);
+    }
+    .cur-dot.hovering {
+      width: 0; height: 0;
+    }
+    .cur-ring.clicking {
+      width: 26px; height: 26px;
+      border-color: rgba(74,143,255,1);
+    }
   `;
+  document.head.appendChild(style);
+
+  const dot = document.createElement('div'); dot.className = 'cur-dot';
+  const ring = document.createElement('div'); ring.className = 'cur-ring';
+  const glow = document.createElement('div'); glow.className = 'cur-glow';
   document.body.appendChild(glow);
+  document.body.appendChild(ring);
+  document.body.appendChild(dot);
+
+  let mouseX = 0, mouseY = 0;       // true mouse position
+  let ringX = 0, ringY = 0;         // smoothed ring position
+
   document.addEventListener('mousemove', e => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
+    mouseX = e.clientX; mouseY = e.clientY;
+    // Dot and glow track instantly
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+    glow.style.left = mouseX + 'px';
+    glow.style.top = mouseY + 'px';
+    // Reveal on first move
+    dot.style.opacity = '1';
+    ring.style.opacity = '1';
     glow.style.opacity = '1';
   });
-  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+  // Ring follows with smooth lag
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hide when leaving the window
+  document.addEventListener('mouseleave', () => {
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+    glow.style.opacity = '0';
+  });
+
+  // Expand on interactive elements
+  const interactiveSel = 'a, button, .skill-row, .project-card, .testimonial-card, .course-item, .stat-box, .tag, .skill-nav-btn, .skill-modal-close, .hamburger, .contact-link, .btn-primary, .btn-ghost';
+  document.querySelectorAll(interactiveSel).forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.classList.add('hovering');
+      dot.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.classList.remove('hovering');
+      dot.classList.remove('hovering');
+    });
+  });
+
+  // Click feedback
+  document.addEventListener('mousedown', () => ring.classList.add('clicking'));
+  document.addEventListener('mouseup', () => ring.classList.remove('clicking'));
 })();
 
 // -- 3. SCROLL PROGRESS BAR ---------------------------------------------------
