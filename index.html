@@ -68,6 +68,21 @@
 
 html { scroll-behavior: smooth; }
 
+/* Themed scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue) transparent;
+}
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 10px;
+  border: 3px solid var(--navy);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--blue-bright); }
+::-webkit-scrollbar-corner { background: var(--navy); }
+
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--white);
@@ -667,6 +682,105 @@ section { padding: 5rem 2.5rem; }
   border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.12);
   color: rgba(255,255,255,0.5);
+}
+
+/* JOURNEY MAP */
+.journey-map {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+.journey-track {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(150px, 1fr));
+  gap: 0.6rem;
+  min-width: 900px;
+}
+.journey-stage {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 0.85rem 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.journey-stage.gap {
+  background: rgba(245,158,11,0.08);
+  border-color: rgba(245,158,11,0.35);
+}
+.journey-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--blue-bright);
+  margin-bottom: 0.25rem;
+}
+.journey-stage.gap .journey-num { color: var(--gold); }
+.journey-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+.journey-goal {
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.journey-finding {
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  margin-top: auto;
+}
+.journey-sentiment {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.sentiment-pos { color: #4ade80; }
+.sentiment-neu { color: #fbbf24; }
+.sentiment-neg { color: #f87171; }
+.sentiment-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.journey-legend {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+}
+.journey-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.journey-gap-callout {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+.journey-gap-callout strong { color: var(--gold); font-weight: 600; }
+.journey-scroll-hint {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 0.5rem;
+  display: none;
+}
+@media (max-width: 720px) {
+  .journey-scroll-hint { display: block; }
 }
 
 /* TESTIMONIALS */
@@ -1307,6 +1421,81 @@ footer {
         </div>
 
         <div class="card-section">
+          <div class="card-section-title">Customer Journey Map</div>
+          <p>I mapped the end-to-end contact lens journey across seven stages, framing each as a user goal (job to be done) and annotating where the experience held up versus where it broke down. The analysis made one pattern clear: the experience is functional through purchase, then degrades sharply in the post-fulfillment stages where users have questions but no trusted support.</p>
+          <div class="journey-map">
+            <div class="journey-track">
+
+              <div class="journey-stage">
+                <div class="journey-num">01</div>
+                <div class="journey-label">Discover</div>
+                <div class="journey-goal">"Determine if the site sells my contact lens prescription."</div>
+                <div class="journey-sentiment sentiment-neu"><span class="sentiment-dot"></span>Neutral</div>
+                <div class="journey-finding">Users arrive with clear intent but need fast confirmation their brand is carried.</div>
+              </div>
+
+              <div class="journey-stage">
+                <div class="journey-num">02</div>
+                <div class="journey-label">Browse</div>
+                <div class="journey-goal">"Learn about products and weigh cost, quantity, timing, and return window."</div>
+                <div class="journey-sentiment sentiment-neu"><span class="sentiment-dot"></span>Neutral</div>
+                <div class="journey-finding">Product details are scattered, making side-by-side comparison difficult.</div>
+              </div>
+
+              <div class="journey-stage">
+                <div class="journey-num">03</div>
+                <div class="journey-label">Evaluate</div>
+                <div class="journey-goal">"Understand the options and decide whether to proceed."</div>
+                <div class="journey-sentiment sentiment-neu"><span class="sentiment-dot"></span>Neutral</div>
+                <div class="journey-finding">Comprehension gaps create hesitation; users want reassurance before committing.</div>
+              </div>
+
+              <div class="journey-stage">
+                <div class="journey-num">04</div>
+                <div class="journey-label">Select</div>
+                <div class="journey-goal">"Choose the lens that fits and continue to my order."</div>
+                <div class="journey-sentiment sentiment-pos"><span class="sentiment-dot"></span>Positive</div>
+                <div class="journey-finding">Selection is smooth when the user already knows their prescription.</div>
+              </div>
+
+              <div class="journey-stage">
+                <div class="journey-num">05</div>
+                <div class="journey-label">Purchase</div>
+                <div class="journey-goal">"Buy with my prescription and receive the correct order."</div>
+                <div class="journey-sentiment sentiment-neu"><span class="sentiment-dot"></span>Neutral</div>
+                <div class="journey-finding">Checkout is usable, though prescription validation adds friction.</div>
+              </div>
+
+              <div class="journey-stage gap">
+                <div class="journey-num">06</div>
+                <div class="journey-label">Receive &amp; Verify</div>
+                <div class="journey-goal">"Confirm my delivery is correct and that the lenses work for me."</div>
+                <div class="journey-sentiment sentiment-neg"><span class="sentiment-dot"></span>Breakdown</div>
+                <div class="journey-finding">The support gap: questions arise with no trusted help. 47% turn to Google, only 16% reach their ECP.</div>
+              </div>
+
+              <div class="journey-stage gap">
+                <div class="journey-num">07</div>
+                <div class="journey-label">Return / Replace</div>
+                <div class="journey-goal">"Get a replacement or refund per the return policy."</div>
+                <div class="journey-sentiment sentiment-neg"><span class="sentiment-dot"></span>Breakdown</div>
+                <div class="journey-finding">Return paths feel unclear; users want a simple way to know if what they're experiencing is normal.</div>
+              </div>
+
+            </div>
+          </div>
+          <p class="journey-scroll-hint">Scroll horizontally to view all seven stages &rarr;</p>
+          <div class="journey-legend">
+            <span class="sentiment-pos"><span class="sentiment-dot"></span>Positive</span>
+            <span class="sentiment-neu"><span class="sentiment-dot"></span>Neutral</span>
+            <span class="sentiment-neg"><span class="sentiment-dot"></span>Breakdown</span>
+          </div>
+          <div class="journey-gap-callout">
+            <strong>The insight:</strong> Satisfaction holds steady through selection and purchase, then drops in stages 6 and 7. This is the post-fulfillment support gap the project set out to close, and it directly shaped the resource hub design.
+          </div>
+        </div>
+
+        <div class="card-section">
           <div class="card-section-title">Key Findings</div>
           <div class="findings-list">
             <div class="finding-item">
@@ -1722,7 +1911,7 @@ footer {
   });
 
   // Expand on interactive elements
-  const interactiveSel = 'a, button, .skill-row, .project-card, .testimonial-card, .course-item, .stat-box, .tag, .skill-nav-btn, .skill-modal-close, .hamburger, .contact-link, .btn-primary, .btn-ghost';
+  const interactiveSel = 'a, button, .skill-row, .skill-nav-btn, .skill-modal-close, .hamburger, [onclick], [role="button"]';
   document.querySelectorAll(interactiveSel).forEach(el => {
     el.addEventListener('mouseenter', () => {
       ring.classList.add('hovering');
