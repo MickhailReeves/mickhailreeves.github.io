@@ -2374,25 +2374,19 @@ footer {
       transition: opacity 0.2s; white-space: nowrap;
     }
     .skill-row:hover .skill-click-hint { opacity: 1; }
-
-    /* On touch devices show a permanent small tap indicator */
+    .skill-tap-hint {
+      display: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(74,143,255,0.15);
+      border: 1px solid rgba(74,143,255,0.4);
+      align-items: center; justify-content: center;
+      flex-shrink: 0; margin-left: auto;
+      font-size: 11px; color: rgba(74,143,255,0.9);
+      font-weight: 700; line-height: 1;
+    }
     @media (hover: none) and (pointer: coarse) {
-      .skill-click-hint { display: none; }
-      .skill-row::after {
-        content: '';
-        display: inline-flex;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: rgba(74,143,255,0.18);
-        border: 1px solid rgba(74,143,255,0.35);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='rgba(74,143,255,0.9)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='12'/%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 12px;
-        margin-left: auto;
-        flex-shrink: 0;
-      }
+      .skill-click-hint { display: none !important; }
+      .skill-tap-hint { display: flex !important; }
     }
 
     @media (max-width: 720px) {
@@ -2558,6 +2552,11 @@ footer {
     hint.className = 'skill-click-hint';
     hint.textContent = 'click to explore';
     row.appendChild(hint);
+
+    const tapHint = document.createElement('span');
+    tapHint.className = 'skill-tap-hint';
+    tapHint.textContent = 'i';
+    row.appendChild(tapHint);
 
     row.addEventListener('click', () => openModal(skillName));
     row.setAttribute('title', 'Click to learn about ' + skillName);
