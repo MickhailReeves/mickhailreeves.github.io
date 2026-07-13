@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mickhail Reeves - UX Research Portfolio</title>
+<title>Mickhail Reeves - UX Research &amp; Design Portfolio</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -85,7 +85,7 @@ html {
 ::-webkit-scrollbar-corner { background: var(--navy); }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--white);
   color: var(--ink);
   font-size: 16px;
@@ -110,9 +110,9 @@ nav {
   height: 60px;
 }
 .nav-name {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--white);
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -123,7 +123,7 @@ nav {
   text-decoration: none;
   font-size: 0.82rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.75);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: color 0.2s;
@@ -136,7 +136,7 @@ nav {
   background: linear-gradient(135deg, #08122a 0%, #0d2251 40%, #1a4080 70%, #1c6ef7 100%);
   display: flex;
   align-items: center;
-  padding: 8rem 2.5rem 5rem;
+  padding: 7.5rem 2.5rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -172,15 +172,15 @@ nav {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--blue-bright);
+  color: #8fb8ff;
   background: rgba(74,143,255,0.12);
-  border: 1px solid rgba(74,143,255,0.25);
+  border: 1px solid rgba(74,143,255,0.35);
   padding: 6px 14px;
   border-radius: 20px;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 .hero-eyebrow::before {
   content: '';
@@ -195,34 +195,34 @@ nav {
   50% { opacity: 0.5; transform: scale(0.7); }
 }
 .hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.25rem);
   font-weight: 800;
-  line-height: 1.0;
+  line-height: 1.02;
   color: var(--white);
   margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 .hero h1 .line2 {
   display: block;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255,255,255,0.4);
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.5);
 }
 .hero-desc {
   font-size: 1.1rem;
-  color: rgba(255,255,255,0.65);
-  max-width: 520px;
+  color: rgba(255,255,255,0.85);
+  max-width: 560px;
   line-height: 1.75;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.25rem;
 }
-.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
 .btn-primary {
   display: inline-block;
   padding: 0.8rem 2rem;
   background: var(--blue);
-  color: var(--white);
+  color: #ffffff;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s;
@@ -231,68 +231,99 @@ nav {
 .btn-ghost {
   display: inline-block;
   padding: 0.8rem 2rem;
-  border: 1px solid rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.92);
   font-size: 0.9rem;
   font-weight: 500;
   border-radius: 8px;
   text-decoration: none;
   transition: border-color 0.2s, color 0.2s;
 }
-.btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+.btn-ghost:hover { border-color: rgba(255,255,255,0.8); color: var(--white); }
 .hero-stats {
   display: flex;
-  gap: 3rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 2rem;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 1.75rem;
 }
 .hero-stat .num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--white);
   line-height: 1;
   margin-bottom: 0.2rem;
+  letter-spacing: -0.02em;
 }
 .hero-stat .num span { color: var(--blue-bright); }
 .hero-stat .lbl {
   font-size: 0.78rem;
-  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+  color: rgba(255,255,255,0.68);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
 /* SECTIONS */
-section { padding: 5rem 2.5rem; }
+section { padding: 4rem 2.5rem; }
 .section-inner { max-width: 960px; margin: 0 auto; }
 .section-eyebrow {
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--blue);
   margin-bottom: 0.5rem;
 }
 .section-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.7rem, 3.5vw, 2.35rem);
   font-weight: 800;
   color: var(--ink);
   line-height: 1.15;
-  margin-bottom: 2.5rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 1.9rem;
+  letter-spacing: -0.03em;
+}
+.section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.9rem;
+}
+.section-title-row .section-title { margin-bottom: 0; }
+.btn-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  background: var(--blue);
+  color: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.87rem;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.btn-resume:hover {
+  background: var(--blue-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(28,110,247,0.3);
 }
 
 /* ABOUT */
 #about { background: var(--surface); border-bottom: 1px solid var(--border); }
-.about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: start; }
 .about-text p { color: var(--ink-mid); margin-bottom: 1rem; font-size: 0.97rem; }
 .about-text p:last-child { margin-bottom: 0; }
 .about-photo-wrap {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 .about-photo {
   width: 90px;
@@ -307,7 +338,7 @@ section { padding: 5rem 2.5rem; }
 .about-photo-name { }
 .about-photo-name strong {
   display: block;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--ink);
@@ -321,17 +352,17 @@ section { padding: 5rem 2.5rem; }
 .skills-panel {
   background: var(--navy);
   border-radius: 16px;
-  padding: 1.75rem;
+  padding: 1.6rem;
   color: var(--white);
 }
 .skills-panel-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 1.25rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.1rem;
 }
 .skill-row {
   display: grid;
@@ -339,11 +370,11 @@ section { padding: 5rem 2.5rem; }
   align-items: center;
   gap: 1rem;
   padding: 0.6rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   font-size: 0.88rem;
 }
 .skill-row:last-child { border-bottom: none; }
-.skill-row span:first-child { color: rgba(255,255,255,0.85); }
+.skill-row span:first-child { color: rgba(255,255,255,0.92); }
 .skill-bar-wrap {
   display: flex;
   gap: 3px;
@@ -352,28 +383,28 @@ section { padding: 5rem 2.5rem; }
   width: 18px;
   height: 4px;
   border-radius: 2px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.14);
 }
 .skill-pip.on { background: var(--blue-bright); }
 
 /* EXPERIENCE */
 #experience { background: var(--white); border-bottom: 1px solid var(--border); }
-.exp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.exp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .exp-col-head {
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-faint);
-  margin-bottom: 1.5rem;
+  color: var(--ink-muted);
+  margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid var(--blue);
   display: inline-block;
 }
-.exp-entry { margin-bottom: 1.75rem; }
+.exp-entry { margin-bottom: 1.5rem; }
 .exp-header { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; margin-bottom: 0.1rem; }
-.exp-role { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); }
-.exp-date { font-size: 0.75rem; color: var(--blue); white-space: nowrap; flex-shrink: 0; font-weight: 500; }
+.exp-role { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+.exp-date { font-size: 0.75rem; color: var(--blue); white-space: nowrap; flex-shrink: 0; font-weight: 600; }
 .exp-place { font-size: 0.82rem; color: var(--ink-muted); margin-bottom: 0.5rem; }
 .exp-bullets { list-style: none; }
 .exp-bullets li {
@@ -400,18 +431,18 @@ section { padding: 5rem 2.5rem; }
   border-left: 3px solid var(--blue);
   border-radius: 10px;
   padding: 1.1rem 1.25rem;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1rem;
   background: var(--blue-ghost);
 }
 .research-tag {
   font-size: 0.68rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--blue);
   margin-bottom: 0.4rem;
 }
-.research-title { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+.research-title { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
 .research-desc { font-size: 0.82rem; color: var(--ink-mid); line-height: 1.55; }
 
 .edu-entry { margin-bottom: 1.25rem; }
@@ -432,7 +463,7 @@ section { padding: 5rem 2.5rem; }
   .edu-logo-light { display: none; }
   .edu-logo-dark { display: block; }
 }
-.edu-degree { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ink); }
+.edu-degree { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ink); }
 
 .coursework-grid {
   display: grid;
@@ -453,7 +484,7 @@ section { padding: 5rem 2.5rem; }
   box-shadow: 0 4px 14px rgba(28,110,247,0.12);
 }
 .course-code {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -476,11 +507,11 @@ section { padding: 5rem 2.5rem; }
   .coursework-grid { grid-template-columns: 1fr; }
 }
 .edu-school { font-size: 0.82rem; color: var(--ink-muted); margin-top: 0.1rem; }
-.edu-date { font-size: 0.75rem; color: var(--blue); font-weight: 500; margin-top: 0.1rem; }
+.edu-date { font-size: 0.75rem; color: var(--blue); font-weight: 600; margin-top: 0.1rem; }
 
 /* PROJECTS */
 #projects { background: var(--navy); }
-#projects .section-eyebrow { color: var(--blue-bright); }
+#projects .section-eyebrow { color: #8fb8ff; }
 #projects .section-title { color: var(--white); }
 
 .project-card {
@@ -488,67 +519,67 @@ section { padding: 5rem 2.5rem; }
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 .project-card:last-child { margin-bottom: 0; }
 .card-top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 1.75rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-.card-type { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-bright); }
+.card-type { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8fb8ff; }
 .card-badge {
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 4px 12px;
   border-radius: 20px;
-  background: rgba(28,110,247,0.2);
-  border: 1px solid rgba(28,110,247,0.3);
-  color: var(--blue-bright);
+  background: rgba(28,110,247,0.25);
+  border: 1px solid rgba(74,143,255,0.45);
+  color: #8fb8ff;
 }
-.card-body { padding: 2rem; }
+.card-body { padding: 1.75rem; }
 .card-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
   font-weight: 800;
   color: var(--white);
   line-height: 1.2;
   margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
-.card-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.45); margin-bottom: 1.75rem; }
+.card-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.72); margin-bottom: 1.5rem; }
 
 .card-meta-row {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
-  padding: 1.25rem 0;
+  padding: 1.1rem 0;
   border-top: 1px solid rgba(255,255,255,0.06);
   border-bottom: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
-.meta-cell .lbl { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.2rem; }
-.meta-cell .val { font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+.meta-cell .lbl { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.58); margin-bottom: 0.2rem; }
+.meta-cell .val { font-size: 0.85rem; color: rgba(255,255,255,0.92); }
 
-.card-section { margin-bottom: 2rem; }
+.card-section { margin-bottom: 1.6rem; }
 .card-section-title {
   font-size: 0.68rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.58);
+  margin-bottom: 0.9rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.card-section p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 0.75rem; }
+.card-section p { font-size: 0.9rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 0.75rem; }
 .card-section p:last-child { margin-bottom: 0; }
 
 /* SCREENSHOT SHOWCASE */
 .prototype-showcase {
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   overflow: hidden;
   margin-top: 0.75rem;
@@ -572,9 +603,9 @@ section { padding: 5rem 2.5rem; }
   border-radius: 6px;
   padding: 4px 10px;
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.6);
   margin-left: 0.5rem;
-  font-family: 'DM Sans', monospace;
+  font-family: 'Inter', monospace;
 }
 .prototype-img {
   display: block;
@@ -582,29 +613,106 @@ section { padding: 5rem 2.5rem; }
   height: auto;
 }
 
+/* PROTOTYPE CAROUSEL */
+.carousel-viewport {
+  position: relative;
+  overflow: hidden;
+  background: #0a1428;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.carousel-caption {
+  padding: 0.9rem 1.15rem;
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  background: rgba(28,110,247,0.1);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.carousel-caption strong {
+  display: block;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.carousel-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(8,18,42,0.8);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 5;
+}
+.carousel-btn:hover { background: rgba(28,110,247,0.95); border-color: rgba(255,255,255,0.7); }
+.carousel-btn.prev { left: 12px; }
+.carousel-btn.next { right: 12px; }
+.carousel-dots {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 0;
+  background: rgba(255,255,255,0.03);
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.carousel-dot.active { background: var(--blue-bright); transform: scale(1.3); }
+.carousel-dot:hover { background: rgba(255,255,255,0.5); }
+.carousel-dot.active:hover { background: var(--blue-bright); }
+
 /* METHOD STEPS */
 .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.75rem; }
 .method-step {
   background: rgba(28,110,247,0.1);
-  border: 1px solid rgba(28,110,247,0.2);
+  border: 1px solid rgba(28,110,247,0.25);
   border-radius: 10px;
   padding: 1.1rem;
 }
-.step-num { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--blue-bright); margin-bottom: 0.25rem; }
-.step-name { font-weight: 500; font-size: 0.88rem; color: var(--white); margin-bottom: 0.25rem; }
-.step-desc { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.55; }
+.step-num { font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--blue-bright); margin-bottom: 0.25rem; }
+.step-name { font-weight: 600; font-size: 0.88rem; color: var(--white); margin-bottom: 0.25rem; }
+.step-desc { font-size: 0.78rem; color: rgba(255,255,255,0.75); line-height: 1.55; }
 
 /* STATS */
 .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 0.75rem; }
 .stat-box {
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px;
   padding: 1.1rem;
   text-align: center;
 }
-.stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--blue-bright); line-height: 1; margin-bottom: 0.25rem; }
-.stat-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.4); line-height: 1.4; }
+.stat-num { font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 800; color: var(--blue-bright); line-height: 1; margin-bottom: 0.25rem; }
+.stat-lbl { font-size: 0.72rem; font-weight: 500; color: rgba(255,255,255,0.7); line-height: 1.4; }
 
 /* FINDINGS */
 .findings-list { display: grid; gap: 0.75rem; margin-top: 0.75rem; }
@@ -614,83 +722,96 @@ section { padding: 5rem 2.5rem; }
   gap: 0.85rem;
   align-items: start;
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 10px;
   padding: 1rem 1.1rem;
 }
 .finding-num {
   width: 28px;
   height: 28px;
-  background: rgba(28,110,247,0.2);
-  border: 1px solid rgba(28,110,247,0.3);
+  background: rgba(28,110,247,0.25);
+  border: 1px solid rgba(74,143,255,0.4);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--blue-bright);
+  color: #8fb8ff;
   flex-shrink: 0;
   margin-top: 1px;
 }
-.finding-text strong { font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.9); display: block; margin-bottom: 0.2rem; }
-.finding-text span { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.55; }
+.finding-text strong { font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.95); display: block; margin-bottom: 0.2rem; }
+.finding-text span { font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.55; }
 
 /* QUOTE */
 .pull-quote {
   border-left: 3px solid var(--blue-bright);
   padding: 0.85rem 1.25rem;
-  margin: 1.25rem 0;
-  background: rgba(28,110,247,0.08);
+  margin: 1.1rem 0;
+  background: rgba(28,110,247,0.1);
   border-radius: 0 8px 8px 0;
 }
 .pull-quote p {
   font-family: 'DM Serif Display', serif;
   font-style: italic;
   font-size: 1rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.9);
   margin-bottom: 0.35rem;
 }
-.pull-quote cite { font-size: 0.75rem; color: rgba(255,255,255,0.35); font-style: normal; }
+.pull-quote cite { font-size: 0.75rem; color: rgba(255,255,255,0.65); font-style: normal; }
+
+/* INSIGHT CALLOUT */
+.insight-callout {
+  margin-top: 1.1rem;
+  padding: 1rem 1.15rem;
+  background: rgba(28,110,247,0.12);
+  border: 1px solid rgba(74,143,255,0.35);
+  border-radius: 10px;
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.65;
+}
+.insight-callout strong { color: #8fb8ff; font-weight: 600; }
 
 /* PROTOTYPE COMPONENTS TABLE */
 .proto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; margin-top: 0.75rem; }
 .proto-item {
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px;
   overflow: hidden;
 }
 .proto-head {
-  background: rgba(28,110,247,0.15);
+  background: rgba(28,110,247,0.18);
   padding: 0.6rem 0.9rem;
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .proto-score {
-  background: rgba(28,110,247,0.3);
+  background: rgba(28,110,247,0.35);
   border-radius: 20px;
   padding: 2px 8px;
   font-size: 0.72rem;
-  color: var(--blue-bright);
+  color: #8fb8ff;
 }
-.proto-body { padding: 0.75rem 0.9rem; font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+.proto-body { padding: 0.75rem 0.9rem; font-size: 0.78rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
 
 /* IMPACT */
 .impact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.75rem; }
 .impact-box {
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px;
   padding: 1.25rem;
   background: rgba(255,255,255,0.02);
 }
-.impact-pct { font-family: 'Syne', sans-serif; font-size: 2.25rem; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 0.35rem; }
+.impact-pct { font-family: 'Inter', sans-serif; font-size: 2.25rem; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 0.35rem; }
 .impact-pct .accent { color: var(--blue-bright); }
-.impact-desc { font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
+.impact-desc { font-size: 0.78rem; color: rgba(255,255,255,0.72); line-height: 1.5; }
 
 /* TAGS */
 .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
@@ -698,8 +819,8 @@ section { padding: 5rem 2.5rem; }
   font-size: 0.77rem;
   padding: 4px 12px;
   border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.78);
 }
 
 /* JOURNEY MAP */
@@ -716,7 +837,7 @@ section { padding: 5rem 2.5rem; }
 }
 .journey-stage {
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px;
   padding: 0.85rem 0.85rem 1rem;
   display: flex;
@@ -725,10 +846,10 @@ section { padding: 5rem 2.5rem; }
 }
 .journey-stage.gap {
   background: rgba(245,158,11,0.08);
-  border-color: rgba(245,158,11,0.35);
+  border-color: rgba(245,158,11,0.4);
 }
 .journey-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--blue-bright);
@@ -736,7 +857,7 @@ section { padding: 5rem 2.5rem; }
 }
 .journey-stage.gap .journey-num { color: var(--gold); }
 .journey-label {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   color: #fff;
@@ -745,15 +866,15 @@ section { padding: 5rem 2.5rem; }
 }
 .journey-goal {
   font-size: 0.74rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.75);
   line-height: 1.45;
   margin-bottom: 0.65rem;
   padding-bottom: 0.65rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .journey-finding {
   font-size: 0.74rem;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.85);
   line-height: 1.5;
   margin-top: auto;
 }
@@ -762,7 +883,7 @@ section { padding: 5rem 2.5rem; }
   align-items: center;
   gap: 4px;
   font-size: 0.65rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
@@ -777,23 +898,23 @@ section { padding: 5rem 2.5rem; }
   flex-wrap: wrap;
   margin-top: 1rem;
   font-size: 0.72rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.7);
 }
 .journey-legend span { display: inline-flex; align-items: center; gap: 5px; }
 .journey-gap-callout {
   margin-top: 1rem;
   padding: 0.85rem 1rem;
-  background: rgba(245,158,11,0.08);
-  border: 1px solid rgba(245,158,11,0.25);
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.35);
   border-radius: 8px;
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.88);
   line-height: 1.6;
 }
-.journey-gap-callout strong { color: var(--gold); font-weight: 500; }
+.journey-gap-callout strong { color: var(--gold); font-weight: 600; }
 .journey-scroll-hint {
   font-size: 0.7rem;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.6);
   margin-top: 0.5rem;
   display: none;
 }
@@ -812,7 +933,7 @@ section { padding: 5rem 2.5rem; }
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 1.75rem 1.5rem 1.5rem;
+  padding: 1.6rem 1.5rem 1.4rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -837,7 +958,7 @@ section { padding: 5rem 2.5rem; }
   color: var(--ink-mid);
   line-height: 1.65;
   font-style: italic;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 .testimonial-author {
   display: flex;
@@ -856,13 +977,13 @@ section { padding: 5rem 2.5rem; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   flex-shrink: 0;
 }
 .testimonial-name {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--ink);
@@ -880,7 +1001,7 @@ section { padding: 5rem 2.5rem; }
 /* CONTACT */
 #contact {
   background: var(--blue);
-  padding: 5rem 2.5rem;
+  padding: 4rem 2.5rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -896,14 +1017,14 @@ section { padding: 5rem 2.5rem; }
   background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
   pointer-events: none;
 }
-#contact .section-eyebrow { color: rgba(255,255,255,0.6); position: relative; }
+#contact .section-eyebrow { color: rgba(255,255,255,0.85); position: relative; }
 #contact .section-title { color: var(--white); margin-bottom: 1rem; position: relative; }
-#contact > p { color: rgba(255,255,255,0.65); margin-bottom: 2.5rem; font-size: 1rem; position: relative; }
+#contact > p { color: rgba(255,255,255,0.9); margin-bottom: 2.25rem; font-size: 1rem; position: relative; }
 .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; }
 .contact-link {
   display: inline-block;
   padding: 0.75rem 1.75rem;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 8px;
   color: var(--white);
   text-decoration: none;
@@ -920,7 +1041,7 @@ section { padding: 5rem 2.5rem; }
 
 footer {
   background: var(--navy);
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.6);
   text-align: center;
   padding: 1.5rem;
   font-size: 0.76rem;
@@ -957,7 +1078,7 @@ footer {
     display: block;
     width: 22px;
     height: 2px;
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.8);
     border-radius: 2px;
     transition: transform 0.3s, opacity 0.3s;
   }
@@ -976,8 +1097,8 @@ footer {
   .mobile-menu a {
     display: block;
     padding: 0.85rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    color: rgba(255,255,255,0.75);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
@@ -989,7 +1110,7 @@ footer {
 
   /* HERO */
   .hero {
-    padding: 6rem 1.25rem 3.5rem;
+    padding: 6rem 1.25rem 3rem;
     min-height: auto;
   }
   .hero h1 { font-size: 2.4rem; }
@@ -1008,8 +1129,10 @@ footer {
   .hero-stat .num { font-size: 1.6rem; }
 
   /* SECTIONS */
-  section { padding: 3rem 1.25rem; }
-  .section-title { font-size: 1.6rem; margin-bottom: 1.75rem; }
+  section { padding: 2.75rem 1.25rem; }
+  .section-title { font-size: 1.55rem; margin-bottom: 1.5rem; }
+  .section-title-row { margin-bottom: 1.5rem; }
+  .btn-resume { width: 100%; justify-content: center; }
 
   /* ABOUT */
   .about-grid { grid-template-columns: 1fr; gap: 1.75rem; }
@@ -1040,6 +1163,12 @@ footer {
   .tag-list { gap: 0.4rem; }
   .tag { font-size: 0.72rem; padding: 3px 9px; }
 
+  /* CAROUSEL */
+  .carousel-btn { width: 34px; height: 34px; font-size: 15px; }
+  .carousel-btn.prev { left: 8px; }
+  .carousel-btn.next { right: 8px; }
+  .carousel-caption { font-size: 0.78rem; padding: 0.75rem 0.9rem; }
+
   /* PULL QUOTE */
   .pull-quote p { font-size: 0.9rem; }
 
@@ -1053,7 +1182,7 @@ footer {
   .browser-url { font-size: 0.65rem; }
 
   /* CONTACT */
-  #contact { padding: 3.5rem 1.25rem; }
+  #contact { padding: 3rem 1.25rem; }
   .contact-links { flex-direction: column; align-items: center; gap: 0.75rem; }
   .contact-link { width: 100%; text-align: center; padding: 0.85rem 1rem; }
 
@@ -1095,13 +1224,13 @@ footer {
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">UX Research &amp; Human Factors</div>
+    <div class="hero-eyebrow">UX Research &amp; Design</div>
     <h1>
       Research that<br>
-      <span class="line2">drives clarity.</span>
+      <span class="line2">informs design.</span>
     </h1>
     <p class="hero-desc">
-      M.S. candidate in Human Factors in Information Design at Bentley University. I apply mixed-methods research and evidence-based design to close the gap between what users need and what products deliver.
+      M.S. candidate in Human Factors in Information Design at Bentley University. I pair mixed-methods research with hands-on prototyping and UI design, closing the gap between what users need and what products deliver.
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View My Work</a>
@@ -1111,6 +1240,10 @@ footer {
       <div class="hero-stat">
         <div class="num">97<span>+</span></div>
         <div class="lbl">Research Participants</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">15<span>+</span></div>
+        <div class="lbl">Prototype Screens Designed</div>
       </div>
       <div class="hero-stat">
         <div class="num">3<span>+</span></div>
@@ -1132,14 +1265,14 @@ footer {
     <div class="about-grid">
       <div class="about-text">
         <div class="about-photo-wrap">
-          <img class="about-photo" src="headshot.jpg" alt="Mickhail Reeves - UX Researcher" width="240" height="240" decoding="async">
+          <img class="about-photo" src="headshot.jpg" alt="Mickhail Reeves - UX Researcher and Designer" width="240" height="240" decoding="async">
           <div class="about-photo-name">
             <strong>Mickhail Reeves</strong>
             <span>M.S. HFID Candidate · Bentley University</span>
           </div>
         </div>
         <p>I'm a graduate student in Human Factors in Information Design at Bentley University, where I focus on the intersection of user research, information architecture, and evidence-based design. My work centers on understanding how people process information under uncertainty and translating those insights into systems that actually work.</p>
-        <p>My research projects have spanned enterprise SaaS pricing transparency, file-management workflows, the usability of AI-assisted health tools, and post-fulfillment product support experiences. I approach each project with structured qualitative methods, tight stakeholder alignment, and a commitment to findings that are actionable rather than just interesting.</p>
+        <p>I work on both sides of the process. I run the research, then I design and build from it: mid-fidelity prototypes coded in HTML and JavaScript, interfaces in Figma, and freelance game UI I've designed professionally since 2018. My research projects have spanned enterprise SaaS pricing transparency, file-management workflows, the usability of AI-assisted health tools, and post-fulfillment product support experiences.</p>
         <p>My undergraduate training in psychology and computer science gives me a dual lens: I understand why users behave the way they do, and I can bridge that to the technical and design constraints teams actually work with. Before graduate school, I built experience in crisis counseling, care management, and STEM instruction, all roles that sharpened my ability to communicate complex information clearly and meet people where they are.</p>
       </div>
       </div>
@@ -1210,7 +1343,10 @@ footer {
 <section id="experience">
   <div class="section-inner">
     <p class="section-eyebrow">History</p>
-    <h2 class="section-title">Experience &amp; Research</h2>
+    <div class="section-title-row">
+      <h2 class="section-title">Experience &amp; Research</h2>
+      <a href="Mickhail-Reeves-Resume.docx" download class="btn-resume">&#x2B07; Download Resume</a>
+    </div>
     <div class="exp-cols">
 
       <div>
@@ -1338,7 +1474,7 @@ footer {
           <div class="research-desc">Independent undergraduate research at Oakwood University investigating how VR-based exposure environments affect public speaking anxiety and phobia response at large. Examined immersive simulation as a desensitization tool, contributing to the applied psychology of technology-assisted behavioral intervention.</div>
         </div>
 
-        <div style="margin-top: 2.25rem;">
+        <div style="margin-top: 2rem;">
           <div class="exp-col-head">Education</div>
 
           <div class="edu-entry">
@@ -1365,7 +1501,7 @@ footer {
             </div>
           </div>
 
-          <div style="margin-top: 1.75rem;">
+          <div style="margin-top: 1.5rem;">
             <div class="exp-col-head">Selected Coursework</div>
             <div class="coursework-grid">
               <div class="course-item">
@@ -1416,8 +1552,8 @@ footer {
     <!-- CASE STUDY 1 -->
     <div class="project-card">
       <div class="card-top-bar">
-        <div class="card-type">UX Research &middot; End-to-End Project</div>
-        <div class="card-badge">Team Lead</div>
+        <div class="card-type">UX Research &amp; Design &middot; End-to-End Project</div>
+        <div class="card-badge">Co-Head Designer</div>
       </div>
       <div class="card-body">
         <div class="card-title">Closing the Post-Fulfillment Support Gap in Contact Lens Care</div>
@@ -1582,15 +1718,52 @@ footer {
 
         <div class="card-section">
           <div class="card-section-title">Prototype - Resource Hub Design</div>
-          <p>Research findings were translated into a mid-fidelity web prototype: a branded support hub integrated into the client's digital platform. The hub surfaced five core components validated through usability testing.</p>
+          <p>Research findings were translated into a mid-fidelity web prototype I designed and built: a branded support hub spanning 15+ screens, integrated into the client's digital platform. Explore the key flows below, from symptom triage through emergency escalation to booking with a trusted eye care professional.</p>
           <div class="prototype-showcase">
             <div class="browser-bar">
               <div class="browser-dot" style="background:#ff5f57;"></div>
               <div class="browser-dot" style="background:#febc2e;"></div>
               <div class="browser-dot" style="background:#28c840;"></div>
-              <div class="browser-url">lens-companion.prototype / resource-hub</div>
+              <div class="browser-url" id="protoUrl">lens-companion.prototype / resource-hub</div>
             </div>
-            <img class="prototype-img" src="Landing_Page.jpg" alt="Contact Lens Resource Hub prototype - landing page showing navigation, hero section with Get Started and Check a Symptom CTAs, four hub module cards, topic explorer, and ECP contact section." loading="lazy">
+            <div class="carousel-viewport" id="protoViewport">
+              <div class="carousel-track" id="protoTrack">
+                <div class="carousel-slide" data-url="lens-companion.prototype / resource-hub">
+                  <img class="prototype-img" src="Landing_Page.jpg" alt="Resource Hub landing page with navigation, hero CTAs, four hub module cards, topic explorer, and ECP contact section.">
+                  <div class="carousel-caption"><strong>Resource Hub landing</strong>Research showed 40% of users didn't know support existed, so every core module is visible without scrolling, with a persistent AI Companion entry point in the header.</div>
+                </div>
+                <div class="carousel-slide" data-url="lens-companion.prototype / symptom-checker / step-1">
+                  <img class="prototype-img" src="proto-symptom-start.jpg" alt="Symptom Checker step one with plain-language symptom selection cards and a what-happens-next sidebar." loading="lazy">
+                  <div class="carousel-caption"><strong>Symptom Checker, step 1</strong>Plain-language symptom selection with a "something else" escape hatch. Findings showed users' core need was checking whether what they feel is normal, not researching conditions.</div>
+                </div>
+                <div class="carousel-slide" data-url="lens-companion.prototype / symptom-checker / step-2">
+                  <img class="prototype-img" src="proto-symptom-details.jpg" alt="Symptom Checker step two collecting intensity, frequency, timing, and wear habits through tappable options." loading="lazy">
+                  <div class="carousel-caption"><strong>Symptom Checker, step 2</strong>Progressive disclosure keeps cognitive load low: intensity, frequency, and context are gathered across a guided three-step flow instead of one dense form. Scored 4.25/5 in testing.</div>
+                </div>
+                <div class="carousel-slide" data-url="lens-companion.prototype / emergency">
+                  <img class="prototype-img" src="proto-emergency.jpg" alt="Emergency escalation screen directing users to call 911, call an eye doctor, find urgent care, or message their provider." loading="lazy">
+                  <div class="carousel-caption"><strong>Emergency escalation</strong>When answers suggest urgency, the design routes users straight to real care. Calibrated trust in a health tool means knowing when the interface should step aside.</div>
+                </div>
+                <div class="carousel-slide" data-url="lens-companion.prototype / new-to-contacts">
+                  <img class="prototype-img" src="proto-onboarding.jpg" alt="New to Contacts onboarding flow showing a four-step guided walkthrough of lens use with a what-you-will-learn sidebar." loading="lazy">
+                  <div class="carousel-caption"><strong>First-week onboarding</strong>The highest-scoring module in usability testing at 4.63/5. Testers called it "clean, easy to read and understand and very helpful."</div>
+                </div>
+                <div class="carousel-slide" data-url="lens-companion.prototype / insertion-guide">
+                  <img class="prototype-img" src="proto-insertion-guide.jpg" alt="Lens Insertion and Removal Guide with photographic step-by-step instructions and a Common Concerns sidebar." loading="lazy">
+                  <div class="carousel-caption"><strong>Insertion &amp; removal guide</strong>Step-by-step visual guidance with a "Common Concerns" sidebar answering the normalcy questions research showed users were taking to Google.</div>
+                </div>
+                <div class="carousel-slide" data-url="lens-companion.prototype / book-appointment">
+                  <img class="prototype-img" src="proto-appointment.jpg" alt="Appointment booking screen with the user's own eye doctor, appointment types, calendar, and confirmation state." loading="lazy">
+                  <div class="carousel-caption"><strong>Booking with a trusted ECP</strong>Closing the loop: one-tap booking with the user's own eye doctor. 5 of 5 testers said they would engage with the platform when introduced by their ECP.</div>
+                </div>
+              </div>
+              <button class="carousel-btn prev" id="protoPrev" aria-label="Previous screen">&#8592;</button>
+              <button class="carousel-btn next" id="protoNext" aria-label="Next screen">&#8594;</button>
+            </div>
+            <div class="carousel-dots" id="protoDots"></div>
+          </div>
+          <div class="insight-callout">
+            <strong>Research &rarr; Design &rarr; Validation:</strong> I carried this work end to end. I helped run the research across 97 participants, designed and hand-coded the prototype screens above in HTML and JavaScript, then validated them with 8 real users and revised based on what we learned. Every screen exists because a finding demanded it.
           </div>
         </div>
 
@@ -1718,6 +1891,9 @@ footer {
             </div>
             <img class="prototype-img" src="affinity_board.jpg" alt="Affinity diagram in FigJam showing participant quotes coded and clustered into themes: Trust and Privacy, Credibility Gaps, Information Comprehension, AI Familiarity, Accuracy, Ease of Use, Information Density, and Informativeness." loading="lazy">
           </div>
+          <div class="insight-callout">
+            <strong>Why this matters:</strong> AI features live or die on calibrated trust. This work gives me a practical framework for designing AI-enabled interactions people actually rely on: when to explain what the system is doing, when to escalate to a human, and how an interface earns confidence without overclaiming. I apply the same thinking in my own process, using AI tools daily to move from concept to prototype faster.
+          </div>
         </div>
 
         <div class="card-section">
@@ -1788,9 +1964,8 @@ footer {
 <section id="contact">
   <p class="section-eyebrow">Get in Touch</p>
   <h2 class="section-title">Let's work together.</h2>
-  <p>Actively seeking full-time roles in UX research, human factors, or information design. Available December 2026. Open to internship or contract opportunities sooner.</p>
+  <p>Actively seeking full-time roles in UX design, UX research, human factors, and information design. Available December 2026. Open to internship or contract opportunities sooner.</p>
   <div class="contact-links">
-    <a href="Mickhail-Reeves-Resume.docx" download class="contact-link dark" style="background:#fff !important;color:#08122a !important;border-color:#fff !important;">&#x2B07; Download Resume</a>
     <a href="mailto:MickhailReeves209@gmail.com" class="contact-link dark">MickhailReeves209@gmail.com</a>
     <a href="https://www.linkedin.com/in/mickhail-reeves" target="_blank" class="contact-link">LinkedIn</a>
   </div>
@@ -1957,7 +2132,7 @@ footer {
   });
 
   // Expand on interactive elements
-  const interactiveSel = 'a, button, .skill-row, .skill-nav-btn, .skill-modal-close, .hamburger, [onclick], [role="button"]';
+  const interactiveSel = 'a, button, .skill-row, .skill-nav-btn, .skill-modal-close, .hamburger, .carousel-btn, .carousel-dot, [onclick], [role="button"]';
   document.querySelectorAll(interactiveSel).forEach(el => {
     el.addEventListener('mouseenter', () => {
       ring.classList.add('hovering');
@@ -2006,17 +2181,17 @@ footer {
     .skill-row { transition:background 0.2s; border-radius:6px; padding-left:6px; padding-right:6px; }
     .skill-row:hover { background:rgba(74,143,255,0.08); }
     .tag { transition:border-color 0.2s, color 0.2s, transform 0.15s; cursor:default; }
-    .tag:hover { border-color:rgba(74,143,255,0.5); color:rgba(255,255,255,0.8); transform:translateY(-1px); }
+    .tag:hover { border-color:rgba(74,143,255,0.6); color:rgba(255,255,255,0.95); transform:translateY(-1px); }
     .finding-item { transition:background 0.2s, border-color 0.2s; }
-    .finding-item:hover { background:rgba(255,255,255,0.06); border-color:rgba(28,110,247,0.3); }
+    .finding-item:hover { background:rgba(255,255,255,0.06); border-color:rgba(28,110,247,0.35); }
     .nav-links a { position:relative; }
     .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#4a9eff; transition:width 0.2s; border-radius:2px; }
     .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
-    .nav-links a.active { color:rgba(255,255,255,0.9) !important; }
+    .nav-links a.active { color:rgba(255,255,255,0.95) !important; }
     .stat-box { transition:transform 0.2s, border-color 0.2s; }
-    .stat-box:hover { transform:translateY(-3px); border-color:rgba(74,143,255,0.4); }
+    .stat-box:hover { transform:translateY(-3px); border-color:rgba(74,143,255,0.45); }
     .impact-box { transition:transform 0.2s, border-color 0.2s; }
-    .impact-box:hover { transform:translateY(-3px); border-color:rgba(74,143,255,0.3); }
+    .impact-box:hover { transform:translateY(-3px); border-color:rgba(74,143,255,0.35); }
     .research-card { transition:transform 0.2s, box-shadow 0.2s; }
     .research-card:hover { transform:translateY(-2px); box-shadow:0 4px 20px rgba(28,110,247,0.12); }
   `;
@@ -2046,11 +2221,13 @@ footer {
 (function() {
   const counters = [
     { el: null, target: 97, suffix: '+', prefix: '' },
+    { el: null, target: 15, suffix: '+', prefix: '' },
     { el: null, target: 3, suffix: '+', prefix: '' },
   ];
   const statNums = document.querySelectorAll('.hero-stat .num');
   if (statNums[0]) counters[0].el = statNums[0];
   if (statNums[1]) counters[1].el = statNums[1];
+  if (statNums[2]) counters[2].el = statNums[2];
 
   let animated = false;
   function animateCounters() {
@@ -2132,7 +2309,7 @@ footer {
 (function() {
   const line2 = document.querySelector('.hero h1 .line2');
   if (!line2) return;
-  const text = 'drives clarity.';
+  const text = 'informs design.';
   line2.textContent = '';
   line2.style.borderRight = '2px solid rgba(255,255,255,0.5)';
   line2.style.animation = 'blink 0.75s step-end infinite';
@@ -2152,6 +2329,59 @@ footer {
     }, 75);
   }, 600);
 })();
+
+// -- 8. PROTOTYPE CAROUSEL ------------------------------------------------------
+(function() {
+  const track = document.getElementById('protoTrack');
+  if (!track) return;
+  const slides = Array.from(track.children);
+  const total = slides.length;
+  const urlEl = document.getElementById('protoUrl');
+  const dotsEl = document.getElementById('protoDots');
+  const viewport = document.getElementById('protoViewport');
+  let index = 0;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to screen ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  });
+  const dots = Array.from(dotsEl.children);
+
+  function goTo(n) {
+    index = (n + total) % total;
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    if (urlEl) urlEl.textContent = slides[index].dataset.url || '';
+  }
+
+  document.getElementById('protoPrev').addEventListener('click', () => goTo(index - 1));
+  document.getElementById('protoNext').addEventListener('click', () => goTo(index + 1));
+
+  // Touch swipe support
+  let startX = 0;
+  viewport.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  viewport.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) { dx < 0 ? goTo(index + 1) : goTo(index - 1); }
+  }, { passive: true });
+
+  // Keyboard support when carousel is in view
+  document.addEventListener('keydown', e => {
+    const rect = viewport.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!inView) return;
+    // Don't steal arrows from the skill modal when it is open
+    const modalOpen = document.querySelector('.skill-modal-overlay.open');
+    if (modalOpen) return;
+    if (e.key === 'ArrowRight') goTo(index + 1);
+    if (e.key === 'ArrowLeft') goTo(index - 1);
+  });
+})();
+
 // -- 9. HAMBURGER MENU --------------------------------------------------------
 (function() {
   const hamburger = document.getElementById('hamburger');
@@ -2284,14 +2514,14 @@ footer {
       margin-bottom: 1.5rem;
     }
     .skill-modal-counter {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(255,255,255,0.3);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.6);
     }
     .skill-modal-counter span { color: #4a9eff; }
     .skill-modal-close {
       width: 30px; height: 30px; border-radius: 50%;
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.5); font-size: 16px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7); font-size: 16px;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; transition: background 0.2s, color 0.2s;
     }
@@ -2303,22 +2533,22 @@ footer {
       display: block; line-height: 1;
     }
     .skill-modal-name {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.3rem; font-weight: 800;
       color: #fff; margin-bottom: 0.35rem; letter-spacing: -0.01em;
     }
     .skill-modal-section-label {
-      font-size: 0.68rem; font-weight: 500;
+      font-size: 0.68rem; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.3); margin-bottom: 0.5rem;
+      color: rgba(255,255,255,0.55); margin-bottom: 0.5rem;
       margin-top: 1.1rem; display: block;
     }
     .skill-modal-what {
-      font-size: 0.87rem; color: rgba(255,255,255,0.6); line-height: 1.65;
+      font-size: 0.87rem; color: rgba(255,255,255,0.78); line-height: 1.65;
     }
     .skill-modal-exp {
-      font-size: 0.87rem; color: rgba(255,255,255,0.75); line-height: 1.65;
-      background: rgba(28,110,247,0.08); border: 1px solid rgba(28,110,247,0.15);
+      font-size: 0.87rem; color: rgba(255,255,255,0.88); line-height: 1.65;
+      background: rgba(28,110,247,0.1); border: 1px solid rgba(28,110,247,0.2);
       border-radius: 10px; padding: 0.85rem 1rem;
     }
 
@@ -2330,17 +2560,17 @@ footer {
     .skill-nav-btn {
       display: flex; align-items: center; gap: 0.4rem;
       padding: 0.55rem 1rem; border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
       background: rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.55); font-size: 0.8rem; font-weight: 500;
+      color: rgba(255,255,255,0.75); font-size: 0.8rem; font-weight: 500;
       cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       user-select: none;
     }
-    .skill-nav-btn:hover { background: rgba(28,110,247,0.15); border-color: rgba(28,110,247,0.35); color: #fff; }
-    .skill-nav-btn.exit { border-color: rgba(255,80,80,0.25); color: rgba(255,120,120,0.7); }
-    .skill-nav-btn.exit:hover { background: rgba(255,60,60,0.1); border-color: rgba(255,80,80,0.5); color: #ff8080; }
-    .skill-nav-btn.primary { background: rgba(28,110,247,0.2); border-color: rgba(28,110,247,0.4); color: #4a9eff; }
+    .skill-nav-btn:hover { background: rgba(28,110,247,0.15); border-color: rgba(28,110,247,0.4); color: #fff; }
+    .skill-nav-btn.exit { border-color: rgba(255,80,80,0.35); color: rgba(255,140,140,0.85); }
+    .skill-nav-btn.exit:hover { background: rgba(255,60,60,0.1); border-color: rgba(255,80,80,0.55); color: #ff9a9a; }
+    .skill-nav-btn.primary { background: rgba(28,110,247,0.2); border-color: rgba(28,110,247,0.45); color: #6da8ff; }
     .skill-nav-btn.primary:hover { background: rgba(28,110,247,0.3); color: #fff; }
 
     /* DOT INDICATORS */
@@ -2349,7 +2579,7 @@ footer {
     }
     .skill-dot {
       width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.2);
       transition: background 0.2s, transform 0.2s;
     }
     .skill-dot.active { background: #4a9eff; transform: scale(1.3); }
@@ -2369,7 +2599,7 @@ footer {
     .skill-row { cursor: pointer; }
     .skill-row:hover { background: rgba(74,143,255,0.1) !important; }
     .skill-click-hint {
-      font-size: 10px; color: rgba(255,255,255,0.25);
+      font-size: 10px; color: rgba(255,255,255,0.45);
       margin-left: auto; opacity: 0;
       transition: opacity 0.2s; white-space: nowrap;
     }
@@ -2381,7 +2611,7 @@ footer {
       border: 1px solid rgba(74,143,255,0.4);
       align-items: center; justify-content: center;
       flex-shrink: 0; margin-left: auto;
-      font-size: 11px; color: rgba(74,143,255,0.9);
+      font-size: 11px; color: rgba(74,143,255,0.95);
       font-weight: 700; line-height: 1;
     }
     @media (hover: none) and (pointer: coarse) {
