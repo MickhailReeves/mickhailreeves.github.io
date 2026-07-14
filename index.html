@@ -930,8 +930,10 @@ section { padding: 4rem 2.5rem; }
 #testimonials { background: var(--surface); border-bottom: 1px solid var(--border); }
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
   gap: 1.25rem;
+  align-items: stretch;
 }
 .testimonial-card {
   background: var(--white);
@@ -1505,41 +1507,6 @@ footer {
             </div>
           </div>
 
-          <div style="margin-top: 1.5rem;">
-            <div class="exp-col-head">Selected Coursework</div>
-            <div class="coursework-grid">
-              <div class="course-item">
-                <div class="course-code">HF700</div>
-                <div class="course-name">Foundations in Human Factors</div>
-                <div class="course-meta">Prof. Ziat &nbsp;&middot;&nbsp; Spring 2026</div>
-              </div>
-              <div class="course-item">
-                <div class="course-code">HF710</div>
-                <div class="course-name">Managing the Experience Design Process</div>
-                <div class="course-meta">Prof. Kidd &nbsp;&middot;&nbsp; Spring 2026</div>
-              </div>
-              <div class="course-item">
-                <div class="course-code">HF750</div>
-                <div class="course-name">Testing and Assessment Programs</div>
-                <div class="course-meta">Prof. Estes &nbsp;&middot;&nbsp; Spring 2026</div>
-              </div>
-              <div class="course-item">
-                <div class="course-code">HF730</div>
-                <div class="course-name">Visualizing Information</div>
-                <div class="course-meta">Prof. Ericson &nbsp;&middot;&nbsp; Summer 2026</div>
-              </div>
-              <div class="course-item">
-                <div class="course-code">CS655</div>
-                <div class="course-name">Managing with Analytics: From Data to AI</div>
-                <div class="course-meta">Prof. Brown &nbsp;&middot;&nbsp; Summer 2026</div>
-              </div>
-              <div class="course-item">
-                <div class="course-code">MG632</div>
-                <div class="course-name">Leading Effective Work Teams</div>
-                <div class="course-meta">Prof. Torrijos &nbsp;&middot;&nbsp; Summer 2026</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -1956,6 +1923,18 @@ footer {
           <div>
             <div class="testimonial-name">Prof. Mounia Ziat</div>
             <div class="testimonial-role">HF700, Foundations in Human Factors</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">Your ability to synthesize complex concepts, evaluate organizational strategy, and communicate your recommendations in a clear, evidence-based manner demonstrates the level of scholarship and executive reasoning expected of advanced graduate students and future organizational leaders.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DB</div>
+          <div>
+            <div class="testimonial-name">Prof. Denise Brown</div>
+            <div class="testimonial-role">CS655, Managing with Analytics: From Data to AI</div>
           </div>
         </div>
       </div>
