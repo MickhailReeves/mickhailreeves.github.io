@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mickhail Reeves - UX Research Portfolio</title>
+<meta name="description" content="Mickhail Reeves is a UX researcher and human factors specialist graduating from Bentley University in December 2026. Open to research, design, and hybrid roles. Mixed-methods research, usability testing, and data-driven information design.">
+<meta name="keywords" content="UX Research, User Experience Research, Human Factors, Information Design, Usability Testing, Accessibility, WCAG, A/B Testing, Information Architecture, Data Visualization, Bentley University">
+<meta name="author" content="Mickhail Reeves">
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mickhail Reeves - UX Research Portfolio">
+<meta property="og:description" content="UX researcher and human factors specialist graduating December 2026. Open to research, design, and hybrid roles. Mixed-methods research, usability testing, and data-driven information design.">
+<meta property="og:image" content="Landing_Page.jpg">
+<meta property="og:url" content="https://mickhailreeves.github.io/">
+<meta property="og:site_name" content="Mickhail Reeves Portfolio">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mickhail Reeves - UX Research Portfolio">
+<meta name="twitter:description" content="UX researcher and human factors specialist graduating December 2026. Open to research, design, and hybrid roles.">
+<meta name="twitter:image" content="Landing_Page.jpg">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Hide the text insertion caret site-wide (no input fields on this page) */
+* { caret-color: transparent; }
+
+:root {
+  --navy: #08122a;
+  --navy-mid: #112040;
+  --navy-light: #1a3260;
+  --blue: #1c6ef7;
+  --blue-bright: #4a8fff;
+  --blue-pale: #dbeafe;
+  --blue-ghost: #f0f5ff;
+  --ink: #0f172a;
+  --ink-mid: #334155;
+  --ink-muted: #64748b;
+  --ink-faint: #94a3b8;
+  --white: #ffffff;
+  --border: #e2e8f0;
+  --border-blue: #bfdbfe;
+  --surface: #f8faff;
+  --gold: #f59e0b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #0a1428;
+    --surface: #0d1a30;
+    --ink: #e5edf8;
+    --ink-mid: #b8c5d8;
+    --ink-muted: #8294b0;
+    --ink-faint: #6b7d99;
+    --border: #1e2d47;
+    --border-blue: #1e3760;
+    --blue-pale: #1a2940;
+    --blue-ghost: #0d1f3c;
+  }
+
+  /* These elements sit on always-dark backgrounds (hero, nav, projects, contact)
+     so they must stay true white even in dark mode. */
+  .nav-name,
+  .hero h1,
+  .hero-desc,
+  .hero-stat .num,
+  #projects .section-title,
+  .card-title,
+  .step-name,
+  .impact-pct,
+  .proto-head,
+  .contact-link,
+  .contact-link.dark,
+  #contact > p,
+  #contact .section-title { color: #ffffff !important; }
+}
+
+html { scroll-behavior: smooth; }
+
+/* Themed scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue) transparent;
+}
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 10px;
+  border: 3px solid var(--navy);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--blue-bright); }
+::-webkit-scrollbar-corner { background: var(--navy); }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(8, 18, 42, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.nav-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.nav-name span { color: var(--blue-bright); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #08122a 0%, #0d2251 40%, #1a4080 70%, #1c6ef7 100%);
+  display: flex;
+  align-items: center;
+  padding: 8rem 2.5rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(28,110,247,0.3) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(74,143,255,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  background: rgba(74,143,255,0.12);
+  border: 1px solid rgba(74,143,255,0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 1.75rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue-bright);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+.hero-open-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #4ade80;
+  background: rgba(74,222,128,0.1);
+  border: 1px solid rgba(74,222,128,0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 1.25rem;
+  margin-left: 0.75rem;
+}
+.hero-open-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse 2s infinite;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.hero h1 .line2 {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.4);
+}
+.hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+.btn-primary {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--blue-bright); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.85); color: var(--white); }
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+}
+.hero-stat .num {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.hero-stat .num span { color: var(--blue-bright); }
+.hero-stat .lbl {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* SECTIONS */
+section { padding: 5rem 2.5rem; }
+.section-inner { max-width: 960px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* ABOUT */
+#about { background: var(--surface); border-bottom: 1px solid var(--border); }
+.about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: start; }
+.about-text p { color: var(--ink-mid); margin-bottom: 1rem; font-size: 0.97rem; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-photo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.about-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--blue);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 6px var(--blue-pale);
+}
+.about-photo-name { }
+.about-photo-name strong {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+.about-photo-name span {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.skills-panel {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 1.75rem;
+  color: var(--white);
+}
+.skills-panel-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1.25rem;
+}
+.skill-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #243a63;
+  font-size: 0.88rem;
+}
+.skill-row:last-child { border-bottom: none; }
+.skill-row span:first-child { color: rgba(255,255,255,0.85); }
+.skill-bar-wrap {
+  display: flex;
+  gap: 3px;
+}
+.skill-pip {
+  width: 18px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.1);
+}
+.skill-pip.on { background: var(--blue-bright); }
+
+/* EXPERIENCE */
+#experience { background: var(--white); border-bottom: 1px solid var(--border); }
+.exp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.exp-col-head {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--blue);
+  display: inline-block;
+}
+.exp-entry { margin-bottom: 1.75rem; }
+.exp-header { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; margin-bottom: 0.1rem; }
+.exp-role { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+.exp-date { font-size: 0.75rem; color: var(--blue); white-space: nowrap; flex-shrink: 0; font-weight: 500; }
+.exp-place { font-size: 0.82rem; color: var(--ink-muted); margin-bottom: 0.5rem; }
+.exp-bullets { list-style: none; }
+.exp-bullets li {
+  font-size: 0.84rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  padding-left: 1rem;
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+.exp-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.research-card {
+  border: 1px solid var(--border-blue);
+  border-left: 3px solid var(--blue);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.1rem;
+  background: var(--blue-ghost);
+}
+.research-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.4rem;
+}
+.research-title { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+.research-desc { font-size: 0.82rem; color: var(--ink-mid); line-height: 1.55; }
+
+.edu-entry { margin-bottom: 1.25rem; }
+.edu-entry-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+.edu-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.edu-logo-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .edu-logo-light { display: none; }
+  .edu-logo-dark { display: block; }
+}
+.edu-degree { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ink); }
+
+.coursework-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+.course-item {
+  background: var(--blue-ghost);
+  border: 1px solid var(--border-blue);
+  border-left: 3px solid var(--blue);
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.course-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(28,110,247,0.12);
+}
+.course-code {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  margin-bottom: 0.15rem;
+}
+.course-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+}
+.course-meta {
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 720px) {
+  .coursework-grid { grid-template-columns: 1fr; }
+}
+.edu-school { font-size: 0.82rem; color: var(--ink-muted); margin-top: 0.1rem; }
+.edu-date { font-size: 0.75rem; color: var(--blue); font-weight: 500; margin-top: 0.1rem; }
+
+/* PROJECTS */
+#projects { background: var(--navy); }
+#projects .section-eyebrow { color: var(--blue-bright); }
+#projects .section-title { color: var(--white); }
+
+.project-card {
+  background: #13234a;
+  border: 1px solid #2e4a7d;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+.project-card:last-child { margin-bottom: 0; }
+.card-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #243a63;
+}
+.card-type { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-bright); }
+.card-badge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(28,110,247,0.2);
+  border: 1px solid rgba(28,110,247,0.3);
+  color: var(--blue-bright);
+}
+.card-body { padding: 2rem; }
+.card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.card-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.78); margin-bottom: 1.75rem; }
+
+.card-meta-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 0;
+  border-top: 1px solid #243a63;
+  border-bottom: 1px solid #243a63;
+  margin-bottom: 2rem;
+}
+.meta-cell .lbl { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 0.2rem; }
+.meta-cell .val { font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+
+.card-section { margin-bottom: 2rem; }
+.card-section-title {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #243a63;
+}
+.card-section p { font-size: 0.9rem; color: rgba(255,255,255,0.88); line-height: 1.7; margin-bottom: 0.75rem; }
+.card-section p:last-child { margin-bottom: 0; }
+
+/* SCREENSHOT SHOWCASE */
+.prototype-showcase {
+  border: 1px solid #2e4a7d;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 0.75rem;
+}
+.browser-bar {
+  background: rgba(255,255,255,0.06);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid #243a63;
+}
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.browser-url {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.85);
+  margin-left: 0.5rem;
+  font-family: 'DM Sans', monospace;
+}
+.prototype-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* METHOD STEPS */
+.method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.75rem; }
+.method-step {
+  background: #1a2d54;
+  border: 1px solid #2a4a85;
+  border-radius: 10px;
+  padding: 1.1rem;
+}
+.step-num { font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--blue-bright); margin-bottom: 0.25rem; }
+.step-name { font-weight: 500; font-size: 0.88rem; color: var(--white); margin-bottom: 0.25rem; }
+.step-desc { font-size: 0.78rem; color: rgba(255,255,255,0.78); line-height: 1.55; }
+
+/* STATS */
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 0.75rem; }
+.stat-box {
+  background: #1c3158;
+  border: 1px solid #2e4a7d;
+  border-radius: 10px;
+  padding: 1.1rem;
+  text-align: center;
+}
+.stat-num { font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 800; color: var(--blue-bright); line-height: 1; margin-bottom: 0.25rem; }
+.stat-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.75); line-height: 1.4; }
+
+/* FINDINGS */
+.findings-list { display: grid; gap: 0.75rem; margin-top: 0.75rem; }
+.finding-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  background: #1c3158;
+  border: 1px solid #2e4a7d;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+.finding-num {
+  width: 28px;
+  height: 28px;
+  background: rgba(28,110,247,0.2);
+  border: 1px solid rgba(28,110,247,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--blue-bright);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.finding-text strong { font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.9); display: block; margin-bottom: 0.2rem; }
+.finding-text span { font-size: 0.82rem; color: rgba(255,255,255,0.78); line-height: 1.55; }
+
+/* QUOTE */
+.pull-quote {
+  border-left: 3px solid var(--blue-bright);
+  padding: 0.85rem 1.25rem;
+  margin: 1.25rem 0;
+  background: rgba(28,110,247,0.08);
+  border-radius: 0 8px 8px 0;
+}
+.pull-quote p {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0.35rem;
+}
+.pull-quote cite { font-size: 0.75rem; color: rgba(255,255,255,0.85); font-style: normal; }
+
+/* PROTOTYPE COMPONENTS TABLE */
+.proto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; margin-top: 0.75rem; }
+.proto-item {
+  border: 1px solid #2e4a7d;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.proto-head {
+  background: rgba(28,110,247,0.15);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.proto-score {
+  background: rgba(28,110,247,0.3);
+  border-radius: 20px;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  color: var(--blue-bright);
+}
+.proto-body { padding: 0.75rem 0.9rem; font-size: 0.78rem; color: rgba(255,255,255,0.78); line-height: 1.5; }
+
+/* IMPACT */
+.impact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.75rem; }
+.impact-box {
+  border: 1px solid #2e4a7d;
+  border-radius: 10px;
+  padding: 1.25rem;
+  background: #1c3158;
+}
+.impact-pct { font-family: 'Inter', sans-serif; font-size: 2.25rem; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 0.35rem; }
+.impact-pct .accent { color: var(--blue-bright); }
+.impact-desc { font-size: 0.78rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+
+/* TAGS */
+.tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+.tag {
+  font-size: 0.77rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid #2e4a7d;
+  color: rgba(255,255,255,0.5);
+}
+
+/* JOURNEY MAP */
+.journey-map {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+.journey-track {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(150px, 1fr));
+  gap: 0.6rem;
+  min-width: 900px;
+}
+.journey-stage {
+  background: #1c3158;
+  border: 1px solid #2e4a7d;
+  border-radius: 10px;
+  padding: 0.85rem 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.journey-stage.gap {
+  background: rgba(245,158,11,0.08);
+  border-color: rgba(245,158,11,0.35);
+}
+.journey-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--blue-bright);
+  margin-bottom: 0.25rem;
+}
+.journey-stage.gap .journey-num { color: var(--gold); }
+.journey-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+.journey-goal {
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.journey-finding {
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  margin-top: auto;
+}
+.journey-sentiment {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.sentiment-pos { color: #4ade80; }
+.sentiment-neu { color: #fbbf24; }
+.sentiment-neg { color: #f87171; }
+.sentiment-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.journey-legend {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+}
+.journey-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.journey-gap-callout {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+.journey-gap-callout strong { color: var(--gold); font-weight: 500; }
+.journey-scroll-hint {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0.5rem;
+  display: none;
+}
+@media (max-width: 720px) {
+  .journey-scroll-hint { display: block; }
+}
+
+/* TESTIMONIALS */
+#testimonials { background: var(--surface); border-bottom: 1px solid var(--border); }
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+.testimonial-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(28,110,247,0.12);
+  border-color: var(--border-blue);
+}
+.testimonial-quote-mark {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.5rem;
+  line-height: 0.5;
+  color: var(--blue);
+  opacity: 0.25;
+  height: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.testimonial-text {
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.testimonial-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.testimonial-role {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+  .testimonial-grid { grid-template-columns: 1fr; }
+}
+
+/* CONTACT */
+#contact {
+  background: var(--blue);
+  padding: 5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#contact::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+#contact .section-eyebrow { color: rgba(255,255,255,0.85); position: relative; }
+#contact .section-title { color: var(--white); margin-bottom: 1rem; position: relative; }
+#contact > p { color: rgba(255,255,255,0.85); margin-bottom: 2.5rem; font-size: 1rem; position: relative; }
+.contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; }
+.contact-link {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.contact-link:hover { background: rgba(255,255,255,0.12); }
+.contact-link.dark {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+.contact-link.dark:hover { background: var(--navy-light); }
+
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.76rem;
+}
+
+/* -- TABLET (max 900px) ------------------------------- */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .exp-cols { grid-template-columns: 1fr; gap: 2.5rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .impact-row { grid-template-columns: repeat(2, 1fr); }
+  .proto-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-meta-row { gap: 1rem; }
+}
+
+/* -- MOBILE (max 720px) ------------------------------- */
+@media (max-width: 720px) {
+  /* NAV - hidden links, hamburger menu */
+  nav {
+    padding: 0 1rem;
+    height: 54px;
+  }
+  .nav-links { display: none; }
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .mobile-menu {
+    position: fixed;
+    top: 54px; left: 0; right: 0;
+    background: rgba(8,18,42,0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 1.5rem;
+    z-index: 199;
+    transform: translateY(-110%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu a {
+    display: block;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #243a63;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: #4a9eff; }
+
+  /* HERO */
+  .hero {
+    padding: 6rem 1.25rem 3.5rem;
+    min-height: auto;
+  }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-desc { font-size: 0.95rem; }
+  .hero-actions { flex-direction: column; gap: 0.75rem; }
+  .btn-primary, .btn-ghost {
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    width: 100%;
+    display: block;
+  }
+  .hero-stats {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .hero-stat .num { font-size: 1.6rem; }
+
+  /* SECTIONS */
+  section { padding: 3rem 1.25rem; }
+  .section-title { font-size: 1.6rem; margin-bottom: 1.75rem; }
+
+  /* ABOUT */
+  .about-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .about-photo-wrap { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .about-photo { width: 70px; height: 70px; }
+  .skills-panel { padding: 1.25rem; }
+
+  /* EXPERIENCE */
+  .exp-cols { grid-template-columns: 1fr; gap: 2rem; }
+  .exp-header { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .exp-date { font-size: 0.72rem; }
+
+  /* PROJECTS */
+  .card-body { padding: 1.25rem; }
+  .card-top-bar { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.5rem; }
+  .card-title { font-size: 1.2rem; }
+  .card-meta-row {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.85rem 0;
+  }
+  .method-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  .stat-num { font-size: 1.6rem; }
+  .proto-grid { grid-template-columns: 1fr; }
+  .impact-row { grid-template-columns: 1fr; }
+  .impact-pct { font-size: 1.75rem; }
+  .tag-list { gap: 0.4rem; }
+  .tag { font-size: 0.72rem; padding: 3px 9px; }
+
+  /* PULL QUOTE */
+  .pull-quote p { font-size: 0.9rem; }
+
+  /* FINDINGS */
+  .finding-item { padding: 0.85rem; }
+  .finding-text strong { font-size: 0.85rem; }
+  .finding-text span { font-size: 0.78rem; }
+
+  /* BROWSER MOCKUP */
+  .browser-bar { padding: 6px 10px; }
+  .browser-url { font-size: 0.65rem; }
+
+  /* CONTACT */
+  #contact { padding: 3.5rem 1.25rem; }
+  .contact-links { flex-direction: column; align-items: center; gap: 0.75rem; }
+  .contact-link { width: 100%; text-align: center; padding: 0.85rem 1rem; }
+
+  /* SKILL MODAL */
+  .skill-modal {
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+    border-radius: 14px;
+  }
+  .skill-modal-name { font-size: 1.1rem; }
+  .skill-modal-what, .skill-modal-exp { font-size: 0.82rem; }
+}
+
+/* PROJECT PREVIEW CARDS (index.html scannable version) */
+.projects-lead {
+  color: var(--ink-mid);
+  font-size: 1rem;
+  max-width: 640px;
+  margin: -0.5rem 0 2.5rem;
+  line-height: 1.6;
+}
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.preview-card {
+  display: flex;
+  flex-direction: column;
+  background: #13234a;
+  border: 1px solid #2e4a7d;
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.preview-thumb {
+  width: calc(100% + 3.5rem);
+  margin: -1.75rem -1.75rem 1.25rem;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 16px 16px 0 0;
+  border-bottom: 1px solid #2e4a7d;
+  display: block;
+}
+.preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(28,110,247,0.22);
+  border-color: var(--blue);
+}
+.preview-type {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 0.85rem;
+}
+.preview-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+}
+.preview-desc {
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+.preview-stats {
+  display: flex;
+  gap: 1.25rem;
+  padding-top: 1rem;
+  margin-bottom: 1.1rem;
+  border-top: 1px solid #243a63;
+}
+.preview-stat {
+  display: flex;
+  flex-direction: column;
+}
+.pstat-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--blue-bright);
+  line-height: 1.2;
+}
+.pstat-lbl {
+  font-size: 0.66rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.3;
+  margin-top: 0.15rem;
+}
+.preview-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue-bright);
+}
+
+/* ADDITIONAL WORK CARD */
+#additional-work { background: var(--navy); }
+#additional-work .section-eyebrow { color: var(--blue-bright); }
+#additional-work .section-title,
+#additional-work .projects-lead { color: #ffffff; }
+#additional-work .projects-lead { color: rgba(255,255,255,0.75); }
+
+.addl-work-card {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  background: #13234a;
+  border: 1px solid #2e4a7d;
+  border-radius: 16px;
+  padding: 1.75rem;
+  align-items: center;
+}
+.addl-work-slides {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+.addl-work-slides img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #2e4a7d;
+  display: block;
+}
+.design-slides-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.75rem;
+}
+.design-slides-grid img:first-child {
+  grid-column: 1 / -1;
+}
+.design-slides-grid img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #2e4a7d;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+.addl-work-body .preview-title { margin-bottom: 0.85rem; }
+.addl-work-body .preview-desc { margin-bottom: 1.5rem; }
+.addl-work-body .preview-stats { margin-bottom: 1.5rem; }
+
+@media (max-width: 900px) {
+  .preview-grid { grid-template-columns: 1fr; }
+  .addl-work-card { grid-template-columns: 1fr; }
+}
+
+/* WORK PAGE HEADER (reused for About page) */
+.work-header {
+  background: var(--navy);
+  padding: 8.5rem 2.5rem 3.5rem;
+}
+.work-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.back-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  margin-bottom: 1.75rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--blue-bright); }
+.work-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 0.75rem;
+}
+.work-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+.work-desc {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.75);
+  max-width: 620px;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-name">Mickhail<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html#about">About</a></li>
+    <li><a href="about.html#experience">Experience</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" style="display:none;">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="about.html#about" class="mobile-nav-link">About</a>
+  <a href="about.html#experience" class="mobile-nav-link">Experience</a>
+  <a href="work.html" class="mobile-nav-link">Work</a>
+  <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+</div>
+
+<!-- ABOUT PAGE HEADER -->
+<div class="work-header">
+  <div class="work-header-inner">
+    <a href="index.html" class="back-link">&larr; Back to home</a>
+    <div class="work-eyebrow">About</div>
+    <h1 class="work-title">The full story</h1>
+    <p class="work-desc">Background, experience, education, and everything that doesn't fit on a scan-friendly landing page.</p>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-inner">
+    <p class="section-eyebrow">Background</p>
+    <h2 class="section-title">About me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="about-photo-wrap">
+          <img class="about-photo" src="headshot.jpg" alt="Mickhail Reeves - UX Researcher" width="240" height="240" decoding="async">
+          <div class="about-photo-name">
+            <strong>Mickhail Reeves</strong>
+            <span>M.S. HFID Candidate · Bentley University</span>
+          </div>
+        </div>
+        <p>I'm a graduate student in Human Factors in Information Design at Bentley University, where I focus on the intersection of user research, information architecture, and evidence-based design. My work centers on understanding how people process information under uncertainty and translating those insights into systems that actually work.</p>
+        <p>My research projects have spanned enterprise SaaS pricing transparency, file-management workflows, the usability of AI-assisted health tools, and post-fulfillment product support experiences. I approach each project with structured qualitative methods, tight stakeholder alignment, and a commitment to findings that are actionable rather than just interesting.</p>
+        <p>My undergraduate training in psychology and computer science gives me a dual lens: I understand why users behave the way they do, and I can bridge that to the technical and design constraints teams actually work with. Before graduate school, I built experience in crisis counseling, care management, and STEM instruction, all roles that sharpened my ability to communicate complex information clearly and meet people where they are.</p>
+        <p>I also build AI tools directly into my research and design process, using them to speed up synthesis, ideation, and early iteration, while keeping the judgment calls that make findings and designs actually usable in my own hands.</p>
+      </div>
+      </div>
+      <div>
+        <div class="skills-panel">
+          <div class="skills-panel-title">Core Methods &amp; Tools</div>
+          <div class="skill-row">
+            <span>Qualitative Research</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Usability Testing</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Survey Design</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Affinity Diagramming</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Prototype Design</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Figma / FigJam</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Photoshop / Illustrator</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Agile / Scrum / Jira</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>SPSS / Data Analysis</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Research Reporting</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Information Architecture</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Accessibility / WCAG</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>A/B Testing</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>Google Analytics</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span>AI-Enabled Workflow</span>
+            <div class="skill-bar-wrap">
+              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-eyebrow">History</p>
+    <h2 class="section-title">Experience &amp; Research</h2>
+    <div class="exp-cols">
+
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:2px solid var(--blue);">
+          <div class="exp-col-head" style="margin-bottom:0; padding-bottom:0; border-bottom:none;">Professional Experience</div>
+          <a href="Mickhail-Reeves-Resume.docx" download style="display:inline-flex; align-items:center; gap:7px; font-size:0.88rem; font-weight:600; color:#ffffff; text-decoration:none; background:var(--blue); border:1px solid var(--blue); padding:9px 20px; border-radius:8px; box-shadow:0 2px 10px rgba(28,110,247,0.35); transition:background 0.2s, transform 0.15s, box-shadow 0.2s;" onmouseover="this.style.background='#4a8fff';this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 16px rgba(28,110,247,0.5)';" onmouseout="this.style.background='var(--blue)';this.style.transform='';this.style.boxShadow='0 2px 10px rgba(28,110,247,0.35)';">&#x2B07; Download Resume</a>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-role">Graduate Researcher &amp; Designer</div>
+            <div class="exp-date">2026 - Present</div>
+          </div>
+          <div class="exp-place">Bentley University, HFID Program - Waltham, MA</div>
+          <ul class="exp-bullets">
+            <li>Conducted end-to-end UX research including survey design, semi-structured interviews, affinity diagramming, and unmoderated usability testing for an industry client in the vision care sector.</li>
+            <li>Applied human factors principles to identify usability gaps and translate research findings into actionable design recommendations and a mid-fidelity prototype.</li>
+            <li>Synthesized qualitative data across 97+ participants to surface behavioral patterns and inform information architecture decisions.</li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-role">Student Test Proctor</div>
+            <div class="exp-date">Jan 2026 - May 2026</div>
+          </div>
+          <div class="exp-place">Bentley University - Waltham, MA</div>
+          <ul class="exp-bullets">
+            <li>Administered structured testing environments, applying observation and facilitation skills directly transferable to usability test moderation.</li>
+            <li>Identified and accommodated individual participant needs, maintaining consistency in procedures while adapting to edge cases. This is a core competency in research facilitation.</li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-role">Graduate Student Ambassador</div>
+            <div class="exp-date">Summer 2026</div>
+          </div>
+          <div class="exp-place">Bentley University, HFID Program - Waltham, MA</div>
+          <ul class="exp-bullets">
+            <li>Represented the HFID program to prospective students, translating complex graduate curriculum and career-outcome information into clear, decision-supporting communication tailored to varied audiences.</li>
+            <li>Conducted informal needs assessment with prospective applicants to understand their goals, concerns, and information gaps, then adapted messaging in real time, an applied form of audience-aware information design.</li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-role">Freelance UI Designer</div>
+            <div class="exp-date">2018 - Present</div>
+          </div>
+          <div class="exp-place">Independent Contract Work | Roblox Platform</div>
+          <ul class="exp-bullets">
+            <li>Designed in-game UI components for independent developers, including inventory systems, menu screens, HUD elements, and health bars, applying principles of visual hierarchy and glanceability so players could parse information quickly during active gameplay.</li>
+            <li>Iterated layouts and interaction patterns across multiple revision cycles based on developer feedback, building applied experience in stakeholder communication, design rationale, and user-centered refinement.</li>
+            <li>Balanced creative and functional requirements across both paid client work and collaborations with independent developers, scoping deliverables and adapting to varied client needs across the engagement lifecycle.</li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-role">Crisis Counselor</div>
+            <div class="exp-date">Feb 2020 - Feb 2025</div>
+          </div>
+          <div class="exp-place">988 Suicide &amp; Crisis Lifeline (Vibrant Emotional Health) - NY</div>
+          <ul class="exp-bullets">
+            <li>Practiced active listening and real-time behavioral observation to assess caller needs and guide them toward appropriate next steps. These skills are core to UX interviewing and user research.</li>
+            <li>Communicated complex information clearly under pressure, adapting language and tone to diverse users with varying literacy levels and emotional states.</li>
+            <li>Identified recurring friction points in how callers understood available resources, developing an intuitive sense for where information systems fail users at critical moments.</li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-role">Care Manager</div>
+            <div class="exp-date">Mar 2025 - Dec 2025</div>
+          </div>
+          <div class="exp-place">LifePlan CCO - New York, NY</div>
+          <ul class="exp-bullets">
+            <li>Mapped and navigated complex service systems on behalf of members, identifying where information architecture and workflow design created barriers to access.</li>
+            <li>Translated dense policy and procedural requirements into plain-language guidance, applying information design principles to reduce cognitive load for vulnerable users.</li>
+            <li>Advocated for user needs across multiple organizational touchpoints, synthesizing feedback to surface systemic gaps. This work is directly analogous to UX research synthesis and stakeholder communication.</li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-role">STEM Instructor</div>
+            <div class="exp-date">Sept 2019 - Dec 2020</div>
+          </div>
+          <div class="exp-place">Westchester Engineering for Kids - Westchester, NY</div>
+          <ul class="exp-bullets">
+            <li>Designed and delivered hands-on learning experiences that introduced complex technical concepts to novice users, applying instructional design principles to reduce cognitive load.</li>
+            <li>Observed student behavior and adapted instruction in real time based on engagement and comprehension signals, a practice closely aligned with iterative UX design and usability evaluation.</li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div class="exp-role">Sales Associate</div>
+            <div class="exp-date">Nov 2019 - Mar 2020</div>
+          </div>
+          <div class="exp-place">Target - Westchester, NY</div>
+          <ul class="exp-bullets">
+            <li>Observed and responded to in-store customer behavior, developing an intuitive understanding of how physical information environments (wayfinding, signage, product placement) shape user decisions.</li>
+            <li>Gathered informal feedback from guests to surface unmet needs and recurring points of confusion, an early form of contextual inquiry applied to a retail environment.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="exp-col-head">Independent Research</div>
+
+        <div class="research-card">
+          <div class="research-tag">Applied Psychology &amp; Survey Research</div>
+          <div class="research-title">How African Americans View Religion From a Psychological Perspective</div>
+          <div class="research-desc">Independent undergraduate research at Oakwood University examining how African American college students perceive the integration of psychology into church communities. Designed and administered an anonymous survey study (n=50) measuring views on psychology as a science and openness to psychology-based programming in faith-based settings. Findings supported the hypothesis that younger generations show greater openness to integrating psychological wellness initiatives into religious environments. Presented at the CEPO Conference.</div>
+        </div>
+
+        <div class="research-card">
+          <div class="research-tag">Consumer Psychology</div>
+          <div class="research-title">The Psychology of Brand Loyalty</div>
+          <div class="research-desc">Independent undergraduate research at Oakwood University examining the psychological mechanisms that drive long-term consumer attachment to brands. Explored cognitive, emotional, and identity-based factors distinguishing habitual purchasing from genuine brand loyalty. Presented at the Oakwood Research Symposium.</div>
+        </div>
+
+        <div class="research-card">
+          <div class="research-tag">Human Factors &amp; Technology</div>
+          <div class="research-title">Virtual Reality as an Intervention for Public Speaking Anxiety and Phobias</div>
+          <div class="research-desc">Independent undergraduate research at Oakwood University investigating how VR-based exposure environments affect public speaking anxiety and phobia response at large. Examined immersive simulation as a desensitization tool, contributing to the applied psychology of technology-assisted behavioral intervention.</div>
+        </div>
+
+        <div style="margin-top: 2.25rem;">
+          <div class="exp-col-head">Education</div>
+
+          <div class="edu-entry">
+            <div class="edu-entry-flex">
+              <img class="edu-logo edu-logo-light" src="logo-bentley-light.png" alt="Bentley University" width="38" height="38" loading="lazy">
+              <img class="edu-logo edu-logo-dark" src="logo-bentley-dark.png" alt="Bentley University" width="38" height="38" loading="lazy">
+              <div>
+                <div class="edu-degree">M.S. Human Factors in Information Design</div>
+                <div class="edu-school">Bentley University - Waltham, MA</div>
+                <div class="edu-date">Jan 2026 - Dec 2026 (Expected)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-entry">
+            <div class="edu-entry-flex">
+              <img class="edu-logo edu-logo-light" src="logo-oakwood-light.png" alt="Oakwood University" width="38" height="38" loading="lazy">
+              <img class="edu-logo edu-logo-dark" src="logo-oakwood-dark.png" alt="Oakwood University" width="38" height="38" loading="lazy">
+              <div>
+                <div class="edu-degree">B.S. Psychology, Minor in Computer Science</div>
+                <div class="edu-school">Oakwood University - Huntsville, AL &nbsp;·&nbsp; GPA: 3.2</div>
+                <div class="edu-date">Graduated May 2019</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="section-inner">
+    <p class="section-eyebrow">What Faculty Say</p>
+    <h2 class="section-title">Recognized work</h2>
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">This is a strong session overall, and your reflection shows a high level of awareness about your role as a moderator. Nice work!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JE</div>
+          <div>
+            <div class="testimonial-name">Prof. Janelle Estes</div>
+            <div class="testimonial-role">HF750, Testing &amp; Assessment Programs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">The way you&rsquo;ve broken the workflow into stages and journey maps helped make your analysis easy to follow.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AK</div>
+          <div>
+            <div class="testimonial-name">Prof. Amy Kidd</div>
+            <div class="testimonial-role">HF710, Managing the Experience Design Process</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">Mickhail, this is a strong and well-structured brief with a clear link between theory and design.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MZ</div>
+          <div>
+            <div class="testimonial-name">Prof. Mounia Ziat</div>
+            <div class="testimonial-role">HF700, Foundations in Human Factors</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">Very well done! Your writing style is more complex than most.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AT</div>
+          <div>
+            <div class="testimonial-name">Prof. Alfonso Torrijos</div>
+            <div class="testimonial-role">MG632, Leading Effective Work Teams</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">Outstanding graduate-level case analysis. Your paper demonstrates exceptional analytical thinking, executive-level reasoning, and an impressive ability to synthesize multiple course concepts into one cohesive strategic analysis.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DB</div>
+          <div>
+            <div class="testimonial-name">Prof. Denise Brown</div>
+            <div class="testimonial-role">CS655, Managing with Analytics: From Data to AI</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">Mickhail worked under extreme pressure while managing crisis calls with not only composure and care, but determination to help every person reaching out for support.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SM</div>
+          <div>
+            <div class="testimonial-name">Sloan Matzke</div>
+            <div class="testimonial-role">Crisis Team Lead, 988 Suicide &amp; Crisis Lifeline</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+// -- 2. CUSTOM CURSOR (dot + trailing ring + hover expand) --------------------
+(function() {
+  // Only enable on devices with a fine pointer (mouse). Skip touch devices.
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (pointer: fine) {
+      * { cursor: none !important; }
+    }
+    .cur-dot {
+      position: fixed; top: 0; left: 0;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4a8fff;
+      pointer-events: none; z-index: 100000;
+      transform: translate(-50%, -50%);
+      transition: width 0.18s ease, height 0.18s ease, background 0.18s ease, opacity 0.25s ease;
+      opacity: 0;
+    }
+    .cur-ring {
+      position: fixed; top: 0; left: 0;
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1.5px solid rgba(74,143,255,0.6);
+      pointer-events: none; z-index: 100000;
+      transform: translate(-50%, -50%);
+      transition: width 0.22s ease, height 0.22s ease, border-color 0.22s ease, background 0.22s ease, opacity 0.25s ease;
+      opacity: 0;
+    }
+    .cur-glow {
+      position: fixed; top: 0; left: 0;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(28,110,247,0.06) 0%, transparent 70%);
+      pointer-events: none; z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    .cur-ring.hovering {
+      width: 54px; height: 54px;
+      border-color: rgba(74,143,255,0.9);
+      background: rgba(74,143,255,0.08);
+    }
+    .cur-dot.hovering {
+      width: 0; height: 0;
+    }
+    .cur-ring.clicking {
+      width: 26px; height: 26px;
+      border-color: rgba(74,143,255,1);
+    }
+  `;
+  document.head.appendChild(style);
+
+  const dot = document.createElement('div'); dot.className = 'cur-dot';
+  const ring = document.createElement('div'); ring.className = 'cur-ring';
+  const glow = document.createElement('div'); glow.className = 'cur-glow';
+  document.body.appendChild(glow);
+  document.body.appendChild(ring);
+  document.body.appendChild(dot);
+
+  let mouseX = 0, mouseY = 0;       // true mouse position
+  let ringX = 0, ringY = 0;         // smoothed ring position
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    // Dot and glow track instantly
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+    glow.style.left = mouseX + 'px';
+    glow.style.top = mouseY + 'px';
+    // Reveal on first move
+    dot.style.opacity = '1';
+    ring.style.opacity = '1';
+    glow.style.opacity = '1';
+  });
+
+  // Ring follows with smooth lag
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hide when leaving the window
+  document.addEventListener('mouseleave', () => {
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+    glow.style.opacity = '0';
+  });
+
+  // Expand on interactive elements
+  const interactiveSel = 'a, button, .skill-row, .skill-nav-btn, .skill-modal-close, .hamburger, [onclick], [role="button"]';
+  document.querySelectorAll(interactiveSel).forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.classList.add('hovering');
+      dot.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.classList.remove('hovering');
+      dot.classList.remove('hovering');
+    });
+  });
+
+  // Click feedback
+  document.addEventListener('mousedown', () => ring.classList.add('clicking'));
+  document.addEventListener('mouseup', () => ring.classList.remove('clicking'));
+})();
+
+// -- 3. SCROLL PROGRESS BAR ---------------------------------------------------
+(function() {
+  const bar = document.createElement('div');
+  bar.style.cssText = `
+    position:fixed;top:0;left:0;height:3px;width:0%;
+    background:linear-gradient(90deg,#1c6ef7,#4a9eff);
+    z-index:9999;transition:width 0.1s linear;border-radius:0 2px 2px 0;
+  `;
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    bar.style.width = Math.min(pct, 100) + '%';
+  });
+})();
+
+// -- 4. SCROLL FADE-IN FOR SECTIONS -------------------------------------------
+(function() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+    .fade-in-left { opacity:0; transform:translateX(-30px); transition:opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in-left.visible { opacity:1; transform:translateX(0); }
+    .project-card { transition:transform 0.25s ease, box-shadow 0.25s ease; }
+    .project-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(28,110,247,0.18); }
+    .btn-primary { transition:background 0.2s, transform 0.15s, box-shadow 0.2s !important; }
+    .btn-primary:hover { box-shadow:0 0 24px rgba(28,110,247,0.5) !important; }
+    .contact-link { transition:background 0.2s, transform 0.15s, box-shadow 0.2s; }
+    .contact-link:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
+    .skill-row { transition:background 0.2s; border-radius:6px; padding-left:6px; padding-right:6px; }
+    .skill-row:hover { background:rgba(74,143,255,0.08); }
+    .tag { transition:border-color 0.2s, color 0.2s, transform 0.15s; cursor:default; }
+    .tag:hover { border-color:rgba(74,143,255,0.5); color:rgba(255,255,255,0.8); transform:translateY(-1px); }
+    .finding-item { transition:background 0.2s, border-color 0.2s; }
+    .finding-item:hover { background:rgba(255,255,255,0.06); border-color:rgba(28,110,247,0.3); }
+    .nav-links a { position:relative; }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#4a9eff; transition:width 0.2s; border-radius:2px; }
+    .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+    .nav-links a.active { color:rgba(255,255,255,0.9) !important; }
+    .stat-box { transition:transform 0.2s, border-color 0.2s; }
+    .stat-box:hover { transform:translateY(-3px); border-color:rgba(74,143,255,0.4); }
+    .impact-box { transition:transform 0.2s, border-color 0.2s; }
+    .impact-box:hover { transform:translateY(-3px); border-color:rgba(74,143,255,0.3); }
+    .research-card { transition:transform 0.2s, box-shadow 0.2s; }
+    .research-card:hover { transform:translateY(-2px); box-shadow:0 4px 20px rgba(28,110,247,0.12); }
+  `;
+  document.head.appendChild(style);
+
+  // Add fade-in classes to elements
+  document.querySelectorAll('.section-inner, .project-card, .stat-box, .finding-item, .method-step, .proto-item, .impact-box, .exp-entry, .research-card, .edu-entry, .skills-panel, .testimonial-card, .course-item').forEach((el, i) => {
+    el.classList.add('fade-in');
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0, rootMargin: '0px 0px -20px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Safety fallback: if elements still invisible after 2.5s (observer failed on mobile), force them all visible
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 2500);
+})();
+
+// -- 6. ACTIVE NAV HIGHLIGHT ON SCROLL ----------------------------------------
+(function() {
+  const sections = Array.from(document.querySelectorAll('section[id], div.hero'));
+  const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+
+  function updateActive() {
+    let current = 'hero';
+    const scrollPos = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight;
+    const winHeight = window.innerHeight;
+
+    // If at the bottom of the page, force the last section active
+    if (scrollPos + winHeight >= docHeight - 30) {
+      const last = sections[sections.length - 1];
+      current = last.id || 'hero';
+    } else {
+      sections.forEach(s => {
+        if (scrollPos >= s.offsetTop - 120) current = s.id || 'hero';
+      });
+    }
+
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      const href = (a.getAttribute('href') || '').replace('#', '');
+      if (href === current) a.classList.add('active');
+    });
+  }
+
+  window.addEventListener('scroll', updateActive);
+  window.addEventListener('resize', updateActive);
+  updateActive();
+})();
+
+// -- 6b. FORCE SCROLL TO TOP ON LOAD (fixes mobile starting mid-page) ---------
+(function() {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  function scrollTop() {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }
+  // Run immediately and on full load
+  scrollTop();
+  window.addEventListener('load', scrollTop);
+  window.addEventListener('pageshow', scrollTop);
+})();
+
+// -- 9. HAMBURGER MENU --------------------------------------------------------
+(function() {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (!hamburger || !mobileMenu) return;
+
+  let open = false;
+
+  function toggleMenu() {
+    open = !open;
+    mobileMenu.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    const spans = hamburger.querySelectorAll('span');
+    if (open) {
+      spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+
+  // Close on link click
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      open = true;
+      toggleMenu();
+    });
+  });
+
+  // Show hamburger only on mobile via JS (matches CSS media query)
+  function checkWidth() {
+    hamburger.style.display = window.innerWidth <= 720 ? 'flex' : 'none';
+    if (window.innerWidth > 720) {
+      mobileMenu.classList.remove('open');
+      open = false;
+    }
+  }
+  checkWidth();
+  window.addEventListener('resize', checkWidth);
+})();
+// -----------------------------------------------------
+(function() {
+  const skillData = {
+    'Qualitative Research': {
+      icon: '\uD83D\uDD0D',
+      what: 'Qualitative research involves collecting non-numerical data through interviews, observations, and open-ended questions to understand user behaviors, motivations, and mental models.',
+      experience: 'Conducted n=8 semi-structured interviews for the contact lens post-fulfillment project, performed inductive coding on usability study transcripts for the Doctronic AI eye-health platform, and led contextual inquiry work across multiple HFID courses. Applied thematic analysis and affinity diagramming to synthesize findings into actionable design insights.'
+    },
+    'Usability Testing': {
+      icon: '\uD83E\uDDEA',
+      what: 'Usability testing evaluates how real users interact with a product or prototype by observing them complete tasks, identifying friction points, and measuring task success and satisfaction.',
+      experience: 'Designed and ran an unmoderated usability study (n=8) on UserTesting.com for the contact lens resource hub prototype, administered across Gen Z and Millennial cohorts. Also facilitated a moderated usability session for a Windows 11 File Explorer study, produced moderator self-reflections, and developed full test protocols, screeners, and scoring rubrics.'
+    },
+    'Survey Design': {
+      icon: '\uD83D\uDCCB',
+      what: 'Survey design is the process of building structured questionnaires to collect quantitative and qualitative data from a target population, using validated scales, screener logic, and bias-minimizing question formats.',
+      experience: 'Designed and administered an 81-respondent online survey for the contact lens post-fulfillment study, including screener logic to segment current wearers, discontinued wearers, and glasses-only users. Applied Likert scaling, ranking questions, and open-text prompts. Analyzed results to surface statistically meaningful patterns in help-seeking behavior.'
+    },
+    'Affinity Diagramming': {
+      icon: '\uD83D\uDDC2\uFE0F',
+      what: 'Affinity diagramming is a synthesis method where qualitative data points are written onto individual notes and collaboratively grouped into emergent themes, revealing patterns across large volumes of research data.',
+      experience: 'Led affinity diagram synthesis sessions to translate interview transcripts and survey responses into the three core themes driving the contact lens resource hub design. Also contributed to team affinity mapping for the Doctronic usability study, aligning findings across multiple participant transcripts and raters.'
+    },
+    'Prototype Design': {
+      icon: '\u270F\uFE0F',
+      what: 'Prototype design is the creation of interactive or static representations of a product at varying levels of fidelity, used to test design concepts with users before committing to full development.',
+      experience: 'Built a multi-page mid-fidelity HTML and JavaScript prototype for the contact lens resource hub, featuring 15+ screen views including a symptom checker, onboarding guide, ECP contact module, and care tips library. The prototype was deployed and tested with 8 real users on UserTesting.com, with findings used to drive iterative design revisions.'
+    },
+    'Figma / FigJam': {
+      icon: '\uD83C\uDFA8',
+      what: 'Figma is a collaborative design tool used for wireframing, prototyping, and high-fidelity UI design. FigJam is its whiteboard companion, used for brainstorming, journey mapping, and collaborative synthesis.',
+      experience: 'Used Figma for wireframing and design documentation across multiple projects, and FigJam for collaborative affinity mapping, journey mapping, and team brainstorming sessions. Applied both tools in the context of Agile sprint cycles, contributing to shared design systems and presentation decks reviewed by industry clients.'
+    },
+    'Agile / Scrum / Jira': {
+      icon: '\u26A1',
+      what: 'Agile is an iterative project management framework that breaks work into short cycles called sprints. Scrum is a specific Agile methodology. Jira is a project tracking tool used to manage tasks, user stories, and sprint backlogs.',
+      experience: 'Applied Agile and Scrum methodology throughout the contact lens project, producing sprint burndown charts, maintaining a prioritized backlog, and running structured sprint reviews. Coordinated task allocation across a 4-person team and tracked deliverable completion against sprint goals over a full semester engagement.'
+    },
+    'Photoshop / Illustrator': {
+      icon: '\uD83C\uDFA8',
+      what: 'Photoshop is a raster image editing tool used for photo manipulation, compositing, and pixel-based graphics. Illustrator is a vector graphics tool used for scalable icons, diagrams, and print-ready artwork.',
+      experience: 'Used Photoshop and Illustrator to design custom favicons, logo treatments, and annotated storyboard sketches for the portfolio site and the Bentley commuting data story. Applied freelance UI design experience on the Roblox platform, producing inventory icons, HUD elements, and menu graphics for independent game developers since 2018.'
+    },
+    'SPSS / Data Analysis': {
+      icon: '\uD83D\uDCCA',
+      what: 'SPSS is a statistical software platform used to analyze quantitative data. Data analysis in research contexts includes descriptive statistics, correlation, regression, and significance testing to draw conclusions from collected data.',
+      experience: 'Developed proficiency in SPSS during undergraduate psychology training at Oakwood University, applying it to analyze behavioral data in independent research on brand loyalty and VR-based phobia intervention. Applied descriptive and inferential statistics to interpret survey data across multiple research projects.'
+    },
+    'Research Reporting': {
+      icon: '\uD83D\uDCDD',
+      what: 'Research reporting is the process of translating raw findings into clear, structured documents and presentations that communicate methodology, evidence, and recommendations to stakeholders with varying levels of technical background.',
+      experience: 'Produced a full research report, project retrospective, and stakeholder presentation deck for the contact lens post-fulfillment study. Also authored research briefs, usability test reports, and a moderator self-reflection across multiple HFID courses. Writing style prioritizes plain language, evidence-grounded claims, and actionable recommendations.'
+    },
+    'Information Architecture': {
+      icon: '\uD83D\uDDC2\uFE0F',
+      what: 'Information architecture is the practice of organizing, structuring, and labeling content so people can find what they need and complete tasks efficiently. It includes navigation design, content hierarchy, and how information systems map to real user mental models.',
+      experience: 'Applied IA principles across coursework and research projects, including mapping content structure for the contact lens post-fulfillment support system and organizing the five-panel sequence of the Bentley commuting data story so evidence builds logically toward a recommendation.'
+    },
+    'Accessibility / WCAG': {
+      icon: '\u267F',
+      what: 'Accessibility is the practice of designing products usable by people with a full range of abilities. WCAG (Web Content Accessibility Guidelines) is the standard framework used to evaluate and meet accessibility requirements for digital products.',
+      experience: 'Applied accessibility principles in coursework covering WCAG standards, including color contrast, alt text, and keyboard navigation considerations. Brought this lens to portfolio development itself, auditing contrast ratios and touch-target sizing site-wide.'
+    },
+    'A/B Testing': {
+      icon: '\uD83D\uDD00',
+      what: 'A/B testing is a method of comparing two versions of a design or experience to determine which performs better against a defined metric, using controlled experimentation to validate design decisions with data rather than opinion.',
+      experience: 'Studied and applied A/B testing principles in coursework covering experimental design and quantitative evaluation methods, including how to structure a valid test, avoid confounding variables, and interpret statistical significance in a UX context.'
+    },
+    'Google Analytics': {
+      icon: '\uD83D\uDCC8',
+      what: 'Google Analytics is a web analytics platform used to track and report user behavior on websites and digital products, including traffic sources, engagement patterns, and conversion funnels.',
+      experience: 'Applied Google Analytics in coursework and independent projects to understand user behavior patterns and inform design and content decisions based on real usage data rather than assumptions.'
+    },
+    'AI-Enabled Workflow': {
+      icon: '\u2728',
+      what: 'Incorporating AI tools directly into the research and design process to speed up synthesis, ideation, and iteration, while keeping human judgment in charge of what actually ships.',
+      experience: 'Used AI tools throughout coursework and project work: synthesizing qualitative research data, exploring visualization and layout directions before committing to one, accelerating first drafts of research reports and presentations, and rapidly prototyping design concepts for early feedback. Applied this workflow across the contact lens research project, the Bentley commuting data story, and this portfolio itself.'
+    }
+  };
+
+  // Inject modal styles
+  const modalStyle = document.createElement('style');
+  modalStyle.textContent = `
+    .skill-modal-overlay {
+      position: fixed; inset: 0; z-index: 10000;
+      background: rgba(8,18,42,0.8); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s ease;
+      padding: 1.5rem;
+    }
+    .skill-modal-overlay.open { opacity: 1; pointer-events: all; }
+    .skill-modal {
+      background: #0d1f3c;
+      border: 1px solid rgba(74,143,255,0.25);
+      border-radius: 18px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(16px) scale(0.97);
+      transition: transform 0.3s ease;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(74,143,255,0.1);
+      position: relative;
+    }
+    .skill-modal::-webkit-scrollbar { width: 6px; }
+    .skill-modal::-webkit-scrollbar-track { background: transparent; }
+    .skill-modal::-webkit-scrollbar-thumb { background: rgba(74,143,255,0.3); border-radius: 3px; }
+    .skill-modal-overlay.open .skill-modal { transform: translateY(0) scale(1); }
+
+    /* TOP BAR: close + counter */
+    .skill-modal-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .skill-modal-counter {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.85);
+    }
+    .skill-modal-counter span { color: #4a9eff; }
+    .skill-modal-close {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5); font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s, color 0.2s;
+    }
+    .skill-modal-close:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+    /* CONTENT */
+    .skill-modal-icon {
+      font-size: 2rem; margin-bottom: 0.75rem;
+      display: block; line-height: 1;
+    }
+    .skill-modal-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.3rem; font-weight: 800;
+      color: #fff; margin-bottom: 0.35rem; letter-spacing: -0.01em;
+    }
+    .skill-modal-section-label {
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 0.5rem;
+      margin-top: 1.1rem; display: block;
+    }
+    .skill-modal-what {
+      font-size: 0.87rem; color: rgba(255,255,255,0.85); line-height: 1.65;
+    }
+    .skill-modal-exp {
+      font-size: 0.87rem; color: rgba(255,255,255,0.75); line-height: 1.65;
+      background: rgba(28,110,247,0.08); border: 1px solid rgba(28,110,247,0.15);
+      border-radius: 10px; padding: 0.85rem 1rem;
+    }
+
+    /* CAROUSEL NAV */
+    .skill-modal-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 1.75rem; gap: 0.75rem;
+    }
+    .skill-nav-btn {
+      display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 1rem; border-radius: 8px;
+      border: 1px solid #2e4a7d;
+      background: #1c3158;
+      color: rgba(255,255,255,0.8); font-size: 0.8rem; font-weight: 500;
+      cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      user-select: none;
+    }
+    .skill-nav-btn:hover { background: rgba(28,110,247,0.15); border-color: rgba(28,110,247,0.35); color: #fff; }
+    .skill-nav-btn.exit { border-color: rgba(255,80,80,0.25); color: rgba(255,120,120,0.7); }
+    .skill-nav-btn.exit:hover { background: rgba(255,60,60,0.1); border-color: rgba(255,80,80,0.5); color: #ff8080; }
+    .skill-nav-btn.primary { background: rgba(28,110,247,0.2); border-color: rgba(28,110,247,0.4); color: #4a9eff; }
+    .skill-nav-btn.primary:hover { background: rgba(28,110,247,0.3); color: #fff; }
+
+    /* DOT INDICATORS */
+    .skill-modal-dots {
+      display: flex; align-items: center; gap: 5px;
+    }
+    .skill-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .skill-dot.active { background: #4a9eff; transform: scale(1.3); }
+
+    /* SLIDE ANIMATION */
+    .skill-modal-content {
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .skill-modal-content.slide-out-left {
+      opacity: 0; transform: translateX(-18px);
+    }
+    .skill-modal-content.slide-out-right {
+      opacity: 0; transform: translateX(18px);
+    }
+
+    /* SKILL ROW */
+    .skill-row { cursor: pointer; }
+    .skill-row:hover { background: rgba(74,143,255,0.1) !important; }
+    .skill-click-hint {
+      font-size: 10px; color: rgba(255,255,255,0.8);
+      margin-left: auto; opacity: 0;
+      transition: opacity 0.2s; white-space: nowrap;
+    }
+    .skill-row:hover .skill-click-hint { opacity: 1; }
+    .skill-tap-hint {
+      display: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(74,143,255,0.15);
+      border: 1px solid rgba(74,143,255,0.4);
+      align-items: center; justify-content: center;
+      flex-shrink: 0; margin-left: auto;
+      font-size: 11px; color: rgba(74,143,255,0.9);
+      font-weight: 700; line-height: 1;
+    }
+    @media (hover: none) and (pointer: coarse) {
+      .skill-click-hint { display: none !important; }
+      .skill-tap-hint { display: flex !important; }
+    }
+
+    @media (max-width: 720px) {
+      .skill-modal {
+        padding: 1.25rem 1.1rem;
+        border-radius: 14px;
+        max-height: 85vh;
+      }
+      .skill-modal-topbar { margin-bottom: 1rem; }
+      .skill-modal-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+      .skill-modal-name { font-size: 1.05rem; }
+      .skill-modal-section-label { margin-top: 0.85rem; margin-bottom: 0.35rem; }
+      .skill-modal-what, .skill-modal-exp { font-size: 0.8rem; line-height: 1.55; }
+      .skill-modal-exp { padding: 0.7rem 0.85rem; }
+      .skill-modal-nav { margin-top: 1.25rem; gap: 0.5rem; }
+      .skill-nav-btn { padding: 0.5rem 0.7rem; font-size: 0.72rem; }
+      .skill-modal-dots { gap: 4px; }
+      .skill-dot { width: 5px; height: 5px; }
+    }
+  `;
+  document.head.appendChild(modalStyle);
+
+  // Ordered skill list for carousel
+  const skillOrder = [
+    'Qualitative Research','Usability Testing','Survey Design',
+    'Affinity Diagramming','Prototype Design','Figma / FigJam',
+    'Photoshop / Illustrator','Agile / Scrum / Jira','SPSS / Data Analysis',
+    'Research Reporting','Information Architecture','Accessibility / WCAG',
+    'A/B Testing','Google Analytics','AI-Enabled Workflow'
+  ];
+  const total = skillOrder.length;
+  let currentIndex = 0;
+
+  // Build modal HTML
+  const overlay = document.createElement('div');
+  overlay.className = 'skill-modal-overlay';
+  overlay.innerHTML = `
+    <div class="skill-modal">
+      <div class="skill-modal-topbar">
+        <div class="skill-modal-counter">Skill <span id="smCurrent">1</span> of ${total}</div>
+        <button class="skill-modal-close" id="skillModalClose" title="Close">&times;</button>
+      </div>
+      <div class="skill-modal-content" id="skillModalContent">
+        <div class="skill-modal-icon" id="skillModalIcon"></div>
+        <div class="skill-modal-name" id="skillModalName"></div>
+        <span class="skill-modal-section-label">What it is</span>
+        <p class="skill-modal-what" id="skillModalWhat"></p>
+        <span class="skill-modal-section-label">My experience</span>
+        <p class="skill-modal-exp" id="skillModalExp"></p>
+      </div>
+      <div class="skill-modal-nav">
+        <button class="skill-nav-btn" id="smPrev">&#8592; Prev</button>
+        <div class="skill-modal-dots" id="smDots"></div>
+        <button class="skill-nav-btn primary" id="smNext">Next &#8594;</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  // Build dots
+  const dotsEl = document.getElementById('smDots');
+  skillOrder.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'skill-dot' + (i === 0 ? ' active' : '');
+    dot.dataset.index = i;
+    dot.addEventListener('click', () => goTo(i, i > currentIndex ? 'right' : 'left'));
+    dotsEl.appendChild(dot);
+  });
+
+  function renderSlide(index) {
+    const name = skillOrder[index];
+    const data = skillData[name];
+    document.getElementById('smCurrent').textContent = index + 1;
+    document.getElementById('skillModalIcon').textContent = data.icon;
+    document.getElementById('skillModalName').textContent = name;
+    document.getElementById('skillModalWhat').textContent = data.what;
+    document.getElementById('skillModalExp').textContent = data.experience;
+
+    // Update dots
+    document.querySelectorAll('.skill-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === index);
+    });
+
+    // Update prev button: first slide shows exit style
+    const prevBtn = document.getElementById('smPrev');
+    if (index === 0) {
+      prevBtn.textContent = '\u2190 Close';
+      prevBtn.className = 'skill-nav-btn exit';
+    } else {
+      prevBtn.innerHTML = '&#8592; Prev';
+      prevBtn.className = 'skill-nav-btn';
+    }
+
+    // Update next button: last slide shows exit style
+    const nextBtn = document.getElementById('smNext');
+    if (index === total - 1) {
+      nextBtn.innerHTML = 'Close \u2192';
+      nextBtn.className = 'skill-nav-btn exit';
+    } else {
+      nextBtn.innerHTML = 'Next &#8594;';
+      nextBtn.className = 'skill-nav-btn primary';
+    }
+  }
+
+  function goTo(index, direction) {
+    const content = document.getElementById('skillModalContent');
+    const outClass = direction === 'right' ? 'slide-out-left' : 'slide-out-right';
+    content.classList.add(outClass);
+    setTimeout(() => {
+      currentIndex = index;
+      renderSlide(currentIndex);
+      content.classList.remove(outClass);
+    }, 180);
+  }
+
+  function openModal(skillName) {
+    const idx = skillOrder.indexOf(skillName);
+    currentIndex = idx >= 0 ? idx : 0;
+    renderSlide(currentIndex);
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('skillModalClose').addEventListener('click', closeModal);
+
+  document.getElementById('smPrev').addEventListener('click', () => {
+    if (currentIndex === 0) { closeModal(); return; }
+    goTo(currentIndex - 1, 'left');
+  });
+
+  document.getElementById('smNext').addEventListener('click', () => {
+    if (currentIndex === total - 1) { closeModal(); return; }
+    goTo(currentIndex + 1, 'right');
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeModal(); return; }
+    if (e.key === 'ArrowRight') {
+      if (currentIndex === total - 1) closeModal();
+      else goTo(currentIndex + 1, 'right');
+    }
+    if (e.key === 'ArrowLeft') {
+      if (currentIndex === 0) closeModal();
+      else goTo(currentIndex - 1, 'left');
+    }
+  });
+
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+  // Attach click handlers to skill rows
+  document.querySelectorAll('.skill-row').forEach(row => {
+    const nameEl = row.querySelector('span:first-child');
+    if (!nameEl) return;
+    const skillName = nameEl.textContent.trim();
+    if (!skillData[skillName]) return;
+
+    const hint = document.createElement('span');
+    hint.className = 'skill-click-hint';
+    hint.textContent = 'click to explore';
+    row.appendChild(hint);
+
+    const tapHint = document.createElement('span');
+    tapHint.className = 'skill-tap-hint';
+    tapHint.textContent = 'i';
+    row.appendChild(tapHint);
+
+    row.addEventListener('click', () => openModal(skillName));
+    row.setAttribute('title', 'Click to learn about ' + skillName);
+  });
+})();
+</script>
+
+</body>
+</html>

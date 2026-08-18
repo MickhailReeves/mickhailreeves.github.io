@@ -1252,18 +1252,47 @@ footer {
   .preview-grid { grid-template-columns: 1fr; }
   .addl-work-card { grid-template-columns: 1fr; }
 }
+
+/* ABOUT TEASER (index.html only) */
+.about-teaser-flex {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.about-teaser-photo {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--border-blue);
+}
+.about-teaser-text { flex: 1; }
+.about-teaser-copy {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  max-width: 680px;
+  margin-bottom: 0.85rem;
+}
+.about-teaser-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+.about-teaser-link:hover { text-decoration: underline; }
+@media (max-width: 640px) {
+  .about-teaser-flex { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-name">Mickhail<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="work.html">Work</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
@@ -1274,8 +1303,7 @@ footer {
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#about" class="mobile-nav-link">About</a>
-  <a href="index.html#experience" class="mobile-nav-link">Experience</a>
+  <a href="about.html" class="mobile-nav-link">About</a>
   <a href="work.html" class="mobile-nav-link">Work</a>
   <a href="index.html#contact" class="mobile-nav-link">Contact</a>
 </div>
@@ -1312,286 +1340,6 @@ footer {
   </div>
 </div>
 
-<section id="about">
-  <div class="section-inner">
-    <p class="section-eyebrow">Background</p>
-    <h2 class="section-title">About me</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="about-photo-wrap">
-          <img class="about-photo" src="headshot.jpg" alt="Mickhail Reeves - UX Researcher" width="240" height="240" decoding="async">
-          <div class="about-photo-name">
-            <strong>Mickhail Reeves</strong>
-            <span>M.S. HFID Candidate · Bentley University</span>
-          </div>
-        </div>
-        <p>I'm a graduate student in Human Factors in Information Design at Bentley University, where I focus on the intersection of user research, information architecture, and evidence-based design. My work centers on understanding how people process information under uncertainty and translating those insights into systems that actually work.</p>
-        <p>My research projects have spanned enterprise SaaS pricing transparency, file-management workflows, the usability of AI-assisted health tools, and post-fulfillment product support experiences. I approach each project with structured qualitative methods, tight stakeholder alignment, and a commitment to findings that are actionable rather than just interesting.</p>
-        <p>My undergraduate training in psychology and computer science gives me a dual lens: I understand why users behave the way they do, and I can bridge that to the technical and design constraints teams actually work with. Before graduate school, I built experience in crisis counseling, care management, and STEM instruction, all roles that sharpened my ability to communicate complex information clearly and meet people where they are.</p>
-      </div>
-      </div>
-      <div>
-        <div class="skills-panel">
-          <div class="skills-panel-title">Core Methods &amp; Tools</div>
-          <div class="skill-row">
-            <span>Qualitative Research</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Usability Testing</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Survey Design</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Affinity Diagramming</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Prototype Design</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Figma / FigJam</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Photoshop / Illustrator</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Agile / Scrum / Jira</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>SPSS / Data Analysis</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Research Reporting</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Information Architecture</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Accessibility / WCAG</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>A/B Testing</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span>Google Analytics</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-pip on"></div><div class="skill-pip on"></div><div class="skill-pip"></div><div class="skill-pip"></div><div class="skill-pip"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-inner">
-    <p class="section-eyebrow">History</p>
-    <h2 class="section-title">Experience &amp; Research</h2>
-    <div class="exp-cols">
-
-      <div>
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:2px solid var(--blue);">
-          <div class="exp-col-head" style="margin-bottom:0; padding-bottom:0; border-bottom:none;">Professional Experience</div>
-          <a href="Mickhail-Reeves-Resume.docx" download style="display:inline-flex; align-items:center; gap:7px; font-size:0.88rem; font-weight:600; color:#ffffff; text-decoration:none; background:var(--blue); border:1px solid var(--blue); padding:9px 20px; border-radius:8px; box-shadow:0 2px 10px rgba(28,110,247,0.35); transition:background 0.2s, transform 0.15s, box-shadow 0.2s;" onmouseover="this.style.background='#4a8fff';this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 16px rgba(28,110,247,0.5)';" onmouseout="this.style.background='var(--blue)';this.style.transform='';this.style.boxShadow='0 2px 10px rgba(28,110,247,0.35)';">&#x2B07; Download Resume</a>
-        </div>
-
-        <div class="exp-entry">
-          <div class="exp-header">
-            <div class="exp-role">Graduate Researcher &amp; Designer</div>
-            <div class="exp-date">2026 - Present</div>
-          </div>
-          <div class="exp-place">Bentley University, HFID Program - Waltham, MA</div>
-          <ul class="exp-bullets">
-            <li>Conducted end-to-end UX research including survey design, semi-structured interviews, affinity diagramming, and unmoderated usability testing for an industry client in the vision care sector.</li>
-            <li>Applied human factors principles to identify usability gaps and translate research findings into actionable design recommendations and a mid-fidelity prototype.</li>
-            <li>Synthesized qualitative data across 97+ participants to surface behavioral patterns and inform information architecture decisions.</li>
-          </ul>
-        </div>
-
-        <div class="exp-entry">
-          <div class="exp-header">
-            <div class="exp-role">Student Test Proctor</div>
-            <div class="exp-date">Jan 2026 - May 2026</div>
-          </div>
-          <div class="exp-place">Bentley University - Waltham, MA</div>
-          <ul class="exp-bullets">
-            <li>Administered structured testing environments, applying observation and facilitation skills directly transferable to usability test moderation.</li>
-            <li>Identified and accommodated individual participant needs, maintaining consistency in procedures while adapting to edge cases. This is a core competency in research facilitation.</li>
-          </ul>
-        </div>
-
-        <div class="exp-entry">
-          <div class="exp-header">
-            <div class="exp-role">Graduate Student Ambassador</div>
-            <div class="exp-date">Summer 2026</div>
-          </div>
-          <div class="exp-place">Bentley University, HFID Program - Waltham, MA</div>
-          <ul class="exp-bullets">
-            <li>Represented the HFID program to prospective students, translating complex graduate curriculum and career-outcome information into clear, decision-supporting communication tailored to varied audiences.</li>
-            <li>Conducted informal needs assessment with prospective applicants to understand their goals, concerns, and information gaps, then adapted messaging in real time, an applied form of audience-aware information design.</li>
-          </ul>
-        </div>
-
-        <div class="exp-entry">
-          <div class="exp-header">
-            <div class="exp-role">Freelance UI Designer</div>
-            <div class="exp-date">2018 - Present</div>
-          </div>
-          <div class="exp-place">Independent Contract Work | Roblox Platform</div>
-          <ul class="exp-bullets">
-            <li>Designed in-game UI components for independent developers, including inventory systems, menu screens, HUD elements, and health bars, applying principles of visual hierarchy and glanceability so players could parse information quickly during active gameplay.</li>
-            <li>Iterated layouts and interaction patterns across multiple revision cycles based on developer feedback, building applied experience in stakeholder communication, design rationale, and user-centered refinement.</li>
-            <li>Balanced creative and functional requirements across both paid client work and collaborations with independent developers, scoping deliverables and adapting to varied client needs across the engagement lifecycle.</li>
-          </ul>
-        </div>
-
-        <div class="exp-entry">
-          <div class="exp-header">
-            <div class="exp-role">Crisis Counselor</div>
-            <div class="exp-date">Feb 2020 - Feb 2025</div>
-          </div>
-          <div class="exp-place">988 Suicide &amp; Crisis Lifeline (Vibrant Emotional Health) - NY</div>
-          <ul class="exp-bullets">
-            <li>Practiced active listening and real-time behavioral observation to assess caller needs and guide them toward appropriate next steps. These skills are core to UX interviewing and user research.</li>
-            <li>Communicated complex information clearly under pressure, adapting language and tone to diverse users with varying literacy levels and emotional states.</li>
-            <li>Identified recurring friction points in how callers understood available resources, developing an intuitive sense for where information systems fail users at critical moments.</li>
-          </ul>
-        </div>
-
-        <div class="exp-entry">
-          <div class="exp-header">
-            <div class="exp-role">Care Manager</div>
-            <div class="exp-date">Mar 2025 - Dec 2025</div>
-          </div>
-          <div class="exp-place">LifePlan CCO - New York, NY</div>
-          <ul class="exp-bullets">
-            <li>Mapped and navigated complex service systems on behalf of members, identifying where information architecture and workflow design created barriers to access.</li>
-            <li>Translated dense policy and procedural requirements into plain-language guidance, applying information design principles to reduce cognitive load for vulnerable users.</li>
-            <li>Advocated for user needs across multiple organizational touchpoints, synthesizing feedback to surface systemic gaps. This work is directly analogous to UX research synthesis and stakeholder communication.</li>
-          </ul>
-        </div>
-
-        <div class="exp-entry">
-          <div class="exp-header">
-            <div class="exp-role">STEM Instructor</div>
-            <div class="exp-date">Sept 2019 - Dec 2020</div>
-          </div>
-          <div class="exp-place">Westchester Engineering for Kids - Westchester, NY</div>
-          <ul class="exp-bullets">
-            <li>Designed and delivered hands-on learning experiences that introduced complex technical concepts to novice users, applying instructional design principles to reduce cognitive load.</li>
-            <li>Observed student behavior and adapted instruction in real time based on engagement and comprehension signals, a practice closely aligned with iterative UX design and usability evaluation.</li>
-          </ul>
-        </div>
-
-        <div class="exp-entry">
-          <div class="exp-header">
-            <div class="exp-role">Sales Associate</div>
-            <div class="exp-date">Nov 2019 - Mar 2020</div>
-          </div>
-          <div class="exp-place">Target - Westchester, NY</div>
-          <ul class="exp-bullets">
-            <li>Observed and responded to in-store customer behavior, developing an intuitive understanding of how physical information environments (wayfinding, signage, product placement) shape user decisions.</li>
-            <li>Gathered informal feedback from guests to surface unmet needs and recurring points of confusion, an early form of contextual inquiry applied to a retail environment.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <div class="exp-col-head">Independent Research</div>
-
-        <div class="research-card">
-          <div class="research-tag">Applied Psychology &amp; Survey Research</div>
-          <div class="research-title">How African Americans View Religion From a Psychological Perspective</div>
-          <div class="research-desc">Independent undergraduate research at Oakwood University examining how African American college students perceive the integration of psychology into church communities. Designed and administered an anonymous survey study (n=50) measuring views on psychology as a science and openness to psychology-based programming in faith-based settings. Findings supported the hypothesis that younger generations show greater openness to integrating psychological wellness initiatives into religious environments. Presented at the CEPO Conference.</div>
-        </div>
-
-        <div class="research-card">
-          <div class="research-tag">Consumer Psychology</div>
-          <div class="research-title">The Psychology of Brand Loyalty</div>
-          <div class="research-desc">Independent undergraduate research at Oakwood University examining the psychological mechanisms that drive long-term consumer attachment to brands. Explored cognitive, emotional, and identity-based factors distinguishing habitual purchasing from genuine brand loyalty. Presented at the Oakwood Research Symposium.</div>
-        </div>
-
-        <div class="research-card">
-          <div class="research-tag">Human Factors &amp; Technology</div>
-          <div class="research-title">Virtual Reality as an Intervention for Public Speaking Anxiety and Phobias</div>
-          <div class="research-desc">Independent undergraduate research at Oakwood University investigating how VR-based exposure environments affect public speaking anxiety and phobia response at large. Examined immersive simulation as a desensitization tool, contributing to the applied psychology of technology-assisted behavioral intervention.</div>
-        </div>
-
-        <div style="margin-top: 2.25rem;">
-          <div class="exp-col-head">Education</div>
-
-          <div class="edu-entry">
-            <div class="edu-entry-flex">
-              <img class="edu-logo edu-logo-light" src="logo-bentley-light.png" alt="Bentley University" width="38" height="38" loading="lazy">
-              <img class="edu-logo edu-logo-dark" src="logo-bentley-dark.png" alt="Bentley University" width="38" height="38" loading="lazy">
-              <div>
-                <div class="edu-degree">M.S. Human Factors in Information Design</div>
-                <div class="edu-school">Bentley University - Waltham, MA</div>
-                <div class="edu-date">Jan 2026 - Dec 2026 (Expected)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="edu-entry">
-            <div class="edu-entry-flex">
-              <img class="edu-logo edu-logo-light" src="logo-oakwood-light.png" alt="Oakwood University" width="38" height="38" loading="lazy">
-              <img class="edu-logo edu-logo-dark" src="logo-oakwood-dark.png" alt="Oakwood University" width="38" height="38" loading="lazy">
-              <div>
-                <div class="edu-degree">B.S. Psychology, Minor in Computer Science</div>
-                <div class="edu-school">Oakwood University - Huntsville, AL &nbsp;·&nbsp; GPA: 3.2</div>
-                <div class="edu-date">Graduated May 2019</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <p class="section-eyebrow">Case Studies</p>
@@ -1643,7 +1391,6 @@ footer {
   </div>
 </section>
 
-<!-- ADDITIONAL WORK -->
 <section id="additional-work">
   <div class="section-inner">
     <p class="section-eyebrow">Additional Work</p>
@@ -1690,90 +1437,21 @@ footer {
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
+
+<!-- ABOUT TEASER -->
+<section id="about-teaser" style="background: var(--surface);">
   <div class="section-inner">
-    <p class="section-eyebrow">What Faculty Say</p>
-    <h2 class="section-title">Recognized work</h2>
-    <div class="testimonial-grid">
-
-      <div class="testimonial-card">
-        <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">This is a strong session overall, and your reflection shows a high level of awareness about your role as a moderator. Nice work!</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">JE</div>
-          <div>
-            <div class="testimonial-name">Prof. Janelle Estes</div>
-            <div class="testimonial-role">HF750, Testing &amp; Assessment Programs</div>
-          </div>
-        </div>
+    <div class="about-teaser-flex">
+      <img class="about-teaser-photo" src="headshot.jpg" alt="Mickhail Reeves" width="88" height="88" decoding="async" loading="lazy">
+      <div class="about-teaser-text">
+        <p class="section-eyebrow" style="margin-bottom:0.4rem;">Background</p>
+        <p class="about-teaser-copy">M.S. candidate in Human Factors in Information Design at Bentley University, with a background spanning crisis counseling, care management, and seven years of freelance UI design. I bring a dual lens to research and design: understanding why people behave the way they do, and building systems that actually work for them.</p>
+        <a href="about.html" class="about-teaser-link">Read the full story &rarr;</a>
       </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">The way you&rsquo;ve broken the workflow into stages and journey maps helped make your analysis easy to follow.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">AK</div>
-          <div>
-            <div class="testimonial-name">Prof. Amy Kidd</div>
-            <div class="testimonial-role">HF710, Managing the Experience Design Process</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Mickhail, this is a strong and well-structured brief with a clear link between theory and design.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">MZ</div>
-          <div>
-            <div class="testimonial-name">Prof. Mounia Ziat</div>
-            <div class="testimonial-role">HF700, Foundations in Human Factors</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Very well done! Your writing style is more complex than most.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">AT</div>
-          <div>
-            <div class="testimonial-name">Prof. Alfonso Torrijos</div>
-            <div class="testimonial-role">MG632, Leading Effective Work Teams</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Outstanding graduate-level case analysis. Your paper demonstrates exceptional analytical thinking, executive-level reasoning, and an impressive ability to synthesize multiple course concepts into one cohesive strategic analysis.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">DB</div>
-          <div>
-            <div class="testimonial-name">Prof. Denise Brown</div>
-            <div class="testimonial-role">CS655, Managing with Analytics: From Data to AI</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Mickhail worked under extreme pressure while managing crisis calls with not only composure and care, but determination to help every person reaching out for support.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">SM</div>
-          <div>
-            <div class="testimonial-name">Sloan Matzke</div>
-            <div class="testimonial-role">Crisis Team Lead, 988 Suicide &amp; Crisis Lifeline</div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <p class="section-eyebrow">Get in Touch</p>
   <h2 class="section-title">Let's work together.</h2>
@@ -2185,398 +1863,6 @@ footer {
   }
   checkWidth();
   window.addEventListener('resize', checkWidth);
-})();
-// -----------------------------------------------------
-(function() {
-  const skillData = {
-    'Qualitative Research': {
-      icon: '\uD83D\uDD0D',
-      what: 'Qualitative research involves collecting non-numerical data through interviews, observations, and open-ended questions to understand user behaviors, motivations, and mental models.',
-      experience: 'Conducted n=8 semi-structured interviews for the contact lens post-fulfillment project, performed inductive coding on usability study transcripts for the Doctronic AI eye-health platform, and led contextual inquiry work across multiple HFID courses. Applied thematic analysis and affinity diagramming to synthesize findings into actionable design insights.'
-    },
-    'Usability Testing': {
-      icon: '\uD83E\uDDEA',
-      what: 'Usability testing evaluates how real users interact with a product or prototype by observing them complete tasks, identifying friction points, and measuring task success and satisfaction.',
-      experience: 'Designed and ran an unmoderated usability study (n=8) on UserTesting.com for the contact lens resource hub prototype, administered across Gen Z and Millennial cohorts. Also facilitated a moderated usability session for a Windows 11 File Explorer study, produced moderator self-reflections, and developed full test protocols, screeners, and scoring rubrics.'
-    },
-    'Survey Design': {
-      icon: '\uD83D\uDCCB',
-      what: 'Survey design is the process of building structured questionnaires to collect quantitative and qualitative data from a target population, using validated scales, screener logic, and bias-minimizing question formats.',
-      experience: 'Designed and administered an 81-respondent online survey for the contact lens post-fulfillment study, including screener logic to segment current wearers, discontinued wearers, and glasses-only users. Applied Likert scaling, ranking questions, and open-text prompts. Analyzed results to surface statistically meaningful patterns in help-seeking behavior.'
-    },
-    'Affinity Diagramming': {
-      icon: '\uD83D\uDDC2\uFE0F',
-      what: 'Affinity diagramming is a synthesis method where qualitative data points are written onto individual notes and collaboratively grouped into emergent themes, revealing patterns across large volumes of research data.',
-      experience: 'Led affinity diagram synthesis sessions to translate interview transcripts and survey responses into the three core themes driving the contact lens resource hub design. Also contributed to team affinity mapping for the Doctronic usability study, aligning findings across multiple participant transcripts and raters.'
-    },
-    'Prototype Design': {
-      icon: '\u270F\uFE0F',
-      what: 'Prototype design is the creation of interactive or static representations of a product at varying levels of fidelity, used to test design concepts with users before committing to full development.',
-      experience: 'Built a multi-page mid-fidelity HTML and JavaScript prototype for the contact lens resource hub, featuring 15+ screen views including a symptom checker, onboarding guide, ECP contact module, and care tips library. The prototype was deployed and tested with 8 real users on UserTesting.com, with findings used to drive iterative design revisions.'
-    },
-    'Figma / FigJam': {
-      icon: '\uD83C\uDFA8',
-      what: 'Figma is a collaborative design tool used for wireframing, prototyping, and high-fidelity UI design. FigJam is its whiteboard companion, used for brainstorming, journey mapping, and collaborative synthesis.',
-      experience: 'Used Figma for wireframing and design documentation across multiple projects, and FigJam for collaborative affinity mapping, journey mapping, and team brainstorming sessions. Applied both tools in the context of Agile sprint cycles, contributing to shared design systems and presentation decks reviewed by industry clients.'
-    },
-    'Agile / Scrum / Jira': {
-      icon: '\u26A1',
-      what: 'Agile is an iterative project management framework that breaks work into short cycles called sprints. Scrum is a specific Agile methodology. Jira is a project tracking tool used to manage tasks, user stories, and sprint backlogs.',
-      experience: 'Applied Agile and Scrum methodology throughout the contact lens project, producing sprint burndown charts, maintaining a prioritized backlog, and running structured sprint reviews. Coordinated task allocation across a 4-person team and tracked deliverable completion against sprint goals over a full semester engagement.'
-    },
-    'Photoshop / Illustrator': {
-      icon: '\uD83C\uDFA8',
-      what: 'Photoshop is a raster image editing tool used for photo manipulation, compositing, and pixel-based graphics. Illustrator is a vector graphics tool used for scalable icons, diagrams, and print-ready artwork.',
-      experience: 'Used Photoshop and Illustrator to design custom favicons, logo treatments, and annotated storyboard sketches for the portfolio site and the Bentley commuting data story. Applied freelance UI design experience on the Roblox platform, producing inventory icons, HUD elements, and menu graphics for independent game developers since 2018.'
-    },
-    'SPSS / Data Analysis': {
-      icon: '\uD83D\uDCCA',
-      what: 'SPSS is a statistical software platform used to analyze quantitative data. Data analysis in research contexts includes descriptive statistics, correlation, regression, and significance testing to draw conclusions from collected data.',
-      experience: 'Developed proficiency in SPSS during undergraduate psychology training at Oakwood University, applying it to analyze behavioral data in independent research on brand loyalty and VR-based phobia intervention. Applied descriptive and inferential statistics to interpret survey data across multiple research projects.'
-    },
-    'Research Reporting': {
-      icon: '\uD83D\uDCDD',
-      what: 'Research reporting is the process of translating raw findings into clear, structured documents and presentations that communicate methodology, evidence, and recommendations to stakeholders with varying levels of technical background.',
-      experience: 'Produced a full research report, project retrospective, and stakeholder presentation deck for the contact lens post-fulfillment study. Also authored research briefs, usability test reports, and a moderator self-reflection across multiple HFID courses. Writing style prioritizes plain language, evidence-grounded claims, and actionable recommendations.'
-    },
-    'Information Architecture': {
-      icon: '\uD83D\uDDC2\uFE0F',
-      what: 'Information architecture is the practice of organizing, structuring, and labeling content so people can find what they need and complete tasks efficiently. It includes navigation design, content hierarchy, and how information systems map to real user mental models.',
-      experience: 'Applied IA principles across coursework and research projects, including mapping content structure for the contact lens post-fulfillment support system and organizing the five-panel sequence of the Bentley commuting data story so evidence builds logically toward a recommendation.'
-    },
-    'Accessibility / WCAG': {
-      icon: '\u267F',
-      what: 'Accessibility is the practice of designing products usable by people with a full range of abilities. WCAG (Web Content Accessibility Guidelines) is the standard framework used to evaluate and meet accessibility requirements for digital products.',
-      experience: 'Applied accessibility principles in coursework covering WCAG standards, including color contrast, alt text, and keyboard navigation considerations. Brought this lens to portfolio development itself, auditing contrast ratios and touch-target sizing site-wide.'
-    },
-    'A/B Testing': {
-      icon: '\uD83D\uDD00',
-      what: 'A/B testing is a method of comparing two versions of a design or experience to determine which performs better against a defined metric, using controlled experimentation to validate design decisions with data rather than opinion.',
-      experience: 'Studied and applied A/B testing principles in coursework covering experimental design and quantitative evaluation methods, including how to structure a valid test, avoid confounding variables, and interpret statistical significance in a UX context.'
-    },
-    'Google Analytics': {
-      icon: '\uD83D\uDCC8',
-      what: 'Google Analytics is a web analytics platform used to track and report user behavior on websites and digital products, including traffic sources, engagement patterns, and conversion funnels.',
-      experience: 'Applied Google Analytics in coursework and independent projects to understand user behavior patterns and inform design and content decisions based on real usage data rather than assumptions.'
-    }
-  };
-
-  // Inject modal styles
-  const modalStyle = document.createElement('style');
-  modalStyle.textContent = `
-    .skill-modal-overlay {
-      position: fixed; inset: 0; z-index: 10000;
-      background: rgba(8,18,42,0.8); backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.25s ease;
-      padding: 1.5rem;
-    }
-    .skill-modal-overlay.open { opacity: 1; pointer-events: all; }
-    .skill-modal {
-      background: #0d1f3c;
-      border: 1px solid rgba(74,143,255,0.25);
-      border-radius: 18px;
-      padding: 2rem;
-      max-width: 500px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      transform: translateY(16px) scale(0.97);
-      transition: transform 0.3s ease;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(74,143,255,0.1);
-      position: relative;
-    }
-    .skill-modal::-webkit-scrollbar { width: 6px; }
-    .skill-modal::-webkit-scrollbar-track { background: transparent; }
-    .skill-modal::-webkit-scrollbar-thumb { background: rgba(74,143,255,0.3); border-radius: 3px; }
-    .skill-modal-overlay.open .skill-modal { transform: translateY(0) scale(1); }
-
-    /* TOP BAR: close + counter */
-    .skill-modal-topbar {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 1.5rem;
-    }
-    .skill-modal-counter {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(255,255,255,0.85);
-    }
-    .skill-modal-counter span { color: #4a9eff; }
-    .skill-modal-close {
-      width: 30px; height: 30px; border-radius: 50%;
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.5); font-size: 16px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: background 0.2s, color 0.2s;
-    }
-    .skill-modal-close:hover { background: rgba(255,255,255,0.14); color: #fff; }
-
-    /* CONTENT */
-    .skill-modal-icon {
-      font-size: 2rem; margin-bottom: 0.75rem;
-      display: block; line-height: 1;
-    }
-    .skill-modal-name {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.3rem; font-weight: 800;
-      color: #fff; margin-bottom: 0.35rem; letter-spacing: -0.01em;
-    }
-    .skill-modal-section-label {
-      font-size: 0.68rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.85); margin-bottom: 0.5rem;
-      margin-top: 1.1rem; display: block;
-    }
-    .skill-modal-what {
-      font-size: 0.87rem; color: rgba(255,255,255,0.85); line-height: 1.65;
-    }
-    .skill-modal-exp {
-      font-size: 0.87rem; color: rgba(255,255,255,0.75); line-height: 1.65;
-      background: rgba(28,110,247,0.08); border: 1px solid rgba(28,110,247,0.15);
-      border-radius: 10px; padding: 0.85rem 1rem;
-    }
-
-    /* CAROUSEL NAV */
-    .skill-modal-nav {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-top: 1.75rem; gap: 0.75rem;
-    }
-    .skill-nav-btn {
-      display: flex; align-items: center; gap: 0.4rem;
-      padding: 0.55rem 1rem; border-radius: 8px;
-      border: 1px solid #2e4a7d;
-      background: #1c3158;
-      color: rgba(255,255,255,0.8); font-size: 0.8rem; font-weight: 500;
-      cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
-      font-family: 'DM Sans', sans-serif;
-      user-select: none;
-    }
-    .skill-nav-btn:hover { background: rgba(28,110,247,0.15); border-color: rgba(28,110,247,0.35); color: #fff; }
-    .skill-nav-btn.exit { border-color: rgba(255,80,80,0.25); color: rgba(255,120,120,0.7); }
-    .skill-nav-btn.exit:hover { background: rgba(255,60,60,0.1); border-color: rgba(255,80,80,0.5); color: #ff8080; }
-    .skill-nav-btn.primary { background: rgba(28,110,247,0.2); border-color: rgba(28,110,247,0.4); color: #4a9eff; }
-    .skill-nav-btn.primary:hover { background: rgba(28,110,247,0.3); color: #fff; }
-
-    /* DOT INDICATORS */
-    .skill-modal-dots {
-      display: flex; align-items: center; gap: 5px;
-    }
-    .skill-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(255,255,255,0.15);
-      transition: background 0.2s, transform 0.2s;
-    }
-    .skill-dot.active { background: #4a9eff; transform: scale(1.3); }
-
-    /* SLIDE ANIMATION */
-    .skill-modal-content {
-      transition: opacity 0.18s ease, transform 0.18s ease;
-    }
-    .skill-modal-content.slide-out-left {
-      opacity: 0; transform: translateX(-18px);
-    }
-    .skill-modal-content.slide-out-right {
-      opacity: 0; transform: translateX(18px);
-    }
-
-    /* SKILL ROW */
-    .skill-row { cursor: pointer; }
-    .skill-row:hover { background: rgba(74,143,255,0.1) !important; }
-    .skill-click-hint {
-      font-size: 10px; color: rgba(255,255,255,0.8);
-      margin-left: auto; opacity: 0;
-      transition: opacity 0.2s; white-space: nowrap;
-    }
-    .skill-row:hover .skill-click-hint { opacity: 1; }
-    .skill-tap-hint {
-      display: none;
-      width: 20px; height: 20px; border-radius: 50%;
-      background: rgba(74,143,255,0.15);
-      border: 1px solid rgba(74,143,255,0.4);
-      align-items: center; justify-content: center;
-      flex-shrink: 0; margin-left: auto;
-      font-size: 11px; color: rgba(74,143,255,0.9);
-      font-weight: 700; line-height: 1;
-    }
-    @media (hover: none) and (pointer: coarse) {
-      .skill-click-hint { display: none !important; }
-      .skill-tap-hint { display: flex !important; }
-    }
-
-    @media (max-width: 720px) {
-      .skill-modal {
-        padding: 1.25rem 1.1rem;
-        border-radius: 14px;
-        max-height: 85vh;
-      }
-      .skill-modal-topbar { margin-bottom: 1rem; }
-      .skill-modal-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
-      .skill-modal-name { font-size: 1.05rem; }
-      .skill-modal-section-label { margin-top: 0.85rem; margin-bottom: 0.35rem; }
-      .skill-modal-what, .skill-modal-exp { font-size: 0.8rem; line-height: 1.55; }
-      .skill-modal-exp { padding: 0.7rem 0.85rem; }
-      .skill-modal-nav { margin-top: 1.25rem; gap: 0.5rem; }
-      .skill-nav-btn { padding: 0.5rem 0.7rem; font-size: 0.72rem; }
-      .skill-modal-dots { gap: 4px; }
-      .skill-dot { width: 5px; height: 5px; }
-    }
-  `;
-  document.head.appendChild(modalStyle);
-
-  // Ordered skill list for carousel
-  const skillOrder = [
-    'Qualitative Research','Usability Testing','Survey Design',
-    'Affinity Diagramming','Prototype Design','Figma / FigJam',
-    'Photoshop / Illustrator','Agile / Scrum / Jira','SPSS / Data Analysis',
-    'Research Reporting','Information Architecture','Accessibility / WCAG',
-    'A/B Testing','Google Analytics'
-  ];
-  const total = skillOrder.length;
-  let currentIndex = 0;
-
-  // Build modal HTML
-  const overlay = document.createElement('div');
-  overlay.className = 'skill-modal-overlay';
-  overlay.innerHTML = `
-    <div class="skill-modal">
-      <div class="skill-modal-topbar">
-        <div class="skill-modal-counter">Skill <span id="smCurrent">1</span> of ${total}</div>
-        <button class="skill-modal-close" id="skillModalClose" title="Close">&times;</button>
-      </div>
-      <div class="skill-modal-content" id="skillModalContent">
-        <div class="skill-modal-icon" id="skillModalIcon"></div>
-        <div class="skill-modal-name" id="skillModalName"></div>
-        <span class="skill-modal-section-label">What it is</span>
-        <p class="skill-modal-what" id="skillModalWhat"></p>
-        <span class="skill-modal-section-label">My experience</span>
-        <p class="skill-modal-exp" id="skillModalExp"></p>
-      </div>
-      <div class="skill-modal-nav">
-        <button class="skill-nav-btn" id="smPrev">&#8592; Prev</button>
-        <div class="skill-modal-dots" id="smDots"></div>
-        <button class="skill-nav-btn primary" id="smNext">Next &#8594;</button>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(overlay);
-
-  // Build dots
-  const dotsEl = document.getElementById('smDots');
-  skillOrder.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'skill-dot' + (i === 0 ? ' active' : '');
-    dot.dataset.index = i;
-    dot.addEventListener('click', () => goTo(i, i > currentIndex ? 'right' : 'left'));
-    dotsEl.appendChild(dot);
-  });
-
-  function renderSlide(index) {
-    const name = skillOrder[index];
-    const data = skillData[name];
-    document.getElementById('smCurrent').textContent = index + 1;
-    document.getElementById('skillModalIcon').textContent = data.icon;
-    document.getElementById('skillModalName').textContent = name;
-    document.getElementById('skillModalWhat').textContent = data.what;
-    document.getElementById('skillModalExp').textContent = data.experience;
-
-    // Update dots
-    document.querySelectorAll('.skill-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === index);
-    });
-
-    // Update prev button: first slide shows exit style
-    const prevBtn = document.getElementById('smPrev');
-    if (index === 0) {
-      prevBtn.textContent = '\u2190 Close';
-      prevBtn.className = 'skill-nav-btn exit';
-    } else {
-      prevBtn.innerHTML = '&#8592; Prev';
-      prevBtn.className = 'skill-nav-btn';
-    }
-
-    // Update next button: last slide shows exit style
-    const nextBtn = document.getElementById('smNext');
-    if (index === total - 1) {
-      nextBtn.innerHTML = 'Close \u2192';
-      nextBtn.className = 'skill-nav-btn exit';
-    } else {
-      nextBtn.innerHTML = 'Next &#8594;';
-      nextBtn.className = 'skill-nav-btn primary';
-    }
-  }
-
-  function goTo(index, direction) {
-    const content = document.getElementById('skillModalContent');
-    const outClass = direction === 'right' ? 'slide-out-left' : 'slide-out-right';
-    content.classList.add(outClass);
-    setTimeout(() => {
-      currentIndex = index;
-      renderSlide(currentIndex);
-      content.classList.remove(outClass);
-    }, 180);
-  }
-
-  function openModal(skillName) {
-    const idx = skillOrder.indexOf(skillName);
-    currentIndex = idx >= 0 ? idx : 0;
-    renderSlide(currentIndex);
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('skillModalClose').addEventListener('click', closeModal);
-
-  document.getElementById('smPrev').addEventListener('click', () => {
-    if (currentIndex === 0) { closeModal(); return; }
-    goTo(currentIndex - 1, 'left');
-  });
-
-  document.getElementById('smNext').addEventListener('click', () => {
-    if (currentIndex === total - 1) { closeModal(); return; }
-    goTo(currentIndex + 1, 'right');
-  });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', e => {
-    if (!overlay.classList.contains('open')) return;
-    if (e.key === 'Escape') { closeModal(); return; }
-    if (e.key === 'ArrowRight') {
-      if (currentIndex === total - 1) closeModal();
-      else goTo(currentIndex + 1, 'right');
-    }
-    if (e.key === 'ArrowLeft') {
-      if (currentIndex === 0) closeModal();
-      else goTo(currentIndex - 1, 'left');
-    }
-  });
-
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-
-  // Attach click handlers to skill rows
-  document.querySelectorAll('.skill-row').forEach(row => {
-    const nameEl = row.querySelector('span:first-child');
-    if (!nameEl) return;
-    const skillName = nameEl.textContent.trim();
-    if (!skillData[skillName]) return;
-
-    const hint = document.createElement('span');
-    hint.className = 'skill-click-hint';
-    hint.textContent = 'click to explore';
-    row.appendChild(hint);
-
-    const tapHint = document.createElement('span');
-    tapHint.className = 'skill-tap-hint';
-    tapHint.textContent = 'i';
-    row.appendChild(tapHint);
-
-    row.addEventListener('click', () => openModal(skillName));
-    row.setAttribute('title', 'Click to learn about ' + skillName);
-  });
 })();
 </script>
 
