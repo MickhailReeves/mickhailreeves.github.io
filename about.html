@@ -1797,31 +1797,52 @@ footer {
   }, 2500);
 })();
 
-// -- 6. ACTIVE NAV HIGHLIGHT ON SCROLL ----------------------------------------
+// -- 6. ACTIVE NAV HIGHLIGHT (current page + in-page section) -----------------
 (function() {
-  const sections = Array.from(document.querySelectorAll('section[id], div.hero'));
   const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+  const currentFile = (window.location.pathname.split('/').pop() || 'index.html');
+
+  const parsed = Array.from(navLinks).map(a => {
+    const href = a.getAttribute('href') || '';
+    const [file, fragment] = href.split('#');
+    return { el: a, file: file || currentFile, fragment: fragment || null };
+  });
+  const navFragments = new Set(
+    parsed.filter(p => p.fragment && p.file === currentFile).map(p => p.fragment)
+  );
+  // Does this page have its own plain (fragment-less) nav entry, e.g. "Home" or "Work"?
+  const hasPageLevelLink = parsed.some(p => p.file === currentFile && !p.fragment);
+  const fragmentSections = Array.from(document.querySelectorAll('section[id]'))
+    .filter(s => navFragments.has(s.id));
 
   function updateActive() {
-    let current = 'hero';
-    const scrollPos = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight;
-    const winHeight = window.innerHeight;
-
-    // If at the bottom of the page, force the last section active
-    if (scrollPos + winHeight >= docHeight - 30) {
-      const last = sections[sections.length - 1];
-      current = last.id || 'hero';
-    } else {
-      sections.forEach(s => {
-        if (scrollPos >= s.offsetTop - 120) current = s.id || 'hero';
-      });
+    let currentFragment = null;
+    if (fragmentSections.length) {
+      const scrollPos = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      const winHeight = window.innerHeight;
+      if (scrollPos + winHeight >= docHeight - 30) {
+        currentFragment = fragmentSections[fragmentSections.length - 1].id;
+      } else {
+        fragmentSections.forEach(s => {
+          if (scrollPos >= s.offsetTop - 120) currentFragment = s.id;
+        });
+      }
+      // No page-level "Home"-style link to fall back on (e.g. About page),
+      // so before the first nav-linked section is reached, default to it.
+      if (!currentFragment && !hasPageLevelLink) {
+        currentFragment = fragmentSections[0].id;
+      }
     }
 
-    navLinks.forEach(a => {
-      a.classList.remove('active');
-      const href = (a.getAttribute('href') || '').replace('#', '');
-      if (href === current) a.classList.add('active');
+    parsed.forEach(({ el, file, fragment }) => {
+      el.classList.remove('active');
+      if (file !== currentFile) return;
+      if (currentFragment) {
+        if (fragment === currentFragment) el.classList.add('active');
+      } else {
+        if (!fragment) el.classList.add('active');
+      }
     });
   }
 
