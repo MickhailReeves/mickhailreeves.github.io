@@ -1141,6 +1141,35 @@ footer {
   .commuting-panel-grid { grid-template-columns: 1fr; }
   .commuting-panel-wide { grid-column: auto; }
 }
+
+/* PAGE TRANSITION (fade between pages) */
+body {
+  animation: pageFadeIn 0.45s ease both;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+body.page-exiting {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* NAV SLIDE-IN ON LOAD */
+nav {
+  animation: navSlideIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes navSlideIn {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+/* Respect reduced-motion preference: disable all transition/entrance animation */
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none !important; opacity: 1 !important; }
+  body.page-exiting { transition: none !important; opacity: 1 !important; }
+  nav { animation: none !important; transform: none !important; }
+}
 </style>
 </head>
 <body>
@@ -1615,6 +1644,29 @@ footer {
 </section>
 
 <script>
+// -- 0. PAGE TRANSITION (fade on internal navigation) --------------------------
+(function() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return; // Respect OS-level motion preference: skip entirely, instant navigation
+
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+    if (href.charAt(0) === '#') return;              // same-page anchor, no transition needed
+    if (link.target === '_blank') return;              // opens new tab, leave as-is
+    if (link.hasAttribute('download')) return;         // file downloads (resume, deck), not a page nav
+    if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // let modifier-key clicks behave normally
+
+    e.preventDefault();
+    document.body.classList.add('page-exiting');
+    setTimeout(function() { window.location.href = href; }, 220);
+  });
+})();
+
 // -- 2. CUSTOM CURSOR (dot + trailing ring + hover expand) --------------------
 (function() {
   // Only enable on devices with a fine pointer (mouse). Skip touch devices.
