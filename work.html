@@ -581,6 +581,12 @@ section { padding: 5rem 2.5rem; }
   width: 100%;
   height: auto;
 }
+.prototype-iframe {
+  display: block;
+  width: 100%;
+  height: 700px;
+  border: none;
+}
 
 /* METHOD STEPS */
 .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.75rem; }
@@ -1141,35 +1147,6 @@ footer {
   .commuting-panel-grid { grid-template-columns: 1fr; }
   .commuting-panel-wide { grid-column: auto; }
 }
-
-/* PAGE TRANSITION (fade between pages) */
-body {
-  animation: pageFadeIn 0.45s ease both;
-}
-@keyframes pageFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-body.page-exiting {
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-/* NAV SLIDE-IN ON LOAD */
-nav {
-  animation: navSlideIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-@keyframes navSlideIn {
-  from { transform: translateY(-100%); }
-  to { transform: translateY(0); }
-}
-
-/* Respect reduced-motion preference: disable all transition/entrance animation */
-@media (prefers-reduced-motion: reduce) {
-  body { animation: none !important; opacity: 1 !important; }
-  body.page-exiting { transition: none !important; opacity: 1 !important; }
-  nav { animation: none !important; transform: none !important; }
-}
 </style>
 </head>
 <body>
@@ -1180,8 +1157,8 @@ nav {
 <nav>
   <a href="index.html" class="nav-name">Mickhail<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
     <li><a href="work.html">Work</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
@@ -1192,8 +1169,8 @@ nav {
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="mobile-nav-link">Home</a>
-  <a href="about.html" class="mobile-nav-link">About</a>
+  <a href="index.html#about" class="mobile-nav-link">About</a>
+  <a href="index.html#experience" class="mobile-nav-link">Experience</a>
   <a href="work.html" class="mobile-nav-link">Work</a>
   <a href="index.html#contact" class="mobile-nav-link">Contact</a>
 </div>
@@ -1386,7 +1363,7 @@ nav {
               <div class="browser-dot" style="background:#28c840;"></div>
               <div class="browser-url">lens-companion.prototype / resource-hub</div>
             </div>
-            <img class="prototype-img" src="Landing_Page.jpg" alt="Contact Lens Resource Hub prototype - landing page showing navigation, hero section with Get Started and Check a Symptom CTAs, four hub module cards, topic explorer, and ECP contact section." loading="lazy">
+            <iframe class="prototype-iframe" src="resource-hub-preview.html" title="Interactive Contact Lens Resource Hub prototype" loading="lazy"></iframe>
           </div>
         </div>
 
@@ -1644,29 +1621,6 @@ nav {
 </section>
 
 <script>
-// -- 0. PAGE TRANSITION (fade on internal navigation) --------------------------
-(function() {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return; // Respect OS-level motion preference: skip entirely, instant navigation
-
-  document.addEventListener('click', function(e) {
-    const link = e.target.closest('a');
-    if (!link) return;
-
-    const href = link.getAttribute('href');
-    if (!href) return;
-    if (href.charAt(0) === '#') return;              // same-page anchor, no transition needed
-    if (link.target === '_blank') return;              // opens new tab, leave as-is
-    if (link.hasAttribute('download')) return;         // file downloads (resume, deck), not a page nav
-    if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // let modifier-key clicks behave normally
-
-    e.preventDefault();
-    document.body.classList.add('page-exiting');
-    setTimeout(function() { window.location.href = href; }, 220);
-  });
-})();
-
 // -- 2. CUSTOM CURSOR (dot + trailing ring + hover expand) --------------------
 (function() {
   // Only enable on devices with a fine pointer (mouse). Skip touch devices.
@@ -1845,52 +1799,31 @@ nav {
   }, 2500);
 })();
 
-// -- 6. ACTIVE NAV HIGHLIGHT (current page + in-page section) -----------------
+// -- 6. ACTIVE NAV HIGHLIGHT ON SCROLL ----------------------------------------
 (function() {
+  const sections = Array.from(document.querySelectorAll('section[id], div.hero'));
   const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
-  const currentFile = (window.location.pathname.split('/').pop() || 'index.html');
-
-  const parsed = Array.from(navLinks).map(a => {
-    const href = a.getAttribute('href') || '';
-    const [file, fragment] = href.split('#');
-    return { el: a, file: file || currentFile, fragment: fragment || null };
-  });
-  const navFragments = new Set(
-    parsed.filter(p => p.fragment && p.file === currentFile).map(p => p.fragment)
-  );
-  // Does this page have its own plain (fragment-less) nav entry, e.g. "Home" or "Work"?
-  const hasPageLevelLink = parsed.some(p => p.file === currentFile && !p.fragment);
-  const fragmentSections = Array.from(document.querySelectorAll('section[id]'))
-    .filter(s => navFragments.has(s.id));
 
   function updateActive() {
-    let currentFragment = null;
-    if (fragmentSections.length) {
-      const scrollPos = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight;
-      const winHeight = window.innerHeight;
-      if (scrollPos + winHeight >= docHeight - 30) {
-        currentFragment = fragmentSections[fragmentSections.length - 1].id;
-      } else {
-        fragmentSections.forEach(s => {
-          if (scrollPos >= s.offsetTop - 120) currentFragment = s.id;
-        });
-      }
-      // No page-level "Home"-style link to fall back on (e.g. About page),
-      // so before the first nav-linked section is reached, default to it.
-      if (!currentFragment && !hasPageLevelLink) {
-        currentFragment = fragmentSections[0].id;
-      }
+    let current = 'hero';
+    const scrollPos = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight;
+    const winHeight = window.innerHeight;
+
+    // If at the bottom of the page, force the last section active
+    if (scrollPos + winHeight >= docHeight - 30) {
+      const last = sections[sections.length - 1];
+      current = last.id || 'hero';
+    } else {
+      sections.forEach(s => {
+        if (scrollPos >= s.offsetTop - 120) current = s.id || 'hero';
+      });
     }
 
-    parsed.forEach(({ el, file, fragment }) => {
-      el.classList.remove('active');
-      if (file !== currentFile) return;
-      if (currentFragment) {
-        if (fragment === currentFragment) el.classList.add('active');
-      } else {
-        if (!fragment) el.classList.add('active');
-      }
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      const href = (a.getAttribute('href') || '').replace('#', '');
+      if (href === current) a.classList.add('active');
     });
   }
 
