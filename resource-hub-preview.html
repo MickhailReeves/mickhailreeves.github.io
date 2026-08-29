@@ -287,6 +287,27 @@
   }
   .hv-topbar{display:flex;align-items:center;gap:20px;margin-bottom:34px;}
   .hv-burger{color:#fff;cursor:pointer;flex-shrink:0;}
+
+  /* ============ SLIDE-IN DRAWER MENU ============ */
+  .drawer-overlay{
+    position:fixed; inset:0; background:rgba(15,31,61,.45);
+    opacity:0; pointer-events:none; transition:opacity .3s ease; z-index:100;
+  }
+  .drawer-overlay.open{opacity:1; pointer-events:auto;}
+  .drawer-panel{
+    position:fixed; top:0; left:0; bottom:0; width:270px;
+    background:linear-gradient(160deg,var(--blue-800) 0%, var(--blue-600) 60%, var(--blue-500) 100%);
+    color:#fff; z-index:101; padding:20px 16px;
+    transform:translateX(-100%); transition:transform .32s cubic-bezier(.32,.72,0,1);
+    overflow-y:auto;
+  }
+  .drawer-panel.open{transform:translateX(0);}
+  .drawer-close{
+    width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.16);
+    display:flex; align-items:center; justify-content:center; color:#fff; cursor:pointer;
+    margin-bottom:18px;
+  }
+  .drawer-close svg{width:16px;height:16px;}
   .hv-burger svg{width:24px;height:24px;stroke-width:2;}
   .hv-search{
     flex:1;max-width:520px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.55);
@@ -656,6 +677,7 @@ const ICONS = {
   heart: `<path d="M12 20.5S3.5 15.4 3.5 9.4a4.6 4.6 0 0 1 8.5-2.3 4.6 4.6 0 0 1 8.5 2.3c0 6-8.5 11.1-8.5 11.1z"/>`,
   clockRewind: `<path d="M4 4v5h5"/><path d="M4.5 12a8 8 0 1 0 2.2-5.6L4 9"/><path d="M12 8v4.5l3 2"/>`,
   arrowRight: `<path d="M4 12h16M14 6l6 6-6 6"/>`,
+  close: `<path d="M6 6l12 12M18 6L6 18"/>`,
 };
 function ic(name, cls=''){ return `<svg class="ic ${cls}" viewBox="0 0 24 24">${ICONS[name]}</svg>`; }
 
@@ -1284,6 +1306,57 @@ function renderHomeView(){
   hv.querySelectorAll('[data-nav]').forEach(el=>{
     el.addEventListener('click', ()=> route(el.dataset.nav));
   });
+  renderDrawer();
+  document.getElementById('hv-burger-btn').addEventListener('click', openDrawer);
+}
+
+/* ---------------- SLIDE-IN DRAWER MENU ---------------- */
+function renderDrawer(){
+  if(document.getElementById('drawer-overlay')) return; // already built
+  const drawerItems = [
+    {k:'home', g:'home', t:'Home'},
+    {k:'orders', g:'bag', t:'Orders & Subscriptions'},
+    {k:'rx', g:'document', t:'My Prescriptions'},
+    {k:'rewards', g:'gift', t:'Savings & Rewards'},
+    {divider:true},
+    {label:'RESOURCE HUB'},
+    {k:'symptom', g:'heartPulse', t:'Symptom Checker'},
+    {k:'newcontacts', g:'eye', t:'New to Contacts?'},
+    {k:'faq', g:'bulb', t:'Care Tips & FAQ'},
+    {k:'doctor', g:'question', t:'Contact your doctor'},
+    {divider:true},
+    {k:'find', g:'pin', t:'Find an eye doctor'},
+    {k:'emergency', g:'siren', t:'Emergency'},
+  ];
+  const overlay = document.createElement('div');
+  overlay.className = 'drawer-overlay';
+  overlay.id = 'drawer-overlay';
+  const panel = document.createElement('div');
+  panel.className = 'drawer-panel';
+  panel.id = 'drawer-panel';
+  panel.innerHTML = `
+    <div class="drawer-close" id="drawer-close-btn">${ic('close')}</div>
+    ${drawerItems.map(it=>{
+      if(it.divider) return `<div class="nav-divider"></div>`;
+      if(it.label) return `<div class="nav-section-label">${it.label}</div>`;
+      return `<button class="nav-item" data-nav="${it.k}"><span class="ic-wrap">${ic(it.g)}</span>${it.t}</button>`;
+    }).join('')}
+  `;
+  document.body.appendChild(overlay);
+  document.body.appendChild(panel);
+  panel.querySelectorAll('[data-nav]').forEach(el=>{
+    el.addEventListener('click', ()=>{ closeDrawer(); route(el.dataset.nav); });
+  });
+  overlay.addEventListener('click', closeDrawer);
+  document.getElementById('drawer-close-btn').addEventListener('click', closeDrawer);
+}
+function openDrawer(){
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.getElementById('drawer-panel').classList.add('open');
+}
+function closeDrawer(){
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.getElementById('drawer-panel').classList.remove('open');
 }
 
 /* ---------------- SYMPTOM CHECKER ---------------- */
