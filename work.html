@@ -581,21 +581,6 @@ section { padding: 5rem 2.5rem; }
   width: 100%;
   height: auto;
 }
-.prototype-iframe {
-  display: block;
-  width: 1210px;
-  height: 760px;
-  border: none;
-  overflow: hidden;
-}
-.prototype-frame-wrap {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-.prototype-frame-wrap .prototype-iframe {
-  transform-origin: top left;
-}
 
 /* METHOD STEPS */
 .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.75rem; }
@@ -706,6 +691,35 @@ section { padding: 5rem 2.5rem; }
 .impact-pct { font-family: 'Inter', sans-serif; font-size: 2.25rem; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 0.35rem; }
 .impact-pct .accent { color: var(--blue-bright); }
 .impact-desc { font-size: 0.78rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+
+/* HEADLINE IMPACT (lead-in summary above the fold, before process detail) */
+.headline-impact {
+  background: linear-gradient(135deg, rgba(28,110,247,0.14), rgba(28,110,247,0.03));
+  border: 1px solid rgba(28,110,247,0.3);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+}
+.headline-impact .result-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 0.6rem;
+}
+.headline-impact .result-statement {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 1.35rem;
+}
+.headline-impact .impact-row { margin-top: 0; }
+.headline-impact .impact-box { background: rgba(10,20,40,0.35); }
+@media (max-width: 640px) {
+  .headline-impact .impact-row { grid-template-columns: 1fr; }
+}
 
 /* TAGS */
 .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
@@ -1156,6 +1170,35 @@ footer {
   .commuting-panel-grid { grid-template-columns: 1fr; }
   .commuting-panel-wide { grid-column: auto; }
 }
+
+/* PAGE TRANSITION (fade between pages) */
+body {
+  animation: pageFadeIn 0.45s ease both;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+body.page-exiting {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* NAV SLIDE-IN ON LOAD */
+nav {
+  animation: navSlideIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes navSlideIn {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+/* Respect reduced-motion preference: disable all transition/entrance animation */
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none !important; opacity: 1 !important; }
+  body.page-exiting { transition: none !important; opacity: 1 !important; }
+  nav { animation: none !important; transform: none !important; }
+}
 </style>
 </head>
 <body>
@@ -1166,8 +1209,8 @@ footer {
 <nav>
   <a href="index.html" class="nav-name">Mickhail<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="work.html">Work</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
@@ -1178,8 +1221,8 @@ footer {
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#about" class="mobile-nav-link">About</a>
-  <a href="index.html#experience" class="mobile-nav-link">Experience</a>
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="about.html" class="mobile-nav-link">About</a>
   <a href="work.html" class="mobile-nav-link">Work</a>
   <a href="index.html#contact" class="mobile-nav-link">Contact</a>
 </div>
@@ -1209,7 +1252,17 @@ footer {
           <div class="meta-cell"><div class="lbl">Client</div><div class="val">[Vision Care Client] - Confidential</div></div>
           <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF710 Applied UX Research, Bentley University</div></div>
           <div class="meta-cell"><div class="lbl">Role</div><div class="val">UX Researcher &amp; Designer</div></div>
-          <div class="meta-cell"><div class="lbl">Duration</div><div class="val">Spring 2026</div></div>
+          <div class="meta-cell"><div class="lbl">Duration</div><div class="val">Jan – May 2026</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">Designed and validated a support hub prototype that closed a research-confirmed trust gap: 91% of wearers trust their eye care provider most, but only 16% were reaching one when problems came up. The prototype's doctor-contact component drove a 5/5 engagement-likelihood score with testers when introduced by a provider.</div>
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-pct"><span class="accent">91%</span></div><div class="impact-desc">ranked their eye care provider as the most trusted source of support</div></div>
+            <div class="impact-box"><div class="impact-pct"><span class="accent">5/5</span></div><div class="impact-desc">platform engagement likelihood when the hub was introduced by a provider</div></div>
+            <div class="impact-box"><div class="impact-pct"><span class="accent">4.63/5</span></div><div class="impact-desc">average usability score across unmoderated testing (n=8)</div></div>
+          </div>
         </div>
 
         <div class="card-section">
@@ -1372,9 +1425,7 @@ footer {
               <div class="browser-dot" style="background:#28c840;"></div>
               <div class="browser-url">lens-companion.prototype / resource-hub</div>
             </div>
-            <div class="prototype-frame-wrap" id="proto-wrap">
-              <iframe class="prototype-iframe" id="proto-iframe" src="resource-hub-preview.html" title="Interactive Contact Lens Resource Hub prototype" loading="lazy"></iframe>
-            </div>
+            <img class="prototype-img" src="Landing_Page.jpg" alt="Contact Lens Resource Hub prototype - landing page showing navigation, hero section with Get Started and Check a Symptom CTAs, four hub module cards, topic explorer, and ECP contact section." loading="lazy">
           </div>
         </div>
 
@@ -1402,24 +1453,6 @@ footer {
           <p>Usability testing surfaced friction in the Symptom Checker results screen: testers scanned past the guidance cards and missed the reported-symptoms context entirely. The screen went through a full restructure based on that feedback, tracked across a 17-screen version comparison from initial wireframes to final export.</p>
           <img class="prototype-img" src="wireframe_compare.png" alt="Before and after wireframe comparison of the Symptom Checker Results screen. V1 shows a reported-symptoms chip row, an unorganized text block for possible cause, and a four-card guidance grid. Final shows a single-row summary of possible cause, match confidence, and symptom comparison, a two-by-two text grid replacing the card guidance, and a new educational section addressing whether the condition is common, with a link to contact a doctor." loading="lazy">
           <p style="margin-top:1rem;">Three changes came directly out of testing: the four guidance cards were flattened into a plain text grid once testers said the card styling implied more content than was actually there; the top section was consolidated into a single scannable row instead of a separate symptom chip list; and a new educational section was added after testers repeatedly asked whether their symptoms were normal, a question the original design never answered.</p>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Strategic Impact</div>
-          <div class="impact-row">
-            <div class="impact-box">
-              <div class="impact-pct"><span class="accent">91%</span></div>
-              <div class="impact-desc">ranked ECPs as their most trusted source, establishing ECP endorsement as the highest-value adoption lever.</div>
-            </div>
-            <div class="impact-box">
-              <div class="impact-pct"><span class="accent">5/5</span></div>
-              <div class="impact-desc">platform engagement likelihood when introduced by an ECP, validating the ECP-as-quarterback model.</div>
-            </div>
-            <div class="impact-box">
-              <div class="impact-pct"><span class="accent">81%</span></div>
-              <div class="impact-desc">open to manufacturer-led support, conditional on genuine utility rather than brand-promotional content.</div>
-            </div>
-          </div>
         </div>
 
         <div class="card-section">
@@ -1457,6 +1490,17 @@ footer {
           <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF710 Applied UX Research, Bentley University</div></div>
           <div class="meta-cell"><div class="lbl">Role</div><div class="val">UX Researcher (Lead)</div></div>
           <div class="meta-cell"><div class="lbl">Scope</div><div class="val">Consumer-facing AI health touchpoints</div></div>
+          <div class="meta-cell"><div class="lbl">Duration</div><div class="val">Jan – May 2026</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">Coded interview and stakeholder data across 3 AI touchpoint types into 8 trust-and-credibility themes, delivering 5 design recommendations for where AI-driven eye-health tools gain or lose patient confidence.</div>
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-pct"><span class="accent">3</span></div><div class="impact-desc">AI touchpoint types evaluated: online checkers, in-office kiosks, home test apps</div></div>
+            <div class="impact-box"><div class="impact-pct"><span class="accent">8</span></div><div class="impact-desc">trust and credibility themes identified through affinity analysis</div></div>
+            <div class="impact-box"><div class="impact-pct"><span class="accent">5</span></div><div class="impact-desc">design recommendations delivered to the client</div></div>
+          </div>
         </div>
 
         <div class="card-section">
@@ -1532,14 +1576,24 @@ footer {
         <div class="card-badge">Individual Project</div>
       </div>
       <div class="card-body">
-        <div class="card-title">The Case for Carpool Matching at Bentley</div>
+        <div class="card-title">What the Commuting Data Supports</div>
         <div class="card-subtitle">A nine-year data story built for Bentley's Office of Sustainability</div>
 
         <div class="card-meta-row">
           <div class="meta-cell"><div class="lbl">Sponsor</div><div class="val">Bentley Office of Sustainability</div></div>
           <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF730 Visualizing Information, Bentley University</div></div>
           <div class="meta-cell"><div class="lbl">Role</div><div class="val">Data Researcher &amp; Visual Designer</div></div>
-          <div class="meta-cell"><div class="lbl">Duration</div><div class="val">Summer 2026</div></div>
+          <div class="meta-cell"><div class="lbl">Duration</div><div class="val">May – Aug 2026</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">Recommended shuttle expansion over carpool matching to Bentley's Office of Sustainability: commuter demand for shuttle and transit improvements outranks carpool matching by nearly 3 to 1, a pattern that held steady across nine years of data with no decline in drive-alone commuting.</div>
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-pct"><span class="accent">78.7%</span></div><div class="impact-desc">drive-alone rate in 2025, unchanged within a few points across nine years</div></div>
+            <div class="impact-box"><div class="impact-pct"><span class="accent">45.8%</span></div><div class="impact-desc">of commuters asked for shuttle or transit improvements, versus 16.2% for carpool matching</div></div>
+            <div class="impact-box"><div class="impact-pct"><span class="accent">713</span></div><div class="impact-desc">2025 survey respondents, built on nine years of combined data</div></div>
+          </div>
         </div>
 
         <div class="card-section">
@@ -1632,6 +1686,29 @@ footer {
 </section>
 
 <script>
+// -- 0. PAGE TRANSITION (fade on internal navigation) --------------------------
+(function() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return; // Respect OS-level motion preference: skip entirely, instant navigation
+
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+    if (href.charAt(0) === '#') return;              // same-page anchor, no transition needed
+    if (link.target === '_blank') return;              // opens new tab, leave as-is
+    if (link.hasAttribute('download')) return;         // file downloads (resume, deck), not a page nav
+    if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // let modifier-key clicks behave normally
+
+    e.preventDefault();
+    document.body.classList.add('page-exiting');
+    setTimeout(function() { window.location.href = href; }, 220);
+  });
+})();
+
 // -- 2. CUSTOM CURSOR (dot + trailing ring + hover expand) --------------------
 (function() {
   // Only enable on devices with a fine pointer (mouse). Skip touch devices.
@@ -1810,31 +1887,52 @@ footer {
   }, 2500);
 })();
 
-// -- 6. ACTIVE NAV HIGHLIGHT ON SCROLL ----------------------------------------
+// -- 6. ACTIVE NAV HIGHLIGHT (current page + in-page section) -----------------
 (function() {
-  const sections = Array.from(document.querySelectorAll('section[id], div.hero'));
   const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+  const currentFile = (window.location.pathname.split('/').pop() || 'index.html');
+
+  const parsed = Array.from(navLinks).map(a => {
+    const href = a.getAttribute('href') || '';
+    const [file, fragment] = href.split('#');
+    return { el: a, file: file || currentFile, fragment: fragment || null };
+  });
+  const navFragments = new Set(
+    parsed.filter(p => p.fragment && p.file === currentFile).map(p => p.fragment)
+  );
+  // Does this page have its own plain (fragment-less) nav entry, e.g. "Home" or "Work"?
+  const hasPageLevelLink = parsed.some(p => p.file === currentFile && !p.fragment);
+  const fragmentSections = Array.from(document.querySelectorAll('section[id]'))
+    .filter(s => navFragments.has(s.id));
 
   function updateActive() {
-    let current = 'hero';
-    const scrollPos = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight;
-    const winHeight = window.innerHeight;
-
-    // If at the bottom of the page, force the last section active
-    if (scrollPos + winHeight >= docHeight - 30) {
-      const last = sections[sections.length - 1];
-      current = last.id || 'hero';
-    } else {
-      sections.forEach(s => {
-        if (scrollPos >= s.offsetTop - 120) current = s.id || 'hero';
-      });
+    let currentFragment = null;
+    if (fragmentSections.length) {
+      const scrollPos = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      const winHeight = window.innerHeight;
+      if (scrollPos + winHeight >= docHeight - 30) {
+        currentFragment = fragmentSections[fragmentSections.length - 1].id;
+      } else {
+        fragmentSections.forEach(s => {
+          if (scrollPos >= s.offsetTop - 120) currentFragment = s.id;
+        });
+      }
+      // No page-level "Home"-style link to fall back on (e.g. About page),
+      // so before the first nav-linked section is reached, default to it.
+      if (!currentFragment && !hasPageLevelLink) {
+        currentFragment = fragmentSections[0].id;
+      }
     }
 
-    navLinks.forEach(a => {
-      a.classList.remove('active');
-      const href = (a.getAttribute('href') || '').replace('#', '');
-      if (href === current) a.classList.add('active');
+    parsed.forEach(({ el, file, fragment }) => {
+      el.classList.remove('active');
+      if (file !== currentFile) return;
+      if (currentFragment) {
+        if (fragment === currentFragment) el.classList.add('active');
+      } else {
+        if (!fragment) el.classList.add('active');
+      }
     });
   }
 
@@ -1927,23 +2025,6 @@ footer {
   }
   checkWidth();
   window.addEventListener('resize', checkWidth);
-})();
-</script>
-<script>
-(function(){
-  var NATIVE_W = 1210, NATIVE_H = 760;
-  var wrap = document.getElementById('proto-wrap');
-  var frame = document.getElementById('proto-iframe');
-  if(!wrap || !frame) return;
-  function resize(){
-    var scale = wrap.clientWidth / NATIVE_W;
-    if(scale > 1) scale = 1; // never scale up past native size
-    frame.style.transform = 'scale(' + scale + ')';
-    wrap.style.height = (NATIVE_H * scale) + 'px';
-  }
-  window.addEventListener('resize', resize);
-  window.addEventListener('load', resize);
-  resize();
 })();
 </script>
 </body>
