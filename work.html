@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -196,7 +196,7 @@ nav {
   50% { opacity: 0.5; transform: scale(0.7); }
 }
 .hero h1 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 800;
   line-height: 1.0;
@@ -1125,7 +1125,7 @@ footer {
   margin-bottom: 0.75rem;
 }
 .work-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   color: #ffffff;
@@ -1234,7 +1234,7 @@ nav {
     <a href="index.html" class="back-link">&larr; Back to home</a>
     <div class="work-eyebrow">Case Studies</div>
     <h1 class="work-title">Selected work</h1>
-    <p class="work-desc">Three projects spanning UX research, prototype design, and data-driven communication. Each includes full process, methods, and outcomes.</p>
+    <p class="work-desc">Four projects spanning UX research, prototype design, and data-driven communication. Each includes full process, methods, and outcomes.</p>
   </div>
 </div>
 
@@ -1471,6 +1471,133 @@ nav {
             <span class="tag">Research Report</span>
             <span class="tag">Project Retrospective</span>
             <span class="tag">Stakeholder Presentation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDY: DENTAL -->
+    <div class="project-card" id="case-dental">
+      <div class="card-top-bar">
+        <div class="card-type">UX Research &middot; Interview Study</div>
+        <div class="card-badge">Team of 4</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Why People Put Off the Dentist</div>
+        <div class="card-subtitle">Interviews with patients and dental professionals on what keeps people out of the chair</div>
+
+        <div class="card-meta-row">
+          <div class="meta-cell"><div class="lbl">Context</div><div class="val">Team research study, Bentley HFID</div></div>
+          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Interviewer, note-taker, synthesis</div></div>
+          <div class="meta-cell"><div class="lbl">Methods</div><div class="val">Interviews, empathy &amp; ecosystem mapping</div></div>
+          <div class="meta-cell"><div class="lbl">Duration</div><div class="val">Sep 2026</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">Fear came up in every interview, but it wasn't the only barrier. Cost, trust, and scheduling sat alongside it, and 3 of 4 patients waited for pain before booking. Two of those barriers, trust and timing, weren't in our starting hypothesis.</div>
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-pct">8 of 8</div><div class="impact-desc">interviews described fear or discomfort (tools, needles, noises)</div></div>
+            <div class="impact-box"><div class="impact-pct">4 of 4</div><div class="impact-desc">patients named cost as a concern</div></div>
+            <div class="impact-box"><div class="impact-pct">3 of 4</div><div class="impact-desc">patients wait for pain before booking</div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Approach</div>
+          <div class="method-grid">
+            <div class="method-step">
+              <div class="step-num">01</div>
+              <div class="step-name">Interview</div>
+              <div class="step-desc">8 one-on-one semi-structured interviews: 4 dental professionals, 4 patients. Every session had a separate note-taker.</div>
+            </div>
+            <div class="method-step">
+              <div class="step-num">02</div>
+              <div class="step-name">Map</div>
+              <div class="step-desc">One empathy map per interview, each built by a teammate who hadn't been in that session, to limit personal bias.</div>
+            </div>
+            <div class="method-step">
+              <div class="step-num">03</div>
+              <div class="step-name">Synthesize</div>
+              <div class="step-desc">Merged all 8 maps into one combined map, then placed the patient's decision at the center of an ecosystem map.</div>
+            </div>
+          </div>
+          <p style="margin-top:1rem;">My part: I interviewed two of the dental professionals, took notes on a patient interview, and built two of the eight empathy maps.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">From Eight Maps to One</div>
+          <div class="commuting-video-wrap">
+            <video class="dental-video" autoplay muted loop playsinline controls preload="metadata" poster="dental_poster.jpg" aria-label="Twenty-second walkthrough of the team's Miro board: eight empathy maps, one map up close, the combined synthesis map, and the ecosystem map." style="width:100%; display:block;">
+              <source src="dental_synthesis.mp4" type="video/mp4">
+              <source src="dental_synthesis.webm" type="video/webm">
+              Your browser does not support embedded video. <a href="dental_synthesis.mp4">Download the video</a> instead.
+            </video>
+          </div>
+          <p style="margin-top:0.75rem; font-size:0.8rem; color:rgba(255,255,255,0.7);">A 20-second pass over our Miro board. No audio.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Key Findings</div>
+          <div class="findings-list">
+            <div class="finding-item">
+              <div class="finding-num">1</div>
+              <div class="finding-text">
+                <strong>Cost: 4 of 4 patients</strong>
+                <span>Every patient raised cost, and 3 of 4 professionals called it a main barrier. Insurance mostly showed up as frustration: paying premiums and still getting bills.</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">2</div>
+              <div class="finding-text">
+                <strong>Fear: 8 of 8 interviews</strong>
+                <span>Tools, needles, and noises came up on both sides. Two patients said the unknown was the real problem: not knowing what to expect before walking in.</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">3</div>
+              <div class="finding-text">
+                <strong>Trust: 3 of 4 patients chose by word of mouth</strong>
+                <span>Family and friends decided which dentist felt safe. Patients and professionals both described suspicion of upselling.</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">4</div>
+              <div class="finding-text">
+                <strong>Timing: 3 of 4 patients wait for pain</strong>
+                <span>Two patients book four months out and struggle to reschedule. One had forgotten what the visit was even for by the time it came around.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pull-quote">
+          <p>&ldquo;It&rsquo;s like go to pay the dentist or not have a place to live.&rdquo;</p>
+          <cite>Patient interview, on cost</cite>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Ecosystem Map</div>
+          <a href="dental_ecosystem.jpg" target="_blank" rel="noopener" style="display:block;"><img class="prototype-img" src="dental_ecosystem.jpg" alt="Ecosystem map with the patient's decision to book, delay, or return at the center. Inner ring: dentist or hygienist, family and friends, and front desk staff, each noted in 4 of 4 patient interviews. Middle ring: insurance providers, specialists, dental practices, employers and schools. Outer ring: online reviews and social media, government, education, and the healthcare system." loading="lazy" style="max-width:760px; margin:0 auto; border-radius:12px;"></a>
+          <p style="margin-top:0.5rem; font-size:0.8rem; color:rgba(255,255,255,0.7); text-align:center;">Click to open full size.</p>
+          <p style="margin-top:1rem;">The front desk came up with all 4 patients as the point where booking, rescheduling, cost, and coverage questions land at once. Ideas about dentists also come from outside the office entirely, from cartoons and the &ldquo;scary dentist&rdquo; stereotype to online reviews patients found hard to trust.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What I&rsquo;d Change</div>
+          <p>Our sample split cleanly by gender: all 4 professionals were women and all 4 patients were men. Next time I&rsquo;d recruit across both groups so patterns aren&rsquo;t confounded with who we happened to reach.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Deliverables</div>
+          <div class="tag-list">
+            <span class="tag">Learning Plan &amp; Hypothesis</span>
+            <span class="tag">Patient &amp; Professional Interview Scripts</span>
+            <span class="tag">8 Semi-Structured Interviews</span>
+            <span class="tag">8 Empathy Maps</span>
+            <span class="tag">Combined Synthesis Map</span>
+            <span class="tag">Ecosystem Map</span>
+            <span class="tag">Findings Presentation</span>
           </div>
         </div>
       </div>
@@ -2026,6 +2153,16 @@ nav {
   }
   checkWidth();
   window.addEventListener('resize', checkWidth);
+})();
+</script>
+
+<script>
+(function(){
+  var v=document.querySelector('.dental-video');
+  if(!v) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.pause();
+  }
 })();
 </script>
 </body>
