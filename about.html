@@ -28,7 +28,7 @@
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -236,7 +236,7 @@ nav {
   animation: pulse 2s infinite;
 }
 .hero h1 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 800;
   line-height: 1.0;
@@ -438,7 +438,6 @@ section { padding: 5rem 2.5rem; }
 
 .research-card {
   border: 1px solid var(--border-blue);
-  border-left: 3px solid var(--blue);
   border-radius: 10px;
   padding: 1.1rem 1.25rem;
   margin-bottom: 1.1rem;
@@ -484,7 +483,6 @@ section { padding: 5rem 2.5rem; }
 .course-item {
   background: var(--blue-ghost);
   border: 1px solid var(--border-blue);
-  border-left: 3px solid var(--blue);
   border-radius: 8px;
   padding: 0.7rem 0.85rem;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -680,20 +678,34 @@ section { padding: 5rem 2.5rem; }
 
 /* QUOTE */
 .pull-quote {
-  border-left: 3px solid var(--blue-bright);
-  padding: 0.85rem 1.25rem;
-  margin: 1.25rem 0;
-  background: rgba(28,110,247,0.08);
-  border-radius: 0 8px 8px 0;
+  margin: 2.25rem 0;
+  padding: 0;
+  max-width: 40rem;
+}
+.pull-quote::before {
+  content: '\201C';
+  display: block;
+  font-family: 'DM Serif Display', serif;
+  font-size: 4.5rem;
+  line-height: 0.7;
+  color: var(--blue-bright);
+  margin-bottom: 0.4rem;
 }
 .pull-quote p {
   font-family: 'DM Serif Display', serif;
   font-style: italic;
-  font-size: 1rem;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 0.35rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  line-height: 1.35;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
 }
-.pull-quote cite { font-size: 0.75rem; color: rgba(255,255,255,0.85); font-style: normal; }
+.pull-quote cite {
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
 
 /* PROTOTYPE COMPONENTS TABLE */
 .proto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; margin-top: 0.75rem; }
@@ -1281,7 +1293,7 @@ footer {
   margin-bottom: 0.75rem;
 }
 .work-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   color: #ffffff;
@@ -1375,10 +1387,9 @@ nav {
             <span>M.S. HFID Candidate · Bentley University</span>
           </div>
         </div>
-        <p>I'm a graduate student in Human Factors in Information Design at Bentley University, where I focus on the intersection of user research, information architecture, and evidence-based design. My work centers on understanding how people process information under uncertainty and translating those insights into systems that actually work.</p>
-        <p>My research projects have spanned enterprise SaaS pricing transparency, file-management workflows, the usability of AI-assisted health tools, and post-fulfillment product support experiences. I approach each project with structured qualitative methods, tight stakeholder alignment, and a commitment to findings that are actionable rather than just interesting.</p>
-        <p>My undergraduate training in psychology and computer science gives me a dual lens: I understand why users behave the way they do, and I can bridge that to the technical and design constraints teams actually work with. Before graduate school, I built experience in crisis counseling, care management, and STEM instruction, all roles that sharpened my ability to communicate complex information clearly and meet people where they are.</p>
-        <p>I also build AI tools directly into my research and design process, using them to speed up synthesis, ideation, and early iteration, while keeping the judgment calls that make findings and designs actually usable in my own hands.</p>
+        <p>I'm a graduate student in Human Factors in Information Design at Bentley University, focused on user research, information architecture, and evidence-based design. My undergraduate training in psychology and computer science gives me a dual lens: why users behave the way they do, and the technical and design constraints teams actually work with.</p>
+        <p>My research has spanned enterprise SaaS pricing transparency, file-management workflows, AI-assisted health tool usability, and post-fulfillment product support. I use structured qualitative methods and tight stakeholder alignment to produce findings that are actionable, not just interesting.</p>
+        <p>Before graduate school, I worked in crisis counseling, care management, and STEM instruction, roles that sharpened my ability to communicate complex information clearly and meet people where they are. I also build AI tools directly into my process, using them to speed up synthesis and early iteration while keeping final judgment calls in my own hands.</p>
       </div>
       </div>
       <div>

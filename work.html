@@ -398,7 +398,6 @@ section { padding: 5rem 2.5rem; }
 
 .research-card {
   border: 1px solid var(--border-blue);
-  border-left: 3px solid var(--blue);
   border-radius: 10px;
   padding: 1.1rem 1.25rem;
   margin-bottom: 1.1rem;
@@ -444,7 +443,6 @@ section { padding: 5rem 2.5rem; }
 .course-item {
   background: var(--blue-ghost);
   border: 1px solid var(--border-blue);
-  border-left: 3px solid var(--blue);
   border-radius: 8px;
   padding: 0.7rem 0.85rem;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -640,20 +638,34 @@ section { padding: 5rem 2.5rem; }
 
 /* QUOTE */
 .pull-quote {
-  border-left: 3px solid var(--blue-bright);
-  padding: 0.85rem 1.25rem;
-  margin: 1.25rem 0;
-  background: rgba(28,110,247,0.08);
-  border-radius: 0 8px 8px 0;
+  margin: 2.25rem 0;
+  padding: 0;
+  max-width: 40rem;
+}
+.pull-quote::before {
+  content: '\201C';
+  display: block;
+  font-family: 'DM Serif Display', serif;
+  font-size: 4.5rem;
+  line-height: 0.7;
+  color: var(--blue-bright);
+  margin-bottom: 0.4rem;
 }
 .pull-quote p {
   font-family: 'DM Serif Display', serif;
   font-style: italic;
-  font-size: 1rem;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 0.35rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  line-height: 1.35;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
 }
-.pull-quote cite { font-size: 0.75rem; color: rgba(255,255,255,0.85); font-style: normal; }
+.pull-quote cite {
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
 
 /* PROTOTYPE COMPONENTS TABLE */
 .proto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; margin-top: 0.75rem; }
@@ -1412,7 +1424,7 @@ nav {
         </div>
 
         <div class="pull-quote">
-          <p>"Some eye doctors don't even tell you the basics. They say here's the prescription and you're good."</p>
+          <p>Some eye doctors don't even tell you the basics. They say here's the prescription and you're good.</p>
           <cite>Interview participant, discussing post-dispensing ECP support</cite>
         </div>
 
@@ -1572,7 +1584,7 @@ nav {
         </div>
 
         <div class="pull-quote">
-          <p>&ldquo;It&rsquo;s like go to pay the dentist or not have a place to live.&rdquo;</p>
+          <p>It&rsquo;s like go to pay the dentist or not have a place to live.</p>
           <cite>Patient interview, on cost</cite>
         </div>
 
