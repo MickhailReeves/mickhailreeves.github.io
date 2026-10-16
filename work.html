@@ -765,6 +765,20 @@ section { padding: 5rem 2.5rem; }
   flex-direction: column;
   position: relative;
 }
+/* Keep number, label, quote, sentiment and finding on shared rows across all cards */
+@supports (grid-template-rows: subgrid) {
+  .journey-track {
+    grid-template-rows: repeat(5, auto);
+    gap: 0 0.6rem;
+  }
+  .journey-stage {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 5;
+  }
+  .journey-sentiment { justify-self: start; align-self: start; }
+  .journey-stage .journey-finding { margin-top: 0; align-self: start; }
+}
 .journey-stage.gap {
   background: rgba(245,158,11,0.08);
   border-color: rgba(245,158,11,0.35);
