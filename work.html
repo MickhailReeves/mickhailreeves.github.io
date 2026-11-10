@@ -1220,6 +1220,97 @@ nav {
   to { transform: translateY(0); }
 }
 
+
+/* ===== SITE DESIGN CASE STUDY: wireframes, site map, timeline ===== */
+.method-grid.four { grid-template-columns: repeat(4, 1fr); }
+.ia-compare { display: grid; grid-template-columns: 1fr 40px 1.6fr; gap: 0.75rem; align-items: stretch; margin-top: 0.75rem; }
+.ia-panel { background: #1a2d54; border: 1px solid #2a4a85; border-radius: 10px; padding: 1rem; }
+.ia-panel h4 { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 0.15rem; }
+.ia-panel .ia-sub { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-bottom: 0.75rem; }
+.ia-chips { display: flex; flex-direction: column; gap: 0.35rem; }
+.ia-chip { font-size: 0.78rem; color: rgba(255,255,255,0.88); background: rgba(255,255,255,0.06); border: 1px dashed rgba(255,255,255,0.35); border-radius: 6px; padding: 0.35rem 0.6rem; }
+.ia-arrow { display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--blue-bright); }
+.ia-after { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+.ia-page { background: rgba(10,20,40,0.35); border: 1px solid #2e4a7d; border-radius: 8px; padding: 0.7rem; }
+.ia-page strong { display: block; font-size: 0.82rem; font-weight: 600; color: #ffffff; margin-bottom: 0.4rem; }
+.ia-page .ia-chip { font-size: 0.72rem; padding: 0.28rem 0.5rem; }
+
+.wf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 0.75rem; }
+.wf-fig { margin: 0; display: flex; flex-direction: column; }
+.wf-screen { position: relative; background: #0d1a30; border: 1px solid #2e4a7d; border-radius: 10px; padding: 9px; display: flex; flex-direction: column; gap: 7px; min-height: 340px; }
+.wf-fig figcaption { margin-top: 0.7rem; font-size: 0.82rem; color: rgba(255,255,255,0.88); }
+.wf-fig figcaption strong { display: block; font-size: 0.88rem; font-weight: 600; color: #ffffff; margin-bottom: 0.3rem; }
+.wf-notes { list-style: none; counter-reset: wf; display: grid; gap: 0.3rem; margin: 0; padding: 0; }
+.wf-notes li { counter-increment: wf; display: grid; grid-template-columns: 20px 1fr; gap: 0.5rem; font-size: 0.78rem; line-height: 1.5; color: rgba(255,255,255,0.8); }
+.wf-notes li::before { content: counter(wf); width: 18px; height: 18px; border-radius: 50%; background: var(--blue-bright); color: #08122a; font-size: 0.68rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.wf-block { position: relative; display: flex; flex-direction: column; gap: 5px; }
+.wf-n { position: absolute; top: -6px; left: -6px; z-index: 2; width: 16px; height: 16px; border-radius: 50%; background: var(--blue-bright); color: #08122a; font-size: 10px; font-weight: 700; line-height: 16px; text-align: center; font-style: normal; }
+.wf-nav { display: flex; align-items: center; justify-content: space-between; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+.wf-logo { width: 34px; height: 7px; border-radius: 4px; background: rgba(255,255,255,0.7); }
+.wf-links { display: flex; gap: 5px; }
+.wf-links i { display: block; width: 16px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.35); }
+.wf-burger { display: flex; flex-direction: column; gap: 3px; }
+.wf-burger i { display: block; width: 14px; height: 2px; background: rgba(255,255,255,0.75); }
+.wf-bar { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.28); }
+.wf-bar.thick { height: 9px; background: rgba(255,255,255,0.6); }
+.wf-bar.w20 { width: 20%; } .wf-bar.w30 { width: 30%; } .wf-bar.w40 { width: 40%; } .wf-bar.w50 { width: 50%; } .wf-bar.w60 { width: 60%; } .wf-bar.w80 { width: 80%; } .wf-bar.w90 { width: 90%; }
+.wf-row { display: flex; gap: 5px; align-items: center; }
+.wf-row.between { justify-content: space-between; }
+.wf-btn { height: 12px; width: 44px; border-radius: 6px; background: rgba(74,143,255,0.85); }
+.wf-btn.ghost { background: none; border: 1px solid rgba(74,143,255,0.85); }
+.wf-btn.full { width: 100%; }
+.wf-pill { height: 9px; width: 64px; border-radius: 5px; border: 1px solid rgba(74,143,255,0.85); background: rgba(74,143,255,0.2); }
+.wf-box { border: 1px dashed rgba(255,255,255,0.4); border-radius: 5px; background: rgba(255,255,255,0.05); padding: 5px; display: flex; flex-direction: column; gap: 4px; }
+.wf-box.fill { flex: 1; }
+.wf-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.wf-stats .wf-box { height: 20px; align-items: center; justify-content: center; }
+.wf-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.wf-thumb { height: 16px; border-radius: 3px; background: rgba(255,255,255,0.14); }
+.wf-photo { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.22); border: 1px dashed rgba(255,255,255,0.45); }
+.wf-photo.lg { width: 30px; height: 30px; }
+.wf-cols { display: grid; grid-template-columns: 1.5fr 1fr; gap: 6px; }
+.wf-cols.even { grid-template-columns: 1fr 1fr; }
+.wf-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.wf-steps .wf-box { height: 20px; }
+.wf-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.wf-tags i { display: block; height: 8px; width: 28px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.35); }
+.wf-scroll { display: flex; align-items: center; gap: 4px; }
+.wf-scroll .wf-box { flex: 1; height: 26px; }
+.wf-scroll span { font-size: 0.7rem; color: var(--blue-bright); }
+.wf-mobile-row { display: grid; grid-template-columns: 190px 1fr; gap: 1.5rem; align-items: start; margin-top: 1.25rem; }
+.wf-phone { border-radius: 22px; padding: 12px; min-height: 360px; }
+.wf-mobile-copy p { margin-bottom: 0.75rem; }
+
+.site-timeline { display: grid; gap: 0; margin-top: 0.75rem; }
+.tl-row { display: grid; grid-template-columns: 110px 1fr; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid #243a63; }
+.tl-row:last-child { border-bottom: none; }
+.tl-date { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-bright); }
+.tl-text strong { display: block; font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.92); margin-bottom: 0.15rem; }
+.tl-text span { font-size: 0.82rem; color: rgba(255,255,255,0.78); line-height: 1.55; }
+
+@media (max-width: 900px) {
+  .method-grid.four { grid-template-columns: repeat(2, 1fr); }
+  .wf-grid { grid-template-columns: 1fr; }
+  .wf-fig { max-width: 460px; width: 100%; margin: 0 auto; }
+  .ia-compare { grid-template-columns: 1fr; }
+  .ia-arrow { transform: rotate(90deg); padding: 0.1rem 0; }
+}
+@media (max-width: 640px) {
+  .method-grid.four { grid-template-columns: 1fr; }
+  .ia-after { grid-template-columns: 1fr; }
+  .wf-mobile-row { grid-template-columns: 1fr; }
+  .wf-phone { max-width: 220px; margin: 0 auto; }
+  .tl-row { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+
+.mo-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.1rem; margin-top:0.75rem; }
+.mo-fig { margin:0; display:flex; flex-direction:column; }
+.mo-fig img { width:100%; height:auto; border-radius:10px; border:1px solid #2e4a7d; display:block; background:#0b0d12; }
+.mo-fig figcaption { margin-top:0.6rem; font-size:0.82rem; color:rgba(255,255,255,0.88); }
+.mo-fig figcaption strong { display:block; font-size:0.88rem; font-weight:600; color:#ffffff; margin-bottom:0.25rem; }
+.mo-fig.wide { max-width:900px; margin-top:0.75rem; }
+@media (max-width:760px){ .mo-grid { grid-template-columns:1fr; } }
+
 /* Respect reduced-motion preference: disable all transition/entrance animation */
 @media (prefers-reduced-motion: reduce) {
   body { animation: none !important; opacity: 1 !important; }
@@ -1260,7 +1351,7 @@ nav {
     <a href="index.html" class="back-link">&larr; Back to home</a>
     <div class="work-eyebrow">Case Studies</div>
     <h1 class="work-title">Selected work</h1>
-    <p class="work-desc">Four projects spanning UX research, prototype design, and data-driven communication. Each includes full process, methods, and outcomes.</p>
+    <p class="work-desc">Six projects spanning UX research, prototype design, data-driven communication, game UX, and the design of this portfolio. Each includes full process, methods, and outcomes.</p>
   </div>
 </div>
 
@@ -1831,6 +1922,404 @@ nav {
             <span class="tag">Five-Panel Data Story</span>
             <span class="tag">Sponsor-Facing Recommendation</span>
             <span class="tag">Motion &amp; Static Formats</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" id="case-site">
+      <div class="card-top-bar">
+        <div class="card-type">Product Design &middot; Self-Initiated Project</div>
+        <div class="card-badge">Individual Project</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Designing This Portfolio: From One Long Page to a Three-Page Site</div>
+        <div class="card-subtitle">How I structured, wireframed, and refined my own UX portfolio for hiring managers</div>
+
+        <div class="card-meta-row">
+          <div class="meta-cell"><div class="lbl">Audience</div><div class="val">Hiring managers and recruiters</div></div>
+          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Designer &amp; Developer</div></div>
+          <div class="meta-cell"><div class="lbl">Built With</div><div class="val">HTML, CSS, JavaScript, GitHub Pages, AI coding assistant</div></div>
+          <div class="meta-cell"><div class="lbl">Timeline</div><div class="val">May 2026 &ndash; Present</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">Replaced one long, ever-growing page with a three-page site: a short home page that answers the first questions, a work page with full case studies, and an about page with the full story. Visitors get the short version first and the detail only if they want it.</div>
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">pages (home, work, about) replacing a single long scroll</div></div>
+            <div class="impact-box"><div class="impact-pct">6</div><div class="impact-desc">case studies, each opening with its result before the process</div></div>
+            <div class="impact-box"><div class="impact-pct">65+</div><div class="impact-desc">published updates since the first version on May 27, 2026</div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Project Overview</div>
+          <p>My portfolio has one job: give a hiring manager with a few minutes a clear picture of what I do, proof that I do it well, and an easy way to reach me. I set the structure, content, and design decisions myself, and used an AI coding assistant to build and revise the pages.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Problem Statement</div>
+          <p>The first version put everything on one page: hero, about, experience, work, and contact. As I added case studies, that page more than doubled in size (from about 45 KB to about 115 KB by mid-July), and the work I most wanted people to see sat far below the introduction. I needed a structure that gave a fast answer first and the full process second.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Approach</div>
+          <div class="method-grid four">
+            <div class="method-step">
+              <div class="step-num">01</div>
+              <div class="step-name">Define</div>
+              <div class="step-desc">Set the goal (a first conversation for UX research and design roles), the audience (hiring managers and recruiters), and an inventory of what the site had to hold.</div>
+            </div>
+            <div class="method-step">
+              <div class="step-num">02</div>
+              <div class="step-name">Structure</div>
+              <div class="step-desc">Split the content by how deep a visitor wants to go: summary on home, full case studies on work, background on about.</div>
+            </div>
+            <div class="method-step">
+              <div class="step-num">03</div>
+              <div class="step-name">Wireframe</div>
+              <div class="step-desc">Mapped each page and a mobile view in low fidelity to check hierarchy and flow before relying on color and type.</div>
+            </div>
+            <div class="method-step">
+              <div class="step-num">04</div>
+              <div class="step-name">Build &amp; Refine</div>
+              <div class="step-desc">Built in HTML, CSS, and JavaScript, then reviewed the live pages and fixed contrast, alignment, and motion issues as I found them.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Information Architecture</div>
+          <p>The content stayed the same. What changed was where it lives and how far a visitor has to go to reach it.</p>
+          <div class="ia-compare">
+            <div class="ia-panel">
+              <h4>Before</h4>
+              <div class="ia-sub">One page, May 2026</div>
+              <div class="ia-chips">
+                <div class="ia-chip">Hero</div>
+                <div class="ia-chip">About</div>
+                <div class="ia-chip">Experience</div>
+                <div class="ia-chip">Work</div>
+                <div class="ia-chip">Contact</div>
+              </div>
+            </div>
+            <div class="ia-arrow" aria-hidden="true">&rarr;</div>
+            <div class="ia-panel">
+              <h4>After</h4>
+              <div class="ia-sub">Three pages, August 2026</div>
+              <div class="ia-after">
+                <div class="ia-page"><strong>Home</strong>
+                  <div class="ia-chips"><div class="ia-chip">Hero</div><div class="ia-chip">Case study previews</div><div class="ia-chip">Additional work</div><div class="ia-chip">About teaser</div><div class="ia-chip">Contact</div></div>
+                </div>
+                <div class="ia-page"><strong>Work</strong>
+                  <div class="ia-chips"><div class="ia-chip">Six case studies</div></div>
+                </div>
+                <div class="ia-page"><strong>About</strong>
+                  <div class="ia-chips"><div class="ia-chip">Background</div><div class="ia-chip">Experience &amp; research</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Wireframes</div>
+          <p>Low-fidelity wireframes for the three pages and the mobile view. The numbers match the notes under each frame.</p>
+          <div class="wf-grid">
+            <figure class="wf-fig">
+              <div class="wf-screen" role="img" aria-label="Home page wireframe, top to bottom: navigation, hero with open to work badge, headline, description, two buttons and three stats, a two by two grid of case study previews, a wide additional work card, an about teaser with a photo, a contact section with three buttons, and a footer.">
+<div class="wf-nav"><span class="wf-logo"></span><span class="wf-links"><i></i><i></i><i></i><i></i></span></div>
+<div class="wf-block"><em class="wf-n">1</em><div class="wf-pill"></div><div class="wf-bar thick w90"></div><div class="wf-bar thick w60"></div><div class="wf-bar w80"></div><div class="wf-bar w60"></div></div>
+<div class="wf-block"><em class="wf-n">2</em><div class="wf-row"><div class="wf-btn"></div><div class="wf-btn ghost"></div></div></div>
+<div class="wf-block"><em class="wf-n">3</em><div class="wf-stats"><div class="wf-box"><div class="wf-bar w60"></div></div><div class="wf-box"><div class="wf-bar w60"></div></div><div class="wf-box"><div class="wf-bar w60"></div></div></div></div>
+<div class="wf-block"><em class="wf-n">4</em><div class="wf-bar w30"></div><div class="wf-cards">
+<div class="wf-box"><div class="wf-thumb"></div><div class="wf-bar w80"></div><div class="wf-bar w50"></div></div><div class="wf-box"><div class="wf-thumb"></div><div class="wf-bar w80"></div><div class="wf-bar w50"></div></div>
+<div class="wf-box"><div class="wf-thumb"></div><div class="wf-bar w80"></div><div class="wf-bar w50"></div></div><div class="wf-box"><div class="wf-thumb"></div><div class="wf-bar w80"></div><div class="wf-bar w50"></div></div></div></div>
+<div class="wf-box"><div class="wf-row"><div class="wf-thumb" style="flex:1"></div><div class="wf-thumb" style="flex:1"></div><div class="wf-thumb" style="flex:1"></div></div></div>
+<div class="wf-block"><em class="wf-n">5</em><div class="wf-box"><div class="wf-row"><div class="wf-photo"></div><div style="flex:1;display:grid;gap:4px"><div class="wf-bar w90"></div><div class="wf-bar w50"></div></div></div></div></div>
+<div class="wf-block"><em class="wf-n">6</em><div class="wf-box" style="align-items:center"><div class="wf-bar thick w50"></div><div class="wf-row"><div class="wf-btn"></div><div class="wf-btn ghost"></div><div class="wf-btn ghost"></div></div></div></div>
+</div>
+              <figcaption><strong>Home</strong>
+                <ol class="wf-notes">
+                  <li>Hero with a one-line value statement and an Open to Work badge</li>
+                  <li>Two clear actions: View My Work and Get in Touch</li>
+                  <li>Three quick facts as early proof</li>
+                  <li>Previews of the case studies, linked to the full versions</li>
+                  <li>Short about teaser with a headshot, linked to the full story</li>
+                  <li>Contact with resume, email, and LinkedIn</li>
+                </ol>
+              </figcaption>
+            </figure>
+            <figure class="wf-fig">
+              <div class="wf-screen" role="img" aria-label="Work page wireframe, top to bottom: navigation, page header with back link and short intro, then one case study card containing a top bar with type and role badge, title and subtitle, a four-cell details row, a result statement with three impact numbers, process sections with a three-step approach, and a row of deliverable tags.">
+<div class="wf-nav"><span class="wf-logo"></span><span class="wf-links"><i></i><i></i><i></i><i></i></span></div>
+<div class="wf-block"><em class="wf-n">1</em><div class="wf-bar w20"></div><div class="wf-bar thick w50"></div><div class="wf-bar w80"></div></div>
+<div class="wf-box fill" style="gap:6px">
+<div class="wf-block"><em class="wf-n">2</em><div class="wf-row between"><div class="wf-bar w30"></div><div class="wf-pill" style="width:34px"></div></div></div>
+<div class="wf-block"><em class="wf-n">3</em><div class="wf-bar thick w80"></div><div class="wf-bar w60"></div><div class="wf-stats" style="grid-template-columns:repeat(4,1fr)"><div class="wf-box" style="height:14px"></div><div class="wf-box" style="height:14px"></div><div class="wf-box" style="height:14px"></div><div class="wf-box" style="height:14px"></div></div></div>
+<div class="wf-block"><em class="wf-n">4</em><div class="wf-box" style="background:rgba(74,143,255,0.12)"><div class="wf-bar w90"></div><div class="wf-bar w60"></div><div class="wf-stats"><div class="wf-box" style="height:18px"></div><div class="wf-box" style="height:18px"></div><div class="wf-box" style="height:18px"></div></div></div></div>
+<div class="wf-block"><em class="wf-n">5</em><div class="wf-bar w30"></div><div class="wf-bar w90"></div><div class="wf-bar w80"></div><div class="wf-steps"><div class="wf-box"></div><div class="wf-box"></div><div class="wf-box"></div></div></div>
+<div class="wf-block"><em class="wf-n">6</em><div class="wf-tags"><i></i><i style="width:40px"></i><i></i><i style="width:34px"></i><i></i></div></div>
+</div>
+</div>
+              <figcaption><strong>Work</strong>
+                <ol class="wf-notes">
+                  <li>Page header with a back link and a short intro</li>
+                  <li>Project type and my role at the top of each card</li>
+                  <li>Title, subtitle, and key details (client, context, role, duration)</li>
+                  <li>The result comes first, with three headline numbers</li>
+                  <li>Process sections: overview, approach, findings</li>
+                  <li>Deliverables as tags at the end</li>
+                </ol>
+              </figcaption>
+            </figure>
+            <figure class="wf-fig">
+              <div class="wf-screen" role="img" aria-label="About page wireframe, top to bottom: navigation, page header, a two-column section with headshot, name and three paragraphs on the left and a methods and tools panel with skill bars on the right, then an experience and research section in two columns.">
+<div class="wf-nav"><span class="wf-logo"></span><span class="wf-links"><i></i><i></i><i></i><i></i></span></div>
+<div class="wf-block"><em class="wf-n">1</em><div class="wf-bar w20"></div><div class="wf-bar thick w50"></div></div>
+<div class="wf-cols">
+<div class="wf-block"><em class="wf-n">2</em><div class="wf-row"><div class="wf-photo lg"></div><div style="flex:1;display:grid;gap:4px"><div class="wf-bar w80"></div><div class="wf-bar w50"></div></div></div><div class="wf-bar "></div><div class="wf-bar w90"></div><div class="wf-bar w80"></div><div class="wf-bar "></div><div class="wf-bar w90"></div><div class="wf-bar w60"></div><div class="wf-bar "></div><div class="wf-bar w80"></div></div>
+<div class="wf-block"><em class="wf-n">3</em><div class="wf-box fill" style="gap:7px"><div class="wf-bar w60"></div><div class="wf-bar w90"></div><div class="wf-bar w80"></div><div class="wf-bar w90"></div><div class="wf-bar w60"></div><div class="wf-bar w80"></div></div></div>
+</div>
+<div class="wf-block"><em class="wf-n">4</em><div class="wf-bar thick w50"></div><div class="wf-cols even"><div class="wf-box"><div class="wf-bar w60"></div><div class="wf-bar w90"></div><div class="wf-bar w80"></div><div class="wf-bar w60"></div><div class="wf-bar w90"></div></div><div class="wf-box"><div class="wf-bar w60"></div><div class="wf-bar w90"></div><div class="wf-bar w80"></div><div class="wf-bar w60"></div><div class="wf-bar w90"></div></div></div></div>
+</div>
+              <figcaption><strong>About</strong>
+                <ol class="wf-notes">
+                  <li>Page header: &ldquo;The full story&rdquo;</li>
+                  <li>Headshot, name, and three short paragraphs</li>
+                  <li>Core methods and tools panel</li>
+                  <li>Experience and research in two columns</li>
+                </ol>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="wf-mobile-row">
+            <figure class="wf-fig" style="margin:0">
+              <div class="wf-screen wf-phone" role="img" aria-label="Mobile home page wireframe, top to bottom: logo with a hamburger menu button, a stacked hero with headline and two full-width buttons, stacked case study cards, and a horizontally scrolling strip standing in for the journey map.">
+<div class="wf-block"><em class="wf-n">1</em><div class="wf-nav" style="border:none;padding:0"><span class="wf-logo"></span><span class="wf-burger"><i></i><i></i><i></i></span></div></div>
+<div class="wf-bar thick w90"></div><div class="wf-bar thick w60"></div><div class="wf-bar w80"></div><div class="wf-bar w60"></div>
+<div class="wf-btn full"></div><div class="wf-btn ghost full"></div>
+<div class="wf-block"><em class="wf-n">2</em><div class="wf-box"><div class="wf-thumb"></div><div class="wf-bar w80"></div><div class="wf-bar w50"></div></div><div class="wf-box"><div class="wf-thumb"></div><div class="wf-bar w80"></div><div class="wf-bar w50"></div></div></div>
+<div class="wf-block"><em class="wf-n">3</em><div class="wf-scroll"><span aria-hidden="true">&larr;</span><div class="wf-box"></div><div class="wf-box"></div><span aria-hidden="true">&rarr;</span></div></div>
+</div>
+            </figure>
+            <div class="wf-mobile-copy">
+              <strong style="display:block;font-size:0.88rem;font-weight:600;color:#ffffff;margin-bottom:0.4rem;">Mobile</strong>
+              <ol class="wf-notes">
+                <li>A hamburger menu replaces the navigation links on small screens</li>
+                <li>Sections stack into a single column with full-width buttons</li>
+                <li>Wide content, like the customer journey map, scrolls sideways instead of shrinking until it is unreadable</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Design Decisions</div>
+          <div class="findings-list">
+            <div class="finding-item">
+              <div class="finding-num">1</div>
+              <div class="finding-text">
+                <strong>Home answers the first questions in one screen</strong>
+                <span>Who I am, what I do, and how to reach me: a one-line value statement, an Open to Work badge, and two actions (View My Work and Get in Touch).</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">2</div>
+              <div class="finding-text">
+                <strong>Results come before process</strong>
+                <span>Each case study opens with the outcome and headline numbers, then the method, so a skimmer still sees the proof.</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">3</div>
+              <div class="finding-text">
+                <strong>One palette and two readable typefaces</strong>
+                <span>Navy and bright blue throughout, Syne for headlines to give the site some personality, and Inter for body text so long case studies stay easy to read.</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">4</div>
+              <div class="finding-text">
+                <strong>Light and dark modes</strong>
+                <span>The site follows the visitor&rsquo;s device setting. Sections that sit on dark backgrounds, like the hero and the case study cards, stay dark in both modes.</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">5</div>
+              <div class="finding-text">
+                <strong>Accessibility built in</strong>
+                <span>Contrast checked against WCAG, descriptive alt text on images, and animation turned off for visitors who set reduced motion.</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">6</div>
+              <div class="finding-text">
+                <strong>Real content, protected clients</strong>
+                <span>A real headshot and real project screenshots, with client names and identifying details redacted and a note in the footer saying so.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">How the Site Evolved</div>
+          <div class="site-timeline">
+            <div class="tl-row"><div class="tl-date">May 27, 2026</div><div class="tl-text"><strong>First version, one page</strong><span>Hero, about, experience, work, and contact on a single page, with the navy and blue palette, dark mode, and mobile menu from the start.</span></div></div>
+            <div class="tl-row"><div class="tl-date">Jul 14, 2026</div><div class="tl-text"><strong>The page outgrew itself</strong><span>More than double its original size, with case studies buried far down the scroll.</span></div></div>
+            <div class="tl-row"><div class="tl-date">Aug 5, 2026</div><div class="tl-text"><strong>Work page and accessibility pass</strong><span>Moved the case studies to their own page, added the Open to Work badge and link previews, and fixed text contrast against WCAG.</span></div></div>
+            <div class="tl-row"><div class="tl-date">Aug 18, 2026</div><div class="tl-text"><strong>About page and a lighter home page</strong><span>Moved the full background to its own page and left a short teaser on home, cutting the home page file by about half.</span></div></div>
+            <div class="tl-row"><div class="tl-date">Aug 19, 2026</div><div class="tl-text"><strong>Motion that respects the visitor</strong><span>Added page transitions and turned all animation off for visitors who prefer reduced motion.</span></div></div>
+            <div class="tl-row"><div class="tl-date">Oct 5, 2026</div><div class="tl-text"><strong>New case study</strong><span>Added the dental care research project to the work page and home previews.</span></div></div>
+            <div class="tl-row"><div class="tl-date">Oct 16, 2026</div><div class="tl-text"><strong>Journey map alignment</strong><span>Found that the stage cards in the customer journey map sat at different heights, then rebuilt them to share rows so each label, quote, tag, and description lines up across all seven stages.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What I&rsquo;d Change</div>
+          <p>I have not yet run a formal usability test on the site. Next I would ask five people, such as recruiters or peers, to find a case study that shows my research methods, and watch where they hesitate and how long it takes. I would also test whether the home page previews give enough on their own, or whether they repeat too much of the work page.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Deliverables</div>
+          <div class="tag-list">
+            <span class="tag">Site Map</span>
+            <span class="tag">Wireframes (Home, Work, About, Mobile)</span>
+            <span class="tag">Visual Direction</span>
+            <span class="tag">Accessibility Pass</span>
+            <span class="tag">Live Site on GitHub Pages</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" id="case-moirai">
+      <div class="card-top-bar">
+        <div class="card-type">Game UX &middot; Side Project &middot; HF770 Coursework</div>
+        <div class="card-badge">Individual Project</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</div>
+        <div class="card-subtitle">Wireframes, a high-fidelity screen, and the reasoning behind them, for a game I am building with an AI coding assistant</div>
+
+        <div class="card-meta-row">
+          <div class="meta-cell"><div class="lbl">Context</div><div class="val">Side project, used for HF770 (Bentley)</div></div>
+          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Designer and product owner</div></div>
+          <div class="meta-cell"><div class="lbl">Tools</div><div class="val">Figma, HTML/CSS/JS, AI coding assistant</div></div>
+          <div class="meta-cell"><div class="lbl">Platform</div><div class="val">Desktop browser first, phone second</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">A five-screen player-versus-player duel flow, from the challenge invite to the end of the fight, designed so a player half listening to friends on a voice call can see the fight, pick one move, and send it without a slip. The design stops a move being sent twice by accident and keeps the player&rsquo;s choice if a send fails.</div>
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-pct">5</div><div class="impact-desc">desktop wireframes covering the full duel, including failed send and end of fight</div></div>
+            <div class="impact-box"><div class="impact-pct">2</div><div class="impact-desc">phone layouts that are real redesigns, not a stretched desktop screen</div></div>
+            <div class="impact-box"><div class="impact-pct">6.53:1</div><div class="impact-desc">text contrast on the lightened accent color, up from 3.69:1 (WCAG AA needs 4.5:1)</div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Project Overview</div>
+          <p>Moirai is a browser life-sim game I am building, set in a modern world where the Greek and Roman gods are still active. Players take their turns at the same time, and only player-versus-player fights are turn based. Friends play in a desktop web browser while talking on a Discord voice call in a separate window, so desktop comes first. I chose the duel round as the task to design in depth, because it is the moment where a mistake costs the most.</p>
+          <p style="margin-top:0.75rem;">I set the product direction and design decisions, drew the wireframes and the high-fidelity screen in Figma, and supplied my own pixel-art sprites. An AI coding assistant helps me turn those decisions into working game code.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">The Question the Design Had to Answer</div>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Wireframes</strong><span>Can a player who gets challenged use these five screens to get from the invite to the end of the duel? Can they always tell whose turn it is, and whether their last move went through?</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>High-fidelity screen</strong><span>On the Your move screen, can a new player who is half listening to friends on a voice call see the fight, pick one move, and send it without a slip?</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What the Player Needs to Do</div>
+          <p>My first flow and story map had too many screen details, so I rewrote each step as something the player needs to do, and left button names and messages for the wireframes to decide. Examples:</p>
+          <div class="tag-list">
+            <span class="tag">Know who challenged me</span>
+            <span class="tag">Know what refusing costs</span>
+            <span class="tag">See what just happened</span>
+            <span class="tag">Pick one move</span>
+            <span class="tag">Know my move was received</span>
+            <span class="tag">Recover if sending fails</span>
+            <span class="tag">Never send a move twice</span>
+            <span class="tag">Leave a duel that has stalled</span>
+            <span class="tag">Come back after a reload</span>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Low-Fidelity Wireframes</div>
+          <p>Gray boxes with real sample text, so the drawings test where things go, how big they are, and how heavy they look. Color and fonts came last. Numbers show importance (1 is most), the thickest border is the key information, the dark fill is the one action to take, and dashed boxes mark where my pixel-art sprites go.</p>
+          <div class="mo-grid">
+            <figure class="mo-fig"><img src="moirai_d1_invite.png" alt="Wireframe D1, challenge invite. Rhea, Child of Athena, challenges you. Two panels: Accept the duel, which says win plus 15 Kleos and lose minus 10, and Refuse the duel, which says it costs 5 Kleos." loading="lazy"><figcaption><strong>D1 &middot; Challenge invite</strong>The cost of refusing is shown on the Refuse panel, so no one has to guess.</figcaption></figure>
+            <figure class="mo-fig"><img src="moirai_d2_your_move.png" alt="Wireframe D2, your move. A stage on top with two sprite placeholders and name plates showing health. Below, a message box with the last three rounds on the left and a command box on the right with Strike, Outmaneuver, Guard and a dark Send move button, plus a Yield the duel link." loading="lazy"><figcaption><strong>D2 &middot; Your move</strong>Stage on top, command box below. Send move is the fourth cell of the 2 by 2 grid.</figcaption></figure>
+            <figure class="mo-fig"><img src="moirai_d3_waiting.png" alt="Wireframe D3, waiting for Rhea. The same stage, a Waiting for Rhea box with a Check now button, and a message saying the move was received and Rhea has been silent for two hours, with a Yield the duel link." loading="lazy"><figcaption><strong>D3 &middot; Waiting</strong>Says the move was received and when it was last checked. Check now lets a player look without reloading.</figcaption></figure>
+            <figure class="mo-fig"><img src="moirai_d4_not_sent.png" alt="Wireframe D4, move not sent. The move choices are grayed out and locked, a Not sent box says nothing was lost and the choice is still selected, and a dark Try again button replaces Send move." loading="lazy"><figcaption><strong>D4 &middot; Move not sent</strong>Choices lock until the send works, and the message says nothing was lost.</figcaption></figure>
+            <figure class="mo-fig"><img src="moirai_d5_result.png" alt="Wireframe D5, duel over. Headline You won the duel, a stage with both fighters and final health, a What changed box reading Kleos plus 15, now 135, and a Return to camp button." loading="lazy"><figcaption><strong>D5 &middot; Duel over</strong>Shows the result, what changed, and one way back to camp. The refused and lost duels reuse D1 and D5 with different words.</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Phone Layouts</div>
+          <p>Moirai also opens in a phone browser, so I redesigned the two busiest screens for it instead of shrinking the desktop version. The order of importance stays the same, and only the positions change.</p>
+          <figure class="mo-fig wide" style="max-width:640px"><img src="moirai_phone.png" alt="Two phone wireframes side by side. Left, Your move: a small stage, a status box, three tall move rows and a full-width Send move button in a thumb zone, with Yield the duel below. Right, Waiting for Rhea: the same stage and a full-width Check now button in the thumb zone." loading="lazy">
+            <figcaption><strong>Your move and Waiting, on a phone</strong>The stage drops from 326 to 150 px. Moves become 72 px rows where the whole row picks the move. Send move and Check now move to the bottom, where the thumb lands. Yield stays below them, never inside the list of moves.</figcaption></figure>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">High-Fidelity Screen</div>
+          <p>The Your move screen in a browser window, using sprites from my own game. Gold marks only what to do next: the status, the picked move, and Send move. Type is Cinzel Bold for short labels and EB Garamond for sentences, with no sentence smaller than 18 px so it reads easily on a call.</p>
+          <figure class="mo-fig wide"><img src="moirai_hifi.png" alt="High-fidelity Your move screen in a browser window. Top: a stage with a Roman-style pixel-art soldier with shield, a second pixel-art fighter, name plates for Rhea at 48 of 100 HP and Chase at 62 of 100 HP, and a Round 3 label. Bottom left: Your move, Rhea is waiting on you, and the last three rounds. Bottom right: Choose your move, with Strike selected, Outmaneuver, Guard, a gold Send move button with an Enter key hint, and a Yield the duel link." loading="lazy">
+            <figcaption><strong>Your move, desktop</strong>Fighters face off on a diagonal, like a monster-battle game. Each name plate sits across from its sprite, so health never covers a character.</figcaption></figure>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Design Decisions</div>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>A familiar battle stage, desktop first</strong><span>The stage is on top and the command box is below, a layout many players know from turn-based games (Jakob&rsquo;s Law). I turned down a two-pane dashboard, which would put the log first, and a stretched phone column, which leaves a wide window mostly empty.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Pick a move, then send it</strong><span>A move cannot be undone, and a player half listening on a voice call will misclick. So the moves are a radio group with a separate Send move button. I turned down tap to commit (faster, but one slip costs a whole round) and undo after sending (the other player can answer before you notice). The cost is one extra click, so keys help: arrows choose, Enter sends, and 1 to 3 work only while the moves have focus.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Yield asks first, and stays apart</strong><span>Yielding ends the duel, costs Kleos, and is rare, which is when a confirmation fits. The pop-up says what will happen, neither button is the default, and the keyboard starts on Cancel. Yield sits outside the grid so it is easy to find and hard to hit by accident.</span></div></div>
+            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Always say whether the move went through</strong><span>The waiting and failed-send states tell the player exactly what happened and what is safe: the move was received, or it was not sent and nothing was lost. A move is never sent twice.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Accessibility</div>
+          <p>Accessibility shaped the design from the start, not as a final check.</p>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Contrast fixed before anything else</strong><span>The game&rsquo;s terracotta (#c1502e) measured 3.69:1 on the panel color, which fails for text. I lightened it to #e8836a (6.53:1) and the teal to #5fb8b1, then checked the rest with the WebAIM Contrast Checker.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Color is never the only clue</strong><span>Status is an icon, words, and a heavier frame. Health is a number and a bar. Yield is underlined. The sprites are decoration and carry no information.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Keyboard and target size</strong><span>One tab stop for the move grid, Esc closes the pop-up and returns focus to Yield, and every target is at least 44 px tall (WCAG 2.2 asks for 24 px). Gaps of 12 px mean a slip lands on empty space. A disabled Send move stays focusable and keeps readable text, so a keyboard user can find it and hear why it is off.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Designing With an AI Coding Assistant</div>
+          <p>I build side projects with an AI coding assistant, and the design work is what keeps it pointed in the right direction. The pattern is the same on each project:</p>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>I decide what to build and why</strong><span>The player tasks, the screen layout, the rules for undo and confirmation, and the accessibility targets come from my own design thinking and research, written down before any code.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>I supply the craft the assistant cannot</strong><span>The pixel-art sprites, the visual style, and the wireframes are my own work. The assistant turns specifications into code and I review the result in the running game.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>I test with real players and iterate</strong><span>On a Roblox game I am building, friends who match the target audience play it and give feedback, and I revise and repeat. For Moirai, the next step is a usability test of the duel with a real person.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What I&rsquo;d Change</div>
+          <p>I have not yet tested these screens with a player. The wireframes are a prediction, and the usability test will show whether the Send move step feels like protection or like friction, and whether the waiting screen answers &ldquo;did it go through?&rdquo; at a glance.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Deliverables</div>
+          <div class="tag-list">
+            <span class="tag">Task Flow &amp; Story Map</span>
+            <span class="tag">5 Desktop Wireframes</span>
+            <span class="tag">2 Phone Wireframes</span>
+            <span class="tag">High-Fidelity Screen</span>
+            <span class="tag">Design Rationale</span>
+            <span class="tag">Accessibility Notes</span>
           </div>
         </div>
       </div>

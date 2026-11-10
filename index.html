@@ -1153,6 +1153,9 @@ footer {
   border-bottom: 1px solid #2e4a7d;
   display: block;
 }
+/* Odd last card spans both columns so the grid has no orphan */
+.preview-grid .preview-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.preview-grid .preview-card:last-child:nth-child(odd) .preview-thumb { aspect-ratio: 21 / 8; object-fit: contain; background: #0d1a30; }
 .preview-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(28,110,247,0.22);
@@ -1461,7 +1464,7 @@ nav {
   <div class="section-inner">
     <p class="section-eyebrow">Case Studies</p>
     <h2 class="section-title">Selected work</h2>
-    <p class="projects-lead">Four projects spanning UX research, prototype design, and data-driven communication. Full process, methods, and outcomes on the work page.</p>
+    <p class="projects-lead">Six projects spanning UX research, prototype design, data-driven communication, game UX, and the design of this portfolio. Full process, methods, and outcomes on the work page.</p>
 
     <div class="preview-grid">
 
@@ -1513,6 +1516,33 @@ nav {
           <div class="preview-stat"><span class="pstat-num">9</span><span class="pstat-lbl">Years of survey data</span></div>
           <div class="preview-stat"><span class="pstat-num">713</span><span class="pstat-lbl">2025 respondents</span></div>
           <div class="preview-stat"><span class="pstat-num">78.7%</span><span class="pstat-lbl">Drive alone rate</span></div>
+        </div>
+        <div class="preview-link">View full case study &rarr;</div>
+      </a>
+
+      <a href="work.html#case-site" class="preview-card">
+        <img class="preview-thumb" src="site_wireframes_thumb.svg" alt="Simplified wireframes of the portfolio's home, work, and about pages side by side" loading="lazy">
+        <div class="preview-type">Product Design &middot; Self-Initiated Project</div>
+        <h3 class="preview-title">Designing This Portfolio: From One Long Page to a Three-Page Site</h3>
+        <p class="preview-desc">How I structured, wireframed, and refined my own portfolio for hiring managers, with the site map, design decisions, and wireframes behind it.</p>
+        <div class="preview-stats">
+          <div class="preview-stat"><span class="pstat-num">3</span><span class="pstat-lbl">Pages</span></div>
+          <div class="preview-stat"><span class="pstat-num">4</span><span class="pstat-lbl">Wireframes</span></div>
+          <div class="preview-stat"><span class="pstat-num">65+</span><span class="pstat-lbl">Site updates</span></div>
+        </div>
+        <div class="preview-link">View full case study &rarr;</div>
+      </a>
+
+
+      <a href="work.html#case-moirai" class="preview-card">
+        <img class="preview-thumb" src="moirai_thumb.png" alt="High-fidelity Your move screen from Moirai, a browser game: pixel-art fighters on a stage above a command box with Strike, Outmaneuver, Guard and Send move" loading="lazy">
+        <div class="preview-type">Game UX &middot; Side Project</div>
+        <h3 class="preview-title">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</h3>
+        <p class="preview-desc">Wireframes, phone layouts, and a high-fidelity screen for a game I am building with an AI coding assistant, with the reasoning behind each choice.</p>
+        <div class="preview-stats">
+          <div class="preview-stat"><span class="pstat-num">5</span><span class="pstat-lbl">Desktop screens</span></div>
+          <div class="preview-stat"><span class="pstat-num">2</span><span class="pstat-lbl">Phone layouts</span></div>
+          <div class="preview-stat"><span class="pstat-num">6.53:1</span><span class="pstat-lbl">Text contrast</span></div>
         </div>
         <div class="preview-link">View full case study &rarr;</div>
       </a>
