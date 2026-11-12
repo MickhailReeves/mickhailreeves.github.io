@@ -1311,6 +1311,31 @@ nav {
 .mo-fig.wide { max-width:900px; margin-top:0.75rem; }
 @media (max-width:760px){ .mo-grid { grid-template-columns:1fr; } }
 
+/* PROJECT SEPARATION: each case study reads as its own, standalone project */
+.project-card { border:2px solid #6f8fd0; margin-bottom:5.5rem; scroll-margin-top:90px; box-shadow:0 0 0 8px #08122a, 0 0 0 9px #243a63; }
+.project-card:last-child { margin-bottom:0; }
+.card-top-bar { background:#0d1b3d; border-bottom:2px solid #6f8fd0; }
+.card-type { display:flex; flex-direction:column; gap:0.2rem; }
+.card-num { font-size:0.8rem; font-weight:700; letter-spacing:0.12em; color:#ffffff; }
+.card-type-text { font-size:0.72rem; }
+h2.card-title { margin-top:0; }
+.project-index { background:#13234a; border:2px solid #6f8fd0; border-radius:16px; padding:1.5rem 2rem; margin-bottom:5.5rem; }
+.project-index-title { font-family:'Inter',sans-serif; font-size:1rem; font-weight:700; color:#ffffff; margin:0 0 0.75rem; letter-spacing:0.02em; }
+.project-index ol { list-style:none; margin:0; padding:0; display:grid; gap:0.35rem; }
+.project-index a { display:flex; align-items:center; gap:0.85rem; min-height:44px; padding:0.35rem 0.5rem; border-radius:10px; color:#ffffff; text-decoration:underline; text-decoration-color:rgba(255,255,255,0.45); text-underline-offset:3px; font-size:0.95rem; }
+.project-index a:hover { background:rgba(74,143,255,0.18); text-decoration-color:#ffffff; }
+.project-index a:focus-visible { outline:3px solid #ffffff; outline-offset:2px; }
+.pi-num { flex:none; width:1.9rem; height:1.9rem; display:inline-flex; align-items:center; justify-content:center; border:2px solid #6f8fd0; border-radius:50%; font-size:0.8rem; font-weight:700; }
+@media (max-width:640px){ .project-card { margin-bottom:4rem; box-shadow:0 0 0 6px #08122a, 0 0 0 7px #243a63; } .project-index { padding:1.1rem 1rem; margin-bottom:4rem; } }
+
+.bd-pair { display:flex; gap:1.5rem; align-items:flex-start; flex-wrap:wrap; margin-top:0.75rem; }
+.bd-fig { margin:0; flex:0 1 auto; }
+.bd-fig img { height:auto; max-width:100%; border-radius:6px; border:1px solid #6f8fd0; display:block; background:#ffffff; }
+.bd-fig:nth-child(1) img { width:300px; }
+.bd-fig:nth-child(2) img { width:230px; }
+.bd-fig figcaption { margin-top:0.6rem; font-size:0.82rem; color:rgba(255,255,255,0.88); max-width:300px; }
+.bd-fig figcaption strong { display:block; font-size:0.88rem; font-weight:600; color:#ffffff; margin-bottom:0.25rem; }
+
 /* Respect reduced-motion preference: disable all transition/entrance animation */
 @media (prefers-reduced-motion: reduce) {
   body { animation: none !important; opacity: 1 !important; }
@@ -1351,19 +1376,32 @@ nav {
     <a href="index.html" class="back-link">&larr; Back to home</a>
     <div class="work-eyebrow">Case Studies</div>
     <h1 class="work-title">Selected work</h1>
-    <p class="work-desc">Six projects spanning UX research, prototype design, data-driven communication, game UX, and the design of this portfolio. Each includes full process, methods, and outcomes.</p>
+    <p class="work-desc">Seven projects spanning UX research, prototype design, data-driven communication, game UX, event design, and the design of this portfolio. Each includes full process, methods, and outcomes.</p>
   </div>
 </div>
 
 <section id="projects" class="work-projects">
   <div class="section-inner">
-    <div class="project-card" id="case-lens">
+    <div class="project-index" role="navigation" aria-labelledby="project-index-title">
+      <h2 id="project-index-title" class="project-index-title">Jump to a project</h2>
+      <ol>
+        <li><a href="#case-lens"><span class="pi-num">1</span><span class="pi-text">Closing the Post-Fulfillment Support Gap in Contact Lens Care</span></a></li>
+        <li><a href="#case-dental"><span class="pi-num">2</span><span class="pi-text">Why People Put Off the Dentist</span></a></li>
+        <li><a href="#case-ai"><span class="pi-num">3</span><span class="pi-text">Understanding Consumer Trust in AI-Based Eye-Health Tools</span></a></li>
+        <li><a href="#case-commuting"><span class="pi-num">4</span><span class="pi-text">What the Commuting Data Supports</span></a></li>
+        <li><a href="#case-site"><span class="pi-num">5</span><span class="pi-text">Designing This Portfolio: From One Long Page to a Three-Page Site</span></a></li>
+        <li><a href="#case-moirai"><span class="pi-num">6</span><span class="pi-text">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</span></a></li>
+        <li><a href="#case-badge"><span class="pi-num">7</span><span class="pi-text">Designing the Open House Name Badge</span></a></li>
+      </ol>
+    </div>
+
+    <div class="project-card" id="case-lens" role="article" aria-labelledby="case-lens-title">
       <div class="card-top-bar">
-        <div class="card-type">UX Research &middot; End-to-End Project</div>
+        <div class="card-type"><span class="card-num">Project 1 of 7</span><span class="card-type-text">UX Research &middot; End-to-End Project</span></div>
         <div class="card-badge">Team Lead</div>
       </div>
       <div class="card-body">
-        <div class="card-title">Closing the Post-Fulfillment Support Gap in Contact Lens Care</div>
+        <h2 class="card-title" id="case-lens-title">Closing the Post-Fulfillment Support Gap in Contact Lens Care</h2>
         <div class="card-subtitle">Mixed-methods research &amp; prototype design for a national vision care company</div>
 
         <div class="card-meta-row">
@@ -1594,13 +1632,13 @@ nav {
     </div>
 
     <!-- CASE STUDY: DENTAL -->
-    <div class="project-card" id="case-dental">
+    <div class="project-card" id="case-dental" role="article" aria-labelledby="case-dental-title">
       <div class="card-top-bar">
-        <div class="card-type">UX Research &middot; Interview Study</div>
+        <div class="card-type"><span class="card-num">Project 2 of 7</span><span class="card-type-text">UX Research &middot; Interview Study</span></div>
         <div class="card-badge">Team of 4</div>
       </div>
       <div class="card-body">
-        <div class="card-title">Why People Put Off the Dentist</div>
+        <h2 class="card-title" id="case-dental-title">Why People Put Off the Dentist</h2>
         <div class="card-subtitle">Interviews with patients and dental professionals on what keeps people out of the chair</div>
 
         <div class="card-meta-row">
@@ -1721,13 +1759,13 @@ nav {
     </div>
 
     <!-- CASE STUDY 2 -->
-    <div class="project-card" id="case-ai">
+    <div class="project-card" id="case-ai" role="article" aria-labelledby="case-ai-title">
       <div class="card-top-bar">
-        <div class="card-type">UX Research &middot; AI Tool Evaluation</div>
+        <div class="card-type"><span class="card-num">Project 3 of 7</span><span class="card-type-text">UX Research &middot; AI Tool Evaluation</span></div>
         <div class="card-badge">Research Study</div>
       </div>
       <div class="card-body">
-        <div class="card-title">Understanding Consumer Trust in AI-Based Eye-Health Tools</div>
+        <h2 class="card-title" id="case-ai-title">Understanding Consumer Trust in AI-Based Eye-Health Tools</h2>
         <div class="card-subtitle">Contextual inquiry and evaluation framework for AI-assisted vision care experiences</div>
 
         <div class="card-meta-row">
@@ -1815,13 +1853,13 @@ nav {
     </div>
 
     <!-- CASE STUDY 3 -->
-    <div class="project-card" id="case-commuting">
+    <div class="project-card" id="case-commuting" role="article" aria-labelledby="case-commuting-title">
       <div class="card-top-bar">
-        <div class="card-type">Data Story &middot; Sponsored Research</div>
+        <div class="card-type"><span class="card-num">Project 4 of 7</span><span class="card-type-text">Data Story &middot; Sponsored Research</span></div>
         <div class="card-badge">Individual Project</div>
       </div>
       <div class="card-body">
-        <div class="card-title">What the Commuting Data Supports</div>
+        <h2 class="card-title" id="case-commuting-title">What the Commuting Data Supports</h2>
         <div class="card-subtitle">A nine-year data story built for Bentley's Office of Sustainability</div>
 
         <div class="card-meta-row">
@@ -1927,13 +1965,13 @@ nav {
       </div>
     </div>
 
-    <div class="project-card" id="case-site">
+    <div class="project-card" id="case-site" role="article" aria-labelledby="case-site-title">
       <div class="card-top-bar">
-        <div class="card-type">Product Design &middot; Self-Initiated Project</div>
+        <div class="card-type"><span class="card-num">Project 5 of 7</span><span class="card-type-text">Product Design &middot; Self-Initiated Project</span></div>
         <div class="card-badge">Individual Project</div>
       </div>
       <div class="card-body">
-        <div class="card-title">Designing This Portfolio: From One Long Page to a Three-Page Site</div>
+        <h2 class="card-title" id="case-site-title">Designing This Portfolio: From One Long Page to a Three-Page Site</h2>
         <div class="card-subtitle">How I structured, wireframed, and refined my own UX portfolio for hiring managers</div>
 
         <div class="card-meta-row">
@@ -1948,7 +1986,7 @@ nav {
           <div class="result-statement">Replaced one long, ever-growing page with a three-page site: a short home page that answers the first questions, a work page with full case studies, and an about page with the full story. Visitors get the short version first and the detail only if they want it.</div>
           <div class="impact-row">
             <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">pages (home, work, about) replacing a single long scroll</div></div>
-            <div class="impact-box"><div class="impact-pct">6</div><div class="impact-desc">case studies, each opening with its result before the process</div></div>
+            <div class="impact-box"><div class="impact-pct">7</div><div class="impact-desc">case studies, each opening with its result before the process</div></div>
             <div class="impact-box"><div class="impact-pct">65+</div><div class="impact-desc">published updates since the first version on May 27, 2026</div></div>
           </div>
         </div>
@@ -1991,7 +2029,7 @@ nav {
 
         <div class="card-section">
           <div class="card-section-title">Information Architecture</div>
-          <p>The content stayed the same. What changed was where it lives and how far a visitor has to go to reach it.</p>
+          <p>The content stayed the same. What changed was where it is found and how far a visitor has to go to reach it.</p>
           <div class="ia-compare">
             <div class="ia-panel">
               <h4>Before</h4>
@@ -2013,7 +2051,7 @@ nav {
                   <div class="ia-chips"><div class="ia-chip">Hero</div><div class="ia-chip">Case study previews</div><div class="ia-chip">Additional work</div><div class="ia-chip">About teaser</div><div class="ia-chip">Contact</div></div>
                 </div>
                 <div class="ia-page"><strong>Work</strong>
-                  <div class="ia-chips"><div class="ia-chip">Six case studies</div></div>
+                  <div class="ia-chips"><div class="ia-chip">Seven case studies</div></div>
                 </div>
                 <div class="ia-page"><strong>About</strong>
                   <div class="ia-chips"><div class="ia-chip">Background</div><div class="ia-chip">Experience &amp; research</div></div>
@@ -2194,13 +2232,13 @@ nav {
       </div>
     </div>
 
-    <div class="project-card" id="case-moirai">
+    <div class="project-card" id="case-moirai" role="article" aria-labelledby="case-moirai-title">
       <div class="card-top-bar">
-        <div class="card-type">Game UX &middot; Side Project &middot; HF770 Coursework</div>
+        <div class="card-type"><span class="card-num">Project 6 of 7</span><span class="card-type-text">Game UX &middot; Side Project &middot; HF770 Coursework</span></div>
         <div class="card-badge">Individual Project</div>
       </div>
       <div class="card-body">
-        <div class="card-title">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</div>
+        <h2 class="card-title" id="case-moirai-title">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</h2>
         <div class="card-subtitle">Wireframes, a high-fidelity screen, and the reasoning behind them, for a game I am building with an AI coding assistant</div>
 
         <div class="card-meta-row">
@@ -2320,6 +2358,69 @@ nav {
             <span class="tag">High-Fidelity Screen</span>
             <span class="tag">Design Rationale</span>
             <span class="tag">Accessibility Notes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" id="case-badge" role="article" aria-labelledby="case-badge-title">
+      <div class="card-top-bar">
+        <div class="card-type"><span class="card-num">Project 7 of 7</span><span class="card-type-text">Print Design &middot; Event Materials</span></div>
+        <div class="card-badge">Individual Project</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title" id="case-badge-title">Designing the Open House Name Badge</h2>
+        <div class="card-subtitle">From a block sketch to a finished badge for Bentley&rsquo;s graduate Open House</div>
+
+        <div class="card-meta-row">
+          <div class="meta-cell"><div class="lbl">Context</div><div class="val">Bentley Graduate Admissions, Open House</div></div>
+          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Designer (Graduate Student Ambassador)</div></div>
+          <div class="meta-cell"><div class="lbl">Tool</div><div class="val">Figma</div></div>
+          <div class="meta-cell"><div class="lbl">Event</div><div class="val">November 7, 2026</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">A name badge for the graduate Open House that shows four things at a glance: the event, the person&rsquo;s role, their name, and their program and date.</div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Project Overview</div>
+          <p>As a Graduate Student Ambassador, I designed the name badges for Bentley&rsquo;s graduate Open House in Figma. A name tag is read for a second or two, from a few feet away, by someone who is also trying to talk. The design had to make the name and role easy to read and leave everything else secondary.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">From Sketch to Final</div>
+          <p>I started with a simple block sketch to settle the order of information before choosing any color or type. The sketch splits the badge into three zones: the event on top, the person in the middle, and the program and date at the bottom. The finished badge keeps that structure.</p>
+          <div class="bd-pair">
+            <figure class="bd-fig"><img src="badge_sketch.png" alt="Black-and-white block sketch of a name badge in three stacked boxes. Top: a shield with the words Bentley University and Open House. Middle: Graduate Visitor, then First Name and Last Name, with empty space below. Bottom: Program and Date." loading="lazy">
+              <figcaption><strong>Sketch</strong>Three zones, placed in order of importance. No color, so the layout is judged on its own.</figcaption></figure>
+            <figure class="bd-fig"><img src="badge_final.png" alt="Finished badge. A blue band at the top with the Bentley University logo and OPEN HOUSE in large white letters. Below on white, Graduate Student Ambassador in small blue capitals, then Mickhail Reeves in large black type, then the university mascot with raised wings. A blue band at the bottom reads MSHFID and November 7th, 2026." loading="lazy">
+              <figcaption><strong>Finished badge</strong>The same three zones, now with the logo, a role line, large black name text, the mascot, and two blue bands to frame the page.</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Design Decisions</div>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>The name is the biggest thing on the badge</strong><span>Black type on white, in the largest size. The first name is set bigger than the last so it is the part that can be read quickly in conversation.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>The role gets its own line</strong><span>The sketch only had a placeholder for the visitor type. The final puts &ldquo;Graduate Student Ambassador&rdquo; above the name, so a prospective student can tell who to ask for help.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Color separates the zones, not the meaning</strong><span>Blue bands mark the event at the top and the program and date at the bottom, and white space holds the person. Nothing depends on color alone, because every band also has words in it.</span></div></div>
+            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>The mascot adds warmth</strong><span>It sits under the name and fills the space the sketch left empty, which makes the badge feel friendly for a visitor meeting the school for the first time.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What I&rsquo;d Change</div>
+          <p>The date at the bottom is the smallest text on the badge, set in white on blue. I would make it larger and heavier so it holds up on a printed badge, and I would check the printed contrast of the blue bands against the white text before the next event.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Deliverables</div>
+          <div class="tag-list">
+            <span class="tag">Layout Sketch</span>
+            <span class="tag">Figma Badge Design</span>
+            <span class="tag">Event Name Badges</span>
           </div>
         </div>
       </div>
