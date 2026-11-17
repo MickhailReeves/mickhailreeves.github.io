@@ -1335,6 +1335,29 @@ nav {
   body.page-exiting { transition: none !important; opacity: 1 !important; }
   nav { animation: none !important; transform: none !important; }
 }
+
+/* ===== DESKTOP LAYOUT (min-width 1100px only; mobile and tablet untouched) ===== */
+@media (min-width: 1100px) {
+  nav { padding: 0 4rem; }
+  section { padding: 6.5rem 4rem; }
+  .section-inner { max-width: 1360px; }
+  .hero { padding: 9rem 4rem 6rem; }
+  .hero-inner { max-width: 1360px; }
+  .work-header { padding: 9rem 4rem 4rem; }
+  .work-header-inner { max-width: 1360px; }
+}
+@media (min-width: 1700px) {
+  .section-inner, .hero-inner, .work-header-inner { max-width: 1560px; }
+}
+
+@media (min-width: 1100px) {
+  #about .about-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 6rem; }
+  #about .about-text p { font-size: 1.08rem; line-height: 1.8; }
+  #about .skills-panel { position: sticky; top: 90px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 2.5rem; }
+  #about .skills-panel-title { grid-column: 1 / -1; }
+  .exp-cols { gap: 6rem; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+}
+@media (max-width: 899px) { .about-grid { gap: 0; } }
 </style>
 </head>
 <body>
@@ -1387,10 +1410,9 @@ nav {
             <span>M.S. HFID Candidate · Bentley University</span>
           </div>
         </div>
-        <p>I'm a graduate student in Human Factors in Information Design at Bentley University, focused on user research, information architecture, and evidence-based design. My undergraduate training in psychology and computer science gives me a dual lens: why users behave the way they do, and the technical and design constraints teams actually work with.</p>
-        <p>My research has spanned enterprise SaaS pricing transparency, file-management workflows, AI-assisted health tool usability, and post-fulfillment product support. I use structured qualitative methods and tight stakeholder alignment to produce findings that are actionable, not just interesting.</p>
-        <p>Before graduate school, I worked in crisis counseling, care management, and STEM instruction, roles that sharpened my ability to communicate complex information clearly and meet people where they are. I also build AI tools directly into my process, using them to speed up synthesis and early iteration while keeping final judgment calls in my own hands.</p>
-      </div>
+        <p>I'm a graduate student in Human Factors in Information Design at Bentley University. I focus on user research, information architecture, and evidence-based design. My undergraduate training in psychology and computer science means I think about why users behave the way they do, and about the technical and design limits teams work within.</p>
+        <p>My research covers enterprise SaaS pricing transparency, file-management workflows, AI-assisted health tool usability, and post-fulfillment product support. I use structured qualitative methods and stay close to stakeholders so the findings are ones a team can act on.</p>
+        <p>Before graduate school, I worked in crisis counseling, care management, and STEM instruction. Those jobs taught me to explain complex things clearly and meet people where they are. I also use AI tools in my process to speed up synthesis and early iteration, and I make the final judgment calls myself.</p>
       </div>
       <div>
         <div class="skills-panel">
@@ -1511,8 +1533,8 @@ nav {
           <div class="exp-place">Bentley University, HFID Program - Waltham, MA</div>
           <ul class="exp-bullets">
             <li>Conducted end-to-end UX research including survey design, semi-structured interviews, affinity diagramming, and unmoderated usability testing for an industry client in the vision care sector.</li>
-            <li>Applied human factors principles to identify usability gaps and translate research findings into actionable design recommendations and a mid-fidelity prototype.</li>
-            <li>Synthesized qualitative data across 97+ participants to surface behavioral patterns and inform information architecture decisions.</li>
+            <li>Applied human factors principles to find usability gaps and turn research findings into design recommendations and a mid-fidelity prototype.</li>
+            <li>Synthesized data across 97+ participants (81 survey respondents, 8 interviewees, 8 usability testers) to find behavioral patterns and inform information architecture decisions.</li>
           </ul>
         </div>
 
@@ -1523,8 +1545,8 @@ nav {
           </div>
           <div class="exp-place">Bentley University - Waltham, MA</div>
           <ul class="exp-bullets">
-            <li>Administered structured testing environments, applying observation and facilitation skills directly transferable to usability test moderation.</li>
-            <li>Identified and accommodated individual participant needs, maintaining consistency in procedures while adapting to edge cases. This is a core competency in research facilitation.</li>
+            <li>Administered structured testing environments, using observation and facilitation skills that carry over to usability test moderation.</li>
+            <li>Accommodated individual participant needs while keeping procedures consistent and adapting to edge cases. Research facilitation depends on this.</li>
           </ul>
         </div>
 
@@ -1535,8 +1557,8 @@ nav {
           </div>
           <div class="exp-place">Bentley University, HFID Program - Waltham, MA</div>
           <ul class="exp-bullets">
-            <li>Represented the HFID program to prospective students, translating complex graduate curriculum and career-outcome information into clear, decision-supporting communication tailored to varied audiences.</li>
-            <li>Conducted informal needs assessment with prospective applicants to understand their goals, concerns, and information gaps, then adapted messaging in real time, an applied form of audience-aware information design.</li>
+            <li>Represented the HFID program to prospective students, turning curriculum and career-outcome information into clear communication for different audiences.</li>
+            <li>Ran informal needs assessments with prospective applicants to learn their goals, concerns, and information gaps, then adjusted my messaging as I went. That is audience-aware information design.</li>
           </ul>
         </div>
 
@@ -1547,9 +1569,9 @@ nav {
           </div>
           <div class="exp-place">Independent Contract Work | Roblox Platform</div>
           <ul class="exp-bullets">
-            <li>Designed in-game UI components for independent developers, including inventory systems, menu screens, HUD elements, and health bars, applying principles of visual hierarchy and glanceability so players could parse information quickly during active gameplay.</li>
-            <li>Iterated layouts and interaction patterns across multiple revision cycles based on developer feedback, building applied experience in stakeholder communication, design rationale, and user-centered refinement.</li>
-            <li>Balanced creative and functional requirements across both paid client work and collaborations with independent developers, scoping deliverables and adapting to varied client needs across the engagement lifecycle.</li>
+            <li>Designed in-game UI components for independent developers, including inventory systems, menu screens, HUD elements, and health bars, using visual hierarchy and glanceability so players could read information quickly during active gameplay.</li>
+            <li>Iterated layouts and interaction patterns across several revision cycles based on developer feedback. This gave me practice in stakeholder communication, design rationale, and user-centered refinement.</li>
+            <li>Balanced creative and functional requirements across paid client work and collaborations with independent developers, scoping deliverables and adjusting to different client needs.</li>
           </ul>
         </div>
 
@@ -1560,9 +1582,9 @@ nav {
           </div>
           <div class="exp-place">988 Suicide &amp; Crisis Lifeline (Vibrant Emotional Health) - NY</div>
           <ul class="exp-bullets">
-            <li>Practiced active listening and real-time behavioral observation to assess caller needs and guide them toward appropriate next steps. These skills are core to UX interviewing and user research.</li>
-            <li>Communicated complex information clearly under pressure, adapting language and tone to diverse users with varying literacy levels and emotional states.</li>
-            <li>Identified recurring friction points in how callers understood available resources, developing an intuitive sense for where information systems fail users at critical moments.</li>
+            <li>Practiced active listening and real-time behavioral observation to assess caller needs and guide them to next steps. Interviewing and user research use the same skills.</li>
+            <li>Explained complex information clearly under pressure, adjusting language and tone for callers with different literacy levels and emotional states.</li>
+            <li>Noticed recurring friction points in how callers understood available resources, and learned where information systems fail people at critical moments.</li>
           </ul>
         </div>
 
@@ -1573,9 +1595,9 @@ nav {
           </div>
           <div class="exp-place">LifePlan CCO - New York, NY</div>
           <ul class="exp-bullets">
-            <li>Mapped and navigated complex service systems on behalf of members, identifying where information architecture and workflow design created barriers to access.</li>
-            <li>Translated dense policy and procedural requirements into plain-language guidance, applying information design principles to reduce cognitive load for vulnerable users.</li>
-            <li>Advocated for user needs across multiple organizational touchpoints, synthesizing feedback to surface systemic gaps. This work is directly analogous to UX research synthesis and stakeholder communication.</li>
+            <li>Mapped and navigated complex service systems for members, and saw where information architecture and workflow design created barriers to access.</li>
+            <li>Translated dense policy and procedural requirements into plain-language guidance to reduce cognitive load for vulnerable users.</li>
+            <li>Advocated for user needs across several organizational touchpoints and synthesized feedback to surface systemic gaps. This parallels UX research synthesis and stakeholder communication.</li>
           </ul>
         </div>
 
@@ -1586,8 +1608,8 @@ nav {
           </div>
           <div class="exp-place">Westchester Engineering for Kids - Westchester, NY</div>
           <ul class="exp-bullets">
-            <li>Designed and delivered hands-on learning experiences that introduced complex technical concepts to novice users, applying instructional design principles to reduce cognitive load.</li>
-            <li>Observed student behavior and adapted instruction in real time based on engagement and comprehension signals, a practice closely aligned with iterative UX design and usability evaluation.</li>
+            <li>Designed and delivered hands-on lessons that introduced complex technical concepts to novices, using instructional design to reduce cognitive load.</li>
+            <li>Watched engagement and comprehension signals and adjusted instruction in real time, which is close to iterative design and usability evaluation.</li>
           </ul>
         </div>
 
@@ -1598,8 +1620,8 @@ nav {
           </div>
           <div class="exp-place">Target - Westchester, NY</div>
           <ul class="exp-bullets">
-            <li>Observed and responded to in-store customer behavior, developing an intuitive understanding of how physical information environments (wayfinding, signage, product placement) shape user decisions.</li>
-            <li>Gathered informal feedback from guests to surface unmet needs and recurring points of confusion, an early form of contextual inquiry applied to a retail environment.</li>
+            <li>Observed and responded to in-store customer behavior and learned how wayfinding, signage, and product placement shape decisions.</li>
+            <li>Gathered informal feedback from guests on unmet needs and recurring points of confusion, a small-scale form of contextual inquiry in retail.</li>
           </ul>
         </div>
       </div>
@@ -1622,7 +1644,7 @@ nav {
         <div class="research-card">
           <div class="research-tag">Human Factors &amp; Technology</div>
           <div class="research-title">Virtual Reality as an Intervention for Public Speaking Anxiety and Phobias</div>
-          <div class="research-desc">Independent undergraduate research at Oakwood University investigating how VR-based exposure environments affect public speaking anxiety and phobia response at large. Examined immersive simulation as a desensitization tool, contributing to the applied psychology of technology-assisted behavioral intervention.</div>
+          <div class="research-desc">Independent undergraduate research at Oakwood University on how VR exposure environments affect public speaking anxiety and phobia response. I examined immersive simulation as a desensitization tool.</div>
         </div>
 
         <div style="margin-top: 2.25rem;">
@@ -1630,8 +1652,8 @@ nav {
 
           <div class="edu-entry">
             <div class="edu-entry-flex">
-              <img class="edu-logo edu-logo-light" src="logo-bentley-light.png" alt="Bentley University" width="38" height="38" loading="lazy">
-              <img class="edu-logo edu-logo-dark" src="logo-bentley-dark.png" alt="Bentley University" width="38" height="38" loading="lazy">
+              <img decoding="async" class="edu-logo edu-logo-light" src="logo-bentley-light.png" alt="Bentley University" width="38" height="38" loading="lazy">
+              <img decoding="async" class="edu-logo edu-logo-dark" src="logo-bentley-dark.png" alt="Bentley University" width="38" height="38" loading="lazy">
               <div>
                 <div class="edu-degree">M.S. Human Factors in Information Design</div>
                 <div class="edu-school">Bentley University - Waltham, MA</div>
@@ -1642,8 +1664,8 @@ nav {
 
           <div class="edu-entry">
             <div class="edu-entry-flex">
-              <img class="edu-logo edu-logo-light" src="logo-oakwood-light.png" alt="Oakwood University" width="38" height="38" loading="lazy">
-              <img class="edu-logo edu-logo-dark" src="logo-oakwood-dark.png" alt="Oakwood University" width="38" height="38" loading="lazy">
+              <img decoding="async" class="edu-logo edu-logo-light" src="logo-oakwood-light.png" alt="Oakwood University" width="38" height="38" loading="lazy">
+              <img decoding="async" class="edu-logo edu-logo-dark" src="logo-oakwood-dark.png" alt="Oakwood University" width="38" height="38" loading="lazy">
               <div>
                 <div class="edu-degree">B.S. Psychology, Minor in Computer Science</div>
                 <div class="edu-school">Oakwood University - Huntsville, AL &nbsp;·&nbsp; GPA: 3.2</div>
@@ -1746,6 +1768,7 @@ nav {
 
   document.addEventListener('mousemove', e => {
     mouseX = e.clientX; mouseY = e.clientY;
+    if (!ringRaf) ringRaf = requestAnimationFrame(animateRing);
     // Dot and glow track instantly
     dot.style.left = mouseX + 'px';
     dot.style.top = mouseY + 'px';
@@ -1758,14 +1781,16 @@ nav {
   });
 
   // Ring follows with smooth lag
+  let ringRaf = 0;
   function animateRing() {
     ringX += (mouseX - ringX) * 0.18;
     ringY += (mouseY - ringY) * 0.18;
     ring.style.left = ringX + 'px';
     ring.style.top = ringY + 'px';
-    requestAnimationFrame(animateRing);
+    if (Math.abs(mouseX - ringX) > 0.2 || Math.abs(mouseY - ringY) > 0.2) {
+      ringRaf = requestAnimationFrame(animateRing);
+    } else { ringRaf = 0; }
   }
-  animateRing();
 
   // Hide when leaving the window
   document.addEventListener('mouseleave', () => {
@@ -1801,10 +1826,16 @@ nav {
     z-index:9999;transition:width 0.1s linear;border-radius:0 2px 2px 0;
   `;
   document.body.appendChild(bar);
+  let barTick = false;
   window.addEventListener('scroll', () => {
-    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-    bar.style.width = Math.min(pct, 100) + '%';
-  });
+    if (barTick) return;
+    barTick = true;
+    requestAnimationFrame(() => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+      barTick = false;
+    });
+  }, { passive: true });
 })();
 
 // -- 4. SCROLL FADE-IN FOR SECTIONS -------------------------------------------
@@ -1909,7 +1940,12 @@ nav {
     });
   }
 
-  window.addEventListener('scroll', updateActive);
+  let navTick = false;
+  window.addEventListener('scroll', () => {
+    if (navTick) return;
+    navTick = true;
+    requestAnimationFrame(() => { updateActive(); navTick = false; });
+  }, { passive: true });
   window.addEventListener('resize', updateActive);
   updateActive();
 })();

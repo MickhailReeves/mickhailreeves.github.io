@@ -1401,6 +1401,37 @@ nav {
   body.page-exiting { transition: none !important; opacity: 1 !important; }
   nav { animation: none !important; transform: none !important; }
 }
+
+/* ===== DESKTOP LAYOUT (min-width 1100px only; mobile and tablet untouched) ===== */
+@media (min-width: 1100px) {
+  nav { padding: 0 4rem; }
+  section { padding: 6.5rem 4rem; }
+  .section-inner { max-width: 1360px; }
+  .hero { padding: 9rem 4rem 6rem; }
+  .hero-inner { max-width: 1360px; }
+  .work-header { padding: 9rem 4rem 4rem; }
+  .work-header-inner { max-width: 1360px; }
+}
+@media (min-width: 1700px) {
+  .section-inner, .hero-inner, .work-header-inner { max-width: 1560px; }
+}
+
+@media (min-width: 1100px) {
+  .hero-inner { display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(260px, 0.55fr); column-gap: 4rem; align-items: end; }
+  .hero-inner > * { grid-column: 1; justify-self: start; }
+  .hero h1 { font-size: clamp(3.5rem, 4.6vw, 5.75rem); }
+  .hero-desc { max-width: 640px; font-size: 1.15rem; }
+  .hero-actions { margin-bottom: 0; }
+  .hero-stats { grid-column: 2; grid-row: 1 / span 5; flex-direction: column; gap: 2.25rem; border-top: none; border-left: 1px solid rgba(255,255,255,0.14); padding: 0 0 0 3rem; align-self: end; }
+  .hero-stat .num { font-size: 3.4rem; }
+  .projects-lead { max-width: 760px; }
+  .preview-grid { grid-template-columns: repeat(6, 1fr); gap: 1.75rem; }
+  .preview-grid .preview-card { grid-column: span 2; }
+  .preview-grid .preview-card:nth-child(n+4) { grid-column: span 3; }
+  .preview-grid .preview-card:last-child:nth-child(odd) { grid-column: span 3; }
+  .preview-grid .preview-card:last-child:nth-child(odd) .preview-thumb { aspect-ratio: 16 / 10; object-fit: cover; background: none; }
+  .about-teaser-flex { max-width: 1100px; margin: 0 auto; gap: 3rem; }
+}
 </style>
 </head>
 <body>
@@ -1437,7 +1468,7 @@ nav {
       <span class="line2">drives clarity.</span>
     </h1>
     <p class="hero-desc">
-      M.S. candidate in Human Factors in Information Design at Bentley University, graduating December 2026. I apply mixed-methods research and evidence-based design to close the gap between what users need and what products deliver. I'm open to UX research, product design, and hybrid research/design roles.
+      M.S. candidate in Human Factors in Information Design at Bentley University, graduating December 2026. I use mixed-methods research and evidence-based design to connect what users need with what products deliver. I'm open to UX research, product design, and hybrid research/design roles.
     </p>
     <div class="hero-actions">
       <a href="work.html" class="btn-primary">View My Work</a>
@@ -1445,12 +1476,12 @@ nav {
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="num">105<span>+</span></div>
+        <div class="num">108<span>+</span></div>
         <div class="lbl">Research Participants</div>
       </div>
       <div class="hero-stat">
-        <div class="num">3<span>+</span></div>
-        <div class="lbl">Research Methods</div>
+        <div class="num">9</div>
+        <div class="lbl">Case Studies</div>
       </div>
       <div class="hero-stat">
         <div class="num">Dec<span> '26</span></div>
@@ -1464,15 +1495,15 @@ nav {
   <div class="section-inner">
     <p class="section-eyebrow">Case Studies</p>
     <h2 class="section-title">Selected work</h2>
-    <p class="projects-lead">Nine projects spanning UX research, prototype design, data-driven communication, game UX, event design, a diary study app, a mixed-methods customer research study, and the design of this portfolio. Full process, methods, and outcomes on the work page.</p>
+    <p class="projects-lead">Five of my nine projects, led by client and mixed-methods research. The work page has the full process, methods, and outcomes.</p>
 
     <div class="preview-grid">
 
       <a href="work.html#case-lens" class="preview-card">
-        <img class="preview-thumb" src="Landing_Page.jpg" alt="Contact Lens Resource Hub prototype landing page preview" loading="lazy">
+        <img decoding="async" class="preview-thumb" src="Landing_Page.jpg" alt="Contact Lens Resource Hub prototype landing page preview" loading="lazy">
         <div class="preview-type">UX Research &middot; End-to-End Project</div>
         <h3 class="preview-title">Closing the Post-Fulfillment Support Gap in Contact Lens Care</h3>
-        <p class="preview-desc">Mixed-methods research and prototype design for a national vision care company, uncovering why support materials weren't reaching users when they needed them most.</p>
+        <p class="preview-desc">Mixed-methods research and prototype design for a national vision care company. I looked into why support materials weren't reaching users when they needed them most.</p>
         <div class="preview-stats">
           <div class="preview-stat"><span class="pstat-num">81</span><span class="pstat-lbl">Survey respondents</span></div>
           <div class="preview-stat"><span class="pstat-num">8</span><span class="pstat-lbl">Interviews</span></div>
@@ -1482,7 +1513,7 @@ nav {
       </a>
 
       <a href="work.html#case-dental" class="preview-card">
-        <img class="preview-thumb" src="dental_poster.jpg" alt="Combined empathy map synthesizing eight patient and dental professional interviews" loading="lazy">
+        <img decoding="async" class="preview-thumb" src="dental_poster.jpg" alt="Combined empathy map synthesizing eight patient and dental professional interviews" loading="lazy">
         <div class="preview-type">UX Research &middot; Interview Study</div>
         <h3 class="preview-title">Why People Put Off the Dentist</h3>
         <p class="preview-desc">Interviews with patients and dental professionals, synthesized into empathy and ecosystem maps, on what keeps people out of the chair.</p>
@@ -1494,24 +1525,19 @@ nav {
         <div class="preview-link">View full case study &rarr;</div>
       </a>
 
-      <a href="work.html#case-ai" class="preview-card">
-        <img class="preview-thumb" src="affinity_board.jpg" alt="FigJam affinity diagram preview from the AI eye-health tools research" loading="lazy">
-        <div class="preview-type">UX Research &middot; AI Tool Evaluation</div>
-        <h3 class="preview-title">Building Trust in AI-Powered Eye Health Tools</h3>
-        <p class="preview-desc">Qualitative research and affinity analysis evaluating how patients perceive AI-driven diagnostic tools, and what it would take to make them feel credible.</p>
-        <div class="preview-stats">
-          <div class="preview-stat"><span class="pstat-num">8</span><span class="pstat-lbl">Themes coded</span></div>
-          <div class="preview-stat"><span class="pstat-num">1:1</span><span class="pstat-lbl">Stakeholder interviews</span></div>
-          <div class="preview-stat"><span class="pstat-num">5</span><span class="pstat-lbl">Design recommendations</span></div>
-        </div>
+      <a href="work.html#case-nike" class="preview-card">
+        <img decoding="async" class="preview-thumb" style="object-fit:contain;background:#0d1a30" src="nike_study_thumb.svg" alt="Diagram of three research methods, interviews, an observation plan and a diary study, leading to one shared pattern: respected, but no longer decisive" loading="lazy">
+        <div class="preview-type">UX Research &middot; Mixed Methods &middot; HF780</div>
+        <h3 class="preview-title">Rebuilding Customer Relevance: Interviews, Observation and a Diary Study</h3>
+        <p class="preview-desc">Three methods on one question for a course case. All three participants described the brand&rsquo;s pull as stronger in the past, and chose by price and life fit.</p>
         <div class="preview-link">View full case study &rarr;</div>
       </a>
 
       <a href="work.html#case-commuting" class="preview-card">
-        <img class="preview-thumb" src="panel1_pattern.png" alt="Data story hook panel preview: 8 in 10 Bentley commuters drive alone" loading="lazy">
+        <img decoding="async" class="preview-thumb" src="panel1_pattern.png" alt="Data story hook panel preview: 8 in 10 Bentley commuters drive alone" loading="lazy">
         <div class="preview-type">Data Story &middot; Sponsored Research</div>
         <h3 class="preview-title">What the Commuting Data Supports</h3>
-        <p class="preview-desc">Nine years of commuting survey data, visualized into a data story for Bentley's Office of Sustainability to evaluate transportation interventions.</p>
+        <p class="preview-desc">Nine years of commuting survey data, turned into a data story for Bentley's Office of Sustainability to help evaluate transportation interventions.</p>
         <div class="preview-stats">
           <div class="preview-stat"><span class="pstat-num">9</span><span class="pstat-lbl">Years of survey data</span></div>
           <div class="preview-stat"><span class="pstat-num">713</span><span class="pstat-lbl">2025 respondents</span></div>
@@ -1520,58 +1546,21 @@ nav {
         <div class="preview-link">View full case study &rarr;</div>
       </a>
 
-      <a href="work.html#case-site" class="preview-card">
-        <img class="preview-thumb" src="site_wireframes_thumb.svg" alt="Simplified wireframes of the portfolio's home, work, and about pages side by side" loading="lazy">
-        <div class="preview-type">Product Design &middot; Self-Initiated Project</div>
-        <h3 class="preview-title">Designing This Portfolio: From One Long Page to a Three-Page Site</h3>
-        <p class="preview-desc">How I structured, wireframed, and refined my own portfolio for hiring managers, with the site map, design decisions, and wireframes behind it.</p>
+      <a href="work.html#case-ai" class="preview-card">
+        <img decoding="async" class="preview-thumb" src="affinity_board.jpg" alt="FigJam affinity diagram preview from the AI eye-health tools research" loading="lazy">
+        <div class="preview-type">UX Research &middot; AI Tool Evaluation</div>
+        <h3 class="preview-title">Building Trust in AI-Powered Eye Health Tools</h3>
+        <p class="preview-desc">Qualitative research and affinity analysis on how patients perceive AI diagnostic tools, and what would make them feel credible.</p>
         <div class="preview-stats">
-          <div class="preview-stat"><span class="pstat-num">3</span><span class="pstat-lbl">Pages</span></div>
-          <div class="preview-stat"><span class="pstat-num">4</span><span class="pstat-lbl">Wireframes</span></div>
-          <div class="preview-stat"><span class="pstat-num">65+</span><span class="pstat-lbl">Site updates</span></div>
+          <div class="preview-stat"><span class="pstat-num">8</span><span class="pstat-lbl">Themes coded</span></div>
+          <div class="preview-stat"><span class="pstat-num">1:1</span><span class="pstat-lbl">Stakeholder interviews</span></div>
+          <div class="preview-stat"><span class="pstat-num">5</span><span class="pstat-lbl">Design recommendations</span></div>
         </div>
-        <div class="preview-link">View full case study &rarr;</div>
-      </a>
-
-
-      <a href="work.html#case-moirai" class="preview-card">
-        <img class="preview-thumb" src="moirai_thumb.png" alt="High-fidelity Your move screen from Moirai, a browser game: pixel-art fighters on a stage above a command box with Strike, Outmaneuver, Guard and Send move" loading="lazy">
-        <div class="preview-type">Game UX &middot; Side Project</div>
-        <h3 class="preview-title">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</h3>
-        <p class="preview-desc">Wireframes, phone layouts, and a high-fidelity screen for a game I am building with an AI coding assistant, with the reasoning behind each choice.</p>
-        <div class="preview-stats">
-          <div class="preview-stat"><span class="pstat-num">5</span><span class="pstat-lbl">Desktop screens</span></div>
-          <div class="preview-stat"><span class="pstat-num">2</span><span class="pstat-lbl">Phone layouts</span></div>
-          <div class="preview-stat"><span class="pstat-num">6.53:1</span><span class="pstat-lbl">Text contrast</span></div>
-        </div>
-        <div class="preview-link">View full case study &rarr;</div>
-      </a>
-
-      <a href="work.html#case-badge" class="preview-card">
-        <img class="preview-thumb" src="badge_thumb.png" alt="A block sketch of a name badge next to the finished Bentley graduate Open House badge, with a blue header, large name, mascot and blue footer" loading="lazy">
-        <div class="preview-type">Print Design &middot; Event Materials</div>
-        <h3 class="preview-title">Designing the Open House Name Badge</h3>
-        <p class="preview-desc">From a block sketch to a finished badge for Bentley&rsquo;s graduate Open House, designed in Figma so a name and role read at a glance.</p>
-        <div class="preview-link">View full case study &rarr;</div>
-      </a>
-
-      <a href="work.html#case-diary" class="preview-card">
-        <img class="preview-thumb" src="diary_thumb.png" alt="Four phone screens of a diary app on lined notebook paper: welcome and sign-up, diary home with a Day 1 of 6 card, a day page with a yellow prompt note, and an add-entry sheet" loading="lazy">
-        <div class="preview-type">Research Tool &middot; Side Project &middot; HF780</div>
-        <h3 class="preview-title">My Week in Moments: A Diary App for a Diary Study</h3>
-        <p class="preview-desc">Low- and mid-fidelity wireframes, then a working app, for a six-day diary study where participants answer with a photo, a voice memo, or a few words.</p>
-        <div class="preview-link">View full case study &rarr;</div>
-      </a>
-
-      <a href="work.html#case-nike" class="preview-card">
-        <img class="preview-thumb" src="nike_study_thumb.svg" alt="Diagram of three research methods, interviews, an observation plan and a diary study, leading to one shared pattern: respected, but no longer decisive" loading="lazy">
-        <div class="preview-type">UX Research &middot; Mixed Methods &middot; HF780</div>
-        <h3 class="preview-title">Rebuilding Customer Relevance: Interviews, Observation and a Diary Study</h3>
-        <p class="preview-desc">Three methods on one question for a course case. All three participants described the brand&rsquo;s pull as stronger in the past, and chose by price and life fit.</p>
         <div class="preview-link">View full case study &rarr;</div>
       </a>
 
     </div>
+    <p style="margin-top:1.75rem;text-align:center"><a class="preview-link" href="work.html" style="display:inline-block;padding:0.75rem 0;min-height:44px">See all nine projects, including the diary app, a browser game, event design and this site &rarr;</a></p>
   </div>
 </section>
 
@@ -1579,19 +1568,19 @@ nav {
   <div class="section-inner">
     <p class="section-eyebrow">Additional Work</p>
     <h2 class="section-title">Range beyond the case studies</h2>
-    <p class="projects-lead">A business analytics capstone and freelance visual design work, demonstrating strategic reasoning and design craft outside a UX research context.</p>
+    <p class="projects-lead">A business analytics capstone and freelance visual design work from outside UX research.</p>
 
     <div class="addl-work-card">
       <div class="addl-work-slides">
-        <img src="capstone_title.jpg" alt="Capstone presentation title slide: Using Galaxy AI to Improve Customer Retention, Samsung Mobile eXperience Division, Individual Analytics Transformation Capstone" loading="lazy">
-        <img src="capstone_opportunity.jpg" alt="Slide titled The Opportunity: Samsung leads in shipments, it trails in loyalty. Three cards: number one in volume, thin margins, high churn." loading="lazy">
-        <img src="capstone_approach.jpg" alt="Slide titled The Analytics Approach: treat Galaxy AI features like products, not marketing checkboxes. Three feature cards: Now Brief, Multi-Agent AI Orchestration, Samsung Health AI Coaching." loading="lazy">
-        <img src="capstone_closing.jpg" alt="Closing slide: Retention isn't a feature, it's a discipline. Thank you, questions welcome." loading="lazy">
+        <img decoding="async" src="capstone_title.jpg" alt="Capstone presentation title slide: Using Galaxy AI to Improve Customer Retention, Samsung Mobile eXperience Division, Individual Analytics Transformation Capstone" loading="lazy">
+        <img decoding="async" src="capstone_opportunity.jpg" alt="Slide titled The Opportunity: Samsung leads in shipments, it trails in loyalty. Three cards: number one in volume, thin margins, high churn." loading="lazy">
+        <img decoding="async" src="capstone_approach.jpg" alt="Slide titled The Analytics Approach: treat Galaxy AI features like products, not marketing checkboxes. Three feature cards: Now Brief, Multi-Agent AI Orchestration, Samsung Health AI Coaching." loading="lazy">
+        <img decoding="async" src="capstone_closing.jpg" alt="Closing slide: Retention isn't a feature, it's a discipline. Thank you, questions welcome." loading="lazy">
       </div>
       <div class="addl-work-body">
         <div class="preview-type">Business Case Analysis &middot; CS655</div>
         <h3 class="preview-title">Using Galaxy AI to Improve Customer Retention at Samsung</h3>
-        <p class="preview-desc">An executive recommendation proposing Samsung treat Galaxy AI features as measurable retention products rather than marketing checkboxes, addressing weak ecosystem lock-in against Apple. Built as a professional report and 7-minute stakeholder presentation for CS655: Managing with Analytics: From Data to AI.</p>
+        <p class="preview-desc">An executive recommendation that Samsung treat Galaxy AI features as measurable retention products, not marketing checkboxes, to address weak ecosystem lock-in against Apple. Delivered as a written report and a 7-minute stakeholder presentation for CS655: Managing with Analytics: From Data to AI.</p>
         <div class="preview-stats">
           <div class="preview-stat"><span class="pstat-num">9</span><span class="pstat-lbl">Presentation slides</span></div>
           <div class="preview-stat"><span class="pstat-num">2</span><span class="pstat-lbl">Strategic outcomes proposed</span></div>
@@ -1603,14 +1592,14 @@ nav {
 
     <div class="addl-work-card" style="margin-top: 1.5rem;">
       <div class="addl-work-slides design-slides-grid">
-        <img src="design_hud.jpg" alt="Sci-fi RPG inventory and character stat HUD design featuring health, mana, and fatigue bars, an equipment grid, a six-column item inventory, and core attribute stats such as strength, vitality, agility, and intelligence." loading="lazy">
-        <img src="design_empireworks.jpg" alt="Empireworks logo featuring an art deco skyscraper skyline silhouette above a ribbon banner wordmark." loading="lazy">
-        <img src="design_lumenova.jpg" alt="Lumenova logo featuring a crescent moon with gradient coloring, sparkle accents, and a wordmark, shown in a light color palette." loading="lazy">
+        <img decoding="async" src="design_hud.jpg" alt="Sci-fi RPG inventory and character stat HUD design featuring health, mana, and fatigue bars, an equipment grid, a six-column item inventory, and core attribute stats such as strength, vitality, agility, and intelligence." loading="lazy">
+        <img decoding="async" src="design_empireworks.jpg" alt="Empireworks logo featuring an art deco skyscraper skyline silhouette above a ribbon banner wordmark." loading="lazy">
+        <img decoding="async" src="design_lumenova.jpg" alt="Lumenova logo featuring a crescent moon with gradient coloring, sparkle accents, and a wordmark, shown in a light color palette." loading="lazy">
       </div>
       <div class="addl-work-body">
         <div class="preview-type">Freelance UI &amp; Brand Design &middot; Independent Contract Work</div>
         <h3 class="preview-title">UI Systems &amp; Brand Identity for Independent Game Developers</h3>
-        <p class="preview-desc">Since 2018, I've designed in-game UI systems and brand identities for independent Roblox developers, building inventory and HUD layouts around clear information hierarchy, plus logo and wordmark design for game studios. Iterated across revision cycles based on developer feedback.</p>
+        <p class="preview-desc">Since 2018, I've designed in-game UI systems and brand identities for independent Roblox developers, with inventory and HUD layouts built around clear information hierarchy, plus logos and wordmarks for game studios. I revised the work across several rounds of developer feedback.</p>
         <div class="preview-stats">
           <div class="preview-stat"><span class="pstat-num">2018</span><span class="pstat-lbl">Freelancing since</span></div>
           <div class="preview-stat"><span class="pstat-num">UI</span><span class="pstat-lbl">Systems &amp; HUD design</span></div>
@@ -1621,15 +1610,15 @@ nav {
 
     <div class="addl-work-card" style="margin-top: 1.5rem;">
       <div class="addl-work-slides">
-        <img src="fe_title.jpg" alt="Title slide: Three Findings from an Individual Test Session, moderated remote think-aloud session on Windows 11 File Explorer, HF750 Testing and Assessment Programs" loading="lazy">
-        <img src="fe_preview_pane.jpg" alt="Finding 1: Preview pane fails on Office documents. Task difficulty 4 out of 7. A security warning blocked the preview pane, and the participant said, Oh, this is annoying, I'm just gonna have to open it." loading="lazy">
-        <img src="fe_onedrive.jpg" alt="Finding 2: Files save to OneDrive, not Downloads as expected. Confidence rating 2 out of 5. The participant predicted the file would save to Downloads, then discovered it had saved to OneDrive instead." loading="lazy">
-        <img src="fe_zip_extraction.jpg" alt="Finding 3: ZIP extraction is non-obvious. Difficulty rating dropped from 7 to 5 once extraction was factored into the task. A three-step breakdown shows the participant searching inside the ZIP, a moderator intervention, and trial-and-error extraction." loading="lazy">
+        <img decoding="async" src="fe_title.jpg" alt="Title slide: Three Findings from an Individual Test Session, moderated remote think-aloud session on Windows 11 File Explorer, HF750 Testing and Assessment Programs" loading="lazy">
+        <img decoding="async" src="fe_preview_pane.jpg" alt="Finding 1: Preview pane fails on Office documents. Task difficulty 4 out of 7. A security warning blocked the preview pane, and the participant said, Oh, this is annoying, I'm just gonna have to open it." loading="lazy">
+        <img decoding="async" src="fe_onedrive.jpg" alt="Finding 2: Files save to OneDrive, not Downloads as expected. Confidence rating 2 out of 5. The participant predicted the file would save to Downloads, then discovered it had saved to OneDrive instead." loading="lazy">
+        <img decoding="async" src="fe_zip_extraction.jpg" alt="Finding 3: ZIP extraction is non-obvious. Difficulty rating dropped from 7 to 5 once extraction was factored into the task. A three-step breakdown shows the participant searching inside the ZIP, a moderator intervention, and trial-and-error extraction." loading="lazy">
       </div>
       <div class="addl-work-body">
         <div class="preview-type">Academic Usability Study &middot; HF750, Testing &amp; Assessment Programs</div>
         <h3 class="preview-title">Individual Usability Test: Windows 11 File Explorer</h3>
-        <p class="preview-desc">Designed and moderated a remote, single-participant think-aloud usability study evaluating everyday file search, organization, and retrieval tasks in Windows 11 File Explorer. Identified three concrete usability issues, backed by task difficulty ratings, timestamped video evidence, and direct participant quotes, then presented findings in a fully designed report.</p>
+        <p class="preview-desc">I designed and moderated a remote, single-participant think-aloud study of everyday file search, organization, and retrieval tasks in Windows 11 File Explorer. It surfaced three usability issues, backed by task difficulty ratings, timestamped video, and participant quotes. I presented the findings in a designed report.</p>
         <div class="preview-stats">
           <div class="preview-stat"><span class="pstat-num">3</span><span class="pstat-lbl">Findings identified</span></div>
           <div class="preview-stat"><span class="pstat-num">7&rarr;5</span><span class="pstat-lbl">Difficulty rating shift</span></div>
@@ -1649,7 +1638,7 @@ nav {
       <img class="about-teaser-photo" src="headshot.jpg" alt="Mickhail Reeves" width="88" height="88" decoding="async" loading="lazy">
       <div class="about-teaser-text">
         <p class="section-eyebrow" style="margin-bottom:0.4rem;">Background</p>
-        <p class="about-teaser-copy">M.S. candidate in Human Factors in Information Design at Bentley University, with a background spanning crisis counseling, care management, and seven years of freelance UI design. I bring a dual lens to research and design: understanding why people behave the way they do, and building systems that actually work for them.</p>
+        <p class="about-teaser-copy">M.S. candidate in Human Factors in Information Design at Bentley University, I worked in crisis counseling and care management before this, and I've done freelance UI design for seven years. I look at why people behave the way they do, then build systems that work for them.</p>
         <a href="about.html" class="about-teaser-link">Read the full story &rarr;</a>
       </div>
     </div>
@@ -1660,7 +1649,7 @@ nav {
 <section id="contact">
   <p class="section-eyebrow">Get in Touch</p>
   <h2 class="section-title">Let's work together.</h2>
-  <p>Actively seeking full-time roles in UX research, human factors, or information design. Available December 2026. Open to internship or contract opportunities sooner.</p>
+  <p>I'm looking for full-time roles in UX research, human factors, or information design. Available December 2026, and open to internship or contract work sooner.</p>
   <div class="contact-links">
     <a href="Mickhail-Reeves-Resume.docx" download class="contact-link dark" style="background:#fff !important;color:#08122a !important;border-color:#fff !important;">&#x2B07; Download Resume</a>
     <a href="mailto:MickhailReeves209@gmail.com" class="contact-link dark">MickhailReeves209@gmail.com</a>
@@ -1741,8 +1730,9 @@ nav {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 100) {
+        const d2 = dx*dx + dy*dy;
+        if (d2 < 10000) {
+          const dist = Math.sqrt(d2);
           ctx.beginPath();
           ctx.strokeStyle = `rgba(74,143,255,${0.08 * (1 - dist/100)})`;
           ctx.lineWidth = 0.5;
@@ -1752,11 +1742,20 @@ nav {
         }
       }
     }
-    requestAnimationFrame(draw);
+    if (running) requestAnimationFrame(draw);
   }
 
+  // Only animate while the hero is on screen and the tab is visible
+  let running = false, heroVisible = true;
+  function setRunning() {
+    const want = heroVisible && !document.hidden;
+    if (want && !running) { running = true; requestAnimationFrame(draw); }
+    else if (!want) { running = false; }
+  }
+  new IntersectionObserver(es => { heroVisible = es[0].isIntersecting; setRunning(); }).observe(hero);
+  document.addEventListener('visibilitychange', setRunning);
   window.addEventListener('resize', resize);
-  init(); draw();
+  init(); setRunning();
 })();
 
 // -- 2. CUSTOM CURSOR (dot + trailing ring + hover expand) --------------------
@@ -1823,6 +1822,7 @@ nav {
 
   document.addEventListener('mousemove', e => {
     mouseX = e.clientX; mouseY = e.clientY;
+    if (!ringRaf) ringRaf = requestAnimationFrame(animateRing);
     // Dot and glow track instantly
     dot.style.left = mouseX + 'px';
     dot.style.top = mouseY + 'px';
@@ -1835,14 +1835,16 @@ nav {
   });
 
   // Ring follows with smooth lag
+  let ringRaf = 0;
   function animateRing() {
     ringX += (mouseX - ringX) * 0.18;
     ringY += (mouseY - ringY) * 0.18;
     ring.style.left = ringX + 'px';
     ring.style.top = ringY + 'px';
-    requestAnimationFrame(animateRing);
+    if (Math.abs(mouseX - ringX) > 0.2 || Math.abs(mouseY - ringY) > 0.2) {
+      ringRaf = requestAnimationFrame(animateRing);
+    } else { ringRaf = 0; }
   }
-  animateRing();
 
   // Hide when leaving the window
   document.addEventListener('mouseleave', () => {
@@ -1878,10 +1880,16 @@ nav {
     z-index:9999;transition:width 0.1s linear;border-radius:0 2px 2px 0;
   `;
   document.body.appendChild(bar);
+  let barTick = false;
   window.addEventListener('scroll', () => {
-    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-    bar.style.width = Math.min(pct, 100) + '%';
-  });
+    if (barTick) return;
+    barTick = true;
+    requestAnimationFrame(() => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+      barTick = false;
+    });
+  }, { passive: true });
 })();
 
 // -- 4. SCROLL FADE-IN FOR SECTIONS -------------------------------------------
@@ -1940,8 +1948,8 @@ nav {
 // -- 5. COUNTER ANIMATION ON HERO STATS ---------------------------------------
 (function() {
   const counters = [
-    { el: null, target: 105, suffix: '+', prefix: '' },
-    { el: null, target: 3, suffix: '+', prefix: '' },
+    { el: null, target: 108, suffix: '+', prefix: '' },
+    { el: null, target: 9, suffix: '', prefix: '' },
   ];
   const statNums = document.querySelectorAll('.hero-stat .num');
   if (statNums[0]) counters[0].el = statNums[0];
@@ -2023,7 +2031,12 @@ nav {
     });
   }
 
-  window.addEventListener('scroll', updateActive);
+  let navTick = false;
+  window.addEventListener('scroll', () => {
+    if (navTick) return;
+    navTick = true;
+    requestAnimationFrame(() => { updateActive(); navTick = false; });
+  }, { passive: true });
   window.addEventListener('resize', updateActive);
   updateActive();
 })();

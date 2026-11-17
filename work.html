@@ -1342,6 +1342,37 @@ h2.card-title { margin-top:0; }
   body.page-exiting { transition: none !important; opacity: 1 !important; }
   nav { animation: none !important; transform: none !important; }
 }
+
+/* PERF: skip rendering work for off-screen case studies */
+.project-card { content-visibility: auto; contain-intrinsic-size: auto 1600px; }
+
+/* ===== DESKTOP LAYOUT (min-width 1100px only; mobile and tablet untouched) ===== */
+@media (min-width: 1100px) {
+  nav { padding: 0 4rem; }
+  section { padding: 6.5rem 4rem; }
+  .section-inner { max-width: 1360px; }
+  .hero { padding: 9rem 4rem 6rem; }
+  .hero-inner { max-width: 1360px; }
+  .work-header { padding: 9rem 4rem 4rem; }
+  .work-header-inner { max-width: 1360px; }
+}
+@media (min-width: 1700px) {
+  .section-inner, .hero-inner, .work-header-inner { max-width: 1560px; }
+}
+
+@media (min-width: 1280px) {
+  .work-projects .section-inner { display: grid; grid-template-columns: 270px minmax(0, 1fr); column-gap: 3.5rem; align-items: start; }
+  .work-projects .section-inner > * { grid-column: 2; }
+  .work-projects .project-index { grid-column: 1; grid-row: 1 / span 12; position: sticky; top: 88px; margin-bottom: 0; max-height: calc(100vh - 110px); overflow-y: auto; padding: 1.25rem; }
+  .work-projects .project-index ol { display: grid; grid-template-columns: 1fr; gap: 0.15rem; }
+}
+@media (min-width: 1100px) {
+  .card-body { padding: 3rem 3.25rem; }
+  .card-section p, .card-section li { max-width: 82ch; }
+  .findings-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .mo-fig.wide { max-width: 1100px; }
+  .card-meta-row { gap: 3rem; }
+}
 </style>
 </head>
 <body>
@@ -1387,13 +1418,13 @@ h2.card-title { margin-top:0; }
       <ol>
         <li><a href="#case-lens"><span class="pi-num">1</span><span class="pi-text">Closing the Post-Fulfillment Support Gap in Contact Lens Care</span></a></li>
         <li><a href="#case-dental"><span class="pi-num">2</span><span class="pi-text">Why People Put Off the Dentist</span></a></li>
-        <li><a href="#case-ai"><span class="pi-num">3</span><span class="pi-text">Understanding Consumer Trust in AI-Based Eye-Health Tools</span></a></li>
+        <li><a href="#case-nike"><span class="pi-num">3</span><span class="pi-text">Rebuilding Customer Relevance: Interviews, Observation and a Diary Study</span></a></li>
         <li><a href="#case-commuting"><span class="pi-num">4</span><span class="pi-text">What the Commuting Data Supports</span></a></li>
-        <li><a href="#case-site"><span class="pi-num">5</span><span class="pi-text">Designing This Portfolio: From One Long Page to a Three-Page Site</span></a></li>
-        <li><a href="#case-moirai"><span class="pi-num">6</span><span class="pi-text">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</span></a></li>
-        <li><a href="#case-badge"><span class="pi-num">7</span><span class="pi-text">Designing the Open House Name Badge</span></a></li>
-        <li><a href="#case-diary"><span class="pi-num">8</span><span class="pi-text">My Week in Moments: A Diary App for a Diary Study</span></a></li>
-        <li><a href="#case-nike"><span class="pi-num">9</span><span class="pi-text">Rebuilding Customer Relevance: Interviews, Observation and a Diary Study</span></a></li>
+        <li><a href="#case-ai"><span class="pi-num">5</span><span class="pi-text">Understanding Consumer Trust in AI-Based Eye-Health Tools</span></a></li>
+        <li><a href="#case-diary"><span class="pi-num">6</span><span class="pi-text">My Week in Moments: A Diary App for a Diary Study</span></a></li>
+        <li><a href="#case-moirai"><span class="pi-num">7</span><span class="pi-text">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</span></a></li>
+        <li><a href="#case-badge"><span class="pi-num">8</span><span class="pi-text">Designing the Open House Name Badge</span></a></li>
+        <li><a href="#case-site"><span class="pi-num">9</span><span class="pi-text">Designing This Portfolio: From One Long Page to a Three-Page Site</span></a></li>
       </ol>
     </div>
 
@@ -1407,7 +1438,7 @@ h2.card-title { margin-top:0; }
         <div class="card-subtitle">Mixed-methods research &amp; prototype design for a national vision care company</div>
 
         <div class="card-meta-row">
-          <div class="meta-cell"><div class="lbl">Client</div><div class="val">[Vision Care Client] - Confidential</div></div>
+          <div class="meta-cell"><div class="lbl">Client</div><div class="val">National vision care company (name withheld)</div></div>
           <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF710 Applied UX Research, Bentley University</div></div>
           <div class="meta-cell"><div class="lbl">Role</div><div class="val">UX Researcher &amp; Designer</div></div>
           <div class="meta-cell"><div class="lbl">Duration</div><div class="val">Jan – May 2026</div></div>
@@ -1415,10 +1446,10 @@ h2.card-title { margin-top:0; }
 
         <div class="headline-impact">
           <div class="result-label">Result</div>
-          <div class="result-statement">Designed and validated a support hub prototype that closed a research-confirmed trust gap: 91% of wearers trust their eye care provider most, but only 16% were reaching one when problems came up. The prototype's doctor-contact component drove a 5/5 engagement-likelihood score with testers when introduced by a provider.</div>
+          <div class="result-statement">Designed and validated a support hub prototype that closed a research-confirmed trust gap: 91% of wearers trust their eye care provider most, but only 16% were reaching one when problems came up. In usability testing, 5 of 5 testers rated their likelihood to use the hub 5/5 when their eye care provider introduced it (8 testers overall).</div>
           <div class="impact-row">
             <div class="impact-box"><div class="impact-pct">91%</div><div class="impact-desc">ranked their eye care provider as the most trusted source of support</div></div>
-            <div class="impact-box"><div class="impact-pct">5/5</div><div class="impact-desc">platform engagement likelihood when the hub was introduced by a provider</div></div>
+            <div class="impact-box"><div class="impact-pct">5 of 5</div><div class="impact-desc">testers rated platform likelihood 5/5 when their eye care provider introduced it</div></div>
             <div class="impact-box"><div class="impact-pct">4.63/5</div><div class="impact-desc">average usability score across unmoderated testing (n=8)</div></div>
           </div>
         </div>
@@ -1461,7 +1492,7 @@ h2.card-title { margin-top:0; }
 
         <div class="card-section">
           <div class="card-section-title">Customer Journey Map</div>
-          <p>I mapped the end-to-end contact lens journey across seven stages, framing each as a user goal (job to be done) and annotating where the experience held up versus where it broke down. The analysis made one pattern clear: the experience is functional through purchase, then degrades sharply in the post-fulfillment stages where users have questions but no trusted support.</p>
+          <p>I mapped the contact lens journey from start to finish across seven stages. I framed each stage as a user goal (job to be done) and marked where the experience held up and where it broke down. One pattern stood out: the experience works through purchase, then falls apart in the post-fulfillment stages, where users have questions but no trusted support.</p>
           <div class="journey-map">
             <div class="journey-track">
 
@@ -1561,7 +1592,7 @@ h2.card-title { margin-top:0; }
             <div class="finding-item">
               <div class="finding-num">4</div>
               <div class="finding-text">
-                <strong>Manufacturer support must earn engagement through genuine utility</strong>
+                <strong>Manufacturer support has to earn engagement by being useful</strong>
                 <span>81% open to manufacturer-led support, but only if discoverable, timely, relevant, credible, and actionable.</span>
               </div>
             </div>
@@ -1583,7 +1614,7 @@ h2.card-title { margin-top:0; }
               <div class="browser-dot" style="background:#28c840;"></div>
               <div class="browser-url">lens-companion.prototype / resource-hub</div>
             </div>
-            <img class="prototype-img" src="Landing_Page.jpg" alt="Contact Lens Resource Hub prototype - landing page showing navigation, hero section with Get Started and Check a Symptom CTAs, four hub module cards, topic explorer, and ECP contact section." loading="lazy">
+            <img decoding="async" class="prototype-img" src="Landing_Page.jpg" alt="Contact Lens Resource Hub prototype - landing page showing navigation, hero section with Get Started and Check a Symptom CTAs, four hub module cards, topic explorer, and ECP contact section." loading="lazy">
           </div>
         </div>
 
@@ -1609,7 +1640,7 @@ h2.card-title { margin-top:0; }
         <div class="card-section">
           <div class="card-section-title">Design Iteration - Symptom Checker Results</div>
           <p>Usability testing surfaced friction in the Symptom Checker results screen: testers scanned past the guidance cards and missed the reported-symptoms context entirely. The screen went through a full restructure based on that feedback, tracked across a 17-screen version comparison from initial wireframes to final export.</p>
-          <img class="prototype-img" src="wireframe_compare.png" alt="Before and after wireframe comparison of the Symptom Checker Results screen. V1 shows a reported-symptoms chip row, an unorganized text block for possible cause, and a four-card guidance grid. Final shows a single-row summary of possible cause, match confidence, and symptom comparison, a two-by-two text grid replacing the card guidance, and a new educational section addressing whether the condition is common, with a link to contact a doctor." loading="lazy">
+          <img decoding="async" class="prototype-img" src="wireframe_compare.png" alt="Before and after wireframe comparison of the Symptom Checker Results screen. V1 shows a reported-symptoms chip row, an unorganized text block for possible cause, and a four-card guidance grid. Final shows a single-row summary of possible cause, match confidence, and symptom comparison, a two-by-two text grid replacing the card guidance, and a new educational section addressing whether the condition is common, with a link to contact a doctor." loading="lazy">
           <p style="margin-top:1rem;">Three changes came directly out of testing: the four guidance cards were flattened into a plain text grid once testers said the card styling implied more content than was actually there; the top section was consolidated into a single scannable row instead of a separate symptom chip list; and a new educational section was added after testers repeatedly asked whether their symptoms were normal, a question the original design never answered.</p>
         </div>
 
@@ -1634,6 +1665,7 @@ h2.card-title { margin-top:0; }
     </div>
 
     <!-- CASE STUDY: DENTAL -->
+
     <div class="project-card" id="case-dental" role="article" aria-labelledby="case-dental-title">
       <div class="card-top-bar">
         <div class="card-type"><span class="card-num">Project 2 of 9</span><span class="card-type-text">UX Research &middot; Interview Study</span></div>
@@ -1685,7 +1717,7 @@ h2.card-title { margin-top:0; }
         <div class="card-section">
           <div class="card-section-title">From Eight Maps to One</div>
           <div class="commuting-video-wrap">
-            <video class="dental-video" autoplay muted loop playsinline controls preload="metadata" poster="dental_poster.jpg" aria-label="Twenty-second walkthrough of the team's Miro board: eight empathy maps, one map up close, the combined synthesis map, and the ecosystem map." style="width:100%; display:block;">
+            <video class="dental-video" data-autoplay-visible muted loop playsinline controls preload="none" poster="dental_poster.jpg" aria-label="Twenty-second walkthrough of the team's Miro board: eight empathy maps, one map up close, the combined synthesis map, and the ecosystem map." style="width:100%; display:block;">
               <source src="dental_synthesis.mp4" type="video/mp4">
               <source src="dental_synthesis.webm" type="video/webm">
               Your browser does not support embedded video. <a href="dental_synthesis.mp4">Download the video</a> instead.
@@ -1735,7 +1767,7 @@ h2.card-title { margin-top:0; }
 
         <div class="card-section">
           <div class="card-section-title">Ecosystem Map</div>
-          <a href="dental_ecosystem.jpg" target="_blank" rel="noopener" style="display:block;"><img class="prototype-img" src="dental_ecosystem.jpg" alt="Ecosystem map with the patient's decision to book, delay, or return at the center. Inner ring: dentist or hygienist, family and friends, and front desk staff, each noted in 4 of 4 patient interviews. Middle ring: insurance providers, specialists, dental practices, employers and schools. Outer ring: online reviews and social media, government, education, and the healthcare system." loading="lazy" style="max-width:760px; margin:0 auto; border-radius:12px;"></a>
+          <a href="dental_ecosystem.jpg" target="_blank" rel="noopener" style="display:block;"><img decoding="async" class="prototype-img" src="dental_ecosystem.jpg" alt="Ecosystem map with the patient's decision to book, delay, or return at the center. Inner ring: dentist or hygienist, family and friends, and front desk staff, each noted in 4 of 4 patient interviews. Middle ring: insurance providers, specialists, dental practices, employers and schools. Outer ring: online reviews and social media, government, education, and the healthcare system." loading="lazy" style="max-width:760px; margin:0 auto; border-radius:12px;"></a>
           <p style="margin-top:0.5rem; font-size:0.8rem; color:rgba(255,255,255,0.7); text-align:center;">Click to open full size.</p>
           <p style="margin-top:1rem;">The front desk came up with all 4 patients as the point where booking, rescheduling, cost, and coverage questions land at once. Ideas about dentists also come from outside the office entirely, from cartoons and the &ldquo;scary dentist&rdquo; stereotype to online reviews patients found hard to trust.</p>
         </div>
@@ -1761,100 +1793,84 @@ h2.card-title { margin-top:0; }
     </div>
 
     <!-- CASE STUDY 2 -->
-    <div class="project-card" id="case-ai" role="article" aria-labelledby="case-ai-title">
+
+    <div class="project-card" id="case-nike" role="article" aria-labelledby="case-nike-title">
       <div class="card-top-bar">
-        <div class="card-type"><span class="card-num">Project 3 of 9</span><span class="card-type-text">UX Research &middot; AI Tool Evaluation</span></div>
-        <div class="card-badge">Research Study</div>
+        <div class="card-type"><span class="card-num">Project 3 of 9</span><span class="card-type-text">UX Research &middot; Mixed Methods &middot; HF780 Coursework</span></div>
+        <div class="card-badge">Individual Project</div>
       </div>
       <div class="card-body">
-        <h2 class="card-title" id="case-ai-title">Understanding Consumer Trust in AI-Based Eye-Health Tools</h2>
-        <div class="card-subtitle">Contextual inquiry and evaluation framework for AI-assisted vision care experiences</div>
+        <h2 class="card-title" id="case-nike-title">Rebuilding Customer Relevance: Interviews, an Observation Plan and a Diary Study</h2>
+        <div class="card-subtitle">Three research methods on one question, and what they agreed on</div>
 
         <div class="card-meta-row">
-          <div class="meta-cell"><div class="lbl">Client</div><div class="val">[Vision Care Client] - Confidential</div></div>
-          <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF710 Applied UX Research, Bentley University</div></div>
-          <div class="meta-cell"><div class="lbl">Role</div><div class="val">UX Researcher (Lead)</div></div>
-          <div class="meta-cell"><div class="lbl">Scope</div><div class="val">Consumer-facing AI health touchpoints</div></div>
-          <div class="meta-cell"><div class="lbl">Duration</div><div class="val">Jan – May 2026</div></div>
+          <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF780 (Bentley), a course case about the sportswear brand Nike</div></div>
+          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Researcher, working alone</div></div>
+          <div class="meta-cell"><div class="lbl">Methods</div><div class="val">Interviews, observation plan, diary study</div></div>
+          <div class="meta-cell"><div class="lbl">Analysis</div><div class="val">Thematic coding, AEIOU framework</div></div>
         </div>
 
         <div class="headline-impact">
           <div class="result-label">Result</div>
-          <div class="result-statement">Coded interview and stakeholder data across 3 AI touchpoint types into 8 trust-and-credibility themes, delivering 5 design recommendations for where AI-driven eye-health tools gain or lose patient confidence.</div>
+          <div class="result-statement">Across three methods, the same pattern came up. People respect the brand, but it no longer decides what they buy. They choose by price, by what fits their lives, and by what they see and hear from people they trust. All three participants described the brand&rsquo;s pull as stronger in the past.</div>
           <div class="impact-row">
-            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">AI touchpoint types evaluated: online checkers, in-office kiosks, home test apps</div></div>
-            <div class="impact-box"><div class="impact-pct">9</div><div class="impact-desc">trust and credibility themes identified through affinity analysis</div></div>
-            <div class="impact-box"><div class="impact-pct">5</div><div class="impact-desc">design recommendations delivered to the client</div></div>
+            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">research methods used on one question</div></div>
+            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">participants: two interviews and one six-day diary</div></div>
+            <div class="impact-box"><div class="impact-pct">3 of 3</div><div class="impact-desc">described the brand&rsquo;s pull as stronger in the past</div></div>
           </div>
         </div>
-
         <div class="card-section">
-          <div class="card-section-title">Problem Statement</div>
-          <p>AI tools are becoming increasingly embedded in consumer eye care, appearing in online symptom checkers, in-office kiosks, AI-generated health reports, home vision test apps, and remote exam platforms. Despite their growing presence, many consumers feel confused about how these tools work, uncertain about result accuracy, and skeptical about whether to act on AI-generated guidance.</p>
-          <p>This study focused on identifying exactly where confusion and mistrust arise across these touchpoints, and what design and communication decisions make the difference between an experience that builds confidence and one that causes patients to disengage.</p>
+          <div class="card-section-title">Project Overview</div>
+          <p>In this course case, a company hired us to understand how to rebuild customer relevance. I chose the declining customer: someone who used to buy the brand regularly and now buys it less. I treated claims from an opinion article (Giunco, 2024) as ideas to test, and kept the brand out of the early questions so answers were not framed by it.</p>
+          <figure class="mo-fig wide" style="margin-top:1rem"><img decoding="async" src="nike_study_thumb.svg" alt="Diagram. Three boxes, Interviews with 2 participants and a written guide, Observation plan with the AEIOU framework and 4 research questions, and Diary study with 1 participant over 6 days and a custom diary app. Lines from all three lead to one box that reads Respected, but no longer decisive: price, life fit and visibility decide what people buy." loading="lazy"></figure>
         </div>
 
         <div class="card-section">
-          <div class="card-section-title">Research Focus Areas</div>
+          <div class="card-section-title">Step 1: Interviews</div>
+          <p>I wrote an interview guide that moves from daily life, to shopping habits, to the brand, to competitors. After feedback from my professor, I rewrote it at a 6th grade reading level, removed leading and double-barreled questions, and kept early questions broad. I interviewed two declining customers, recorded and transcribed both, and coded them with thematic analysis (Braun &amp; Clarke, 2006; Salda&ntilde;a, 2021). Answers that followed one of my own leading prompts are marked &ldquo;prompted&rdquo; and are not main evidence.</p>
           <div class="findings-list">
-            <div class="finding-item">
-              <div class="finding-num">A</div>
-              <div class="finding-text">
-                <strong>Online AI eye-health checkups and symptom-checker chatbots</strong>
-                <span>How do users interpret AI-generated assessments? What interface patterns increase or reduce confidence in results?</span>
-              </div>
-            </div>
-            <div class="finding-item">
-              <div class="finding-num">B</div>
-              <div class="finding-text">
-                <strong>In-office AI screening kiosks and AI-generated reports</strong>
-                <span>Where do clinical-context AI tools produce friction? What do users believe the AI is doing versus its actual function?</span>
-              </div>
-            </div>
-            <div class="finding-item">
-              <div class="finding-num">C</div>
-              <div class="finding-text">
-                <strong>AI home vision test apps and remote eye exams</strong>
-                <span>When does uncertainty about AI reliability lead users to abandon or override recommendations?</span>
-              </div>
-            </div>
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Respected, but not worth full price</strong><span>Both described the brand as high quality, and both bought their last pair only on sale. Counter-evidence: one also chose a shoe for its reputation in the running community.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Faded from view, with its pull in the past</strong><span>Neither could name a recent ad, and both described the brand&rsquo;s pull as stronger before. Counter-evidence: one finds the brand easily and notices it in movies and TV.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>They choose by what fits their life, not by brand name</strong><span>Both framed choices around comfort, price and purpose. Counter-evidence: the brand still comes to mind first for both.</span></div></div>
           </div>
         </div>
 
         <div class="card-section">
-          <div class="card-section-title">Why This Work Matters</div>
-          <p>The expansion of AI into consumer health creates a new class of UX problem: not whether an interface is usable, but whether users can accurately calibrate their trust in what the system tells them. An AI symptom checker users dismiss as unreliable provides no value. One they over-trust can delay appropriate care. The design challenge is calibration, not just clarity.</p>
+          <div class="card-section-title">Step 2: Observation Plan</div>
+          <p>I planned an in-store observation to test those findings, using the AEIOU framework (Martin &amp; Hanington, 2012). It has four research questions (how shoppers find products, what role price plays, how they decide, and how visible the brand is), two 60-minute sessions, and eight behaviors to watch, such as which brand a shopper goes to first and whether they check price tags. Notes would be time-stamped, with what I see kept apart from what I think it means.</p>
+          <figure class="mo-fig wide" style="margin-top:1rem"><img decoding="async" src="nike_store_soccer.jpg" alt="Photo of the soccer cleat section of a sporting goods store with no shoppers in view. Two black display walls stand side by side, one for Nike with the Phantom and Mercurial lines and one for adidas with the F50 and Predator lines. Green turf display tables in the center hold cleats from both brands." loading="lazy"><figcaption><strong>The store I chose for the plan: the soccer section</strong>Two brand walls sit side by side, and the center tables mix both brands. This is the kind of layout the plan asks me to map. No shoppers are in the frame.</figcaption></figure>
         </div>
 
         <div class="card-section">
-          <div class="card-section-title">Process - Qualitative Coding &amp; Synthesis</div>
-          <p>Working in FigJam, I coded participant transcripts and clustered raw quotes into emergent themes. This affinity analysis surfaced the core dimensions of how users experience AI eye-health tools, including trust and privacy, credibility gaps, AI familiarity, accuracy, and information comprehension.</p>
-          <div class="prototype-showcase">
-            <div class="browser-bar">
-              <div class="browser-dot" style="background:#ff5f57;"></div>
-              <div class="browser-dot" style="background:#febc2e;"></div>
-              <div class="browser-dot" style="background:#28c840;"></div>
-              <div class="browser-url">figjam / ai-platform-coding-and-analysis</div>
-            </div>
-            <img class="prototype-img" src="affinity_board.jpg" alt="Affinity diagram in FigJam showing participant quotes coded and clustered into themes: Trust and Privacy, Credibility Gaps, Information Comprehension, AI Familiarity, Accuracy, Ease of Use, Information Density, and Informativeness." loading="lazy">
+          <div class="card-section-title">Step 3: Diary Study</div>
+          <p>To see the same question another way, the diary never named the brand. One participant kept a six-day diary in the app I built (project 8), and I interviewed her before and after, asking about the brand only near the end. I coded her seven entries and both transcripts into 14 codes and six themes.</p>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>The brand is trusted, but it no longer feels special</strong><span>She called it reliable, but it was not in her brand list or any of her entries.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Her week is built around things she does</strong><span>Basketball, the gym and music feel like her, not a brand. She buys on price, speed and reviews from people she trusts.</span></div></div>
           </div>
         </div>
 
         <div class="card-section">
-          <div class="card-section-title">Deliverables</div>
-          <div class="tag-list">
-            <span class="tag">Problem Framing Document</span>
-            <span class="tag">Qualitative Coding &amp; Affinity Analysis</span>
-            <span class="tag">Stakeholder Research Brief</span>
-            <span class="tag">Evaluation Framework</span>
-            <span class="tag">Design Recommendations</span>
-            <span class="tag">Annotated Concept Sketches</span>
-          </div>
+          <div class="card-section-title">What the Three Sources Agree On</div>
+          <p>All three participants described the brand&rsquo;s pull as stronger in the past, chose by life fit more than by brand, and rarely saw its ads. They differed on price: the interview participants waited for a sale, and the diary participant skipped the purchase. They also differed on trust: the interview participants researched online, and the diary participant relied on friends and reviews.</p>
+          <p style="margin-top:0.75rem;">Ideas to test, not conclusions: explain what the price buys, give people a current story to notice, and build on older styles and community-recommended products.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Limits and Ethics</div>
+          <p>The sample is small (two interviews, one diary participant), and I know the diary participant personally, which may have shaped what she shared. The brand-related diary themes come only from the follow-up interview, because the diary hid the brand on purpose. Day 4 has no entry. Participants appear as P1, P2 and by role, with no participant names or photos, and I left out personal and financial details.</p>
+        </div>
+
+        <div class="tag-list">
+          <span class="tag">Interview Guide</span>
+          <span class="tag">Thematic Analysis</span>
+          <span class="tag">Observation Plan</span>
+          <span class="tag">Diary Study</span>
+          <span class="tag">Mixed Methods</span>
         </div>
       </div>
     </div>
 
-    <!-- CASE STUDY 3 -->
     <div class="project-card" id="case-commuting" role="article" aria-labelledby="case-commuting-title">
       <div class="card-top-bar">
         <div class="card-type"><span class="card-num">Project 4 of 9</span><span class="card-type-text">Data Story &middot; Sponsored Research</span></div>
@@ -1932,24 +1948,24 @@ h2.card-title { margin-top:0; }
           <div class="card-section-title">Panel Detail</div>
           <div class="commuting-panel-grid">
             <div class="commuting-panel">
-              <img src="panel1_pattern.png" alt="Panel 1: The Pattern. Four in five commuters drive alone. 78.7% of 713 respondents, 2025. Unit chart of 20 cars, 15.7 filled blue representing drive-alone commuters." loading="lazy">
-              <p class="commuting-caption">Panel 1 opens on the scale of the problem using a unit chart rather than a bare percentage. Each car icon is countable, making the proportion immediate rather than abstract.</p>
+              <img decoding="async" src="panel1_pattern.png" alt="Panel 1: The Pattern. Four in five commuters drive alone. 78.7% of 713 respondents, 2025. Unit chart of 20 cars, 15.7 filled blue representing drive-alone commuters." loading="lazy">
+              <p class="commuting-caption">Panel 1 shows the scale of the problem with a unit chart instead of a bare percentage. You can count each car icon, so the proportion is easy to see.</p>
             </div>
             <div class="commuting-panel">
-              <img src="panel2_history.png" alt="Panel 2: The History. Nine years, no decline. Line chart showing drive-alone share held between 76.2% and 80.0% from 2017 to 2025." loading="lazy">
+              <img decoding="async" src="panel2_history.png" alt="Panel 2: The History. Nine years, no decline. Line chart showing drive-alone share held between 76.2% and 80.0% from 2017 to 2025." loading="lazy">
               <p class="commuting-caption">Panel 2 establishes persistence: the drive-alone rate never dipped below 76% across nine years, including through 2020&rsquo;s disruption.</p>
             </div>
             <div class="commuting-panel">
-              <img src="panel3_affected.png" alt="Panel 3: Who Is Affected. Location matters, role matters more. Bar chart of drive-alone rate by home zip group and role, ranging from 42.6% for students in the Boston core to 97.6% for staff in outer towns." loading="lazy">
+              <img decoding="async" src="panel3_affected.png" alt="Panel 3: Who Is Affected. Location matters, role matters more. Bar chart of drive-alone rate by home zip group and role, ranging from 42.6% for students in the Boston core to 97.6% for staff in outer towns." loading="lazy">
               <p class="commuting-caption">Panel 3 segments the pattern: role predicts drive-alone behavior more strongly than distance from campus does.</p>
             </div>
             <div class="commuting-panel">
-              <img src="panel4_asked.png" alt="Panel 4: What Commuters Asked For. Transit, not carpooling. Horizontal bar chart of themes coded from 382 open-ended responses: shuttle service 29.6%, public transit 25.9%, bike or walk 18.8%, carpool or rideshare 16.2%, financial incentive 11.0%, housing cost 8.6%." loading="lazy">
+              <img decoding="async" src="panel4_asked.png" alt="Panel 4: What Commuters Asked For. Transit, not carpooling. Horizontal bar chart of themes coded from 382 open-ended responses: shuttle service 29.6%, public transit 25.9%, bike or walk 18.8%, carpool or rideshare 16.2%, financial incentive 11.0%, housing cost 8.6%." loading="lazy">
               <p class="commuting-caption">Panel 4 codes what commuters actually asked for in their own words. Shuttle and transit improvements outrank carpooling by a wide margin.</p>
             </div>
             <div class="commuting-panel commuting-panel-wide">
-              <img src="panel5_evidence.png" alt="Panel 5: What The Evidence Supports. Two options ranked by demand. Shuttle expansion at 45.8% versus carpool matching at 16.2%. Limitation noted: no cost data exists, so demand can be ranked but emissions reduced per dollar cannot." loading="lazy">
-              <p class="commuting-caption">Panel 5 closes with an honest, ranked recommendation and names its own limitation rather than overstating the case. Shuttle expansion has more than double the demand of carpool matching, though cost-effectiveness data was not available to rank impact.</p>
+              <img decoding="async" src="panel5_evidence.png" alt="Panel 5: What The Evidence Supports. Two options ranked by demand. Shuttle expansion at 45.8% versus carpool matching at 16.2%. Limitation noted: no cost data exists, so demand can be ranked but emissions reduced per dollar cannot." loading="lazy">
+              <p class="commuting-caption">Panel 5 gives a ranked recommendation and states its own limit. Shuttle expansion has more than double the demand of carpool matching, though cost-effectiveness data was not available to rank impact.</p>
             </div>
           </div>
         </div>
@@ -1967,9 +1983,450 @@ h2.card-title { margin-top:0; }
       </div>
     </div>
 
+    <div class="project-card" id="case-ai" role="article" aria-labelledby="case-ai-title">
+      <div class="card-top-bar">
+        <div class="card-type"><span class="card-num">Project 5 of 9</span><span class="card-type-text">UX Research &middot; AI Tool Evaluation</span></div>
+        <div class="card-badge">Research Study</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title" id="case-ai-title">Understanding Consumer Trust in AI-Based Eye-Health Tools</h2>
+        <div class="card-subtitle">Contextual inquiry and evaluation framework for AI-assisted vision care experiences</div>
+
+        <div class="card-meta-row">
+          <div class="meta-cell"><div class="lbl">Client</div><div class="val">National vision care company (name withheld)</div></div>
+          <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF710 Applied UX Research, Bentley University</div></div>
+          <div class="meta-cell"><div class="lbl">Role</div><div class="val">UX Researcher (Lead)</div></div>
+          <div class="meta-cell"><div class="lbl">Scope</div><div class="val">Consumer-facing AI health touchpoints</div></div>
+          <div class="meta-cell"><div class="lbl">Duration</div><div class="val">Jan – May 2026</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">Coded interview and stakeholder data across 3 AI touchpoint types into 8 trust-and-credibility themes, delivering 5 design recommendations for where AI-driven eye-health tools gain or lose patient confidence.</div>
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">AI touchpoint types evaluated: online checkers, in-office kiosks, home test apps</div></div>
+            <div class="impact-box"><div class="impact-pct">8</div><div class="impact-desc">trust and credibility themes identified through affinity analysis</div></div>
+            <div class="impact-box"><div class="impact-pct">5</div><div class="impact-desc">design recommendations delivered to the client</div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Problem Statement</div>
+          <p>AI tools are becoming increasingly embedded in consumer eye care, appearing in online symptom checkers, in-office kiosks, AI-generated health reports, home vision test apps, and remote exam platforms. Despite their growing presence, many consumers feel confused about how these tools work, uncertain about result accuracy, and skeptical about whether to act on AI-generated guidance.</p>
+          <p>This study focused on identifying exactly where confusion and mistrust arise across these touchpoints, and what design and communication decisions make the difference between an experience that builds confidence and one that causes patients to disengage.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Research Focus Areas</div>
+          <div class="findings-list">
+            <div class="finding-item">
+              <div class="finding-num">A</div>
+              <div class="finding-text">
+                <strong>Online AI eye-health checkups and symptom-checker chatbots</strong>
+                <span>How do users interpret AI-generated assessments? What interface patterns increase or reduce confidence in results?</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">B</div>
+              <div class="finding-text">
+                <strong>In-office AI screening kiosks and AI-generated reports</strong>
+                <span>Where do clinical-context AI tools produce friction? What do users believe the AI is doing versus its actual function?</span>
+              </div>
+            </div>
+            <div class="finding-item">
+              <div class="finding-num">C</div>
+              <div class="finding-text">
+                <strong>AI home vision test apps and remote eye exams</strong>
+                <span>When does uncertainty about AI reliability lead users to abandon or override recommendations?</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Why This Work Matters</div>
+          <p>As AI moves into consumer health, a new UX problem shows up: not whether an interface is usable, but whether users can judge how far to trust what the system tells them. An AI symptom checker that users dismiss as unreliable provides no value. One they over-trust can delay care. The design challenge is calibration, not only clarity.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Process - Qualitative Coding &amp; Synthesis</div>
+          <p>Working in FigJam, I coded participant transcripts and clustered raw quotes into emergent themes. This affinity analysis surfaced the core dimensions of how users experience AI eye-health tools, including trust and privacy, credibility gaps, AI familiarity, accuracy, and information comprehension.</p>
+          <div class="prototype-showcase">
+            <div class="browser-bar">
+              <div class="browser-dot" style="background:#ff5f57;"></div>
+              <div class="browser-dot" style="background:#febc2e;"></div>
+              <div class="browser-dot" style="background:#28c840;"></div>
+              <div class="browser-url">figjam / ai-platform-coding-and-analysis</div>
+            </div>
+            <img decoding="async" class="prototype-img" src="affinity_board.jpg" alt="Affinity diagram in FigJam showing participant quotes coded and clustered into themes: Trust and Privacy, Credibility Gaps, Information Comprehension, AI Familiarity, Accuracy, Ease of Use, Information Density, and Informativeness." loading="lazy">
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Usability Test of Doctronic: Findings</div>
+          <p>Our team ran moderated, remote think-aloud sessions on Doctronic, a live AI eye-health consultation product, with four participants across two age groups. Each rated trust, clarity, usefulness and ease on a 1 to 5 scale before the test, after each task and at the end. I wrote the research framing (method, test plan and usability goals) and coded one full session. We then combined the four coded boards into themes as a team. Quotes below are from the sessions.</p>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Participants used it as a step before the doctor, not a replacement</strong><span>Three of the four described it as a way to prepare for a visit or decide whether to go. One said, &ldquo;I still think it&rsquo;s important to follow up with a real doctor. Even as someone in Gen Z, I&rsquo;m still skeptical of AI.&rdquo; The summary note was the piece they planned to use: &ldquo;I would probably do a download or share the results, just in case I want to go back to it with a doctor.&rdquo;</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Track record and privacy built trust, but price and missing doctor details held it back</strong><span>A stat that clinicians agree with the treatment plans over 99% of the time landed well: &ldquo;It&rsquo;s a good track record.&rdquo; Low pricing worked the other way for one participant: &ldquo;It almost feels too good to be true.&rdquo; One participant rated trust 4 to 5 and said seeing information about the doctors would raise it to a full 5.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>People read the urgency signal as an instruction, and the long summary slowed them down</strong><span>Participants turned the urgency level straight into an action: &ldquo;the urgency seems to be a little bit higher, so maybe I better call my family physician.&rdquo; The session I coded gave clarity and usefulness 5 out of 5, but the person called the plan &ldquo;a little wordy&rdquo; and wanted something more digestible. A double-click lockout also stopped them mid-consult.</span></div></div>
+          </div>
+          <p style="margin-top:0.75rem;">With four participants, and one session that rated almost everything 5, these are patterns to test, not rules.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Design Implications</div>
+          <p>Five changes I would propose, each tied to the evidence above. These are my own suggestions from the findings, not client decisions.</p>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Make the handoff the main feature</strong><span>Say up front that the summary is meant for a doctor, and make download and share easy to find (Finding 1).</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Put a short summary on top</strong><span>Show a few scannable lines before the full plan, so people can read the result quickly (Finding 3).</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Show who the doctors are</strong><span>Add doctor information next to the option to see a doctor, since it was the one thing a participant said would raise trust to a 5 (Finding 2).</span></div></div>
+            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Explain the price</strong><span>Put what the price covers and how insurance fits next to it, so a low price does not look too good to be true (Finding 2).</span></div></div>
+            <div class="finding-item"><div class="finding-num">5</div><div class="finding-text"><strong>Say when no visit is needed, and fix the lockout</strong><span>Tell users plainly when self-care is enough, so the tool does not feel like it always points to a paid visit. Fix the double-click that locked one participant out (Findings 2 and 3).</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Deliverables</div>
+          <div class="tag-list">
+            <span class="tag">Problem Framing Document</span>
+            <span class="tag">Qualitative Coding &amp; Affinity Analysis</span>
+            <span class="tag">Stakeholder Research Brief</span>
+            <span class="tag">Evaluation Framework</span>
+            <span class="tag">Design Recommendations</span>
+            <span class="tag">Annotated Concept Sketches</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDY 3 -->
+
+    <div class="project-card" id="case-diary" role="article" aria-labelledby="case-diary-title">
+      <div class="card-top-bar">
+        <div class="card-type"><span class="card-num">Project 6 of 9</span><span class="card-type-text">Research Tool &middot; Side Project &middot; HF780 Coursework</span></div>
+        <div class="card-badge">Individual Project</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title" id="case-diary-title">My Week in Moments: Designing a Diary App for a Six-Day Diary Study</h2>
+        <div class="card-subtitle">Low-fidelity and mid-fidelity wireframes, and the working app they became, built with an AI coding assistant</div>
+
+        <div class="card-meta-row">
+          <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF780 (Bentley), customer relevance case</div></div>
+          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Researcher, designer and product owner</div></div>
+          <div class="meta-cell"><div class="lbl">Tools</div><div class="val">Wireframes, HTML/CSS/JS, Supabase, AI coding assistant</div></div>
+          <div class="meta-cell"><div class="lbl">Platform</div><div class="val">Phone browser, no install</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">A working diary web app that lets a participant answer a daily prompt with a photo, a voice memo, or a few words, in about five to ten minutes. I designed it as a research instrument: easy to open from a phone, easy to skip, and clear about what to do next.</div>
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-pct">6</div><div class="impact-desc">study days, each with its own prompt</div></div>
+            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">entry types: daily prompt, feels like me, movement</div></div>
+            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">ways to answer: photo, voice memo, or text</div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Project Overview</div>
+          <p>For HF780 I planned a diary study as part of a case on how a brand can rebuild its relevance with customers. A diary study asks people to record moments from their own lives over several days, so it shows everyday context that a single interview cannot. The risk is that a diary is a chore. If it is hard to open or confusing, people stop answering.</p>
+          <p style="margin-top:0.75rem;">So I built the diary itself. I decided what the app needed to do, drew the wireframes, and wrote the participant copy. An AI coding assistant helped me turn those decisions into the working app.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What the Participant Needs to Do</div>
+          <div class="tag-list">
+            <span class="tag">Start without installing anything</span>
+            <span class="tag">Come back on any device</span>
+            <span class="tag">Know which day it is</span>
+            <span class="tag">See today&rsquo;s prompt</span>
+            <span class="tag">Answer in the way that is easiest</span>
+            <span class="tag">Add a moment that was not prompted</span>
+            <span class="tag">Skip anything</span>
+            <span class="tag">Remember to come back</span>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Low-Fidelity Wireframes</div>
+          <p>Black lines on white, with no color, grey fills or real copy. Boxes and labels stand in for content. At this stage I only tested what is on each screen and what comes first: a name, a code and an email to start; a progress card and today&rsquo;s prompt on the home screen; a single prompt and one clear button on the day page; and a bottom sheet for adding an entry.</p>
+          <div class="mo-grid">
+            <figure class="mo-fig"><img decoding="async" src="diary_wf_low_a.png" alt="Low-fidelity line wireframes of two screens. Screen 1, create or open diary: logo, eyebrow, title, three labeled inputs, a primary button and a text link to open an existing diary. Screen 2, diary home: top bar with name, sound and close, a progress card, a prompt note with a button, three quick-add tiles, six day boxes and a latest entries list, with a bottom bar of Diary, a plus button and Guide." loading="lazy"><figcaption><strong>Screens 1 and 2 &middot; Start and home</strong>One primary button per screen. The plus button sits in the middle of the bottom bar, in thumb reach.</figcaption></figure>
+            <figure class="mo-fig"><img decoding="async" src="diary_wf_low_b.png" alt="Low-fidelity wireframes of two screens. Screen 3, day page: back button, day title, date, a prompt note, a primary button, and an empty on-this-page list. Screen 4, add to your page: a bottom sheet with three entry types, the prompt note, add photo and add voice buttons, a text area and a primary button." loading="lazy"><figcaption><strong>Screens 3 and 4 &middot; Day page and add sheet</strong>The add sheet keeps the prompt visible while the participant answers.</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Mid-Fidelity Wireframes</div>
+          <p>The same four screens in greyscale, with the real participant copy and a clear type hierarchy. Darker grey marks actions and lighter grey marks the prompt. Color comes later, in the built app. I did not add more screens. I used this step to check that the words and the order made sense.</p>
+          <div class="mo-grid">
+            <figure class="mo-fig"><img decoding="async" src="diary_wf_mid_a.png" alt="Mid-fidelity wireframes of two screens. Screen 1, create or open diary: HF780 Diary logo, A one-week diary, My Week in Moments, a short welcome, Create your diary with name, code and email fields, a dark Create my diary button. Screen 2, diary home: Hello Sam, Day 1 of 6 progress card, Today's prompt note with an Open Day 1 button, Quick add tiles, Your six days, and a bottom bar." loading="lazy"><figcaption><strong>Screens 1 and 2</strong>Welcome copy says anything counts and there are no right or wrong answers. The email is explained next to the field.</figcaption></figure>
+            <figure class="mo-fig"><img decoding="async" src="diary_wf_mid_b.png" alt="Mid-fidelity wireframes of two screens. Screen 3, day page: Back to calendar, Day 1, Monday November 16 today, the Everyday carry prompt in a grey note, a dark Add to this page button and On this page with 0 entries. Screen 4, add to your page: Daily prompt, Feels like me and Movement choices with Daily prompt selected, the prompt, Photo or screenshot and Record voice memo buttons, a Your answer field and a dark Post to my diary button." loading="lazy"><figcaption><strong>Screens 3 and 4</strong>Only one entry type is selected at a time, and its button says what happens next: Post to my diary.</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">The Working App</div>
+          <p>These are screens from the built app, shown in its preview mode with a made-up name, so no participant data appears here. The notebook look (lined paper, sticky-note prompts, handwriting for prompts and serif for headings) is meant to make a research task feel like a personal diary.</p>
+          <figure class="mo-fig wide"><img decoding="async" src="diary_app_screens.png" alt="Four screens of the built diary app on a phone: the welcome and create your diary screen on lined notebook paper, the diary home with a Day 1 of 6 progress card and a yellow prompt note, the Day 1 page with the Everyday carry prompt, and the Add to your page sheet with Daily prompt selected." loading="lazy">
+            <figcaption><strong>Welcome, diary home, day page and add sheet</strong>The built screens follow the mid-fidelity layout, with the real prompt text for Day 1, Everyday carry.</figcaption></figure>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">The Database and How I Set It Up</div>
+          <p>The app is a single static web page hosted on GitHub Pages. Entries, photos and voice memos are stored in Supabase, a hosted Postgres database with file storage. I chose it because a static page has no server of its own, and Supabase gave me a database, file storage, scheduled jobs and email functions without running one.</p>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Created the Supabase project</strong><span>I made a free project and ran one setup file, <code>schema.sql</code>, in the SQL Editor. It creates two tables, <strong>diaries</strong> (name, hashed code, start date, email) and <strong>entries</strong> (study day, entry type, note, photo and audio file paths), plus a storage bucket for photos and voice memos.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Locked the tables, then opened only what the app needs</strong><span>Row level security is on with no open policies, so the public key cannot read or write the tables directly. The page can only call five database functions: create a diary, open a diary, add an entry, list entries, and reset a code.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Protected the participant</strong><span>The code is stored hashed, so even I cannot read it. Reset codes expire after 30 minutes and allow five tries. A cap on the number of diaries stops strangers from creating them if they find the link, and files over 15 MB are rejected.</span></div></div>
+            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Connected the page</strong><span>I copied the project URL and the public (anon) key into a small <code>config.js</code> file. That key is meant to be public, and it is safe here because of step 2. I never used the secret service key in the page.</span></div></div>
+            <div class="finding-item"><div class="finding-num">5</div><div class="finding-text"><strong>Deployed and tested on a real phone</strong><span>I uploaded the files to a public GitHub repository and turned on GitHub Pages. The page has a preview mode that runs on one device when no database is connected, which I used to walk through screens before the real one went live.</span></div></div>
+            <div class="finding-item"><div class="finding-num">6</div><div class="finding-text"><strong>Added the 7 PM reminder and code reset</strong><span>Two Supabase Edge Functions send email through Brevo. An hourly scheduled job checks the time and only sends at 7 PM Eastern on the six study days, once per diary per day.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Design Decisions</div>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>A name and a code, not an account</strong><span>Participants pick a name and make up a code, so they can return on any device without a password reset flow. The email is used for one reminder each evening at 7 PM and for a forgotten code, and the form says so.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Let people answer in the easiest way</strong><span>Each prompt accepts a photo or screenshot, a voice memo, or a few words. Someone on a bus can talk. Someone with a minute can type. This lowers the effort of each entry without changing what I learn.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Two kinds of entry beyond the prompt</strong><span>Feels like me and Movement let a participant add moments I did not ask about. On some days the prompt also has a not-for-me counterpart, so the study hears about what does not fit a person, not only what does.</span></div></div>
+            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Consent and low pressure in plain words</strong><span>The welcome says entries are only used for the class project and that people can skip any entry or stop at any time. The guide asks participants not to buy anything because of the study and to keep other people&rsquo;s faces out of photos.</span></div></div>
+            <div class="finding-item"><div class="finding-num">5</div><div class="finding-text"><strong>Skeleton loading while a diary opens</strong><span>When a participant returns, the app needs a moment to check their name and code and fetch their entries. Instead of a blank page, it shows grey placeholder shapes in the layout of the diary home: a title, six day circles, a prompt note and two entry rows. The page looks like it is already there, and a screen reader hears &ldquo;Opening your diary.&rdquo; The shimmer stops for people who ask their device to reduce motion.</span></div></div>
+            <div class="finding-item"><div class="finding-num">6</div><div class="finding-text"><strong>A preview mode for testing</strong><span>When the database is not connected, the app runs on one device only. I used it to walk through every screen without touching real data.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Findings</div>
+          <p>These come from one participant over one week, so they are patterns to test with more people, not rules. They are about how the diary worked as a research instrument. Findings about the brand itself come from coding the entries and the follow-up interview, and are not reported on this page.</p>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>The app worked on a real phone, with no help</strong><span>One participant created a diary and posted a photo entry within about three minutes, on an iPhone in Safari. Every request in the database logs succeeded, with no errors.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Photos showed what the notes left out</strong><span>On one day the written note mentioned only the music, while the photos showed several basketball sessions. An ad she scrolled past also appeared only as a screenshot. Letting people answer with a photo gave context an interview alone would miss.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>A skipped day is still data</strong><span>One day had no entry. Because the app lets people skip anything, a gap does not mean the study failed, but I cannot tell why without asking, so I used the follow-up interview for that.</span></div></div>
+            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>What the diary cannot show</strong><span>Entries show what the participant noticed and chose to share. A brand missing from her diary does not prove it has no place in her view, so I asked about it directly at the end of the interview.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Designing With an AI Coding Assistant</div>
+          <p>I decided what to build and why: the participant tasks, the order of screens, the prompts, the consent wording and the reminder timing. The assistant wrote code from those decisions, and I tested each screen and corrected the copy and layout. The wireframes above were the brief.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What I&rsquo;d Change</div>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Test the app before the study starts</strong><span>I would run a short usability test of the sign-in and add-entry steps with two or three people, then fix what slows them down.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Run an accessibility check</strong><span>The handwriting font suits the diary feel, but I would check its legibility, contrast and touch targets against WCAG before more people use it.</span></div></div>
+          </div>
+        </div>
+
+        <div class="tag-list">
+          <span class="tag">Diary Study</span>
+          <span class="tag">Wireframing</span>
+          <span class="tag">UX Writing</span>
+          <span class="tag">Research Ethics</span>
+          <span class="tag">AI-Assisted Development</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" id="case-moirai" role="article" aria-labelledby="case-moirai-title">
+      <div class="card-top-bar">
+        <div class="card-type"><span class="card-num">Project 7 of 9</span><span class="card-type-text">Game UX &middot; Side Project &middot; HF770 Coursework</span></div>
+        <div class="card-badge">Individual Project</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title" id="case-moirai-title">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</h2>
+        <div class="card-subtitle">Wireframes, a high-fidelity screen, and the reasoning behind them, for a game I am building with an AI coding assistant</div>
+
+        <div class="card-meta-row">
+          <div class="meta-cell"><div class="lbl">Context</div><div class="val">Side project, used for HF770 (Bentley)</div></div>
+          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Designer and product owner</div></div>
+          <div class="meta-cell"><div class="lbl">Tools</div><div class="val">Figma, HTML/CSS/JS, AI coding assistant</div></div>
+          <div class="meta-cell"><div class="lbl">Platform</div><div class="val">Desktop browser first, phone second</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">A five-screen player-versus-player duel flow, from the challenge invite to the end of the fight, designed so a player half listening to friends on a voice call can see the fight, pick one move, and send it without a slip. The design stops a move being sent twice by accident and keeps the player&rsquo;s choice if a send fails.</div>
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-pct">5</div><div class="impact-desc">desktop wireframes covering the full duel, including failed send and end of fight</div></div>
+            <div class="impact-box"><div class="impact-pct">2</div><div class="impact-desc">phone layouts that are real redesigns, not a stretched desktop screen</div></div>
+            <div class="impact-box"><div class="impact-pct">6.53:1</div><div class="impact-desc">text contrast on the lightened accent color, up from 3.69:1 (WCAG AA needs 4.5:1)</div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Project Overview</div>
+          <p>Moirai is a browser life-sim game I am building, set in a modern world where the Greek and Roman gods are still active. Players take their turns at the same time, and only player-versus-player fights are turn based. Friends play in a desktop web browser while talking on a Discord voice call in a separate window, so desktop comes first. I chose the duel round as the task to design in depth, because it is the moment where a mistake costs the most.</p>
+          <p style="margin-top:0.75rem;">I set the product direction and design decisions, drew the wireframes and the high-fidelity screen in Figma, and supplied my own pixel-art sprites. An AI coding assistant helps me turn those decisions into working game code.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">The Question the Design Had to Answer</div>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Wireframes</strong><span>Can a player who gets challenged use these five screens to get from the invite to the end of the duel? Can they always tell whose turn it is, and whether their last move went through?</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>High-fidelity screen</strong><span>On the Your move screen, can a new player who is half listening to friends on a voice call see the fight, pick one move, and send it without a slip?</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What the Player Needs to Do</div>
+          <p>My first flow and story map had too many screen details, so I rewrote each step as something the player needs to do, and left button names and messages for the wireframes to decide. Examples:</p>
+          <div class="tag-list">
+            <span class="tag">Know who challenged me</span>
+            <span class="tag">Know what refusing costs</span>
+            <span class="tag">See what just happened</span>
+            <span class="tag">Pick one move</span>
+            <span class="tag">Know my move was received</span>
+            <span class="tag">Recover if sending fails</span>
+            <span class="tag">Never send a move twice</span>
+            <span class="tag">Leave a duel that has stalled</span>
+            <span class="tag">Come back after a reload</span>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Low-Fidelity Wireframes</div>
+          <p>Gray boxes with real sample text, so the drawings test where things go, how big they are, and how heavy they look. Color and fonts came last. Numbers show importance (1 is most), the thickest border is the key information, the dark fill is the one action to take, and dashed boxes mark where my pixel-art sprites go.</p>
+          <div class="mo-grid">
+            <figure class="mo-fig"><img decoding="async" src="moirai_d1_invite.png" alt="Wireframe D1, challenge invite. Rhea, Child of Athena, challenges you. Two panels: Accept the duel, which says win plus 15 Kleos and lose minus 10, and Refuse the duel, which says it costs 5 Kleos." loading="lazy"><figcaption><strong>D1 &middot; Challenge invite</strong>The cost of refusing is shown on the Refuse panel, so no one has to guess.</figcaption></figure>
+            <figure class="mo-fig"><img decoding="async" src="moirai_d2_your_move.png" alt="Wireframe D2, your move. A stage on top with two sprite placeholders and name plates showing health. Below, a message box with the last three rounds on the left and a command box on the right with Strike, Outmaneuver, Guard and a dark Send move button, plus a Yield the duel link." loading="lazy"><figcaption><strong>D2 &middot; Your move</strong>Stage on top, command box below. Send move is the fourth cell of the 2 by 2 grid.</figcaption></figure>
+            <figure class="mo-fig"><img decoding="async" src="moirai_d3_waiting.png" alt="Wireframe D3, waiting for Rhea. The same stage, a Waiting for Rhea box with a Check now button, and a message saying the move was received and Rhea has been silent for two hours, with a Yield the duel link." loading="lazy"><figcaption><strong>D3 &middot; Waiting</strong>Says the move was received and when it was last checked. Check now lets a player look without reloading.</figcaption></figure>
+            <figure class="mo-fig"><img decoding="async" src="moirai_d4_not_sent.png" alt="Wireframe D4, move not sent. The move choices are grayed out and locked, a Not sent box says nothing was lost and the choice is still selected, and a dark Try again button replaces Send move." loading="lazy"><figcaption><strong>D4 &middot; Move not sent</strong>Choices lock until the send works, and the message says nothing was lost.</figcaption></figure>
+            <figure class="mo-fig"><img decoding="async" src="moirai_d5_result.png" alt="Wireframe D5, duel over. Headline You won the duel, a stage with both fighters and final health, a What changed box reading Kleos plus 15, now 135, and a Return to camp button." loading="lazy"><figcaption><strong>D5 &middot; Duel over</strong>Shows the result, what changed, and one way back to camp. The refused and lost duels reuse D1 and D5 with different words.</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Phone Layouts</div>
+          <p>Moirai also opens in a phone browser, so I redesigned the two busiest screens for it instead of shrinking the desktop version. The order of importance stays the same, and only the positions change.</p>
+          <figure class="mo-fig wide" style="max-width:640px"><img decoding="async" src="moirai_phone.png" alt="Two phone wireframes side by side. Left, Your move: a small stage, a status box, three tall move rows and a full-width Send move button in a thumb zone, with Yield the duel below. Right, Waiting for Rhea: the same stage and a full-width Check now button in the thumb zone." loading="lazy">
+            <figcaption><strong>Your move and Waiting, on a phone</strong>The stage drops from 326 to 150 px. Moves become 72 px rows where the whole row picks the move. Send move and Check now move to the bottom, where the thumb lands. Yield stays below them, never inside the list of moves.</figcaption></figure>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">High-Fidelity Screen</div>
+          <p>The Your move screen in a browser window, using sprites from my own game. Gold marks only what to do next: the status, the picked move, and Send move. Type is Cinzel Bold for short labels and EB Garamond for sentences, with no sentence smaller than 18 px so it reads easily on a call.</p>
+          <figure class="mo-fig wide"><img decoding="async" src="moirai_hifi.png" alt="High-fidelity Your move screen in a browser window. Top: a stage with a Roman-style pixel-art soldier with shield, a second pixel-art fighter, name plates for Rhea at 48 of 100 HP and Chase at 62 of 100 HP, and a Round 3 label. Bottom left: Your move, Rhea is waiting on you, and the last three rounds. Bottom right: Choose your move, with Strike selected, Outmaneuver, Guard, a gold Send move button with an Enter key hint, and a Yield the duel link." loading="lazy">
+            <figcaption><strong>Your move, desktop</strong>Fighters face off on a diagonal, like a monster-battle game. Each name plate sits across from its sprite, so health never covers a character.</figcaption></figure>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Design Decisions</div>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>A familiar battle stage, desktop first</strong><span>The stage is on top and the command box is below, a layout many players know from turn-based games (Jakob&rsquo;s Law). I turned down a two-pane dashboard, which would put the log first, and a stretched phone column, which leaves a wide window mostly empty.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Pick a move, then send it</strong><span>A move cannot be undone, and a player half listening on a voice call will misclick. So the moves are a radio group with a separate Send move button. I turned down tap to commit (faster, but one slip costs a whole round) and undo after sending (the other player can answer before you notice). The cost is one extra click, so keys help: arrows choose, Enter sends, and 1 to 3 work only while the moves have focus.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Yield asks first, and stays apart</strong><span>Yielding ends the duel, costs Kleos, and is rare, which is when a confirmation fits. The pop-up says what will happen, neither button is the default, and the keyboard starts on Cancel. Yield sits outside the grid so it is easy to find and hard to hit by accident.</span></div></div>
+            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Always say whether the move went through</strong><span>The waiting and failed-send states tell the player exactly what happened and what is safe: the move was received, or it was not sent and nothing was lost. A move is never sent twice.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Accessibility</div>
+          <p>Accessibility shaped the design from the start, not as a final check.</p>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Contrast fixed before anything else</strong><span>The game&rsquo;s terracotta (#c1502e) measured 3.69:1 on the panel color, which fails for text. I lightened it to #e8836a (6.53:1) and the teal to #5fb8b1, then checked the rest with the WebAIM Contrast Checker.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Color is never the only clue</strong><span>Status is an icon, words, and a heavier frame. Health is a number and a bar. Yield is underlined. The sprites are decoration and carry no information.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Keyboard and target size</strong><span>One tab stop for the move grid, Esc closes the pop-up and returns focus to Yield, and every target is at least 44 px tall (WCAG 2.2 asks for 24 px). Gaps of 12 px mean a slip lands on empty space. A disabled Send move stays focusable and keeps readable text, so a keyboard user can find it and hear why it is off.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Designing With an AI Coding Assistant</div>
+          <p>I build side projects with an AI coding assistant, and the design work is what keeps it pointed in the right direction. The pattern is the same on each project:</p>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>I decide what to build and why</strong><span>The player tasks, the screen layout, the rules for undo and confirmation, and the accessibility targets come from my own design thinking and research, written down before any code.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>I supply the craft the assistant cannot</strong><span>The pixel-art sprites, the visual style, and the wireframes are my own work. The assistant turns specifications into code and I review the result in the running game.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>I test with real players and iterate</strong><span>On a Roblox game I am building, friends who match the target audience play it and give feedback, and I revise and repeat. For Moirai, the next step is a usability test of the duel with a real person.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What I&rsquo;d Change</div>
+          <p>I have not yet tested these screens with a player. The wireframes are a prediction, and the usability test will show whether the Send move step feels like protection or like friction, and whether the waiting screen answers &ldquo;did it go through?&rdquo; at a glance.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Deliverables</div>
+          <div class="tag-list">
+            <span class="tag">Task Flow &amp; Story Map</span>
+            <span class="tag">5 Desktop Wireframes</span>
+            <span class="tag">2 Phone Wireframes</span>
+            <span class="tag">High-Fidelity Screen</span>
+            <span class="tag">Design Rationale</span>
+            <span class="tag">Accessibility Notes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" id="case-badge" role="article" aria-labelledby="case-badge-title">
+      <div class="card-top-bar">
+        <div class="card-type"><span class="card-num">Project 8 of 9</span><span class="card-type-text">Print Design &middot; Event Materials</span></div>
+        <div class="card-badge">Individual Project</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title" id="case-badge-title">Designing the Open House Name Badge</h2>
+        <div class="card-subtitle">From a block sketch to a finished badge for Bentley&rsquo;s graduate Open House</div>
+
+        <div class="card-meta-row">
+          <div class="meta-cell"><div class="lbl">Context</div><div class="val">Bentley Graduate Admissions, Open House</div></div>
+          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Designer (Graduate Student Ambassador)</div></div>
+          <div class="meta-cell"><div class="lbl">Tool</div><div class="val">Figma</div></div>
+          <div class="meta-cell"><div class="lbl">Event</div><div class="val">November 7, 2026</div></div>
+        </div>
+
+        <div class="headline-impact">
+          <div class="result-label">Result</div>
+          <div class="result-statement">A name badge for the graduate Open House that shows four things at a glance: the event, the person&rsquo;s role, their name, and their program and date.</div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Project Overview</div>
+          <p>As a Graduate Student Ambassador, I designed the name badges for Bentley&rsquo;s graduate Open House in Figma. A name tag is read for a second or two, from a few feet away, by someone who is also trying to talk. The design had to make the name and role easy to read and leave everything else secondary.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">From Sketch to Final</div>
+          <p>I started with a simple block sketch to settle the order of information before choosing any color or type. The sketch splits the badge into three zones: the event on top, the person in the middle, and the program and date at the bottom. The finished badge keeps that structure.</p>
+          <div class="bd-pair">
+            <figure class="bd-fig"><img decoding="async" src="badge_sketch.png" alt="Black-and-white block sketch of a name badge in three stacked boxes. Top: a shield with the words Bentley University and Open House. Middle: Graduate Visitor, then First Name and Last Name, with empty space below. Bottom: Program and Date." loading="lazy">
+              <figcaption><strong>Sketch</strong>Three zones, placed in order of importance. No color, so the layout is judged on its own.</figcaption></figure>
+            <figure class="bd-fig"><img decoding="async" src="badge_final.png" alt="Finished badge. A blue band at the top with the Bentley University logo and OPEN HOUSE in large white letters. Below on white, Graduate Student Ambassador in small blue capitals, then Mickhail Reeves in large black type, then the university mascot with raised wings. A blue band at the bottom reads MSHFID and November 7th, 2026." loading="lazy">
+              <figcaption><strong>Finished badge</strong>The same three zones, now with the logo, a role line, large black name text, the mascot, and two blue bands to frame the page.</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Design Decisions</div>
+          <div class="findings-list">
+            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>The name is the biggest thing on the badge</strong><span>Black type on white, in the largest size. The first name is set bigger than the last so it is the part that can be read quickly in conversation.</span></div></div>
+            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>The role gets its own line</strong><span>The sketch only had a placeholder for the visitor type. The final puts &ldquo;Graduate Student Ambassador&rdquo; above the name, so a prospective student can tell who to ask for help.</span></div></div>
+            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Color separates the zones, not the meaning</strong><span>Blue bands mark the event at the top and the program and date at the bottom, and white space holds the person. Nothing depends on color alone, because every band also has words in it.</span></div></div>
+            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>The mascot adds warmth</strong><span>It sits under the name and fills the space the sketch left empty, which makes the badge feel friendly for a visitor meeting the school for the first time.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">What I&rsquo;d Change</div>
+          <p>The date at the bottom is the smallest text on the badge, set in white on blue. I would make it larger and heavier so it holds up on a printed badge, and I would check the printed contrast of the blue bands against the white text before the next event.</p>
+        </div>
+
+        <div class="card-section">
+          <div class="card-section-title">Deliverables</div>
+          <div class="tag-list">
+            <span class="tag">Layout Sketch</span>
+            <span class="tag">Figma Badge Design</span>
+            <span class="tag">Event Name Badges</span>
+          </div>
+        </div>
+      </div>
+
     <div class="project-card" id="case-site" role="article" aria-labelledby="case-site-title">
       <div class="card-top-bar">
-        <div class="card-type"><span class="card-num">Project 5 of 9</span><span class="card-type-text">Product Design &middot; Self-Initiated Project</span></div>
+        <div class="card-type"><span class="card-num">Project 9 of 9</span><span class="card-type-text">Product Design &middot; Self-Initiated Project</span></div>
         <div class="card-badge">Individual Project</div>
       </div>
       <div class="card-body">
@@ -2233,451 +2690,7 @@ h2.card-title { margin-top:0; }
         </div>
       </div>
     </div>
-
-    <div class="project-card" id="case-moirai" role="article" aria-labelledby="case-moirai-title">
-      <div class="card-top-bar">
-        <div class="card-type"><span class="card-num">Project 6 of 9</span><span class="card-type-text">Game UX &middot; Side Project &middot; HF770 Coursework</span></div>
-        <div class="card-badge">Individual Project</div>
-      </div>
-      <div class="card-body">
-        <h2 class="card-title" id="case-moirai-title">Moirai: Designing a Turn-Based Duel Screen for a Browser Game</h2>
-        <div class="card-subtitle">Wireframes, a high-fidelity screen, and the reasoning behind them, for a game I am building with an AI coding assistant</div>
-
-        <div class="card-meta-row">
-          <div class="meta-cell"><div class="lbl">Context</div><div class="val">Side project, used for HF770 (Bentley)</div></div>
-          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Designer and product owner</div></div>
-          <div class="meta-cell"><div class="lbl">Tools</div><div class="val">Figma, HTML/CSS/JS, AI coding assistant</div></div>
-          <div class="meta-cell"><div class="lbl">Platform</div><div class="val">Desktop browser first, phone second</div></div>
-        </div>
-
-        <div class="headline-impact">
-          <div class="result-label">Result</div>
-          <div class="result-statement">A five-screen player-versus-player duel flow, from the challenge invite to the end of the fight, designed so a player half listening to friends on a voice call can see the fight, pick one move, and send it without a slip. The design stops a move being sent twice by accident and keeps the player&rsquo;s choice if a send fails.</div>
-          <div class="impact-row">
-            <div class="impact-box"><div class="impact-pct">5</div><div class="impact-desc">desktop wireframes covering the full duel, including failed send and end of fight</div></div>
-            <div class="impact-box"><div class="impact-pct">2</div><div class="impact-desc">phone layouts that are real redesigns, not a stretched desktop screen</div></div>
-            <div class="impact-box"><div class="impact-pct">6.53:1</div><div class="impact-desc">text contrast on the lightened accent color, up from 3.69:1 (WCAG AA needs 4.5:1)</div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Project Overview</div>
-          <p>Moirai is a browser life-sim game I am building, set in a modern world where the Greek and Roman gods are still active. Players take their turns at the same time, and only player-versus-player fights are turn based. Friends play in a desktop web browser while talking on a Discord voice call in a separate window, so desktop comes first. I chose the duel round as the task to design in depth, because it is the moment where a mistake costs the most.</p>
-          <p style="margin-top:0.75rem;">I set the product direction and design decisions, drew the wireframes and the high-fidelity screen in Figma, and supplied my own pixel-art sprites. An AI coding assistant helps me turn those decisions into working game code.</p>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">The Question the Design Had to Answer</div>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Wireframes</strong><span>Can a player who gets challenged use these five screens to get from the invite to the end of the duel? Can they always tell whose turn it is, and whether their last move went through?</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>High-fidelity screen</strong><span>On the Your move screen, can a new player who is half listening to friends on a voice call see the fight, pick one move, and send it without a slip?</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">What the Player Needs to Do</div>
-          <p>My first flow and story map had too many screen details, so I rewrote each step as something the player needs to do, and left button names and messages for the wireframes to decide. Examples:</p>
-          <div class="tag-list">
-            <span class="tag">Know who challenged me</span>
-            <span class="tag">Know what refusing costs</span>
-            <span class="tag">See what just happened</span>
-            <span class="tag">Pick one move</span>
-            <span class="tag">Know my move was received</span>
-            <span class="tag">Recover if sending fails</span>
-            <span class="tag">Never send a move twice</span>
-            <span class="tag">Leave a duel that has stalled</span>
-            <span class="tag">Come back after a reload</span>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Low-Fidelity Wireframes</div>
-          <p>Gray boxes with real sample text, so the drawings test where things go, how big they are, and how heavy they look. Color and fonts came last. Numbers show importance (1 is most), the thickest border is the key information, the dark fill is the one action to take, and dashed boxes mark where my pixel-art sprites go.</p>
-          <div class="mo-grid">
-            <figure class="mo-fig"><img src="moirai_d1_invite.png" alt="Wireframe D1, challenge invite. Rhea, Child of Athena, challenges you. Two panels: Accept the duel, which says win plus 15 Kleos and lose minus 10, and Refuse the duel, which says it costs 5 Kleos." loading="lazy"><figcaption><strong>D1 &middot; Challenge invite</strong>The cost of refusing is shown on the Refuse panel, so no one has to guess.</figcaption></figure>
-            <figure class="mo-fig"><img src="moirai_d2_your_move.png" alt="Wireframe D2, your move. A stage on top with two sprite placeholders and name plates showing health. Below, a message box with the last three rounds on the left and a command box on the right with Strike, Outmaneuver, Guard and a dark Send move button, plus a Yield the duel link." loading="lazy"><figcaption><strong>D2 &middot; Your move</strong>Stage on top, command box below. Send move is the fourth cell of the 2 by 2 grid.</figcaption></figure>
-            <figure class="mo-fig"><img src="moirai_d3_waiting.png" alt="Wireframe D3, waiting for Rhea. The same stage, a Waiting for Rhea box with a Check now button, and a message saying the move was received and Rhea has been silent for two hours, with a Yield the duel link." loading="lazy"><figcaption><strong>D3 &middot; Waiting</strong>Says the move was received and when it was last checked. Check now lets a player look without reloading.</figcaption></figure>
-            <figure class="mo-fig"><img src="moirai_d4_not_sent.png" alt="Wireframe D4, move not sent. The move choices are grayed out and locked, a Not sent box says nothing was lost and the choice is still selected, and a dark Try again button replaces Send move." loading="lazy"><figcaption><strong>D4 &middot; Move not sent</strong>Choices lock until the send works, and the message says nothing was lost.</figcaption></figure>
-            <figure class="mo-fig"><img src="moirai_d5_result.png" alt="Wireframe D5, duel over. Headline You won the duel, a stage with both fighters and final health, a What changed box reading Kleos plus 15, now 135, and a Return to camp button." loading="lazy"><figcaption><strong>D5 &middot; Duel over</strong>Shows the result, what changed, and one way back to camp. The refused and lost duels reuse D1 and D5 with different words.</figcaption></figure>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Phone Layouts</div>
-          <p>Moirai also opens in a phone browser, so I redesigned the two busiest screens for it instead of shrinking the desktop version. The order of importance stays the same, and only the positions change.</p>
-          <figure class="mo-fig wide" style="max-width:640px"><img src="moirai_phone.png" alt="Two phone wireframes side by side. Left, Your move: a small stage, a status box, three tall move rows and a full-width Send move button in a thumb zone, with Yield the duel below. Right, Waiting for Rhea: the same stage and a full-width Check now button in the thumb zone." loading="lazy">
-            <figcaption><strong>Your move and Waiting, on a phone</strong>The stage drops from 326 to 150 px. Moves become 72 px rows where the whole row picks the move. Send move and Check now move to the bottom, where the thumb lands. Yield stays below them, never inside the list of moves.</figcaption></figure>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">High-Fidelity Screen</div>
-          <p>The Your move screen in a browser window, using sprites from my own game. Gold marks only what to do next: the status, the picked move, and Send move. Type is Cinzel Bold for short labels and EB Garamond for sentences, with no sentence smaller than 18 px so it reads easily on a call.</p>
-          <figure class="mo-fig wide"><img src="moirai_hifi.png" alt="High-fidelity Your move screen in a browser window. Top: a stage with a Roman-style pixel-art soldier with shield, a second pixel-art fighter, name plates for Rhea at 48 of 100 HP and Chase at 62 of 100 HP, and a Round 3 label. Bottom left: Your move, Rhea is waiting on you, and the last three rounds. Bottom right: Choose your move, with Strike selected, Outmaneuver, Guard, a gold Send move button with an Enter key hint, and a Yield the duel link." loading="lazy">
-            <figcaption><strong>Your move, desktop</strong>Fighters face off on a diagonal, like a monster-battle game. Each name plate sits across from its sprite, so health never covers a character.</figcaption></figure>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Design Decisions</div>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>A familiar battle stage, desktop first</strong><span>The stage is on top and the command box is below, a layout many players know from turn-based games (Jakob&rsquo;s Law). I turned down a two-pane dashboard, which would put the log first, and a stretched phone column, which leaves a wide window mostly empty.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Pick a move, then send it</strong><span>A move cannot be undone, and a player half listening on a voice call will misclick. So the moves are a radio group with a separate Send move button. I turned down tap to commit (faster, but one slip costs a whole round) and undo after sending (the other player can answer before you notice). The cost is one extra click, so keys help: arrows choose, Enter sends, and 1 to 3 work only while the moves have focus.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Yield asks first, and stays apart</strong><span>Yielding ends the duel, costs Kleos, and is rare, which is when a confirmation fits. The pop-up says what will happen, neither button is the default, and the keyboard starts on Cancel. Yield sits outside the grid so it is easy to find and hard to hit by accident.</span></div></div>
-            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Always say whether the move went through</strong><span>The waiting and failed-send states tell the player exactly what happened and what is safe: the move was received, or it was not sent and nothing was lost. A move is never sent twice.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Accessibility</div>
-          <p>Accessibility shaped the design from the start, not as a final check.</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Contrast fixed before anything else</strong><span>The game&rsquo;s terracotta (#c1502e) measured 3.69:1 on the panel color, which fails for text. I lightened it to #e8836a (6.53:1) and the teal to #5fb8b1, then checked the rest with the WebAIM Contrast Checker.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Color is never the only clue</strong><span>Status is an icon, words, and a heavier frame. Health is a number and a bar. Yield is underlined. The sprites are decoration and carry no information.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Keyboard and target size</strong><span>One tab stop for the move grid, Esc closes the pop-up and returns focus to Yield, and every target is at least 44 px tall (WCAG 2.2 asks for 24 px). Gaps of 12 px mean a slip lands on empty space. A disabled Send move stays focusable and keeps readable text, so a keyboard user can find it and hear why it is off.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Designing With an AI Coding Assistant</div>
-          <p>I build side projects with an AI coding assistant, and the design work is what keeps it pointed in the right direction. The pattern is the same on each project:</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>I decide what to build and why</strong><span>The player tasks, the screen layout, the rules for undo and confirmation, and the accessibility targets come from my own design thinking and research, written down before any code.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>I supply the craft the assistant cannot</strong><span>The pixel-art sprites, the visual style, and the wireframes are my own work. The assistant turns specifications into code and I review the result in the running game.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>I test with real players and iterate</strong><span>On a Roblox game I am building, friends who match the target audience play it and give feedback, and I revise and repeat. For Moirai, the next step is a usability test of the duel with a real person.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">What I&rsquo;d Change</div>
-          <p>I have not yet tested these screens with a player. The wireframes are a prediction, and the usability test will show whether the Send move step feels like protection or like friction, and whether the waiting screen answers &ldquo;did it go through?&rdquo; at a glance.</p>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Deliverables</div>
-          <div class="tag-list">
-            <span class="tag">Task Flow &amp; Story Map</span>
-            <span class="tag">5 Desktop Wireframes</span>
-            <span class="tag">2 Phone Wireframes</span>
-            <span class="tag">High-Fidelity Screen</span>
-            <span class="tag">Design Rationale</span>
-            <span class="tag">Accessibility Notes</span>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <div class="project-card" id="case-badge" role="article" aria-labelledby="case-badge-title">
-      <div class="card-top-bar">
-        <div class="card-type"><span class="card-num">Project 7 of 9</span><span class="card-type-text">Print Design &middot; Event Materials</span></div>
-        <div class="card-badge">Individual Project</div>
-      </div>
-      <div class="card-body">
-        <h2 class="card-title" id="case-badge-title">Designing the Open House Name Badge</h2>
-        <div class="card-subtitle">From a block sketch to a finished badge for Bentley&rsquo;s graduate Open House</div>
-
-        <div class="card-meta-row">
-          <div class="meta-cell"><div class="lbl">Context</div><div class="val">Bentley Graduate Admissions, Open House</div></div>
-          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Designer (Graduate Student Ambassador)</div></div>
-          <div class="meta-cell"><div class="lbl">Tool</div><div class="val">Figma</div></div>
-          <div class="meta-cell"><div class="lbl">Event</div><div class="val">November 7, 2026</div></div>
-        </div>
-
-        <div class="headline-impact">
-          <div class="result-label">Result</div>
-          <div class="result-statement">A name badge for the graduate Open House that shows four things at a glance: the event, the person&rsquo;s role, their name, and their program and date.</div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Project Overview</div>
-          <p>As a Graduate Student Ambassador, I designed the name badges for Bentley&rsquo;s graduate Open House in Figma. A name tag is read for a second or two, from a few feet away, by someone who is also trying to talk. The design had to make the name and role easy to read and leave everything else secondary.</p>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">From Sketch to Final</div>
-          <p>I started with a simple block sketch to settle the order of information before choosing any color or type. The sketch splits the badge into three zones: the event on top, the person in the middle, and the program and date at the bottom. The finished badge keeps that structure.</p>
-          <div class="bd-pair">
-            <figure class="bd-fig"><img src="badge_sketch.png" alt="Black-and-white block sketch of a name badge in three stacked boxes. Top: a shield with the words Bentley University and Open House. Middle: Graduate Visitor, then First Name and Last Name, with empty space below. Bottom: Program and Date." loading="lazy">
-              <figcaption><strong>Sketch</strong>Three zones, placed in order of importance. No color, so the layout is judged on its own.</figcaption></figure>
-            <figure class="bd-fig"><img src="badge_final.png" alt="Finished badge. A blue band at the top with the Bentley University logo and OPEN HOUSE in large white letters. Below on white, Graduate Student Ambassador in small blue capitals, then Mickhail Reeves in large black type, then the university mascot with raised wings. A blue band at the bottom reads MSHFID and November 7th, 2026." loading="lazy">
-              <figcaption><strong>Finished badge</strong>The same three zones, now with the logo, a role line, large black name text, the mascot, and two blue bands to frame the page.</figcaption></figure>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Design Decisions</div>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>The name is the biggest thing on the badge</strong><span>Black type on white, in the largest size. The first name is set bigger than the last so it is the part that can be read quickly in conversation.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>The role gets its own line</strong><span>The sketch only had a placeholder for the visitor type. The final puts &ldquo;Graduate Student Ambassador&rdquo; above the name, so a prospective student can tell who to ask for help.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Color separates the zones, not the meaning</strong><span>Blue bands mark the event at the top and the program and date at the bottom, and white space holds the person. Nothing depends on color alone, because every band also has words in it.</span></div></div>
-            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>The mascot adds warmth</strong><span>It sits under the name and fills the space the sketch left empty, which makes the badge feel friendly for a visitor meeting the school for the first time.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">What I&rsquo;d Change</div>
-          <p>The date at the bottom is the smallest text on the badge, set in white on blue. I would make it larger and heavier so it holds up on a printed badge, and I would check the printed contrast of the blue bands against the white text before the next event.</p>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Deliverables</div>
-          <div class="tag-list">
-            <span class="tag">Layout Sketch</span>
-            <span class="tag">Figma Badge Design</span>
-            <span class="tag">Event Name Badges</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card" id="case-diary" role="article" aria-labelledby="case-diary-title">
-      <div class="card-top-bar">
-        <div class="card-type"><span class="card-num">Project 8 of 9</span><span class="card-type-text">Research Tool &middot; Side Project &middot; HF780 Coursework</span></div>
-        <div class="card-badge">Individual Project</div>
-      </div>
-      <div class="card-body">
-        <h2 class="card-title" id="case-diary-title">My Week in Moments: Designing a Diary App for a Six-Day Diary Study</h2>
-        <div class="card-subtitle">Low-fidelity and mid-fidelity wireframes, and the working app they became, built with an AI coding assistant</div>
-
-        <div class="card-meta-row">
-          <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF780 (Bentley), customer relevance case</div></div>
-          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Researcher, designer and product owner</div></div>
-          <div class="meta-cell"><div class="lbl">Tools</div><div class="val">Wireframes, HTML/CSS/JS, Supabase, AI coding assistant</div></div>
-          <div class="meta-cell"><div class="lbl">Platform</div><div class="val">Phone browser, no install</div></div>
-        </div>
-
-        <div class="headline-impact">
-          <div class="result-label">Result</div>
-          <div class="result-statement">A working diary web app that lets a participant answer a daily prompt with a photo, a voice memo, or a few words, in about five to ten minutes. I designed it as a research instrument: easy to open from a phone, easy to skip, and clear about what to do next.</div>
-          <div class="impact-row">
-            <div class="impact-box"><div class="impact-pct">6</div><div class="impact-desc">study days, each with its own prompt</div></div>
-            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">entry types: daily prompt, feels like me, movement</div></div>
-            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">ways to answer: photo, voice memo, or text</div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Project Overview</div>
-          <p>For HF780 I planned a diary study as part of a case on how a brand can rebuild its relevance with customers. A diary study asks people to record moments from their own lives over several days, so it shows everyday context that a single interview cannot. The risk is that a diary is a chore. If it is hard to open or confusing, people stop answering.</p>
-          <p style="margin-top:0.75rem;">So I built the diary itself. I decided what the app needed to do, drew the wireframes, and wrote the participant copy. An AI coding assistant helped me turn those decisions into the working app.</p>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">What the Participant Needs to Do</div>
-          <div class="tag-list">
-            <span class="tag">Start without installing anything</span>
-            <span class="tag">Come back on any device</span>
-            <span class="tag">Know which day it is</span>
-            <span class="tag">See today&rsquo;s prompt</span>
-            <span class="tag">Answer in the way that is easiest</span>
-            <span class="tag">Add a moment that was not prompted</span>
-            <span class="tag">Skip anything</span>
-            <span class="tag">Remember to come back</span>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Low-Fidelity Wireframes</div>
-          <p>Black lines on white, with no color, grey fills or real copy. Boxes and labels stand in for content. At this stage I only tested what is on each screen and what comes first: a name, a code and an email to start; a progress card and today&rsquo;s prompt on the home screen; a single prompt and one clear button on the day page; and a bottom sheet for adding an entry.</p>
-          <div class="mo-grid">
-            <figure class="mo-fig"><img src="diary_wf_low_a.png" alt="Low-fidelity line wireframes of two screens. Screen 1, create or open diary: logo, eyebrow, title, three labeled inputs, a primary button and a text link to open an existing diary. Screen 2, diary home: top bar with name, sound and close, a progress card, a prompt note with a button, three quick-add tiles, six day boxes and a latest entries list, with a bottom bar of Diary, a plus button and Guide." loading="lazy"><figcaption><strong>Screens 1 and 2 &middot; Start and home</strong>One primary button per screen. The plus button sits in the middle of the bottom bar, in thumb reach.</figcaption></figure>
-            <figure class="mo-fig"><img src="diary_wf_low_b.png" alt="Low-fidelity wireframes of two screens. Screen 3, day page: back button, day title, date, a prompt note, a primary button, and an empty on-this-page list. Screen 4, add to your page: a bottom sheet with three entry types, the prompt note, add photo and add voice buttons, a text area and a primary button." loading="lazy"><figcaption><strong>Screens 3 and 4 &middot; Day page and add sheet</strong>The add sheet keeps the prompt visible while the participant answers.</figcaption></figure>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Mid-Fidelity Wireframes</div>
-          <p>The same four screens in greyscale, with the real participant copy and a clear type hierarchy. Darker grey marks actions and lighter grey marks the prompt. Color comes later, in the built app. I did not add more screens. I used this step to check that the words and the order made sense.</p>
-          <div class="mo-grid">
-            <figure class="mo-fig"><img src="diary_wf_mid_a.png" alt="Mid-fidelity wireframes of two screens. Screen 1, create or open diary: HF780 Diary logo, A one-week diary, My Week in Moments, a short welcome, Create your diary with name, code and email fields, a dark Create my diary button. Screen 2, diary home: Hello Sam, Day 1 of 6 progress card, Today's prompt note with an Open Day 1 button, Quick add tiles, Your six days, and a bottom bar." loading="lazy"><figcaption><strong>Screens 1 and 2</strong>Welcome copy says anything counts and there are no right or wrong answers. The email is explained next to the field.</figcaption></figure>
-            <figure class="mo-fig"><img src="diary_wf_mid_b.png" alt="Mid-fidelity wireframes of two screens. Screen 3, day page: Back to calendar, Day 1, Monday November 16 today, the Everyday carry prompt in a grey note, a dark Add to this page button and On this page with 0 entries. Screen 4, add to your page: Daily prompt, Feels like me and Movement choices with Daily prompt selected, the prompt, Photo or screenshot and Record voice memo buttons, a Your answer field and a dark Post to my diary button." loading="lazy"><figcaption><strong>Screens 3 and 4</strong>Only one entry type is selected at a time, and its button says what happens next: Post to my diary.</figcaption></figure>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">The Working App</div>
-          <p>These are screens from the built app, shown in its preview mode with a made-up name, so no participant data appears here. The notebook look (lined paper, sticky-note prompts, handwriting for prompts and serif for headings) is meant to make a research task feel like a personal diary.</p>
-          <figure class="mo-fig wide"><img src="diary_app_screens.png" alt="Four screens of the built diary app on a phone: the welcome and create your diary screen on lined notebook paper, the diary home with a Day 1 of 6 progress card and a yellow prompt note, the Day 1 page with the Everyday carry prompt, and the Add to your page sheet with Daily prompt selected." loading="lazy">
-            <figcaption><strong>Welcome, diary home, day page and add sheet</strong>The built screens follow the mid-fidelity layout, with the real prompt text for Day 1, Everyday carry.</figcaption></figure>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">The Database and How I Set It Up</div>
-          <p>The app is a single static web page hosted on GitHub Pages. Entries, photos and voice memos are stored in Supabase, a hosted Postgres database with file storage. I chose it because a static page has no server of its own, and Supabase gave me a database, file storage, scheduled jobs and email functions without running one.</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Created the Supabase project</strong><span>I made a free project and ran one setup file, <code>schema.sql</code>, in the SQL Editor. It creates two tables, <strong>diaries</strong> (name, hashed code, start date, email) and <strong>entries</strong> (study day, entry type, note, photo and audio file paths), plus a storage bucket for photos and voice memos.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Locked the tables, then opened only what the app needs</strong><span>Row level security is on with no open policies, so the public key cannot read or write the tables directly. The page can only call five database functions: create a diary, open a diary, add an entry, list entries, and reset a code.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Protected the participant</strong><span>The code is stored hashed, so even I cannot read it. Reset codes expire after 30 minutes and allow five tries. A cap on the number of diaries stops strangers from creating them if they find the link, and files over 15 MB are rejected.</span></div></div>
-            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Connected the page</strong><span>I copied the project URL and the public (anon) key into a small <code>config.js</code> file. That key is meant to be public, and it is safe here because of step 2. I never used the secret service key in the page.</span></div></div>
-            <div class="finding-item"><div class="finding-num">5</div><div class="finding-text"><strong>Deployed and tested on a real phone</strong><span>I uploaded the files to a public GitHub repository and turned on GitHub Pages. The page has a preview mode that runs on one device when no database is connected, which I used to walk through screens before the real one went live.</span></div></div>
-            <div class="finding-item"><div class="finding-num">6</div><div class="finding-text"><strong>Added the 7 PM reminder and code reset</strong><span>Two Supabase Edge Functions send email through Brevo. An hourly scheduled job checks the time and only sends at 7 PM Eastern on the six study days, once per diary per day.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Design Decisions</div>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>A name and a code, not an account</strong><span>Participants pick a name and make up a code, so they can return on any device without a password reset flow. The email is used for one reminder each evening at 7 PM and for a forgotten code, and the form says so.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Let people answer in the easiest way</strong><span>Each prompt accepts a photo or screenshot, a voice memo, or a few words. Someone on a bus can talk. Someone with a minute can type. This lowers the effort of each entry without changing what I learn.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Two kinds of entry beyond the prompt</strong><span>Feels like me and Movement let a participant add moments I did not ask about. On some days the prompt also has a not-for-me counterpart, so the study hears about what does not fit a person, not only what does.</span></div></div>
-            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Consent and low pressure in plain words</strong><span>The welcome says entries are only used for the class project and that people can skip any entry or stop at any time. The guide asks participants not to buy anything because of the study and to keep other people&rsquo;s faces out of photos.</span></div></div>
-            <div class="finding-item"><div class="finding-num">5</div><div class="finding-text"><strong>Skeleton loading while a diary opens</strong><span>When a participant returns, the app needs a moment to check their name and code and fetch their entries. Instead of a blank page, it shows grey placeholder shapes in the layout of the diary home: a title, six day circles, a prompt note and two entry rows. The page looks like it is already there, and a screen reader hears &ldquo;Opening your diary.&rdquo; The shimmer stops for people who ask their device to reduce motion.</span></div></div>
-            <div class="finding-item"><div class="finding-num">6</div><div class="finding-text"><strong>A preview mode for testing</strong><span>When the database is not connected, the app runs on one device only. I used it to walk through every screen without touching real data.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Findings</div>
-          <p>These come from one participant over one week, so they are patterns to test with more people, not rules. They are about how the diary worked as a research instrument. Findings about the brand itself come from coding the entries and the follow-up interview, and are not reported on this page.</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>The app worked on a real phone, with no help</strong><span>One participant created a diary and posted a photo entry within about three minutes, on an iPhone in Safari. Every request in the database logs succeeded, with no errors.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Photos showed what the notes left out</strong><span>On one day the written note mentioned only the music, while the photos showed several basketball sessions. An ad she scrolled past also appeared only as a screenshot. Letting people answer with a photo gave context an interview alone would miss.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>A skipped day is still data</strong><span>One day had no entry. Because the app lets people skip anything, a gap does not mean the study failed, but I cannot tell why without asking, so I used the follow-up interview for that.</span></div></div>
-            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>What the diary cannot show</strong><span>Entries show what the participant noticed and chose to share. A brand missing from her diary does not prove it has no place in her view, so I asked about it directly at the end of the interview.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Designing With an AI Coding Assistant</div>
-          <p>I decided what to build and why: the participant tasks, the order of screens, the prompts, the consent wording and the reminder timing. The assistant wrote code from those decisions, and I tested each screen and corrected the copy and layout. The wireframes above were the brief.</p>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">What I&rsquo;d Change</div>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Test the app before the study starts</strong><span>I would run a short usability test of the sign-in and add-entry steps with two or three people, then fix what slows them down.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Run an accessibility check</strong><span>The handwriting font suits the diary feel, but I would check its legibility, contrast and touch targets against WCAG before more people use it.</span></div></div>
-          </div>
-        </div>
-
-        <div class="tag-list">
-          <span class="tag">Diary Study</span>
-          <span class="tag">Wireframing</span>
-          <span class="tag">UX Writing</span>
-          <span class="tag">Research Ethics</span>
-          <span class="tag">AI-Assisted Development</span>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="project-card" id="case-nike" role="article" aria-labelledby="case-nike-title">
-      <div class="card-top-bar">
-        <div class="card-type"><span class="card-num">Project 9 of 9</span><span class="card-type-text">UX Research &middot; Mixed Methods &middot; HF780 Coursework</span></div>
-        <div class="card-badge">Individual Project</div>
-      </div>
-      <div class="card-body">
-        <h2 class="card-title" id="case-nike-title">Rebuilding Customer Relevance: Interviews, an Observation Plan and a Diary Study</h2>
-        <div class="card-subtitle">Three research methods on one question, and what they agreed on</div>
-
-        <div class="card-meta-row">
-          <div class="meta-cell"><div class="lbl">Context</div><div class="val">HF780 (Bentley), a course case about the sportswear brand Nike</div></div>
-          <div class="meta-cell"><div class="lbl">Role</div><div class="val">Researcher, working alone</div></div>
-          <div class="meta-cell"><div class="lbl">Methods</div><div class="val">Interviews, observation plan, diary study</div></div>
-          <div class="meta-cell"><div class="lbl">Analysis</div><div class="val">Thematic coding, AEIOU framework</div></div>
-        </div>
-
-        <div class="headline-impact">
-          <div class="result-label">Result</div>
-          <div class="result-statement">Across three methods, the same pattern came up. People respect the brand, but it no longer decides what they buy. They choose by price, by what fits their lives, and by what they see and hear from people they trust. All three participants described the brand&rsquo;s pull as stronger in the past.</div>
-          <div class="impact-row">
-            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">research methods used on one question</div></div>
-            <div class="impact-box"><div class="impact-pct">3</div><div class="impact-desc">participants: two interviews and one six-day diary</div></div>
-            <div class="impact-box"><div class="impact-pct">3 of 3</div><div class="impact-desc">described the brand&rsquo;s pull as stronger in the past</div></div>
-          </div>
-        </div>
-        <div class="card-section">
-          <div class="card-section-title">Project Overview</div>
-          <p>In this course case, a company hired us to understand how to rebuild customer relevance. I chose one customer profile, the declining customer: someone who used to buy the brand regularly and now buys it less. I treated claims from an opinion article (Giunco, 2024) as ideas to test, not as facts, and kept the brand out of the early questions so answers were not framed by it.</p>
-          <p style="margin-top:0.75rem;">The project had three steps, and each one built on the one before.</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Interviews</strong><span>I wrote an interview guide, interviewed two declining customers, and coded the transcripts into themes and three findings.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Observation plan</strong><span>I planned an in-store observation to test the interview findings, using the AEIOU framework.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Diary study</strong><span>I designed a six-day diary study and built my own diary app for it. One participant kept the diary, and I interviewed her before and after.</span></div></div>
-          </div>
-          <figure class="mo-fig wide" style="margin-top:1rem"><img src="nike_study_thumb.svg" alt="Diagram. Three boxes, Interviews with 2 participants and a written guide, Observation plan with the AEIOU framework and 4 research questions, and Diary study with 1 participant over 6 days and a custom diary app. Lines from all three lead to one box that reads Respected, but no longer decisive: price, life fit and visibility decide what people buy." loading="lazy"></figure>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Step 1: The Interview Guide and Interviews</div>
-          <p>The guide has sections that move from daily life, to shopping habits, to the brand, to competitors, to what would bring someone back. It uses many question types, including stories, comparisons, projections and a projective question. After feedback from my professor, I made three changes: I rewrote it at a 6th grade reading level, removed leading and double-barreled questions, and made the early questions broad before any narrowing to shoes or clothing.</p>
-          <p style="margin-top:0.75rem;">I audio recorded both interviews, transcribed them, and coded them with thematic analysis (Braun &amp; Clarke, 2006; Salda&ntilde;a, 2021). Each code has a definition and time stamps back to the transcripts. I grouped the codes into five themes and wrote three findings, each backed by both participants.</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Respected, but not worth full price</strong><span>Both described the brand in positive terms, such as quality and reliability. Both also said it costs more than they want to pay, and both bought their last pair only because of a sale. What does not fit: one participant also chose a shoe for its reputation in the running community, not only for the discount.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Faded from view, with its pull in the past</strong><span>Neither could name a recent ad, and both described the brand&rsquo;s pull as something that was stronger before. One said, &ldquo;Once upon a time, I might have just automatically&rdquo; chosen it. What does not fit: one participant finds the brand easily and notices it in movies and TV.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>They choose by what fits their life, not by brand name</strong><span>Both framed their choices around comfort, price and purpose, not product categories. Competitors win on being more versatile or feeling newer. What does not fit: the brand name still comes to mind first for both.</span></div></div>
-          </div>
-          <p style="margin-top:0.75rem;">I marked any answer that came right after one of my own leading prompts as &ldquo;prompted&rdquo; and did not use it as main evidence.</p>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Step 2: The Observation Plan</div>
-          <p>The plan tests the interview findings in a store where shoppers can pick any brand. It has four research questions: how shoppers find products, what role price plays, how they decide, and how visible the brand is.</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>What I would do</strong><span>Watch without talking to anyone, in two 60-minute sessions (a weekday evening and a weekend afternoon). I would move between the footwear wall, apparel, sale racks and checkout every 15 minutes, and watch for eight behaviors, such as which brand a shopper goes to first and whether they check price tags.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>What I would bring and why</strong><span>Nine items, each with a reason. Examples are printed observation sheets, two pen colors and my student ID.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Notetaking</strong><span>Time-stamped notes with a code for each shopper, two columns that keep what I see apart from what I think it means, brand shorthand and tally counts, all typed up within 24 hours.</span></div></div>
-            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Framework</strong><span>AEIOU (Activities, Environments, Interactions, Objects, Users; Martin &amp; Hanington, 2012). Each category links to a research question and to an interview finding.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Step 3: The Diary Study</div>
-          <p>I wanted to see the same question from a different angle, so the diary never mentioned the brand. One participant kept a six-day diary in the app I built (see project 8), answering a daily prompt with a photo, a voice memo or a few words, and I interviewed her before and after. I asked about the brand only near the end of the follow-up interview, after she had shown me what felt relevant to her. I coded her seven entries and both transcripts into 14 codes and six themes, and wrote two findings.</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>The brand is trusted, but it no longer feels special</strong><span>She described the brand as reliable and said nothing is pushing hype behind it. It was not in her brand list or in any of her seven entries.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Her week is built around things she does, and she buys on price, ease and trust</strong><span>Basketball, the gym and music are what &ldquo;feel like her,&rdquo; not a brand. Her choices follow price, speed and reviews from people she trusts.</span></div></div>
-          </div>
-          <p style="margin-top:0.75rem;">A diary only shows what a person chose to share, so the brand&rsquo;s absence from her entries does not prove it has no place in her view. The follow-up interview is where I asked about that directly.</p>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">What the Three Sources Agree On</div>
-          <p>I compared the diary participant with the two interviews, one idea at a time.</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Pull stronger in the past: all three agree</strong><span>Each of the three said the brand mattered more to them before than it does now.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Choosing by life fit, not by brand: all three agree</strong><span>Interview participants picked shoes for a purpose or for comfort and price. The diary participant said what feels like her is &ldquo;a practice,&rdquo; not an item.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Few ads seen: all three agree</strong><span>Neither interview participant could name a recent ad, and the diary participant streams without ads, so she rarely sees them.</span></div></div>
-            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>Price: agree, with one difference</strong><span>Interview participants waited for a sale. The diary participant did not wait. She skipped the purchase.</span></div></div>
-            <div class="finding-item"><div class="finding-num">5</div><div class="finding-text"><strong>Where trust comes from: partly agree</strong><span>Interview participants researched online. The diary participant trusts friends and Amazon reviews, and avoids social media shops.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Ideas for the Brand to Test</div>
-          <p>These are directions to test with more research. They are not conclusions, because three people cannot speak for a market.</p>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>Explain what the price buys</strong><span>Test messages about durability and comfort for full-price products, since both interview participants only bought on sale.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>Give people a current story to notice</strong><span>Test campaigns that stand out the way older stories did, and a stronger presence in everyday stores, since few ads were seen.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Build on what still works</strong><span>Test older styles and products that a person&rsquo;s own community recommends, since both still connected with those.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Limits</div>
-          <div class="findings-list">
-            <div class="finding-item"><div class="finding-num">1</div><div class="finding-text"><strong>A very small sample</strong><span>Two interviews and one diary participant. The findings describe these people and are patterns to test, not rules.</span></div></div>
-            <div class="finding-item"><div class="finding-num">2</div><div class="finding-text"><strong>How I recruited</strong><span>The participants were people I could reach, and I know the diary participant personally. That may have shaped what she shared.</span></div></div>
-            <div class="finding-item"><div class="finding-num">3</div><div class="finding-text"><strong>Leading questions</strong><span>A few of my follow-up questions were leading, so I marked those answers as prompted and did not rely on them.</span></div></div>
-            <div class="finding-item"><div class="finding-num">4</div><div class="finding-text"><strong>The brand was hidden on purpose</strong><span>Because the diary never named the brand, the brand-related themes in the diary study come only from the follow-up interview.</span></div></div>
-            <div class="finding-item"><div class="finding-num">5</div><div class="finding-text"><strong>Gaps in the diary</strong><span>Day 4 has no entry, and she did not use the &ldquo;Feels like me&rdquo; option, so I cannot say why without asking.</span></div></div>
-          </div>
-        </div>
-
-        <div class="card-section">
-          <div class="card-section-title">Research Ethics</div>
-          <p>Participants are labeled P1, P2 and by role, with no names or photos on this page. Everyone knew the work was for a class and that only I would see the raw entries. I left out personal and financial details that came up in the diary and interviews, and I would delete anything a participant asked me to remove.</p>
-        </div>
-
-        <div class="tag-list">
-          <span class="tag">Interview Guide</span>
-          <span class="tag">Thematic Analysis</span>
-          <span class="tag">Observation Plan</span>
-          <span class="tag">Diary Study</span>
-          <span class="tag">Mixed Methods</span>
-          <span class="tag">Research Ethics</span>
-        </div>
-      </div>
-    </div>
-
 
   </div>
 </section>
@@ -2770,6 +2783,7 @@ h2.card-title { margin-top:0; }
 
   document.addEventListener('mousemove', e => {
     mouseX = e.clientX; mouseY = e.clientY;
+    if (!ringRaf) ringRaf = requestAnimationFrame(animateRing);
     // Dot and glow track instantly
     dot.style.left = mouseX + 'px';
     dot.style.top = mouseY + 'px';
@@ -2782,14 +2796,16 @@ h2.card-title { margin-top:0; }
   });
 
   // Ring follows with smooth lag
+  let ringRaf = 0;
   function animateRing() {
     ringX += (mouseX - ringX) * 0.18;
     ringY += (mouseY - ringY) * 0.18;
     ring.style.left = ringX + 'px';
     ring.style.top = ringY + 'px';
-    requestAnimationFrame(animateRing);
+    if (Math.abs(mouseX - ringX) > 0.2 || Math.abs(mouseY - ringY) > 0.2) {
+      ringRaf = requestAnimationFrame(animateRing);
+    } else { ringRaf = 0; }
   }
-  animateRing();
 
   // Hide when leaving the window
   document.addEventListener('mouseleave', () => {
@@ -2825,10 +2841,16 @@ h2.card-title { margin-top:0; }
     z-index:9999;transition:width 0.1s linear;border-radius:0 2px 2px 0;
   `;
   document.body.appendChild(bar);
+  let barTick = false;
   window.addEventListener('scroll', () => {
-    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-    bar.style.width = Math.min(pct, 100) + '%';
-  });
+    if (barTick) return;
+    barTick = true;
+    requestAnimationFrame(() => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+      barTick = false;
+    });
+  }, { passive: true });
 })();
 
 // -- 4. SCROLL FADE-IN FOR SECTIONS -------------------------------------------
@@ -2933,9 +2955,25 @@ h2.card-title { margin-top:0; }
     });
   }
 
-  window.addEventListener('scroll', updateActive);
+  let navTick = false;
+  window.addEventListener('scroll', () => {
+    if (navTick) return;
+    navTick = true;
+    requestAnimationFrame(() => { updateActive(); navTick = false; });
+  }, { passive: true });
   window.addEventListener('resize', updateActive);
   updateActive();
+})();
+
+
+// -- PERF: play looping video only while on screen ---------------------------
+(function() {
+  const vids = document.querySelectorAll('video[data-autoplay-visible]');
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.play().catch(()=>{}); } else { e.target.pause(); }
+  }), { threshold: 0.35 });
+  vids.forEach(v => io.observe(v));
 })();
 
 // -- 6b. FORCE SCROLL TO TOP ON LOAD (fixes mobile starting mid-page) ---------
