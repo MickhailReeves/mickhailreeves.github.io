@@ -1343,9 +1343,6 @@ h2.card-title { margin-top:0; }
   nav { animation: none !important; transform: none !important; }
 }
 
-/* PERF: skip rendering work for off-screen case studies */
-.project-card { content-visibility: auto; contain-intrinsic-size: auto 1600px; }
-
 /* ===== DESKTOP LAYOUT (min-width 1100px only; mobile and tablet untouched) ===== */
 @media (min-width: 1100px) {
   nav { padding: 0 4rem; }
@@ -2974,6 +2971,56 @@ h2.card-title { margin-top:0; }
     if (e.isIntersecting) { e.target.play().catch(()=>{}); } else { e.target.pause(); }
   }), { threshold: 0.35 });
   vids.forEach(v => io.observe(v));
+})();
+
+
+// -- JUMP LIST: land exactly on the chosen project ----------------------------
+(function() {
+  const links = document.querySelectorAll('.project-index a[href^="#"]');
+  if (!links.length) return;
+  function offsetFor(el) {
+    const m = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+    return el.getBoundingClientRect().top + window.scrollY - m;
+  }
+  links.forEach(a => a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    // Load every image first so heights stop changing under the scroll
+    document.querySelectorAll('img[loading="lazy"]').forEach(i => { i.loading = 'eager'; });
+    const root = document.documentElement;
+    const prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    const go = () => window.scrollTo(0, offsetFor(target));
+    go();
+    // Re-align as images and fonts settle (about 2.5 seconds)
+    const imgs = [...document.images].filter(i => !i.complete);
+    imgs.forEach(i => i.addEventListener('load', go, { once: true }));
+    let n = 0;
+    const t = setInterval(() => { go(); if (++n >= 10) { clearInterval(t); root.style.scrollBehavior = prev; } }, 250);
+    history.replaceState(null, '', a.getAttribute('href'));
+  }));
+})();
+
+
+// -- DEEP LINKS (work.html#case-xxx from the home page) ----------------------
+(function() {
+  const h = location.hash;
+  if (!/^#case-/.test(h)) return;
+  const target = document.querySelector(h);
+  if (!target) return;
+  document.querySelectorAll('img[loading="lazy"]').forEach(i => { i.loading = 'eager'; });
+  const root = document.documentElement, prev = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  const go = () => {
+    const m = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+    window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - m);
+  };
+  window.addEventListener('load', () => {
+    go(); let n = 0;
+    const t = setInterval(() => { go(); if (++n >= 10) { clearInterval(t); root.style.scrollBehavior = prev; } }, 250);
+  });
+  go();
 })();
 
 // -- 6b. FORCE SCROLL TO TOP ON LOAD (fixes mobile starting mid-page) ---------
